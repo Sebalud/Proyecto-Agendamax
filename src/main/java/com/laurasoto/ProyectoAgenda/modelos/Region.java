@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -21,29 +22,34 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="regiones")
-@Getter @Setter
+@Table(name = "regiones")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Region {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(updatable=false)
-    private Date createdAt;
-    private Date updatedAt;
-    
-    @PrePersist
-	 protected void onCreate(){
-	        this.createdAt = new Date();
-	 }
-	    
-	 @PreUpdate
-	 protected void onUpdate(){
-		 this.updatedAt = new Date();
-	 }
-	 
-	 @OneToMany(mappedBy="region", fetch = FetchType.LAZY)
-	 private List<Ciudad> ciudades;
+
+	@NotNull
+	@NotBlank(message = "no puede estar vacio")
+	private String nombre;
+
+	@Column(updatable = false)
+	private Date createdAt;
+	private Date updatedAt;
+
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
+
+	@OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
+	private List<Ciudad> ciudades;
 }
