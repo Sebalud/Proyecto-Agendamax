@@ -49,7 +49,7 @@ public class EmpresaControlador {
 	//se puede tener dos empresas con el mismo nombre?
 	@GetMapping("/planes/free")
 	public String planFree(@ModelAttribute("empresa") Empresa empresa,HttpSession session, Model model){
-		
+		//HOLA ES UN COMENTARIO
 		return"free";
 	}
 	
