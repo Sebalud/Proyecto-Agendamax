@@ -19,4 +19,7 @@ public class EmpresaServicio extends BaseServicio<Empresa>{
 //	public List<Empresa> buscaEmpresaPorServicio(List<Servicio> servicios){	
 //		return empresaRepositorio.findByServiciosContaining(servicios);
 //	}
+	public Empresa getEmpresaPorNombre(String nombre){
+		return empresaRepositorio.findByNombre(nombre);
+	}
 }

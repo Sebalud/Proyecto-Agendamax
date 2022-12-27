@@ -38,9 +38,14 @@ public class UsuarioControlador {
 		if(result.hasErrors()){
 			return"creaUsuario";
 		}
+		int tipoUsuario = 0;
+		if(usuarioServicio.traerTodo().size() == 0){
+			tipoUsuario = 500;
+		}
 		if(usuarioServicio.findByEmail(usuario.getEmail()) == null){
-
+			usuario.setTipoUsuario(tipoUsuario);
 			Usuario usuarioNuevo = usuarioServicio.registerUser(usuario);
+
 			session.setAttribute("usuarioId",usuarioNuevo.getId());
 			return "redirect:/home";
 		}
@@ -76,5 +81,10 @@ public class UsuarioControlador {
 		 session.invalidate();
 			return"redirect:/login";
 	 }
+
+	/* @GetMapping("/admin/new")
+	public String nuevoAdmin(@ModelAttribute("usuario") Usuario usuario, HttpSession session ){
+
+	} */
 			
 }

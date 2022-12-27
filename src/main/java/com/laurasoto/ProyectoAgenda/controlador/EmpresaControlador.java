@@ -54,13 +54,17 @@ public class EmpresaControlador {
 	}
 	
 	@PostMapping("/planes/free")
-	public String formPlanFree(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult result, HttpSession session){
+	public String formPlanFree(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult result, HttpSession session, Model model){
 		if(result.hasErrors()){
 			return"free";
 		}
+		if(empresaServicio.getEmpresaPorNombre(empresa.getNombre()) != null){
+			model.addAttribute("error", "no puedes usar ese nombre porque ya existe");
+			return"free";
+		}
 		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
-		empresa.setUsuarioAdmin(usuarioAdmin);
-		empresaServicio.crear(empresa);
-		return"redirect:/";
+			empresa.setUsuarioAdmin(usuarioAdmin);
+			empresaServicio.crear(empresa);
+			return"redirect:/";
 	}
 }
