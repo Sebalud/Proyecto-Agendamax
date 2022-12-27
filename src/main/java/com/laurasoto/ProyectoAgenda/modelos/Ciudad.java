@@ -25,42 +25,40 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="ciudades")
-@Getter @Setter
+@Table(name = "ciudades")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ciudad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotNull @NotBlank(message = "no puede estar vacio")
-	private String ciudad;
-	
-	 @Column(updatable=false)
-	    private Date createdAt;
-	    private Date updatedAt;
-	    
-	 @PrePersist
-	 protected void onCreate(){
-	        this.createdAt = new Date();
-	 }
-	    
-	 @PreUpdate
-	 protected void onUpdate(){
-		 this.updatedAt = new Date();
-	 }
-	 
-	 @ManyToMany(fetch = FetchType.LAZY)
-	 @JoinTable(
-		 name = "empresas_ciudades", 
-		 joinColumns = @JoinColumn(name = "ciudad_id"), 
-		 inverseJoinColumns = @JoinColumn(name = "empresa_id")
-	)
-	 private List<Empresa> empresas;
-	 
-	 @ManyToOne(fetch = FetchType.LAZY)
-	    @JoinColumn(name="region_id")
-	    private Region region;
-	 
+
+	@NotNull
+	@NotBlank(message = "no puede estar vacio")
+	private String nombre;
+
+	@Column(updatable = false)
+	private Date createdAt;
+	private Date updatedAt;
+
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "ciudad_id"), inverseJoinColumns = @JoinColumn(name = "empresa_id"))
+	private List<Empresa> empresas;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "region_id")
+	private Region region;
+
 }
