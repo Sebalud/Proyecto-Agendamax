@@ -36,9 +36,12 @@ public class Empresa {
 	private Long id;
 	@NotNull @NotBlank
 	@Size(min=3, max=30, message="minimo 3 letras, maximo 50")
+	@Column(unique = true)
 	private String nombre;
 	@NotNull
 	private Long rut;
+
+	private boolean empresafree = true;
 	
 	@Column(updatable=false)
 	private Date createdAt;
