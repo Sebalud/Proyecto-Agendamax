@@ -28,16 +28,19 @@
         <form:errors path="ciudades"/>
         <form:select class="form-select" path="ciudades"> 
             <c:forEach items="${ciudades}" var="ciudad" >
-                <form:option value="${ciudad.id}">${ciudad.ciudad}</form:option>
+                <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
             </c:forEach>
         </form:select>
     </p>
-    <p>
-        <form:label path="servicio">Servicio</form:label>
-        <form:errors cssClass="text-danger" path="servicio"/>
-        <form:input cssClass="form-control" path="servicio"/>
+    <p class="form-outline">
+        <form:label cssClass="form-label" path="servicios">Servicios</form:label>
+        <form:errors path="servicios"/>
+        <form:select class="form-select" path="servicios"> 
+            <c:forEach items="${servicios}" var="servicio" >
+                <form:option value="${servicio.id}">${servicio.servicioOfrecido}</form:option>
+            </c:forEach>
+        </form:select>
     </p>
-    <input type=hidden value=0 name=number>
     <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
 </form:form>
 </body>

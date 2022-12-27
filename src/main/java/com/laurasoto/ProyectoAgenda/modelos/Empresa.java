@@ -60,7 +60,6 @@ public class Empresa {
 	@JoinColumn(name = "usuarioadmin_id")
 	private Usuario usuarioAdmin;
 
-	@Size(min = 1, max = 5)
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "empresa_id"), // siempre va primera el id
 																							// de la misma tabla en la
@@ -69,14 +68,9 @@ public class Empresa {
 	)
 	private List<Ciudad> ciudades;
 
-	@Size(min = 1, max = 5)
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "empresas_servicios", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "servicio_id"))
 	private List<Servicio> servicios;
 
-	public Servicio getServicios(Servicio servicio) {
-		int index = servicios.indexOf(servicio);
-		return servicios.get(index);
-	}
 
 }

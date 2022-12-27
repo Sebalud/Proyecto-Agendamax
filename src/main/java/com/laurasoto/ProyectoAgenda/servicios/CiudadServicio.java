@@ -19,7 +19,7 @@ public class CiudadServicio extends BaseServicio<Ciudad> {
     }
 
     public List<Ciudad> ciudadesMostrar(Empresa empresa){
-        return ciudadRepositorio.findByEmpresasNotContaining(empresa);
+        return ciudadRepositorio.findAll();
     }
 
 }

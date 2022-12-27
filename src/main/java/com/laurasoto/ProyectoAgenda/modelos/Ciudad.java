@@ -37,7 +37,7 @@ public class Ciudad {
 
 	@NotNull
 	@NotBlank(message = "no puede estar vacio")
-	private String ciudad;
+	private String nombre;
 
 	@Column(updatable = false)
 	private Date createdAt;
