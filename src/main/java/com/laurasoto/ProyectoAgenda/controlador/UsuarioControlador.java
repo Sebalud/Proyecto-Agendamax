@@ -37,7 +37,6 @@ public class UsuarioControlador {
 		if (result.hasErrors()) {
 			return "creaUsuario";
 		}
-<<<<<<< HEAD
 		int tipoUsuario = 0;
 		if(usuarioServicio.traerTodo().size() == 0){
 			tipoUsuario = 500;
@@ -47,12 +46,6 @@ public class UsuarioControlador {
 			Usuario usuarioNuevo = usuarioServicio.registerUser(usuario);
 
 			session.setAttribute("usuarioId",usuarioNuevo.getId());
-=======
-		if (usuarioServicio.findByEmail(usuario.getEmail()) == null) {
-
-			Usuario usuarioNuevo = usuarioServicio.registerUser(usuario);
-			session.setAttribute("usuarioId", usuarioNuevo.getId());
->>>>>>> c9543cda3c0693d0ef4e0926e316e97b65ae5747
 			return "redirect:/home";
 		}
 		model.addAttribute("error", "ya tienes una cuenta con ese email");
@@ -80,21 +73,6 @@ public class UsuarioControlador {
 			model.addAttribute("error", "Credencial invalida, intentelo de nuevo por favor");
 			return "login";
 		}
-<<<<<<< HEAD
-	 }
-	 
-	 @GetMapping("/logout")
-	 	public String cierraSesion(HttpSession session){
-		 session.invalidate();
-			return"redirect:/login";
-	 }
-
-	/* @GetMapping("/admin/new")
-	public String nuevoAdmin(@ModelAttribute("usuario") Usuario usuario, HttpSession session ){
-
-	} */
-			
-=======
 	}
 
 	@GetMapping("/logout")
@@ -102,5 +80,4 @@ public class UsuarioControlador {
 		session.invalidate();
 		return "redirect:/login";
 	}
->>>>>>> c9543cda3c0693d0ef4e0926e316e97b65ae5747
 }

@@ -35,26 +35,16 @@ public class Empresa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-<<<<<<< HEAD
 	@NotNull @NotBlank
 	@Size(min=3, max=30, message="minimo 3 letras, maximo 50")
 	@Column(unique = true)
-=======
-	@NotNull
-	@NotBlank
-	@Size(min = 3, max = 30, message = "minimo 3 letras, maximo 50")
->>>>>>> c9543cda3c0693d0ef4e0926e316e97b65ae5747
 	private String nombre;
 	@NotNull
 	private Long rut;
 
-<<<<<<< HEAD
 	private boolean empresafree = true;
 	
 	@Column(updatable=false)
-=======
-	@Column(updatable = false)
->>>>>>> c9543cda3c0693d0ef4e0926e316e97b65ae5747
 	private Date createdAt;
 	private Date updatedAt;
 
