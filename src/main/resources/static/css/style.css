@@ -20,7 +20,6 @@ body {
     height: 80vh;
     display: flex;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 212);
-
 }
 
 .form-image{
@@ -91,17 +90,9 @@ body {
 
 
 .input-group{
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1.9rem ;
+    padding: 1.2rem ;
 } 
-
-.input-box{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.1rem;
-}
 
 .input-box input{
     margin: 0.6rem;
@@ -109,4 +100,12 @@ body {
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
+}
+
+.register-button input {
+    border: none;
+    background-color:rgb(202, 247, 255) ;
+    padding: 0.04rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
