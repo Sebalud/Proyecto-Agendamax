@@ -1,10 +1,13 @@
 package com.laurasoto.ProyectoAgenda.repositorios;
 
-import java.util.List;
+
+
+import org.springframework.stereotype.Repository;
 
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
-import com.laurasoto.ProyectoAgenda.modelos.Servicio;
 
+
+@Repository
 public interface EmpresaRepositorio extends BaseRepositorio<Empresa>{
 	//List<Empresa> findByServiciosContaining(Servicio servicio);
 	Empresa findByNombre(String nombre);
