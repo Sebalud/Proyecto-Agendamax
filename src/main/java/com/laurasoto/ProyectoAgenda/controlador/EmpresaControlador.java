@@ -16,25 +16,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
+import com.laurasoto.ProyectoAgenda.modelos.Region;
 import com.laurasoto.ProyectoAgenda.modelos.Servicio;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
 import com.laurasoto.ProyectoAgenda.servicios.CiudadServicio;
 import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;
+import com.laurasoto.ProyectoAgenda.servicios.RegionServicio;
 import com.laurasoto.ProyectoAgenda.servicios.Servicio1Servicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
+
 @Controller
 public class EmpresaControlador {
 	private final EmpresaServicio empresaServicio;
 	private final Servicio1Servicio servicio1Servicio;
 	private final UsuarioServicio usuarioServicio;
 	private final CiudadServicio ciudadServicio;
+	private final RegionServicio regionServicio;
 	
 	public EmpresaControlador(EmpresaServicio empresaServicio, Servicio1Servicio servicio1Servicio,
-			UsuarioServicio usuarioServicio, CiudadServicio ciudadServicio){
+			UsuarioServicio usuarioServicio, CiudadServicio ciudadServicio, RegionServicio regionServicio){
 		this.empresaServicio = empresaServicio;
 		this.servicio1Servicio = servicio1Servicio;
 		this.usuarioServicio = usuarioServicio;
 		this.ciudadServicio = ciudadServicio;
+		this.regionServicio = regionServicio;
 	}
 	
 	@GetMapping("/planes")
@@ -55,8 +60,10 @@ public class EmpresaControlador {
 	}
 	//se puede tener dos empresas con el mismo nombre?
 	@GetMapping("/planes/new")
-	public String planFree(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
+	public String nuevoPlan(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
+		List<Region> regiones = regionServicio.regionesTodas();
+		model.addAttribute("regiones", regiones);
 		model.addAttribute("ciudades", ciudades);
 		List<Servicio> servicios = servicio1Servicio.traerTodo();
 		model.addAttribute("servicios", servicios);
@@ -75,7 +82,7 @@ public class EmpresaControlador {
 		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 			empresa.setUsuarioAdmin(usuarioAdmin);
 			empresaServicio.crear(empresa);
-			return"redirect:/";
+			return"redirect:/plan/"+empresa.getId();
 	}
 	
 

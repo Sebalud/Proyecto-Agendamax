@@ -41,6 +41,16 @@
                 <a class="nav-link disabled">Disabled</a>
               </li>
             </ul>
+            <form class="d-flex" role="search" method="POST" action="">
+              <select name="" id="select1">
+                <c:forEach items="${regiones}" var="region" >
+                  <option value="${region.id}">${region.nombre}</option>
+              </c:forEach>
+              </select>
+              
+              <select name="" id="select2">
+              </select>
+            </form>
             <form class="d-flex" role="search" method="POST" action="/search">
               <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
@@ -205,5 +215,48 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+  
+
+    <script>
+        const select1 = document.getElementById('select1');
+        const select2 = document.getElementById('select2');
+
+        select1.addEventListener('change', function() {
+        // Obtén el valor seleccionado en el primer select
+        const selectedOption = this.value;
+
+        // Limpia las opciones del segundo select
+        select2.innerHTML = '';
+
+        if (selectedOption === 'opcion1') {
+        // Si la opción seleccionada es "opcion1", agrega dos opciones al segundo select
+        const option1 = document.createElement('option');
+        option1.value = 'subopcion1';
+        option1.textContent = 'Subopción 1';
+        select2.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = 'subopcion2';
+        option2.textContent = 'Subopción 2';
+        select2.appendChild(option2);
+        } else if (selectedOption === 'opcion2') {
+        // Si la opción seleccionada es "opcion2", agrega tres opciones al segundo select
+        const option1 = document.createElement('option');
+        option1.value = 'subopcion3';
+        option1.textContent = 'Subopción 3';
+        select2.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = 'subopcion4';
+        option2.textContent = 'Subopción 4';
+        select2.appendChild(option2);
+
+        const option3 = document.createElement('option');
+        option3.value = 'subopcion5';
+        option3.textContent = 'Subopción 5';
+        select2.appendChild(option3);
+        }
+    });
+    </script>
 </body>
 </html>
