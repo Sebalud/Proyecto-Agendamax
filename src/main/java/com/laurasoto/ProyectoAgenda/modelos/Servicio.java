@@ -37,17 +37,17 @@ public class Servicio{
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
-			name = "empresas_servicios",
-			joinColumns = @JoinColumn(name = "servicio_id"),
-			inverseJoinColumns = @JoinColumn(name = "empresa_id")
+		name = "empresas_servicios",
+		joinColumns = @JoinColumn(name = "servicio_id"),
+		inverseJoinColumns = @JoinColumn(name = "empresa_id")
 	)
 	private List<Empresa> empresas;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
-			name = "servicios_horarios",
-			joinColumns = @JoinColumn(name = "servicio_id"),
-			inverseJoinColumns = @JoinColumn(name = "horario_id")
+		name = "servicios_horarios",
+		joinColumns = @JoinColumn(name = "servicio_id"),
+		inverseJoinColumns = @JoinColumn(name = "horario_id")
 	)
 	private List<Horario> horarios;
 

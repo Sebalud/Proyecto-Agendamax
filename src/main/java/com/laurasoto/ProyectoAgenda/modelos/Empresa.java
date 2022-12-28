@@ -63,16 +63,12 @@ public class Empresa {
 	private Usuario usuarioAdmin;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "empresa_id"), // siempre va primera el id
-																							// de la misma tabla en la
-																							// que estamos
-			inverseJoinColumns = @JoinColumn(name = "ciudad_id") // id de la otra tabla
+	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "empresa_id"),
+		inverseJoinColumns = @JoinColumn(name = "ciudad_id") 
 	)
 	private List<Ciudad> ciudades;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "empresas_servicios", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "servicio_id"))
 	private List<Servicio> servicios;
-
-
 }

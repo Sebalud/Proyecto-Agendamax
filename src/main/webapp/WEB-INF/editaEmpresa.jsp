@@ -9,10 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Crea una cuenta</title>
+    <title>Empresa FREE</title>
 </head>
-
-<body>        
+<body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
@@ -49,42 +48,39 @@
           </div>
         </div>
       </nav>
-    <h1>Crea Usuario</h1>  
-<form:form action="" method="POST" modelAttribute="usuario" cssClass="container form ancho">
+
+    <h1>Crea una Empresa</h1>
+    <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
     
     <p class="form-outline">
-        <form:label cssClass="form-label" path="nombre">Nombre</form:label>
+        <form:label cssClass="form-label" path="nombre">Nombre Empresa</form:label>
         <form:errors cssClass="text-danger" path="nombre"/>
         <form:input cssClass="form-control" path="nombre"/>
     </p>
-    <p class="form-outline">
-        <form:label cssClass="form-label" path="rut">Rut</form:label>
+    <p>
+        <form:label path="rut">Rut Empresa</form:label>
         <form:errors cssClass="text-danger" path="rut"/>
         <form:input cssClass="form-control" path="rut"/>
     </p>
-    <p>
-        <form:label path="apellido">Apellido</form:label>
-        <form:errors cssClass="text-danger" path="apellido"/>
-        <form:input cssClass="form-control" path="apellido"/>
+    <p class="form-outline">
+        <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
+        <form:errors path="ciudades"/>
+        <form:select class="form-select" path="ciudades"> 
+            <c:forEach items="${ciudades}" var="ciudad" >
+                <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
+            </c:forEach>
+        </form:select>
     </p>
-    <p>
-        <p class="text-danger"><c:out value="${error}"/></p>
-        <form:label path="email">Email</form:label>
-        <form:errors cssClass="text-danger" path="email"/>
-        <form:input  type="email" cssClass="form-control" path="email"/>
+    <p class="form-outline">
+        <form:label cssClass="form-label" path="servicios">Servicios</form:label>
+        <form:errors path="servicios"/>
+        <form:select class="form-select" path="servicios"> 
+            <c:forEach items="${servicios}" var="servicio" >
+                <form:option value="${servicio.id}">${servicio.servicioOfrecido}</form:option>
+            </c:forEach>
+        </form:select>
     </p>
-    <p>
-        <form:label path="password">Password:</form:label>
-        <form:errors  cssClass="text-danger" path="password"/>
-        <form:input type="password" cssClass="form-control" path="password"/>
-    </p>
-    <p>
-        <form:label path="passwordConfirmation">Password Confirmation:</form:label>
-        <form:errors cssClass="text-danger" path="passwordConfirmation"/>
-        <form:input type="password" cssClass="form-control" path="passwordConfirmation"/>
-    </p>
-    <input type=hidden value=0 name=number>
-    <input class="btn btn-outline-secondary" type="submit" value="Registrarse"/>
+    <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
 </form:form>
 
 <!-- Footer -->

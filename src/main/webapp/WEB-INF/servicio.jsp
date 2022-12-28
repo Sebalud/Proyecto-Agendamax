@@ -16,5 +16,6 @@
         <tr class="bg-light">
             <td class="padding border border-dark"><c:out value="${empresa.nombre}"/></td>
         </tr>
+    </c:forEach>
 </body>
 </html>

@@ -19,12 +19,14 @@ public class ServicioHorario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
-    private int cantidadServicio;
+    private int cantAgendamientoHora = 1;
 
     @Column(updatable = false)
     private Date createdAt;
     private Date updatedAt;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "servicio_id")
     private Servicio servicio;
