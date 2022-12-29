@@ -65,8 +65,6 @@ public class EmpresaControlador {
 		List<Region> regiones = regionServicio.regionesTodas();
 		model.addAttribute("regiones", regiones);
 		model.addAttribute("ciudades", ciudades);
-		List<Servicio> servicios = servicio1Servicio.traerTodo();
-		model.addAttribute("servicios", servicios);
 		return"creaEmpresa";
 	}
 	//validacion en crear empresa, si elige premium puede tener mas de un servicio
@@ -90,6 +88,18 @@ public class EmpresaControlador {
 	public String empresaDetalle(@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
 		Empresa empresa = empresaServicio.findById(idEmpresa);
 		model.addAttribute("empresa", empresa);
+		List<Servicio> servicios = servicio1Servicio.traerTodo();
+		model.addAttribute("servicios", servicios);
+		return "showEmpresa";
+	}
+
+	@PostMapping("/plan/{idEmpresa}")
+	public String setServicio(@PathVariable("idEmpresa") Long idEmpresa, @RequestParam("servicio") Long idServicio, HttpSession session){
+		Empresa empresa = empresaServicio.findById(idEmpresa);
+		Servicio servicio = servicio1Servicio.findById(idServicio);
+		//sobreescribir el set del servicio en en modelo
+		empresa.setServicios(servicio);
+		empresaServicio.crear(empresa);
 		return "showEmpresa";
 	}
 
