@@ -8,7 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Empresa FREE</title>
 </head>
 <body>
@@ -55,6 +57,35 @@
               <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+
+            <!-- Avatar -->
+      <div class="dropdown">
+        <a
+          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuAvatar"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            class="rounded-circle"
+            height="25"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+          <li><a class="dropdown-item" href="#">My Perfil</a></li>
+          <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    
           </div>
         </div>
       </nav>
@@ -74,7 +105,7 @@
     </p>
     <p class="form-outline">
         <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
-        <form:errors path="ciudades"/>
+        <form:errors  path="ciudades"/>
         <form:select class="form-select" path="ciudades"> 
             <c:forEach items="${ciudades}" var="ciudad" >
                 <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
@@ -84,7 +115,7 @@
     <p class="form-outline">
         <form:label cssClass="form-label" path="servicios">Servicios</form:label>
         <form:errors path="servicios"/>
-        <form:select class="form-select" path="servicios"> 
+        <form:select class="form-select" multiple="none" path="servicios"> 
             <c:forEach items="${servicios}" var="servicio" >
                 <form:option value="${servicio.id}">${servicio.servicioOfrecido}</form:option>
             </c:forEach>
@@ -258,5 +289,7 @@
         }
     });
     </script>
+
+    
 </body>
 </html>

@@ -63,6 +63,9 @@
     <p>Cantidad de servicios:<c:out value="${empresa.servicios.size()}"/></p>
     <p>Cantidad de ciudades:<c:out value="${empresa.ciudades.size()}"/></p>
 
+    <a href="/plan/${empresa.id}/edit">Editar Empresa</a>
+    
+
     <table class="table">
         <thead>
             <tr>

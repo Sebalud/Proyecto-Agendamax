@@ -43,7 +43,7 @@ public class Empresa {
 	private Long rut;
 
 	private boolean empresafree = true;
-	
+
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;

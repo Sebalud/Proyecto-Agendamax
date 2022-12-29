@@ -61,6 +61,9 @@ public class EmpresaControlador {
 	//se puede tener dos empresas con el mismo nombre?
 	@GetMapping("/planes/new")
 	public String nuevoPlan(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
+		if((Long) session.getAttribute("usuarioId") == null){
+			return"redirect:/";
+		}
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
 		List<Region> regiones = regionServicio.regionesTodas();
 		model.addAttribute("regiones", regiones);
@@ -68,6 +71,7 @@ public class EmpresaControlador {
 		List<Servicio> servicios = servicio1Servicio.traerTodo();
 		model.addAttribute("servicios", servicios);
 		return"creaEmpresa";
+		
 	}
 	//validacion en crear empresa, si elige premium puede tener mas de un servicio
 	@PostMapping("/planes/new")
@@ -88,13 +92,19 @@ public class EmpresaControlador {
 
 	@GetMapping("/plan/{idEmpresa}")
 	public String empresaDetalle(@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+		if((Long) session.getAttribute("usuarioId") == null){
+			return"redirect:/";
+		}
 		Empresa empresa = empresaServicio.findById(idEmpresa);
 		model.addAttribute("empresa", empresa);
 		return "showEmpresa";
 	}
 
 	@GetMapping("plan/{idEmpresa}/edit")
-	public String editaEmpresa(@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+	public String editaEmpresa(@ModelAttribute("empresa") Empresa empresa, @PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+		if((Long) session.getAttribute("usuarioId") == null){
+			return"redirect:/";
+		}
 		Empresa empresaAEditar = empresaServicio.findById(idEmpresa);
 		model.addAttribute("empresaAEditar", empresaAEditar);
 		return "editaEmpresa";
@@ -106,10 +116,21 @@ public class EmpresaControlador {
 		if(result.hasErrors()){
 			return"editaEmpresa";
 		}
+
 		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 		empresa.setId(idEmpresa);
 		empresa.setUsuarioAdmin(usuarioAdmin);
 		empresaServicio.crear(empresa);
 		return"redirect:/plan/"+empresa.getId();
+	}
+
+	@GetMapping("/delete/{idEmpresa}")
+	public String eliminaEmpresa(HttpSession session, @PathVariable("idEmpresa") Long idEmpresa ){
+		Empresa empresa = empresaServicio.findById(idEmpresa);
+		if((Long) session.getAttribute("usuarioId") == null && (Long) session.getAttribute("usuarioId") != empresa.getUsuarioAdmin().getId()){
+			return"redirect:/";
+		}
+		empresaServicio.delete(idEmpresa);
+		return"redirect:/";
 	}
 }
