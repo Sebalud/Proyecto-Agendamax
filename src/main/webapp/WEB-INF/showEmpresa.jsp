@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,9 +61,21 @@
     <h1>Bienvenido <c:out value="${empresa.usuarioAdmin.nombre}"/></h1>
     <h2>El detalle de tu empresa, <c:out value="${empresa.nombre}"/></h2>
     <p>Rut: <c:out value="${empresa.rut}"/></p>
-    <p>Cantidad de servicios:<c:out value="${empresa.servicios.size()}"/></p>
-    <p>Cantidad de ciudades:<c:out value="${empresa.ciudades.size()}"/></p>
-
+    
+    <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
+    
+    <p class="form-outline">
+      <form class="alinearDisplay ancho mt-5 ms-5" method="POST" action="/plan/${empresa.id}">
+        <select class="form-select"  name="servicio">
+                <c:forEach items="${servicios}" var="servicio">
+                    <option value="${servicio.id}">${servicio.servicioOfrecido}</option>
+                </c:forEach>
+        </select>
+        <option value="">ingresa la opcion que tu prefieras</option>
+        <input class="btn btn-dark mt-4" type="submit" value="Agregar Servicio"/>
+    </form>
+    </p>
+</form:form>
     <table class="table">
         <thead>
             <tr>

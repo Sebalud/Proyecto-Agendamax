@@ -71,4 +71,8 @@ public class Empresa {
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "empresas_servicios", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "servicio_id"))
 	private List<Servicio> servicios;
+
+	public void setServicios(Servicio servicio){
+		servicios.add(servicio);
+	}
 }

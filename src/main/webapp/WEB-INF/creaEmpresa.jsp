@@ -81,15 +81,6 @@
             </c:forEach>
         </form:select>
     </p>
-    <p class="form-outline">
-        <form:label cssClass="form-label" path="servicios">Servicios</form:label>
-        <form:errors path="servicios"/>
-        <form:select class="form-select" path="servicios"> 
-            <c:forEach items="${servicios}" var="servicio" >
-                <form:option value="${servicio.id}">${servicio.servicioOfrecido}</form:option>
-            </c:forEach>
-        </form:select>
-    </p>
     <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
 </form:form>
 
