@@ -16,25 +16,30 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
+import com.laurasoto.ProyectoAgenda.modelos.Region;
 import com.laurasoto.ProyectoAgenda.modelos.Servicio;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
 import com.laurasoto.ProyectoAgenda.servicios.CiudadServicio;
 import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;
+import com.laurasoto.ProyectoAgenda.servicios.RegionServicio;
 import com.laurasoto.ProyectoAgenda.servicios.Servicio1Servicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
+
 @Controller
 public class EmpresaControlador {
 	private final EmpresaServicio empresaServicio;
 	private final Servicio1Servicio servicio1Servicio;
 	private final UsuarioServicio usuarioServicio;
 	private final CiudadServicio ciudadServicio;
+	private final RegionServicio regionServicio;
 	
 	public EmpresaControlador(EmpresaServicio empresaServicio, Servicio1Servicio servicio1Servicio,
-			UsuarioServicio usuarioServicio, CiudadServicio ciudadServicio){
+			UsuarioServicio usuarioServicio, CiudadServicio ciudadServicio, RegionServicio regionServicio){
 		this.empresaServicio = empresaServicio;
 		this.servicio1Servicio = servicio1Servicio;
 		this.usuarioServicio = usuarioServicio;
 		this.ciudadServicio = ciudadServicio;
+		this.regionServicio = regionServicio;
 	}
 	
 	@GetMapping("/planes")
@@ -54,44 +59,67 @@ public class EmpresaControlador {
 		return"servicio";
 	}
 	//se puede tener dos empresas con el mismo nombre?
-	@GetMapping("/planes/free")
-	public String planFree(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
+	@GetMapping("/planes/new")
+	public String nuevoPlan(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
+		List<Region> regiones = regionServicio.regionesTodas();
+		model.addAttribute("regiones", regiones);
 		model.addAttribute("ciudades", ciudades);
-		return"free";
+		return"creaEmpresa";
+	}
+	//validacion en crear empresa, si elige premium puede tener mas de un servicio
+	@PostMapping("/planes/new")
+	public String formPlanFree(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult result, HttpSession session, Model model){
+		if(result.hasErrors()){
+			return"creaEmpresa";
+		}
+		if(empresaServicio.getEmpresaPorNombre(empresa.getNombre()) != null){
+			model.addAttribute("error", "no puedes usar ese nombre porque ya existe");
+			return"creaEmpresa";
+		}
+		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+			empresa.setUsuarioAdmin(usuarioAdmin);
+			empresaServicio.crear(empresa);
+			return"redirect:/plan/"+empresa.getId();
 	}
 	
-	@PostMapping("/planes/free")
-	public String formPlanFree(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult result, HttpSession session){
-		if(result.hasErrors()){
-			return"free";
-		}
-		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
-		empresa.setUsuarioAdmin(usuarioAdmin);
-		empresaServicio.crear(empresa);
-		return"redirect:/";
-	}
-
-	@GetMapping("/planes/premium")
-	public String planPremium(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
-		return "premium";
-	}
-
-	@PostMapping("/planes/premium")
-	public String formPlanPremium(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult result, HttpSession session){
-		if(result.hasErrors()){
-			return"premium";
-		}
-		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
-		empresa.setUsuarioAdmin(usuarioAdmin);
-		empresaServicio.crear(empresa);
-		return"redirect:/";
-	}
 
 	@GetMapping("/plan/{idEmpresa}")
 	public String empresaDetalle(@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
 		Empresa empresa = empresaServicio.findById(idEmpresa);
 		model.addAttribute("empresa", empresa);
+		List<Servicio> servicios = servicio1Servicio.traerTodo();
+		model.addAttribute("servicios", servicios);
 		return "showEmpresa";
+	}
+
+	@PostMapping("/plan/{idEmpresa}")
+	public String setServicio(@PathVariable("idEmpresa") Long idEmpresa, @RequestParam("servicio") Long idServicio, HttpSession session){
+		Empresa empresa = empresaServicio.findById(idEmpresa);
+		Servicio servicio = servicio1Servicio.findById(idServicio);
+		//sobreescribir el set del servicio en en modelo
+		empresa.setServicios(servicio);
+		empresaServicio.crear(empresa);
+		return "showEmpresa";
+	}
+
+	@GetMapping("plan/{idEmpresa}/edit")
+	public String editaEmpresa(@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+		Empresa empresaAEditar = empresaServicio.findById(idEmpresa);
+		model.addAttribute("empresaAEditar", empresaAEditar);
+		return "editaEmpresa";
+	}
+
+	@PostMapping("plan/{idEmpresa}/edit")
+	public String editaEmpresaForm(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult result, @PathVariable("idEmpresa") Long idEmpresa,
+	HttpSession session){
+		if(result.hasErrors()){
+			return"editaEmpresa";
+		}
+		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+		empresa.setId(idEmpresa);
+		empresa.setUsuarioAdmin(usuarioAdmin);
+		empresaServicio.crear(empresa);
+		return"redirect:/plan/"+empresa.getId();
 	}
 }

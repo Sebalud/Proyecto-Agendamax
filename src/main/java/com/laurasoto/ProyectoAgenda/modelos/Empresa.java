@@ -35,14 +35,16 @@ public class Empresa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotNull
-	@NotBlank
-	@Size(min = 3, max = 30, message = "minimo 3 letras, maximo 50")
+	@NotNull @NotBlank
+	@Size(min=3, max=30, message="minimo 3 letras, maximo 50")
+	@Column(unique = true)
 	private String nombre;
 	@NotNull
 	private Long rut;
 
-	@Column(updatable = false)
+	private boolean empresafree = true;
+	
+	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
 
@@ -61,10 +63,8 @@ public class Empresa {
 	private Usuario usuarioAdmin;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "empresa_id"), // siempre va primera el id
-																							// de la misma tabla en la
-																							// que estamos
-			inverseJoinColumns = @JoinColumn(name = "ciudad_id") // id de la otra tabla
+	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "empresa_id"),
+		inverseJoinColumns = @JoinColumn(name = "ciudad_id") 
 	)
 	private List<Ciudad> ciudades;
 
@@ -72,5 +72,7 @@ public class Empresa {
 	@JoinTable(name = "empresas_servicios", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "servicio_id"))
 	private List<Servicio> servicios;
 
-
+	public void setServicios(Servicio servicio){
+		servicios.add(servicio);
+	}
 }

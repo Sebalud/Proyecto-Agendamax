@@ -32,8 +32,9 @@ public class Usuario {
 	@NotBlank
 	@Size(min = 3, max = 30, message = "minimo 3 letras, maximo 50")
 	private String apellido;
-	@NotNull
-	private Long rut;
+	private Integer tipoUsuario;
+	@NotNull @NotBlank
+	private String rut;
 	@Email(message = "Invalid email format. Ex: user@user.com")
 	@Size(min = 10, max = 200, message = "minimo 10 letras, maximo 200")
 	private String email;

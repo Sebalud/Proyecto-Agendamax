@@ -17,8 +17,9 @@ public class Horario{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
-    private int horaDisponible;
+    private Long horaDisponible;
 
     @Column(updatable=false)
     private Date createdAt;
@@ -26,17 +27,17 @@ public class Horario{
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "servicios_horarios",
-            joinColumns = @JoinColumn(name = "horario_id"),
-            inverseJoinColumns = @JoinColumn(name = "servicio_id")
+        name = "servicios_horarios",
+        joinColumns = @JoinColumn(name = "horario_id"),
+        inverseJoinColumns = @JoinColumn(name = "servicio_id")
     )
     private List<Servicio> servicios;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "usuarios_horarios",
-            joinColumns = @JoinColumn(name = "horario_id"),
-            inverseJoinColumns = @JoinColumn(name = "usuario_id")
+        name = "usuarios_horarios",
+        joinColumns = @JoinColumn(name = "horario_id"),
+        inverseJoinColumns = @JoinColumn(name = "usuario_id")
     )
     private List<Usuario> usuarios;
 

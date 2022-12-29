@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
 
+
 @Controller
 public class UsuarioControlador {
 	private final UsuarioServicio usuarioServicio;
@@ -35,12 +36,17 @@ public class UsuarioControlador {
 	public String registerUser(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result,
 			HttpSession session, Model model) {
 		if (result.hasErrors()) {
+			System.out.println(result.getFieldError().toString());
 			return "creaUsuario";
 		}
-		if (usuarioServicio.findByEmail(usuario.getEmail()) == null) {
-
+		int tipoUsuario = 0;
+		if(usuarioServicio.traerTodo().size() == 0){
+			tipoUsuario = 500;
+		}
+		if(usuarioServicio.findByEmail(usuario.getEmail()) == null){
+			usuario.setTipoUsuario(tipoUsuario);
 			Usuario usuarioNuevo = usuarioServicio.registerUser(usuario);
-			session.setAttribute("usuarioId", usuarioNuevo.getId());
+			session.setAttribute("usuarioId",usuarioNuevo.getId());
 			return "redirect:/home";
 		}
 		model.addAttribute("error", "ya tienes una cuenta con ese email");
@@ -69,10 +75,36 @@ public class UsuarioControlador {
 			return "login";
 		}
 	}
+	@GetMapping("/home")
+	public String home(HttpSession session, Model model){
+		return"index";
+	}
 
 	@GetMapping("/logout")
 	public String cierraSesion(HttpSession session) {
 		session.invalidate();
 		return "redirect:/login";
 	}
+
+/* 	@GetMapping("/administradores")
+	public String hacerAdmin(HttpSession session, Model model){
+		List<Usuario> usuariosTodos = usuarioServicio.traerTodo();
+		model.addAttribute("todosUsuarios", usuariosTodos);
+		return"listaUsuarios";
+	} */
+
+	//enlace que setea el tipo usuario a admin
+	/* @GetMapping("/administradores/admin/{idUsuario}")
+	public String setAdmin(HttpSession session, @PathVariable("idUsuario") Long idUsuario){
+		Usuario usuario = usuarioServicio.findById(idUsuario);
+		usuario.setTipoUsuario(500);
+		return"redirect:/administradores";
+	}
+
+	@GetMapping("/administradores/noAdmin/{idUsuario}")
+	public String setTipoUsuario(HttpSession session, @PathVariable("idUsuario") Long idUsuario){
+		Usuario usuario = usuarioServicio.findById(idUsuario);
+		usuario.setTipoUsuario(0);
+		return"redirect:/administradores";
+	} */
 }

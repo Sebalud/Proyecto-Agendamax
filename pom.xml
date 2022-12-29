@@ -61,18 +61,18 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
-          <dependency>
-		      <groupId>org.projectlombok</groupId>
-		      <artifactId>lombok</artifactId>
-		      <optional>true</optional>
-		</dependency>
-		  <dependency>
-		  <!-- nueva dependencia jbcrypt -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+	</dependency>
+		<dependency>
+		<!-- nueva dependencia jbcrypt -->
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
             <version>0.4</version>
-          </dependency>
-	</dependencies>
+        </dependency>
+ </dependencies>
 
 	<build>
 		<plugins>

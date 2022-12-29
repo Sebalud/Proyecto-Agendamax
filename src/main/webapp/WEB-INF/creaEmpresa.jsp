@@ -1,6 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,92 +11,78 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Empresa FREE</title>
 </head>
-<body class="container">
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
-                <form class="d-flex" role="search" method="POST" action="">
-                <select name="" id="select1">
-                    <c:forEach items="${regiones}" var="region" >
-                    <option value="${region.id}">${region.nombre}</option>
-                </c:forEach>
-                </select>
-                
-                <select name="" id="select2">
-                </select>
-                </form>
-                <form class="d-flex" role="search" method="POST" action="/search">
-                <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-            </div>
-        </nav>
-    <h1>Bienvenido <c:out value="${empresa.usuarioAdmin.nombre}"/></h1>
-    <h2>El detalle de tu empresa, <c:out value="${empresa.nombre}"/></h2>
-    <p>Rut: <c:out value="${empresa.rut}"/></p>
-    
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" method="POST" action="">
+              <select name="" id="select1">
+                <c:forEach items="${regiones}" var="region" >
+                  <option value="${region.id}">${region.nombre}</option>
+              </c:forEach>
+              </select>
+              
+              <select name="" id="select2">
+              </select>
+            </form>
+            <form class="d-flex" role="search" method="POST" action="/search">
+              <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <h1>Crea una Empresa</h1>
     <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
     
     <p class="form-outline">
-      <form class="alinearDisplay ancho mt-5 ms-5" method="POST" action="/plan/${empresa.id}">
-        <select class="form-select"  name="servicio">
-                <c:forEach items="${servicios}" var="servicio">
-                    <option value="${servicio.id}">${servicio.servicioOfrecido}</option>
-                </c:forEach>
-        </select>
-        <option value="">ingresa la opcion que tu prefieras</option>
-        <input class="btn btn-dark mt-4" type="submit" value="Agregar Servicio"/>
-    </form>
+        <form:label cssClass="form-label" path="nombre">Nombre Empresa</form:label>
+        <form:errors cssClass="text-danger" path="nombre"/>
+        <form:input cssClass="form-control" path="nombre"/>
     </p>
+    <p>
+        <form:label path="rut">Rut Empresa</form:label>
+        <form:errors cssClass="text-danger" path="rut"/>
+        <form:input cssClass="form-control" path="rut"/>
+    </p>
+    <p class="form-outline">
+        <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
+        <form:errors path="ciudades"/>
+        <form:select class="form-select" path="ciudades"> 
+            <c:forEach items="${ciudades}" var="ciudad" >
+                <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
+            </c:forEach>
+        </form:select>
+    </p>
+    <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
 </form:form>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Nombre Servicio</th>
-                <th scope="col">Ciudad</th> 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                
-                <c:forEach items="${empresa.servicios}" var="servicio" >
-                    <td colspan=""><c:out value="${servicio.servicioOfrecido}"/></td>
-                </c:forEach>
-                <c:forEach items="${empresa.ciudades}" var="ciudad" >
-                    <td colspan=""><c:out value="${ciudad.nombre}"/></td>
-                </c:forEach>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>falta mostrar aqui la visualizacion y organizacion de las horas por parte de la empresa</h2>
 
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
@@ -220,5 +206,48 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+  
+
+    <script>
+        const select1 = document.getElementById('select1');
+        const select2 = document.getElementById('select2');
+
+        select1.addEventListener('change', function() {
+        // Obtén el valor seleccionado en el primer select
+        const selectedOption = this.value;
+
+        // Limpia las opciones del segundo select
+        select2.innerHTML = '';
+
+        if (selectedOption === 'opcion1') {
+        // Si la opción seleccionada es "opcion1", agrega dos opciones al segundo select
+        const option1 = document.createElement('option');
+        option1.value = 'subopcion1';
+        option1.textContent = 'Subopción 1';
+        select2.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = 'subopcion2';
+        option2.textContent = 'Subopción 2';
+        select2.appendChild(option2);
+        } else if (selectedOption === 'opcion2') {
+        // Si la opción seleccionada es "opcion2", agrega tres opciones al segundo select
+        const option1 = document.createElement('option');
+        option1.value = 'subopcion3';
+        option1.textContent = 'Subopción 3';
+        select2.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = 'subopcion4';
+        option2.textContent = 'Subopción 4';
+        select2.appendChild(option2);
+
+        const option3 = document.createElement('option');
+        option3.value = 'subopcion5';
+        option3.textContent = 'Subopción 5';
+        select2.appendChild(option3);
+        }
+    });
+    </script>
 </body>
 </html>

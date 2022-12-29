@@ -43,6 +43,14 @@ public class Ciudad {
 	private Date createdAt;
 	private Date updatedAt;
 
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "ciudad_id"), inverseJoinColumns = @JoinColumn(name = "empresa_id"))
+	private List<Empresa> empresas;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "region_id")
+	private Region region;
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -52,13 +60,4 @@ public class Ciudad {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "ciudad_id"), inverseJoinColumns = @JoinColumn(name = "empresa_id"))
-	private List<Empresa> empresas;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "region_id")
-	private Region region;
-
 }
