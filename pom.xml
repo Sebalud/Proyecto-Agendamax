@@ -66,13 +66,19 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 	</dependency>
-		<dependency>
-		<!-- nueva dependencia jbcrypt -->
-            <groupId>org.mindrot</groupId>
-            <artifactId>jbcrypt</artifactId>
-            <version>0.4</version>
-        </dependency>
- </dependencies>
+	<!-- nueva dependencia jbcrypt -->
+	<dependency>
+		<groupId>org.mindrot</groupId>
+		<artifactId>jbcrypt</artifactId>
+		<version>0.4</version>
+	</dependency>
+	<!-- Depdencia para crear Json -->
+	<dependency>  
+		<groupId>com.fasterxml.jackson.core</groupId>  
+		<artifactId>jackson-databind</artifactId>  
+		<version>2.12.1</version>  
+	</dependency>  
+    </dependencies>
 
 	<build>
 		<plugins>

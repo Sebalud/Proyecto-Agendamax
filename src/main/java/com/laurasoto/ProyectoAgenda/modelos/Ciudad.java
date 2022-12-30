@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,15 +42,19 @@ public class Ciudad {
 	private String nombre;
 
 	@Column(updatable = false)
+	@JsonIgnore
 	private Date createdAt;
+	@JsonIgnore
 	private Date updatedAt;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "ciudad_id"), inverseJoinColumns = @JoinColumn(name = "empresa_id"))
+	@JsonIgnore
 	private List<Empresa> empresas;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "region_id")
+	@JsonIgnore
 	private Region region;
 
 	@PrePersist
