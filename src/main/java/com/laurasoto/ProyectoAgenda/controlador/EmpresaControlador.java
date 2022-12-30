@@ -24,6 +24,7 @@ import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;
 import com.laurasoto.ProyectoAgenda.servicios.RegionServicio;
 import com.laurasoto.ProyectoAgenda.servicios.Servicio1Servicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
+import com.laurasoto.ProyectoAgenda.utiles.Funciones;
 
 @Controller
 public class EmpresaControlador {
@@ -61,10 +62,13 @@ public class EmpresaControlador {
 	//se puede tener dos empresas con el mismo nombre?
 	@GetMapping("/planes/new")
 	public String nuevoPlan(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
-		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
 		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
+		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
+		
 		model.addAttribute("regiones", regiones);
 		model.addAttribute("ciudades", ciudades);
+		model.addAttribute("regionesJson", resultadoJson);
 		return"creaEmpresa";
 	}
 	//validacion en crear empresa, si elige premium puede tener mas de un servicio
