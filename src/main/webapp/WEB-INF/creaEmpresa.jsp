@@ -23,10 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,33 +55,20 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
 
-            <!-- Avatar -->
-      <div class="dropdown">
-        <a
-          class="dropdown-toggle d-flex align-items-center hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuAvatar"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-            class="rounded-circle"
-            height="25"
-            alt="Black and White Portrait of a Man"
-            loading="lazy"
-          />
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuAvatar"
-        >
-          <li><a class="dropdown-item" href="#">My Perfil</a></li>
-          <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-          <li><a class="dropdown-item" href="/logout">Logout</a></li>
-        </ul>
-      </div>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <c:out value="${usuario.nombre}"/>
+              </a>
+              <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              <c:if test="${usuario.getEmpresa() != null}">
+                <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
+              </c:if>
+              
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+              </ul>
+          </li>
     
           </div>
         </div>
@@ -109,15 +93,6 @@
         <form:select class="form-select" path="ciudades"> 
             <c:forEach items="${ciudades}" var="ciudad" >
                 <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
-            </c:forEach>
-        </form:select>
-    </p>
-    <p class="form-outline">
-        <form:label cssClass="form-label" path="servicios">Servicios</form:label>
-        <form:errors path="servicios"/>
-        <form:select class="form-select" multiple="none" path="servicios"> 
-            <c:forEach items="${servicios}" var="servicio" >
-                <form:option value="${servicio.id}">${servicio.servicioOfrecido}</form:option>
             </c:forEach>
         </form:select>
     </p>

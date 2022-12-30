@@ -1,5 +1,7 @@
 package com.laurasoto.ProyectoAgenda.controlador;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
@@ -64,12 +67,12 @@ public class EmpresaControlador {
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
+		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
 		List<Region> regiones = regionServicio.regionesTodas();
 		model.addAttribute("regiones", regiones);
 		model.addAttribute("ciudades", ciudades);
-		List<Servicio> servicios = servicio1Servicio.traerTodo();
-		model.addAttribute("servicios", servicios);
+		model.addAttribute("usuario", usuario);
 		return"creaEmpresa";
 		
 	}
@@ -91,13 +94,66 @@ public class EmpresaControlador {
 	
 
 	@GetMapping("/plan/{idEmpresa}")
-	public String empresaDetalle(@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+	public String empresaDetalle(@ModelAttribute("empresa") Empresa empresaEditar ,@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
+		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 		Empresa empresa = empresaServicio.findById(idEmpresa);
+		List<Servicio> servicios = servicio1Servicio.traerTodo();
+		List<Servicio> serviciosNotEmpresa = servicio1Servicio.serviciosNoContieneEmpresa(empresa);
+		List<Ciudad>  ciudadesNotEmpresa = ciudadServicio.ciudadesNoContieneEmpresa(empresa);
+		model.addAttribute("ciudadesNotEmpresa", ciudadesNotEmpresa);
+		model.addAttribute("serviciosNotEmpresa", serviciosNotEmpresa);
+		model.addAttribute("servicios", servicios);
 		model.addAttribute("empresa", empresa);
+		model.addAttribute("usuario", usuario);
 		return "showEmpresa";
+	}
+
+	@PostMapping("/plan/{idEmpresa}")
+	public String setServicio(@PathVariable("idEmpresa") Long idEmpresa, @RequestParam("servicio") String servicioId, 
+	@RequestParam(required = false, name = "nuevoServicio") String nuevoServicio, HttpSession session, Model model){
+		Empresa empresa = empresaServicio.findById(idEmpresa);
+		if(!servicioId.equals("opcionEspecial")){
+			Long IdServicio = Long.parseLong(servicioId);
+			Servicio servicio = servicio1Servicio.findById(IdServicio);
+			empresa.setServicios(servicio);
+			empresaServicio.crear(empresa);
+			return "redirect:/plan/"+ idEmpresa;
+		}
+
+		/* if(nuevoServicio == null || nuevoServicio.isEmpty()){
+			//model.addAttribute("error","el ")
+		System.out.println("errorrrr aqui");
+			
+		} */
+		//agregar otra validacion por si el input se rellena con numeros, no se puede da error!
+		//validacion el administrador tiene que validar que la categoria nueva sea una categoria valida, 
+		//que sean pasadas por la dministracion para tener visto bueno
+		servicio1Servicio.crear(
+			Servicio.builder()
+			.servicioOfrecido(nuevoServicio)
+			.empresas(Arrays.asList(empresa))
+			.duracionServicio(0l)
+			.duracionjornada(0l)
+			.build()
+		);
+		return "redirect:/plan/"+ idEmpresa;
+	}
+
+		@PutMapping("plan/{idEmpresa}")
+	public String editaEmpresaForm(@Valid @ModelAttribute("empresa") Empresa empresaEditar, BindingResult result, @PathVariable("idEmpresa") Long idEmpresa,
+	HttpSession session){
+		if(result.hasErrors()){
+			return"editaEmpresa";
+		}
+
+		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+		empresaEditar.setId(idEmpresa);
+		empresaEditar.setUsuarioAdmin(usuarioAdmin);
+		empresaServicio.crear(empresaEditar);
+		return"redirect:/plan/"+idEmpresa;
 	}
 
 	@GetMapping("plan/{idEmpresa}/edit")
@@ -110,19 +166,7 @@ public class EmpresaControlador {
 		return "editaEmpresa";
 	}
 
-	@PostMapping("plan/{idEmpresa}/edit")
-	public String editaEmpresaForm(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult result, @PathVariable("idEmpresa") Long idEmpresa,
-	HttpSession session){
-		if(result.hasErrors()){
-			return"editaEmpresa";
-		}
 
-		Usuario usuarioAdmin = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
-		empresa.setId(idEmpresa);
-		empresa.setUsuarioAdmin(usuarioAdmin);
-		empresaServicio.crear(empresa);
-		return"redirect:/plan/"+empresa.getId();
-	}
 
 	@GetMapping("/delete/{idEmpresa}")
 	public String eliminaEmpresa(HttpSession session, @PathVariable("idEmpresa") Long idEmpresa ){
@@ -131,6 +175,27 @@ public class EmpresaControlador {
 			return"redirect:/";
 		}
 		empresaServicio.delete(idEmpresa);
-		return"redirect:/";
+		return"redirect:/home";
+	}
+
+	@GetMapping("/premium/{idEmpresa}")
+	public String cambiarAPremium(HttpSession session, @PathVariable("idEmpresa") Long idEmpresa){
+		Empresa empresa = empresaServicio.findById(idEmpresa);
+		if((Long) session.getAttribute("usuarioId") == null && (Long) session.getAttribute("usuarioId") != empresa.getUsuarioAdmin().getId()){
+			return"redirect:/";
+		}
+		empresa.setEmpresafree(false);
+		empresaServicio.crear(empresa);
+		return"redirect:/plan/"+ idEmpresa;
+	}
+
+	@GetMapping("/delete/{idEmpresa}/{idServicio}")
+	public String desconectaServicio(HttpSession session, @PathVariable("idEmpresa") Long idEmpresa, 
+	@PathVariable("idServicio") Long idServicio){
+		Empresa empresa = empresaServicio.findById(idEmpresa);
+		Servicio servicio = servicio1Servicio.findById(idServicio);
+		empresa.getServicios().remove(servicio);
+		empresaServicio.crear(empresa);
+		return"redirect:/plan/"+idEmpresa;
 	}
 }

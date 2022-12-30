@@ -13,18 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
+import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
 
 
 @Controller
 public class UsuarioControlador {
 	private final UsuarioServicio usuarioServicio;
+	private final EmpresaServicio empresaServicio;
 	// private final Servicio1Servicio servicio1Servicio;
 
-	public UsuarioControlador(UsuarioServicio usuarioServicio) {
+	public UsuarioControlador(UsuarioServicio usuarioServicio, EmpresaServicio empresaServicio) {
 		this.usuarioServicio = usuarioServicio;
-
+		this.empresaServicio = empresaServicio;
 	}
 
 	@GetMapping("/registration")
@@ -77,13 +80,17 @@ public class UsuarioControlador {
 	}
 	@GetMapping("/home")
 	public String home(HttpSession session, Model model){
+		Empresa empresa = empresaServicio.findById((Long) session.getAttribute("usuarioId"));
+		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+		model.addAttribute("empresa",empresa);
+		model.addAttribute("usuario", usuario);
 		return"index";
 	}
 
 	@GetMapping("/logout")
 	public String cierraSesion(HttpSession session) {
 		session.invalidate();
-		return "redirect:/login";
+		return "redirect:/";
 	}
 
 /* 	@GetMapping("/administradores")

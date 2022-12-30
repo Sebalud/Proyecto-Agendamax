@@ -16,7 +16,7 @@
     </div>
     
     <p class="text-warning"><c:out value="${error}" /></p>
-    <form method="post" action="/login" class="container form ancho">
+    <form method="post" action="/" class="container form ancho">
         <p class="form-outline ancho">
             <label for="email">Email</label>
             <input class="ancho" type="text" id="email" name="email"/>
