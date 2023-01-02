@@ -1,0 +1,40 @@
+* 
+{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.encabezado {
+
+    width: 1670px;
+    height: 100px;
+    background-color: rgb(177, 161, 255);
+    color: white;
+    
+}
+
+#REGIÓN {
+    width: 200px;
+    height: 200px;
+        
+}
+#CIUDAD {
+    width: 200px;
+    height: 200px;
+}
+#SERVICIO {
+    width: 200px;
+    height: 200px;
+}
+#BOTONSERVICIO {
+    width: 200px;
+    height: 200px;
+    border-radius: 2px;
+}
+#NOSOTROS {
+    width: 200px;
+    height: 200px;  
+}

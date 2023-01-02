@@ -8,12 +8,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Crea una cuenta</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <title>Crea tu cuenta</title>
 </head>
+
 <body>
+  <div class="encabezado"></div>
+  <div id="REGIÓN">
+  <form class="col-3" method="POST" action="/search">
+    <input type="region" name="region" placeholder="REGIÓN..." aria-label="Search">  
+  </form>
+  <div id="CIUDAD">
+  <form class="col-3" method="POST" action="/search">
+    <input type="CIUDAD" name="CIUDAD" placeholder="CIUDAD..." aria-label="Search">
+    <div id="SERVICIO">
     <form class="col-3" method="POST" action="/search">
-        <input  type="search" name="servicio" placeholder="Servicio" aria-label="Search">
-        <button class="btn btn-dark" type="submit">Buscar</button>
+        <input  type="search" name="servicio" placeholder="Introduzca servicio..." aria-label="Search">
+        <div id="BOTONSERVICIO">
+        <button class="btn btn-dark" type="submit">BUSCAR SERVICIO</button>
+    </form>
+    <form> 
+      <div id="NOSOTROS">
+      <button class="btn btn-dark" type="submit">NOSOTROS</button>
     </form>
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
@@ -26,8 +42,8 @@
           <div class="carousel-item active">
             <img src="/imagenes/calidad.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+              <h5>ACCENTURE LIMITED</h5>
+              <p>Es una empresa multinacional de consultoría estratégica, servicios tecnológicos y externalización.</p>
             </div>
           </div>
           <div class="carousel-item">
