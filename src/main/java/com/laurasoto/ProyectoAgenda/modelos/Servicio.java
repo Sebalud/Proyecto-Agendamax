@@ -51,7 +51,10 @@ public class Servicio{
 	)
 	private List<Horario> horarios;
 
-
+	/* @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ciudad_id")
+    private Ciudad ciudad; */
+	
 	@PrePersist
 	protected void onCreate(){
 		this.createdAt = new Date();

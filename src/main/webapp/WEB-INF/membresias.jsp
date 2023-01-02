@@ -235,5 +235,10 @@
             </footer>
             <!-- Footer -->
         </body>
+        <script>
+            //Mapeo de variable para archivo servicio.js
+            var regionesConAscii = '<c:out value="${regionesJson}"/>'
+        </script>
+        <script type="text/javascript" src="/js/servicio.js"></script>
 
         </html>

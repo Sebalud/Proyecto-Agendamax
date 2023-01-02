@@ -51,8 +51,6 @@
                           </div>
                         </c:when>
                       </c:choose> 
-          
-
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -97,7 +95,6 @@
     </div>
     </div>
 </nav>
-    <a href="/logout">logout</a>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -136,8 +133,10 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      
-
-      <a href="/planes">Crear una Empresa</a>
+      <script>
+        //Mapeo de variable para archivo servicio.js
+        var regionesConAscii = '<c:out value="${regionesJson}"/>'
+      </script>
+      <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 </html>

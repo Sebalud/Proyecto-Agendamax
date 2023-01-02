@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -62,11 +63,9 @@ public class Empresa {
 	@JoinColumn(name = "usuarioadmin_id")
 	private Usuario usuarioAdmin;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "empresa_id"),
-		inverseJoinColumns = @JoinColumn(name = "ciudad_id") 
-	)
-	private List<Ciudad> ciudades;
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ciudad_id")
+    private Ciudad ciudad;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "empresas_servicios", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "servicio_id"))

@@ -41,13 +41,14 @@
               </li>
             </ul>
             <form class="d-flex" role="search" method="POST" action="">
-              <select name="" id="select1">
+              <select name="selectReg" id="selectReg">
+                <option value="0">-- Region --</option>
                 <c:forEach items="${regiones}" var="region" >
                   <option value="${region.id}">${region.nombre}</option>
-              </c:forEach>
+                </c:forEach>
               </select>
-              
-              <select name="" id="select2">
+              <select name="selectCiud" id="selectCiud">
+                <option value="0">-- Ciudad --</option>
               </select>
             </form>
             <form class="d-flex" role="search" method="POST" action="/search">
@@ -88,9 +89,9 @@
         <form:input cssClass="form-control" path="rut"/>
     </p>
     <p class="form-outline">
-        <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
-        <form:errors  path="ciudades"/>
-        <form:select class="form-select" path="ciudades"> 
+        <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
+        <form:errors  path="ciudad"/>
+        <form:select class="form-select" path="ciudad" multiple="none"> 
             <c:forEach items="${ciudades}" var="ciudad" >
                 <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
             </c:forEach>
@@ -222,49 +223,10 @@
   </footer>
   <!-- Footer -->
   
-
-    <script>
-        const select1 = document.getElementById('select1');
-        const select2 = document.getElementById('select2');
-
-        select1.addEventListener('change', function() {
-        // Obtén el valor seleccionado en el primer select
-        const selectedOption = this.value;
-
-        // Limpia las opciones del segundo select
-        select2.innerHTML = '';
-
-        if (selectedOption === 'opcion1') {
-        // Si la opción seleccionada es "opcion1", agrega dos opciones al segundo select
-        const option1 = document.createElement('option');
-        option1.value = 'subopcion1';
-        option1.textContent = 'Subopción 1';
-        select2.appendChild(option1);
-
-        const option2 = document.createElement('option');
-        option2.value = 'subopcion2';
-        option2.textContent = 'Subopción 2';
-        select2.appendChild(option2);
-        } else if (selectedOption === 'opcion2') {
-        // Si la opción seleccionada es "opcion2", agrega tres opciones al segundo select
-        const option1 = document.createElement('option');
-        option1.value = 'subopcion3';
-        option1.textContent = 'Subopción 3';
-        select2.appendChild(option1);
-
-        const option2 = document.createElement('option');
-        option2.value = 'subopcion4';
-        option2.textContent = 'Subopción 4';
-        select2.appendChild(option2);
-
-        const option3 = document.createElement('option');
-        option3.value = 'subopcion5';
-        option3.textContent = 'Subopción 5';
-        select2.appendChild(option3);
-        }
-    });
-    </script>
-
-    
+  <script>
+    //Mapeo de variable para archivo servicio.js
+    var regionesConAscii = '<c:out value="${regionesJson}"/>'
+  </script>
+  <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 </html>

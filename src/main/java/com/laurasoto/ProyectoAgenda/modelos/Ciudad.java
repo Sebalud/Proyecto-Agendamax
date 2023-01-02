@@ -10,14 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,16 +41,21 @@ public class Ciudad {
 	private String nombre;
 
 	@Column(updatable = false)
+	@JsonIgnore
 	private Date createdAt;
+	@JsonIgnore
 	private Date updatedAt;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "empresas_ciudades", joinColumns = @JoinColumn(name = "ciudad_id"), inverseJoinColumns = @JoinColumn(name = "empresa_id"))
+	@OneToMany(mappedBy="ciudad", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Empresa> empresas;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "region_id")
+	@JsonIgnore
 	private Region region;
+
+	
 
 	@PrePersist
 	protected void onCreate() {

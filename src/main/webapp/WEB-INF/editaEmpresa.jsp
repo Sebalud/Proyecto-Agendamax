@@ -41,10 +41,20 @@
                 <a class="nav-link disabled">Disabled</a>
               </li>
             </ul>
+            <!-- Buscadores de Servicios-->
             <form class="d-flex" role="search" method="POST" action="/search">
+              <select name="selectReg" id="selectReg">
+                  <option value="0">-- Region --</option>
+                  <c:forEach items="${regiones}" var="region">
+                      <option value="${region.id}">${region.nombre}</option>
+                  </c:forEach>
+              </select>
+              <select name="selectCiud" id="selectCiud">
+                  <option value="0">-- Ciudad --</option>
+              </select>
               <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+          </form>
 
             
           </div>
@@ -65,24 +75,15 @@
         <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
     </p>
     <p class="form-outline">
-        <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
-        <form:errors path="ciudades"/>
-        <form:select class="form-select" path="ciudades"> 
-            <c:forEach items="${ciudades}" var="ciudad" >
-                <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
-            </c:forEach>
-        </form:select>
-    </p>
-    <p class="form-outline">
-        <form:label cssClass="form-label" path="servicios">Servicios</form:label>
-        <form:errors path="servicios"/>
-        <form:select class="form-select" path="servicios"> 
-            <c:forEach items="${servicios}" var="servicio" >
-                <form:option value="${servicio.id}">${servicio.servicioOfrecido}</form:option>
-            </c:forEach>
-        </form:select>
-    </p>
-    <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
+      <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
+      <form:errors path="ciudades"/>
+      <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudades"> 
+          <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
+              <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
+          </c:forEach>
+      </form:select>
+  </p>
+  <input class="btn btn-outline-secondary" type="submit" value="Aceptar cambios"/>
 </form:form>
 
 <a href="/delete/${empresaAEditar.id}">Eliminar Empresa</a>
@@ -208,5 +209,10 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+  <script>
+    //Mapeo de variable para archivo servicio.js
+    var regionesConAscii = '<c:out value="${regionesJson}"/>'
+  </script>
+  <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 </html>

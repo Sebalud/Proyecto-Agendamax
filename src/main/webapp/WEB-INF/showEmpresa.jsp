@@ -24,9 +24,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
-                        <li class="nav-item">
-                            
-                        </li>
+                        <c:choose>
+                            <c:when test="${!empresa.empresafree}">
+                                <li class="nav-item text-danger">Cuenta premium!</li>
+                            </c:when>
+                        </c:choose>
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
@@ -39,22 +42,21 @@
                             </ul>
                         </li>
                     </ul>
-                    <!-- Buscadores de region y ciudad-->
-                    <form class="d-flex" role="search" method="POST" action="">
-                        <select name="" id="select1">
-                            <c:forEach items="${regiones}" var="region" >
-                            <option value="${region.id}">${region.nombre}</option>
-                        </c:forEach>
-                        </select>
-                    
-                        <select name="" id="select2">
-                        </select>
-                    </form>
-                    <!-- Buscador de servicio-->
+                    <!-- Buscadores de Servicios-->
                     <form class="d-flex" role="search" method="POST" action="/search">
+                        <select name="selectReg" id="selectReg">
+                            <option value="0">-- Region --</option>
+                            <c:forEach items="${regiones}" var="region">
+                                <option value="${region.id}">${region.nombre}</option>
+                            </c:forEach>
+                        </select>
+                        <select name="selectCiud" id="selectCiud">
+                            <option value="0">-- Ciudad --</option>
+                        </select>
                         <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <c:out value="${usuario.nombre}"/>
@@ -86,7 +88,7 @@
                         <select class="form-select" id="servicioElegido" name="servicio">
                             <option disabled value="">ingresa la opcion que tu prefieras</option>      
                             <c:forEach items="${serviciosNotEmpresa}" var="servicio">
-                                <option value="${servicio.id}">${servicio.servicioOfrecido}</option>
+                                <option value="${servicio.id}">${servicio.servicioOfrecido} duracion: ${servicio.duracionServicio} min</option>
                             </c:forEach>
                             <option value="opcionEspecial"><button id="miBoton">Haz clic aquí para mostrar el input</button></option>
                         </select>
@@ -129,6 +131,7 @@
         <thead>
             <tr>
                 <th scope="">Servicio</th>
+                <th>Duracion de Servicio</th>
                 <th>Accion </th>
             </tr>
         </thead>
@@ -137,6 +140,7 @@
             <tr>
                 
                     <td colspan=""><c:out value="${servicio.servicioOfrecido}"/></td>
+                    <td><c:out value="${servicio.duracionServicio}"/> min</td>
                     <td><!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                 Eliminar Servicio
@@ -146,17 +150,17 @@
                             <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ¿Seguro que deseas eliminar el servicio de tu empresa?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <a class="btn btn-primary" href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
-                                </div>
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ¿Seguro que deseas eliminar el servicio de tu empresa?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <a class="btn btn-primary" href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
+                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -175,41 +179,64 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <c:forEach items="${empresa.ciudades}" var="ciudad" >
+            <c:forEach items="${empresa.ciudades}" var="ciudad" >
+                <tr>
                     <td colspan=""><c:out value="${ciudad.nombre}"/></td>
-                    <td><a href="${empresa.id}/${ciudad.id}">Eliminar</a></td>
-                </c:forEach>
-                
-            </tr>
+                    
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                            Eliminar Ciudad
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Seguro que deseas eliminar el servicio de tu empresa?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <a class="btn btn-primary" href="/delete/${empresa.id}/${ciudad.id}">Eliminar</a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            </c:forEach>
         </tbody>
     </table>
 
     
         <!-- Eliminar Empresa -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
             Eliminar Empresa
         </button>
         
         <!-- Modal -->
-        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade " id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 ¿Estas seguro/a de que quieres eliminar tu empresa?
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="/delete/${empresa.id}">Aceptar</a>
+                <a class="btn btn-primary" href="/delete/${empresa.id}/${ciudad.id}">Aceptar</a>
                 </div>
             </div>
             </div>
         </div>
-
+        <a href="/plan/${empresa.id}/edit">Edita tu empresa</a>
 
         <h1>Edita tu Empresa</h1>
         <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
@@ -365,34 +392,39 @@
 
   <script>
 
-    const select = document.querySelector('#servicioElegido');
-const container = document.querySelector('#form');
+        const select = document.querySelector('#servicioElegido');
+    const container = document.querySelector('#form');
 
-// Establecer el manejador de eventos para el evento change del select
-select.addEventListener('change', () => {
-  // Verificar si la opción seleccionada es la que deseas
-    if (select.value === 'opcionEspecial') {
-    // Crear el nuevo elemento input
-    const input = document.createElement('input');
+    // Establecer el manejador de eventos para el evento change del select
+    select.addEventListener('change', () => {
+    // Verificar si la opción seleccionada es la que deseas
+        if (select.value === 'opcionEspecial') {
+        // Crear el nuevo elemento input
+        const input = document.createElement('input');
 
-    // Establecer cualquier atributo o propiedad que desees para el nuevo elemento
-    input.type = 'text';
-    input.placeholder = 'Escribe algo aquí';
-    input.name = 'nuevoServicio';
+        // Establecer cualquier atributo o propiedad que desees para el nuevo elemento
+        input.type = 'text';
+        input.placeholder = 'Escribe algo aquí';
+        input.name = 'nuevoServicio';
 
-    // Agregar el nuevo elemento al contenedor
-    container.appendChild(input);
-  } 
+        // Agregar el nuevo elemento al contenedor
+        container.appendChild(input);
+    } 
 
-/*   if (select.value === 'opcionEspecial') {
-    // Mostrar el elemento input
-    input.style.display = 'block';
-  } else {
-    // Ocultar el elemento input
-    input.style.display = 'none';
-  } */
-});
-  </script>
+    /*   if (select.value === 'opcionEspecial') {
+        // Mostrar el elemento input
+        input.style.display = 'block';
+    } else {
+        // Ocultar el elemento input
+        input.style.display = 'none';
+    } */
+    });
+    </script>
+    <script>
+    //Mapeo de variable para archivo servicio.js
+        var regionesConAscii = '<c:out value="${regionesJson}"/>'
+    </script>
+    <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 
 </html>
