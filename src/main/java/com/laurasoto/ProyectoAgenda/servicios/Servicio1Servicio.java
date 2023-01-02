@@ -18,7 +18,7 @@ public class Servicio1Servicio extends BaseServicio<Servicio>{
 	}
 	
 	public Servicio obtieneServicioPorServicioOfrecido(String servicio){
-		return servicioRepositorio.findByServicioOfrecido(servicio);
+		return servicioRepositorio.findByServicioOfrecidoContaining(servicio);
 	}
 	
 	public List<Servicio> serviciosNoContieneEmpresa(Empresa empresa){

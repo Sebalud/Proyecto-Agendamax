@@ -8,7 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Empresa FREE</title>
 </head>
 <body>
@@ -21,10 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -42,19 +41,36 @@
               </li>
             </ul>
             <form class="d-flex" role="search" method="POST" action="">
-              <select name="" id="select1">
+              <select name="selectReg" id="selectReg">
+                <option value="0">-- Region --</option>
                 <c:forEach items="${regiones}" var="region" >
                   <option value="${region.id}">${region.nombre}</option>
-              </c:forEach>
+                </c:forEach>
               </select>
-              
-              <select name="" id="select2">
+              <select name="selectCiud" id="selectCiud">
+                <option value="0">-- Ciudad --</option>
               </select>
             </form>
             <form class="d-flex" role="search" method="POST" action="/search">
               <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <c:out value="${usuario.nombre}"/>
+              </a>
+              <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              <c:if test="${usuario.getEmpresa() != null}">
+                <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
+              </c:if>
+              
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+              </ul>
+          </li>
+    
           </div>
         </div>
       </nav>
@@ -73,9 +89,9 @@
         <form:input cssClass="form-control" path="rut"/>
     </p>
     <p class="form-outline">
-        <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
-        <form:errors path="ciudades"/>
-        <form:select class="form-select" path="ciudades"> 
+        <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
+        <form:errors  path="ciudad"/>
+        <form:select class="form-select" path="ciudad" multiple="none"> 
             <c:forEach items="${ciudades}" var="ciudad" >
                 <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
             </c:forEach>
@@ -207,47 +223,10 @@
   </footer>
   <!-- Footer -->
   
-
-    <script>
-        const select1 = document.getElementById('select1');
-        const select2 = document.getElementById('select2');
-
-        select1.addEventListener('change', function() {
-        // Obtén el valor seleccionado en el primer select
-        const selectedOption = this.value;
-
-        // Limpia las opciones del segundo select
-        select2.innerHTML = '';
-
-        if (selectedOption === 'opcion1') {
-        // Si la opción seleccionada es "opcion1", agrega dos opciones al segundo select
-        const option1 = document.createElement('option');
-        option1.value = 'subopcion1';
-        option1.textContent = 'Subopción 1';
-        select2.appendChild(option1);
-
-        const option2 = document.createElement('option');
-        option2.value = 'subopcion2';
-        option2.textContent = 'Subopción 2';
-        select2.appendChild(option2);
-        } else if (selectedOption === 'opcion2') {
-        // Si la opción seleccionada es "opcion2", agrega tres opciones al segundo select
-        const option1 = document.createElement('option');
-        option1.value = 'subopcion3';
-        option1.textContent = 'Subopción 3';
-        select2.appendChild(option1);
-
-        const option2 = document.createElement('option');
-        option2.value = 'subopcion4';
-        option2.textContent = 'Subopción 4';
-        select2.appendChild(option2);
-
-        const option3 = document.createElement('option');
-        option3.value = 'subopcion5';
-        option3.textContent = 'Subopción 5';
-        select2.appendChild(option3);
-        }
-    });
-    </script>
+  <script>
+    //Mapeo de variable para archivo servicio.js
+    var regionesConAscii = '<c:out value="${regionesJson}"/>'
+  </script>
+  <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 </html>

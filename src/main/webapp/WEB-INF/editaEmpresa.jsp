@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Empresa FREE</title>
+    <title>Edita</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -41,48 +41,52 @@
                 <a class="nav-link disabled">Disabled</a>
               </li>
             </ul>
+            <!-- Buscadores de Servicios-->
             <form class="d-flex" role="search" method="POST" action="/search">
+              <select name="selectReg" id="selectReg">
+                  <option value="0">-- Region --</option>
+                  <c:forEach items="${regiones}" var="region">
+                      <option value="${region.id}">${region.nombre}</option>
+                  </c:forEach>
+              </select>
+              <select name="selectCiud" id="selectCiud">
+                  <option value="0">-- Ciudad --</option>
+              </select>
               <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+          </form>
+
+            
           </div>
         </div>
       </nav>
 
-    <h1>Crea una Empresa</h1>
+    <h1>Edita la Empresa</h1>
     <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
     
     <p class="form-outline">
-        <form:label cssClass="form-label" path="nombre">Nombre Empresa</form:label>
+        <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
         <form:errors cssClass="text-danger" path="nombre"/>
-        <form:input cssClass="form-control" path="nombre"/>
+        <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
     </p>
     <p>
         <form:label path="rut">Rut Empresa</form:label>
         <form:errors cssClass="text-danger" path="rut"/>
-        <form:input cssClass="form-control" path="rut"/>
+        <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
     </p>
     <p class="form-outline">
-        <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
-        <form:errors path="ciudades"/>
-        <form:select class="form-select" path="ciudades"> 
-            <c:forEach items="${ciudades}" var="ciudad" >
-                <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
-            </c:forEach>
-        </form:select>
-    </p>
-    <p class="form-outline">
-        <form:label cssClass="form-label" path="servicios">Servicios</form:label>
-        <form:errors path="servicios"/>
-        <form:select class="form-select" path="servicios"> 
-            <c:forEach items="${servicios}" var="servicio" >
-                <form:option value="${servicio.id}">${servicio.servicioOfrecido}</form:option>
-            </c:forEach>
-        </form:select>
-    </p>
-    <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
+      <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
+      <form:errors path="ciudades"/>
+      <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudades"> 
+          <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
+              <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
+          </c:forEach>
+      </form:select>
+  </p>
+  <input class="btn btn-outline-secondary" type="submit" value="Aceptar cambios"/>
 </form:form>
 
+<a href="/delete/${empresaAEditar.id}">Eliminar Empresa</a>
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
@@ -205,5 +209,10 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+  <script>
+    //Mapeo de variable para archivo servicio.js
+    var regionesConAscii = '<c:out value="${regionesJson}"/>'
+  </script>
+  <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 </html>
