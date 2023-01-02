@@ -179,36 +179,35 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${empresa.ciudades}" var="ciudad" >
-                <tr>
-                    <td colspan=""><c:out value="${ciudad.nombre}"/></td>
+            <tr>
+                <td colspan=""><c:out value="${empresa.ciudad.nombre}"/></td>
+                
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                        Eliminar Ciudad
+                    </button>
                     
-                    <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                            Eliminar Ciudad
-                        </button>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                ¿Seguro que deseas eliminar el servicio de tu empresa?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <a class="btn btn-primary" href="/delete/${empresa.id}/${ciudad.id}">Eliminar</a>
-                            </div>
-                            </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Seguro que deseas eliminar el servicio de tu empresa?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <a class="btn btn-primary" href="/delete/${empresa.id}/${ciudad.id}">Eliminar</a>
                         </div>
                         </div>
-                    </td>
-                </tr>
-            </c:forEach>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+
         </tbody>
     </table>
 
@@ -252,9 +251,9 @@
             <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
         </p>
         <p class="form-outline">
-            <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
-            <form:errors path="ciudades"/>
-            <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudades"> 
+            <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
+            <form:errors path="ciudad"/>
+            <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
                 <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
                     <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
                 </c:forEach>
@@ -390,7 +389,7 @@
     </footer>
     <!-- Footer -->
 
-  <script>
+<script>
 
         const select = document.querySelector('#servicioElegido');
     const container = document.querySelector('#form');

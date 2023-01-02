@@ -17,18 +17,23 @@ import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
 import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
+import com.laurasoto.ProyectoAgenda.validator.UserValidator;
 
 
 @Controller
 public class UsuarioControlador {
 	private final UsuarioServicio usuarioServicio;
 	private final EmpresaServicio empresaServicio;
+	private final UserValidator userValidator;
 	// private final Servicio1Servicio servicio1Servicio;
 
-	public UsuarioControlador(UsuarioServicio usuarioServicio, EmpresaServicio empresaServicio) {
+	public UsuarioControlador(UsuarioServicio usuarioServicio, EmpresaServicio empresaServicio, UserValidator userValidator) {
 		this.usuarioServicio = usuarioServicio;
 		this.empresaServicio = empresaServicio;
+		this.userValidator = userValidator;
 	}
+	// private final Servicio1Servicio servicio1Servicio;
+
 
 	@GetMapping("/registration")
 	public String muestraForm(@ModelAttribute("usuario") Usuario usuario) {
@@ -36,8 +41,8 @@ public class UsuarioControlador {
 	}
 
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String registerUser(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result,
-			HttpSession session, Model model) {
+	public String registerUser(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, HttpSession session, Model model) {
+		userValidator.validate(usuario, result);
 		if (result.hasErrors()) {
 			System.out.println(result.getFieldError().toString());
 			return "creaUsuario";

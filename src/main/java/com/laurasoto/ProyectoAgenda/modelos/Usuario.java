@@ -26,19 +26,22 @@ public class Usuario {
 	private Long id;
 	@NotNull
 	@NotBlank
-	@Size(min = 3, max = 30, message = "minimo 3 letras, maximo 50")
+	@Size(min = 3, max = 20, message = "Su nombre debe tener entre 3 y 20 caracteres")
 	private String nombre;
 	@NotNull
 	@NotBlank
-	@Size(min = 3, max = 30, message = "minimo 3 letras, maximo 50")
+	@Size(min = 3, max = 20, message = "Su apellido debe tener entre 3 y 20 caracteres")
 	private String apellido;
 	private Integer tipoUsuario;
 	@NotNull @NotBlank
+	@Size(min = 9, max = 10, message = "Ingrese un rut válido")
 	private String rut;
-	@Email(message = "Invalid email format. Ex: user@user.com")
-	@Size(min = 10, max = 200, message = "minimo 10 letras, maximo 200")
+	@Email(message = "Formato de correo electronico incorrecto, ejemplo: agendalo@user.com")
+	@Size(min = 10, max = 30, message = "Su correo debe tener entre 10 y 30 caracteres")
 	private String email;
-	@NotBlank(message = "no puede estar vacio")
+	
+	@NotBlank(message = "Por favor no deje su contraseña en blanco")
+	@Size(min = 6, message = "Por favor ingrese una contraseña segura")
 	private String password;
 	@Transient
 	private String passwordConfirmation;
