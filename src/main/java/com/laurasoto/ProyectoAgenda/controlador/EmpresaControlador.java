@@ -1,5 +1,6 @@
 package com.laurasoto.ProyectoAgenda.controlador;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -62,6 +63,8 @@ public class EmpresaControlador {
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
+		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+		model.addAttribute("usuario", usuario);
 		Servicio servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
 		if(servicioRequerido == null){
 			model.addAttribute("errorServicio", "No encontramos el servicio que estabas buscando");
@@ -167,7 +170,7 @@ public class EmpresaControlador {
 			.servicioOfrecido(nuevoServicio)
 			.empresas(Arrays.asList(empresa))
 			.duracionServicio(0l)
-			.duracionjornada(0l)
+			.duracionJornada(0l)
 			.build()
 		);
 		return "redirect:/plan/"+ idEmpresa;

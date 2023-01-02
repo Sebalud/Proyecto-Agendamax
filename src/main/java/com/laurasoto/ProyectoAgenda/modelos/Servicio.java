@@ -29,7 +29,8 @@ public class Servicio{
 	
 	private Long duracionServicio;
 	
-	private Long duracionjornada;
+	@NotNull
+	private Long duracionJornada;
 
 	@Column(updatable=false)
 	private Date createdAt;

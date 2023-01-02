@@ -37,11 +37,12 @@ public class Empresa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull @NotBlank
-	@Size(min=3, max=30, message="minimo 3 letras, maximo 50")
+	@Size(min=3, max=20, message="El nombre debe tener entre 3 y 20 caracteres")
 	@Column(unique = true)
 	private String nombre;
-	@NotNull
-	private Long rut;
+	@NotNull @NotBlank
+	@Size(min = 9, max = 10, message = "Ingrese un rut válido")
+	private String rut;
 
 	private boolean empresafree = true;
 
