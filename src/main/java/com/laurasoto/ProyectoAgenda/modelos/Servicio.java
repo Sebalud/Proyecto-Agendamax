@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Servicio{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,11 +27,10 @@ public class Servicio{
 	@NotNull @NotBlank
 	private String servicioOfrecido;
 	
-	@NotNull
 	private Long duracionServicio;
 	
 	@NotNull
-	private Long duracionjornada;
+	private Long duracionJornada;
 
 	@Column(updatable=false)
 	private Date createdAt;
@@ -51,7 +52,10 @@ public class Servicio{
 	)
 	private List<Horario> horarios;
 
-
+	/* @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ciudad_id")
+    private Ciudad ciudad; */
+	
 	@PrePersist
 	protected void onCreate(){
 		this.createdAt = new Date();

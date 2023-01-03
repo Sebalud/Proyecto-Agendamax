@@ -15,6 +15,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     <title>Crear una empresa gratis</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Empresa FREE</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg ">
@@ -26,10 +30,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,19 +50,38 @@
               </li>
             </ul>
             <form class="d-flex" role="search" method="POST" action="">
-              <select name="" id="select1">
+              <select name="selectReg" id="selectReg">
+                <option value="0">-- Region --</option>
                 <c:forEach items="${regiones}" var="region" >
                   <option value="${region.id}">${region.nombre}</option>
-              </c:forEach>
+                </c:forEach>
               </select>
 
               <select name="" id="select2">
+              <select name="selectCiud" id="selectCiud">
+                <option value="0">-- Ciudad --</option>
               </select>
             </form>
             <form class="d-flex" role="search" method="POST" action="/search">
               <input class="form-control me-2" type="search" name="servicio" placeholder="encuentralo..." aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <c:out value="${usuario.nombre}"/>
+              </a>
+              <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              <c:if test="${usuario.getEmpresa() != null}">
+                <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
+              </c:if>
+              
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+              </ul>
+          </li>
+    
           </div>
         </div>
       </nav>

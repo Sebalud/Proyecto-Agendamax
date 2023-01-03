@@ -6,7 +6,7 @@ import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Servicio;
 
 public interface ServicioRepositorio extends BaseRepositorio<Servicio>{
-	Servicio findByServicioOfrecido(String servicioOfrecido);
+	Servicio findByServicioOfrecidoContaining(String servicio);
 	List<Servicio> findByEmpresasNotContaining(Empresa empresa);
 	
 }

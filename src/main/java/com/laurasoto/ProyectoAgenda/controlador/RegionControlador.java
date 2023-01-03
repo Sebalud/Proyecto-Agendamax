@@ -13,8 +13,6 @@ public class RegionControlador {
         this.regionServicio = regionServicio;
     }
 
-
-
     @PostMapping("/busca/region/")
 	public String buscaCiudad(@RequestParam("region") String region){
 		return "redirect:/search/" + region;
