@@ -1,0 +1,141 @@
+.navbar-expand-lg  {
+    background-color: blanchedalmond;
+    height: 7rem;
+    padding: 5px; 
+    }
+
+    .container-fluid{
+        background-color:rgb(189, 179, 254);
+        padding: px;
+    }
+
+    .buscado-flex{
+        display: flex;
+        align-items: center;
+    }
+
+    .buscado-flex {
+        border: none;
+        background-color:rgb(166, 152, 255);
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .container{ 
+        display: flex;
+    } 
+
+    .form{
+        width: 100%;
+        background-color: blanchedalmond;
+        padding-left: 6rem;
+        padding-right: 20rem;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .form-image{
+        margin-left: 15rem;
+        border-radius: 20px;
+        width: 50%;
+        height: 95%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(185, 236, 118, 0.945);
+        padding: 8rem ;
+    }
+
+    .form-image img{
+        width: 20rem;
+    }
+
+    .form-header{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mod-sub-title{
+        align-items: center;
+    }
+
+    .sub-title{
+        font-family: 'Nunito', sans-serif;
+        padding: 5px;
+        border-radius: 15px;
+        background-color: rgba(185, 236, 118, 0.945);
+    }
+
+    .form-header h1{
+        font-family: 'Playfair Display', serif;
+    }
+
+    .form-header h1::after{
+        content:'' ;
+        display: block;
+        width: 5rem;
+        height: 0.3rem;
+        background-color: rgb(138, 121, 252) ;
+        margin:0 auto ;
+    }
+
+    .input-group{
+        justify-content: space-between;
+        padding: 1.2rem ;
+    } 
+
+    .input-box input{
+        margin: 0.6rem;
+        padding: .8rem 1.2rem;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px #0000001c;
+    }
+
+    .input-box-ciudad input{
+        margin: 0.6rem;
+        padding: 3.8rem 1.2rem;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px #0000001c;
+    }
+
+    .freeplan{
+        background-color:rgba(185, 236, 118, 0.945); 
+        border-color: rgba(185, 236, 118, 0.945);
+        border-radius: 10px;
+    }
+
+    .freeplan button :hover{
+        background-color:  rgba(142, 196, 73, 0.945);
+    }
+
+
+    .sub-texto{
+        padding: 4px;
+        background-color:rgb(177, 165, 253);
+        border-radius: 5px;
+    }
+
+    .link-secondary{
+        padding: 5px;
+    }
+
+    .link-secondary img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .section-part{
+width: 100%;
+        height: 20rem;
+        background-color: rgb(27, 27, 27) ;
+        font-family: 'Nunito', sans-serif;
+        padding: 10px;
+    }
+
+    .d-flex{
+        background-color:rgb(189, 179, 254);
+    }
