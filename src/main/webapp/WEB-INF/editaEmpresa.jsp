@@ -76,9 +76,9 @@
         <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
     </p>
     <p class="form-outline">
-      <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
-      <form:errors path="ciudades"/>
-      <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudades"> 
+      <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
+      <form:errors path="ciudad"/>
+      <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
           <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
               <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
           </c:forEach>
