@@ -237,30 +237,7 @@
         </div>
         <a href="/plan/${empresa.id}/edit">Edita tu empresa</a>
 
-        <h1>Edita tu Empresa</h1>
-        <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
-        
-        <p class="form-outline">
-            <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
-            <form:errors cssClass="text-danger" path="nombre"/>
-            <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
-        </p>
-        <p>
-            <form:label path="rut">Rut Empresa</form:label>
-            <form:errors cssClass="text-danger" path="rut"/>
-            <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
-        </p>
-        <p class="form-outline">
-            <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
-            <form:errors path="ciudad"/>
-            <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
-                <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
-                    <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
-                </c:forEach>
-            </form:select>
-        </p>
-        <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
-    </form:form>
+
 
             
     <h2>falta mostrar aqui la visualizacion y organizacion de las horas por parte de la empresa</h2>
