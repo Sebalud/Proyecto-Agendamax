@@ -57,14 +57,13 @@
                 </c:forEach>
               </select>
 
-              <select name="" id="select2">
               <select name="selectCiud" id="selectCiud">
                 <option value="0">-- Ciudad --</option>
               </select>
             </form>
             <form class="d-flex" role="search" method="POST" action="/search">
               <input class="form-control me-2" type="search" name="servicio" placeholder="encuentralo..." aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
+              <button class="buscado-flex" type="submit">Buscar</button>
             </form>
 
             <li class="nav-item dropdown">
@@ -81,16 +80,16 @@
               <li><a class="dropdown-item" href="#">Editar perfil</a></li>
               </ul>
           </li>
-    
           </div>
         </div>
       </nav>
-      <div class="container">
+
+<div class="row container">
       <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
         <div class="form-image">
           <img src="/imagenes/undraw_informed_decision_p2lh.svg" alt="formulario">
         </div>
-      <div class="form">
+      <div class="row form">
         <div class="form-header ">
           <div class="title">
             <h1>Agendalomax</h1>
@@ -107,29 +106,29 @@
     <p class="input-box">
         <form:label cssClass="form-label" path="nombre">Nombre Empresa</form:label>
         <form:errors cssClass="text-danger" path="nombre"/>
-        <form:input cssClass="form-control" path="nombre"/>
+        <form:input cssClass="form-control" path="nombre" placeholder="Nombre de su empresa"/>
     </p>
 
     <p class="input-box">
         <form:label path="rut">Rut Empresa</form:label>
         <form:errors cssClass="text-danger" path="rut"/>
-        <form:input cssClass="form-control" path="rut"/>
+        <form:input cssClass="form-control" path="rut" placeholder="Introduzca el rut de empresa"/>
     </p>
 
-    <p class="input-box" style="width: 70px;">
-        <form:label cssClass="form-label" path="ciudades">Ciudades</form:label>
-        <form:errors path="ciudades"/>
-        <form:select class="form-select" path="ciudades"> 
+    <p class="input-box-ciudad" style="width: 16rem;">
+        <form:label cssClass="form-label" path="ciudad">Ciudades</form:label>
+        <form:errors path="ciudad"/>
+        <form:select class="form-select" path="ciudad" placeholder="Selecciona"> 
             <c:forEach items="${ciudades}" var="ciudad" >
                 <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
             </c:forEach>
         </form:select>
     </p>
 
-    <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
+    <input class="freeplan" type="submit" value="FreePlan"/>
     </form:form>
   </div>
-  </div>
+</div>
 
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
@@ -173,10 +172,10 @@
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <div class="col-md-3 col-lg-4 text-secondary-emphasis col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+            <i class="fas fa-gem me-3"></i>Agendalomax
           </h6>
           <p>
             Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -185,7 +184,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-md-2 col-lg-2 text-secondary-emphasis col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Información
@@ -206,7 +205,7 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-md-3 col-lg-2 text-secondary-emphasis col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Links útiles
@@ -227,16 +226,16 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <div class="col-md-4 col-lg-3 text-secondary-emphasis  col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-          <p><i class="fas fa-home me-3 text-secondary"></i> Santiago, ST 10012, CL</p>
+          <p><i class="fas fa-home me-3"></i> Santiago, ST 10012, CL</p>
           <p>
-            <i class="fas fa-envelope me-3 text-secondary"></i>
+            <i class="fas fa-envelope me-3"></i>
             agendalomax@example.com
           </p>
-          <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 89</p>
-          <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 80</p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 89</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 80</p>
         </div>
         <!-- Grid column -->
       </div>

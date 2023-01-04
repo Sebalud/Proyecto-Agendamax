@@ -113,7 +113,7 @@
             <form:input type="password" cssClass="form-control" path="passwordConfirmation"
               placeholder="Confirme su contraseña" />
           </p>
-        </div>
+        </div> 
 
         <div class="input-regist">
           <input type=hidden value=0 name=number>
@@ -250,6 +250,11 @@
     var regionesConAscii = '<c:out value="${regionesJson}"/>'
   </script>
   <script type="text/javascript" src="/js/servicio.js"></script>
+  <script>
+    //Mapeo de variable para archivo servicio.js
+        var regionesConAscii = '<c:out value="${regionesJson}"/>'
+    </script>
+    <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 
 </html>

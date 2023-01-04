@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
     <title>Empresa FREE</title>
 </head>
 <body class="container">
@@ -112,7 +113,7 @@
                             <div class="modal-body">
                                 muuuuuuuuucho texto del plan premium,
                                 que consiste
-                                cuanto cuesta y demas
+                                cuánto cuesta y demás
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -210,7 +211,6 @@
 
         </tbody>
     </table>
-
     
         <!-- Eliminar Empresa -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
@@ -386,7 +386,42 @@
       </div>
       <!-- Copyright -->
     </footer>
-    <!-- Footer --
+    <script>
+
+        const select = document.querySelector('#servicioElegido');
+    const container = document.querySelector('#form');
+
+    // Establecer el manejador de eventos para el evento change del select
+    select.addEventListener('change', () => {
+    // Verificar si la opción seleccionada es la que deseas
+        if (select.value === 'opcionEspecial') {
+        // Crear el nuevo elemento input
+        const input = document.createElement('input');
+
+        // Establecer cualquier atributo o propiedad que desees para el nuevo elemento
+        input.type = 'text';
+        input.placeholder = 'Escribe algo aquí';
+        input.name = 'nuevoServicio';
+
+        // Agregar el nuevo elemento al contenedor
+        container.appendChild(input);
+    } 
+
+    /*   if (select.value === 'opcionEspecial') {
+        // Mostrar el elemento input
+        input.style.display = 'block';
+    } else {
+        // Ocultar el elemento input
+        input.style.display = 'none';
+    } */
+    });
+    </script>
+    <script>
+        //Mapeo de variable para archivo servicio.js
+            var regionesConAscii = '<c:out value="${regionesJson}"/>'
+        </script>
+        <script type="text/javascript" src="/js/servicio.js"></script>
+    <!-- Footer -->
 </body>
 
 </html>
