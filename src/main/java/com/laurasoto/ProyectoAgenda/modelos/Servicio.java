@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -26,11 +27,16 @@ public class Servicio{
 	
 	@NotNull @NotBlank
 	private String servicioOfrecido;
-	
-	private Long duracionServicio;
+	@Min(30)
+	@Builder.Default
+	private int duracionServicio=0;
+	@Builder.Default
+	private int horaInicio=0;
+	@Builder.Default
+	private int horaTermino=0;
 	
 	@NotNull
-	private Long duracionJornada;
+	private int duracionJornada=0;
 
 	@Column(updatable=false)
 	private Date createdAt;
@@ -43,13 +49,9 @@ public class Servicio{
 		inverseJoinColumns = @JoinColumn(name = "empresa_id")
 	)
 	private List<Empresa> empresas;
+	
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(
-		name = "servicios_horarios",
-		joinColumns = @JoinColumn(name = "servicio_id"),
-		inverseJoinColumns = @JoinColumn(name = "horario_id")
-	)
+	@OneToMany(mappedBy = "servicio", fetch = FetchType.LAZY)
 	private List<Horario> horarios;
 
 	/* @ManyToOne(fetch = FetchType.LAZY)
@@ -63,6 +65,10 @@ public class Servicio{
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
+	}
+
+	public void setHorarios(Horario horario){
+		horarios.add(horario);
 	}
 	
 }

@@ -1,6 +1,5 @@
 package com.laurasoto.ProyectoAgenda.controlador;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -100,12 +99,20 @@ public class EmpresaControlador {
 		model.addAttribute("usuario", usuario);
 		model.addAttribute("regionesJson", resultadoJson);
 		return"creaEmpresa";
-		
 	}
 	//validacion en crear empresa, si elige premium puede tener mas de un servicio
 	@PostMapping("/planes/new")
 	public String formPlanFree(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult result, HttpSession session, Model model){
 		if(result.hasErrors()){
+			List<Region> regiones = regionServicio.regionesTodas();
+			String resultadoJson = new Funciones().regionesToJson(regiones);
+			Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+			List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
+		
+			model.addAttribute("regiones", regiones);
+			model.addAttribute("ciudades", ciudades);
+			model.addAttribute("usuario", usuario);
+			model.addAttribute("regionesJson", resultadoJson);
 			return"creaEmpresa";
 		}
 		if(empresaServicio.getEmpresaPorNombre(empresa.getNombre()) != null){
@@ -169,8 +176,7 @@ public class EmpresaControlador {
 			Servicio.builder()
 			.servicioOfrecido(nuevoServicio)
 			.empresas(Arrays.asList(empresa))
-			.duracionServicio(0l)
-			.duracionJornada(0l)
+			.duracionJornada(0)
 			.build()
 		);
 		return "redirect:/plan/"+ idEmpresa;
@@ -195,7 +201,7 @@ public class EmpresaControlador {
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
-
+		
 		List<Region> regiones = regionServicio.regionesTodas();
 		String resultadoJson = new Funciones().regionesToJson(regiones);
 		Empresa empresaAEditar = empresaServicio.findById(idEmpresa);

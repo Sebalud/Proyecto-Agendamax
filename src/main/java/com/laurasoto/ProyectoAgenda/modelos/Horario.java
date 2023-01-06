@@ -21,17 +21,15 @@ public class Horario{
     @NotNull
     private Long horaDisponible;
 
+    private boolean estaDisponible = true;
+    
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "servicios_horarios",
-        joinColumns = @JoinColumn(name = "horario_id"),
-        inverseJoinColumns = @JoinColumn(name = "servicio_id")
-    )
-    private List<Servicio> servicios;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "servicio_id")
+    private Servicio servicio;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -49,4 +47,5 @@ public class Horario{
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
+
 }

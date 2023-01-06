@@ -25,7 +25,7 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
                     <c:choose>
                         <c:when test="${!usuario.empresa.empresafree}">
-                            <li class="nav-item text-danger">Cuenta premium!</li>
+                            <li class="nav-item text-danger mt-2">Cuenta premium!</li>
                         </c:when>
                     </c:choose>
                     
@@ -78,7 +78,10 @@
     <h1>Empresas Filtradas</h1>
     <c:forEach items="${empresasFiltradas}" var="empresa">
         <ul>
-            <li>${empresa.nombre} Dueño de la empresa:${empresa.usuarioAdmin.nombre}</li>
+            <li>Empresa ${empresa.nombre}</li>
+            <li> Dueño de la empresa:${empresa.usuarioAdmin.nombre}</li>
+
+            
         </ul>
     </c:forEach>
     <c:out value="${errorServicio}"/>

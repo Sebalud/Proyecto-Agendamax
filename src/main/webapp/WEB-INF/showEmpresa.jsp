@@ -26,7 +26,7 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
                         <c:choose>
                             <c:when test="${!empresa.empresafree}">
-                                <li class="nav-item text-danger">Cuenta premium!</li>
+                                <li class="nav-item text-danger mt-2">Cuenta premium!</li>
                             </c:when>
                         </c:choose>
                         
@@ -132,7 +132,9 @@
             <tr>
                 <th scope="">Servicio</th>
                 <th>Duracion de Servicio</th>
-                <th>Accion </th>
+                <th>Ciudad</th>
+                <th>Accion</th>
+                <th>Hacer Horario</th>
             </tr>
         </thead>
         <tbody>
@@ -141,6 +143,7 @@
                 
                     <td colspan=""><c:out value="${servicio.servicioOfrecido}"/></td>
                     <td><c:out value="${servicio.duracionServicio}"/> min</td>
+                    <td colspan=""><c:out value="${empresa.ciudad.nombre}"/></td>
                     <td><!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                 Eliminar Servicio
@@ -165,49 +168,12 @@
                             </div>
                             </div>
                     </td>
+                    <td>
+                        <a href="/empresa/horario/${empresa.id}/${servicio.id}">Crear horas disponibles</a>
+                    </td>
                 
             </tr>
         </c:forEach>
-        </tbody>
-    </table>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="">Ciudad</th> 
-                <th>Accion </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan=""><c:out value="${empresa.ciudad.nombre}"/></td>
-                
-                <td>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                        Eliminar Ciudad
-                    </button>
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            ¿Seguro que deseas eliminar el servicio de tu empresa?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-primary" href="/delete/${empresa.id}/${ciudad.id}">Eliminar</a>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </td>
-            </tr>
-
         </tbody>
     </table>
 
@@ -235,33 +201,29 @@
             </div>
             </div>
         </div>
-        <a href="/plan/${empresa.id}/edit">Edita tu empresa</a>
 
-        <h1>Edita tu Empresa</h1>
-        <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+            Editar Empresa
+        </button>
         
-        <p class="form-outline">
-            <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
-            <form:errors cssClass="text-danger" path="nombre"/>
-            <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
-        </p>
-        <p>
-            <form:label path="rut">Rut Empresa</form:label>
-            <form:errors cssClass="text-danger" path="rut"/>
-            <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
-        </p>
-        <p class="form-outline">
-            <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
-            <form:errors path="ciudad"/>
-            <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
-                <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
-                    <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
-                </c:forEach>
-            </form:select>
-        </p>
-        <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
-    </form:form>
-
+        <!-- Modal -->
+        <div class="modal fade " id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                ¿Estas seguro/a de que quieres editar tu empresa?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a class="btn btn-primary" href="/plan/${empresa.id}/edit">Aceptar</a>
+                </div>
+            </div>
+            </div>
+        </div>
             
     <h2>falta mostrar aqui la visualizacion y organizacion de las horas por parte de la empresa</h2>
     <h2>todas las tablas deben tener crud, falta borrar o desconectar servicio de la empresa si el usuario admin quiere</h2>
