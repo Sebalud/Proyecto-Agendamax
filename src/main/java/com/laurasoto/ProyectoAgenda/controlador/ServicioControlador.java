@@ -82,6 +82,7 @@ public class ServicioControlador {
             }
             listaAlModel.add(listaIntermedia);
         }
+        servicio1Servicio.crear(servicio);
         
         model.addAttribute("usuario", usuario);
         model.addAttribute("empresa", empresa);

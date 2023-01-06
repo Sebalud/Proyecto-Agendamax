@@ -48,9 +48,6 @@ public class Servicio1Servicio extends BaseServicio<Servicio>{
 		servicio.setDuracionJornada(duracionJornada);
 
 		int cantidadHorasDisponiblesDia = (duracionJornada * 60)/ cuantoDuraHora;
-		//Calendar.getInstance().DAY_OF_WEEK;
-		//12 mostrar botones 
-		//la persona no puede tomar hora antigua qe ya paso
 
 
 		String dt = "2023-01-03";  // toma fecha en formato fecha
@@ -102,22 +99,7 @@ public class Servicio1Servicio extends BaseServicio<Servicio>{
 			}
 			listaDefinitiva.add(posiblesHorariosoooo);
 		}
-			//tengo mi fecha con la hora de inicio por los 7 dias siguient
-			
-			/* System.out.println(mapaCalendario.toString());
-			System.out.println(posiblesHorarios333); */
-		/* 	for (Date horario : posiblesHorarios333) {
-				Long horarioLong = horario.getTime();
-				Horario horarioDefinitivo = new Horario();
-				horarioDefinitivo.setHoraDisponible(horarioLong);
-				horarioDefinitivo.setHoraDate(horario);
-				horarioDefinitivo.setServicio(servicio);
-				horarioRepositorio.save(horarioDefinitivo);
-			} */
 			return listaDefinitiva;
 	}
 	
-
-	//hacer un bucle donde se creen variables de cada dia diferente
-	//meterlos todas en un arraylist, del 0 hasta la ultima hora
 }
