@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
     <title>Empresa FREE</title>
 </head>
 <body class="container">
@@ -112,7 +113,7 @@
                             <div class="modal-body">
                                 muuuuuuuuucho texto del plan premium,
                                 que consiste
-                                cuanto cuesta y demas
+                                cuánto cuesta y demás
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -177,6 +178,46 @@
         </tbody>
     </table>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="">Ciudad</th> 
+                <th>Accion </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan=""><c:out value="${empresa.ciudad.nombre}"/></td>
+                
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                        Eliminar Ciudad
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Seguro que deseas eliminar el servicio de tu empresa?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <a class="btn btn-primary" href="/delete/${empresa.id}/${ciudad.id}">Eliminar</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
     
         <!-- Eliminar Empresa -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
@@ -202,156 +243,156 @@
             </div>
         </div>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
-            Editar Empresa
-        </button>
+        <h1>Edita tu Empresa</h1>
+        <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
         
-        <!-- Modal -->
-        <div class="modal fade " id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                ¿Estas seguro/a de que quieres editar tu empresa?
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="/plan/${empresa.id}/edit">Aceptar</a>
-                </div>
-            </div>
-            </div>
-        </div>
+        <p class="form-outline">
+            <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
+            <form:errors cssClass="text-danger" path="nombre"/>
+            <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
+        </p>
+        <p>
+            <form:label path="rut">Rut Empresa</form:label>
+            <form:errors cssClass="text-danger" path="rut"/>
+            <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
+        </p>
+        <p class="form-outline">
+            <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
+            <form:errors path="ciudad"/>
+            <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
+                <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
+                    <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
+                </c:forEach>
+            </form:select>
+        </p>
+        <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
+    </form:form>
+
             
     <h2>falta mostrar aqui la visualizacion y organizacion de las horas por parte de la empresa</h2>
     <h2>todas las tablas deben tener crud, falta borrar o desconectar servicio de la empresa si el usuario admin quiere</h2>
 
-<!-- Footer -->
     <footer class="text-center text-lg-start bg-white text-muted">
-        <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Section: Social media -->
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
+  
+        <div class="sub-texto">
+          <span>Conectate con nosotros en redes sociales</span>
         </div>
         <!-- Left -->
-    
+  
         <!-- Right -->
-        <div>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-github"></i>
-            </a>
+        <div class="">
+          <a href="" class="link-secondary">
+            <i class="fab fa-facebook-f"><img src="/imagenes/facebook.png" alt="facebook"></i>
+          </a>
+          <a href="" class="link-secondary">
+            <i class="fab fa-twitter"><img src="/imagenes/twitter.png" alt="twitter"></i>
+          </a>
+          <a href="" class="link-secondary">
+            <i class="fab fa-google"><img src="/imagenes/google-plus.png" alt="google"></i>
+          </a>
+          <a href="" class="link-secondary">
+            <i class="fab fa-instagram"><img src="/imagenes/instagram.png" alt="instagram"></i>
+          </a>
+          <a href="" class="link-secondary">
+            <i class="fab fa-linkedin"><img src="/imagenes/linkedin.png" alt="linkedin"></i>
+          </a>
+          <a href="" class="link-secondary">
+            <i class="fab fa-github"><img src="/imagenes/github.png" alt="github"></i>
+          </a>
         </div>
         <!-- Right -->
-        </section>
-        <!-- Section: Social media -->
-    
-        <!-- Section: Links  -->
-        <section class="">
+      </section>
+      <!-- Section: Social media -->
+  
+      <!-- Section: Links  -->
+      <section class="section-part">
         <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
+          <!-- Grid row -->
+          <div class="row mt-3">
             <!-- Grid column -->
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                <i class="fas fa-gem me-3 text-secondary"></i>Company name
-                </h6>
-                <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit.
-                </p>
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+              </h6>
+              <p>
+                Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
+              </p>
             </div>
             <!-- Grid column -->
-    
+  
             <!-- Grid column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                Products
-                </h6>
-                <p>
-                <a href="#!" class="text-reset">Angular</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">React</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Vue</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Laravel</a>
-                </p>
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Informacion
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Sobre nosotros</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Privacidad</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Marco legal</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Terminos y condiciones</a>
+              </p>
             </div>
             <!-- Grid column -->
-    
+  
             <!-- Grid column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                Useful links
-                </h6>
-                <p>
-                <a href="#!" class="text-reset">Pricing</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Settings</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Orders</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Help</a>
-                </p>
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Links útiles
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Ayuda</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Configuración</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Trabaja con nosotros</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Otros</a>
+              </p>
             </div>
             <!-- Grid column -->
-    
+  
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
-                <p>
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+              <p><i class="fas fa-home me-3 text-secondary"></i> Santiago, ST 10012, CL</p>
+              <p>
                 <i class="fas fa-envelope me-3 text-secondary"></i>
-                info@example.com
-                </p>
-                <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
-                <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
+                agendalomax@example.com
+              </p>
+              <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 89</p>
+              <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 80</p>
             </div>
             <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
+          </div>
+          <!-- Grid row -->
         </div>
-        </section>
-        <!-- Section: Links  -->
-    
-        <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-        </div>
-        <!-- Copyright -->
+      </section>
+      <!-- Section: Links  -->
+  
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+        www.agendalomax.cl © 2022 :
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
+      </div>
+      <!-- Copyright -->
     </footer>
-    <!-- Footer -->
-
-<script>
+    <script>
 
         const select = document.querySelector('#servicioElegido');
     const container = document.querySelector('#form');
@@ -382,10 +423,11 @@
     });
     </script>
     <script>
-    //Mapeo de variable para archivo servicio.js
-        var regionesConAscii = '<c:out value="${regionesJson}"/>'
-    </script>
-    <script type="text/javascript" src="/js/servicio.js"></script>
+        //Mapeo de variable para archivo servicio.js
+            var regionesConAscii = '<c:out value="${regionesJson}"/>'
+        </script>
+        <script type="text/javascript" src="/js/servicio.js"></script>
+    <!-- Footer -->
 </body>
 
 </html>

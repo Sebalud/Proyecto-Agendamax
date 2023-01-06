@@ -1,0 +1,89 @@
+body{
+    background-color: blanchedalmond;
+}
+
+nav{
+    background-color: #BDB3FE;
+}
+
+.botones{
+    padding: 10px;
+    border: none;
+    background-color:rgb(177, 165, 253);
+    border: 1px cornflowerblue;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100px;
+}
+
+#contenedor{
+    font-family:'Nunito', sans-serif;
+    display: flex;
+    padding: 3rem;
+}
+
+
+.form-image{
+    border-radius: 20px;
+    width: 50%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 193, 162, 0.945);
+    padding: 2rem ;
+}
+
+.form-image img{
+    width: 20rem;
+}
+
+.input-group{
+    justify-content: space-between;
+    padding: 4.2rem ;
+    display: flex;
+} 
+
+.input-box input{
+    margin: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img{
+    width: 30px;
+    height: 30px;
+}
+
+.input-register :nth-of-type(){
+    text-decoration: none;
+    font-weight: 500;
+    color: aliceblue;
+    align-items: center;
+}
+
+.section-part{
+    height: 20rem;
+    background-color: rgb(27, 27, 27) ;
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+
+
+#selectReg{
+    width: 300px;
+}
+
+#seleCiud{
+    width: 300px;
+}
+label{
+    width: 100px;
+}

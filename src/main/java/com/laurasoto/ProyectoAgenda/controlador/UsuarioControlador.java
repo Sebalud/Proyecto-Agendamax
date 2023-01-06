@@ -1,5 +1,7 @@
 package com.laurasoto.ProyectoAgenda.controlador;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -13,10 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
+import com.laurasoto.ProyectoAgenda.modelos.Region;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
+import com.laurasoto.ProyectoAgenda.servicios.CiudadServicio;
 import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;
+import com.laurasoto.ProyectoAgenda.servicios.RegionServicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
+import com.laurasoto.ProyectoAgenda.utiles.Funciones;
 import com.laurasoto.ProyectoAgenda.validator.UserValidator;
 
 
@@ -24,13 +31,15 @@ import com.laurasoto.ProyectoAgenda.validator.UserValidator;
 public class UsuarioControlador {
 	private final UsuarioServicio usuarioServicio;
 	private final EmpresaServicio empresaServicio;
+	private final RegionServicio regionServicio;
 	private final UserValidator userValidator;
 	// private final Servicio1Servicio servicio1Servicio;
 
-	public UsuarioControlador(UsuarioServicio usuarioServicio, EmpresaServicio empresaServicio, UserValidator userValidator) {
+	public UsuarioControlador(UsuarioServicio usuarioServicio, EmpresaServicio empresaServicio, UserValidator userValidator, RegionServicio regionServicio) {
 		this.usuarioServicio = usuarioServicio;
 		this.empresaServicio = empresaServicio;
 		this.userValidator = userValidator;
+		this.regionServicio = regionServicio;
 	}
 	// private final Servicio1Servicio servicio1Servicio;
 
@@ -62,10 +71,17 @@ public class UsuarioControlador {
 	}
 
 	@GetMapping("/")
-	public String login(HttpSession session) {
+	public String login(HttpSession session, Model model) {
 		if ((Long) session.getAttribute("usuarioId") != null) {
 			return "redirect:/home";
 		}
+
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
+		//List<Ciudad> ciudades = CiudadServicio.ciudadesMostrar(empresa);
+
+		model.addAttribute("regiones", regiones);
+		model.addAttribute("regionesJson", resultadoJson);
 		return "login";
 	}
 

@@ -16,7 +16,7 @@
 </head>
 <body>
      <!-- Barra de navegacion -->
-     <nav class="navbar navbar-expand-lg bg-light">
+     <nav class="navbar navbar-expand-lg bg-light py-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">AgendamientoMax</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,14 +97,14 @@
         </form:form>
     </c:if>
 
-    <div class="container r mw-100">
-        <div class="container text-center d-flex justify-content-center bg-warning rounded">
+    <div class="container  mw-100">
+        <div class="container text-center d-flex justify-content-center rounded" style="background-color: #FFEBCD;">
             <c:forEach  items="${listaAlModel}" var="dia">
             <div class="mx-5 my-5 d-inline-block col ">
                 <p class="border p-2"><fmt:formatDate value="${dia.get(0).getDate()}" pattern="EEEE dd"/><br></p>
                 <c:forEach items="${dia}" var="horarioDisponible">
                     <c:if test="${horarioDisponible.getEstaActivo()}">
-                        <a class="btn btn-dark my-1" href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
+                        <a class="btn my-1" style="background-color: #BDB3FE;" href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
                             <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
                         </a><br>
                     </c:if>

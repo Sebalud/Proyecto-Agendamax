@@ -6,11 +6,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +21,6 @@ import com.laurasoto.ProyectoAgenda.modelos.Region;
 import com.laurasoto.ProyectoAgenda.modelos.Servicio;
 import com.laurasoto.ProyectoAgenda.modelos.TachamientoBoton;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
-import com.laurasoto.ProyectoAgenda.repositorios.HorarioRepositorio;
 import com.laurasoto.ProyectoAgenda.servicios.CiudadServicio;
 import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;
 import com.laurasoto.ProyectoAgenda.servicios.HorarioServicio;
@@ -32,7 +29,6 @@ import com.laurasoto.ProyectoAgenda.servicios.Servicio1Servicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
 import com.laurasoto.ProyectoAgenda.utiles.Funciones;
 
-import lombok.Data;
 
 @Controller
 public class ServicioControlador {

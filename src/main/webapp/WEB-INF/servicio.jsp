@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Lookify!</title>
 </head>
@@ -87,43 +87,44 @@
     <c:out value="${errorServicio}"/>
     <c:out value="${errorNoHayEmpresa}"/>
 
-    <!-- Footer -->
-<footer class="text-center text-lg-start bg-white text-muted">
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
       <!-- Left -->
-      <div class="me-5 d-none d-lg-block">
-        <span>Get connected with us on social networks:</span>
+
+      <div class="sub-texto">
+        <span>Conectate con nosotros en redes sociales</span>
       </div>
       <!-- Left -->
-  
+
       <!-- Right -->
-      <div>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-facebook-f"></i>
+      <div class="">
+        <a href="" class="link-secondary">
+          <i class="fab fa-facebook-f"><img src="/imagenes/facebook.png" alt="facebook"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-twitter"></i>
+        <a href="" class="link-secondary">
+          <i class="fab fa-twitter"><img src="/imagenes/twitter.png" alt="twitter"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-google"></i>
+        <a href="" class="link-secondary">
+          <i class="fab fa-google"><img src="/imagenes/google-plus.png" alt="google"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-instagram"></i>
+        <a href="" class="link-secondary">
+          <i class="fab fa-instagram"><img src="/imagenes/instagram.png" alt="instagram"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-linkedin"></i>
+        <a href="" class="link-secondary">
+          <i class="fab fa-linkedin"><img src="/imagenes/linkedin.png" alt="linkedin"></i>
         </a>
-        <a href="" class="me-4 link-secondary">
-          <i class="fab fa-github"></i>
+        <a href="" class="link-secondary">
+          <i class="fab fa-github"><img src="/imagenes/github.png" alt="github"></i>
         </a>
       </div>
       <!-- Right -->
     </section>
     <!-- Section: Social media -->
-  
+
     <!-- Section: Links  -->
-    <section class="">
+    <section class="section-part">
       <div class="container text-center text-md-start mt-5">
         <!-- Grid row -->
         <div class="row mt-3">
@@ -131,68 +132,67 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Company name
+              <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
             </h6>
             <p>
-              Here you can use rows and columns to organize your footer content. Lorem ipsum
-              dolor sit amet, consectetur adipisicing elit.
+              Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
             </p>
           </div>
           <!-- Grid column -->
-  
+
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Products
+              Informacion
             </h6>
             <p>
-              <a href="#!" class="text-reset">Angular</a>
+              <a href="#!" class="text-reset">Sobre nosotros</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">React</a>
+              <a href="#!" class="text-reset">Privacidad</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Vue</a>
+              <a href="#!" class="text-reset">Marco legal</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Laravel</a>
+              <a href="#!" class="text-reset">Terminos y condiciones</a>
             </p>
           </div>
           <!-- Grid column -->
-  
+
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Useful links
+              Links útiles
             </h6>
             <p>
-              <a href="#!" class="text-reset">Pricing</a>
+              <a href="#!" class="text-reset">Ayuda</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Settings</a>
+              <a href="#!" class="text-reset">Configuración</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Orders</a>
+              <a href="#!" class="text-reset">Trabaja con nosotros</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Help</a>
+              <a href="#!" class="text-reset">Otros</a>
             </p>
           </div>
           <!-- Grid column -->
-  
+
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
+            <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+            <p><i class="fas fa-home me-3 text-secondary"></i> Santiago, ST 10012, CL</p>
             <p>
               <i class="fas fa-envelope me-3 text-secondary"></i>
-              info@example.com
+              agendalomax@example.com
             </p>
-            <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
-            <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
+            <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 89</p>
+            <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 80</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -200,11 +200,11 @@
       </div>
     </section>
     <!-- Section: Links  -->
-  
+
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
-      © 2021 Copyright:
-      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+      www.agendalomax.cl © 2022 :
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
     </div>
     <!-- Copyright -->
   </footer>
