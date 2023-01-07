@@ -6,9 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,28 +62,10 @@ public class ServicioControlador {
         Empresa empresa = empresaServicio.findById(empresaId);
         Servicio servicio = servicio1Servicio.findById(servicioId);
         List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
-        List<List<Date>> calendarioDisponible = servicio1Servicio.posiblesHoraDisponible(servicioId);
+        List<List<TachamientoBoton>> listaAlModel = servicio.posiblesHoraDisponible();
         Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId") );
 
-        List<List<TachamientoBoton>> listaAlModel = new ArrayList<>();
-        for ( List<Date> dias : calendarioDisponible) {
-            List<TachamientoBoton> listaIntermedia = new ArrayList<>();
-            for ( Date hora : dias) {
-                if(horarioServicio.findByHoraDisponible(hora.getTime()) != null){
-                    TachamientoBoton botonTachado = new TachamientoBoton();
-                    botonTachado.setDate(hora);
-                    botonTachado.setEstaActivo(false);
-                    listaIntermedia.add(botonTachado);
-                }
-                else{
-                    TachamientoBoton botonDisponible = new TachamientoBoton();
-                    botonDisponible.setDate(hora);
-                    listaIntermedia.add(botonDisponible);
-                }
-                
-            }
-            listaAlModel.add(listaIntermedia);
-        }
+        
         servicio1Servicio.crear(servicio);
         
         model.addAttribute("usuario", usuario);
@@ -90,7 +74,6 @@ public class ServicioControlador {
         model.addAttribute("regiones", regiones);
 		model.addAttribute("ciudades", ciudades);
         model.addAttribute("regionesJson", resultadoJson);
-        model.addAttribute("calendarioDisponible", calendarioDisponible);
         model.addAttribute("listaAlModel", listaAlModel);
         return"horaDisponible";
     }
@@ -130,5 +113,31 @@ public class ServicioControlador {
         horarioServicio.delete(horario.getId());
         return"redirect:/empresa/horario/"+ usuario.getEmpresa().getId() + "/{servicioId}";
     }
-    
+
+    @GetMapping("/agendamiento/{servicioId}/{horaLong}")
+    public String agendarHora(@ModelAttribute("horario") Horario horario, HttpSession session,
+                              @PathVariable("servicioId") Long servicioId, @PathVariable("horaLong") Long horaLong, Model model){
+        Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
+        horario.setUsuario(usuario);
+        horario.setHoraDisponible(horaLong);
+        horarioServicio.crear(horario);
+
+
+
+        return "redirect:/horas/usuario/" + usuario.getId();
+    }
+
+    @GetMapping("/horas/usuario/{usuarioId}")
+    public String horasAgendadasUsuario(HttpSession session, @PathVariable("usuarioId") Long usuarioId, Model model){
+        Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
+        model.addAttribute("usuario", usuario);
+        return"agendamientos";
+    }
+
+    @GetMapping("/cancela/cita/{usuarioId}/{horarioId}")
+    public String eliminarCita(HttpSession session, @PathVariable("usuarioId") Long usuarioId, @PathVariable("horarioId") Long horarioId){
+        Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
+        horarioServicio.delete(horarioId);
+        return"redirect:/horas/usuario/{usuarioId}";
+    }
 }

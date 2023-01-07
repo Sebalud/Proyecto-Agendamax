@@ -128,7 +128,42 @@
     </form>
     </p>
 
-    <table class="table">
+        <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho">
+            <div class="input-group">
+                <p class="input-box">
+                    <form:label cssClass="form-label" path="servicioOfrecido">Servicio Ofrecido</form:label>
+                    <form:errors cssClass="text-danger" path="servicioOfrecido"/>
+                    <form:input cssClass="form-control" path="servicioOfrecido" placeholder="Nombre de su empresa"/>
+                </p>
+
+                <p class="input-box">
+                    <form:label path="horaTermino">Hora Termino</form:label>
+                    <form:errors cssClass="text-danger" path="horaTermino"/>
+                    <form:input cssClass="form-control" path="horaTermino" placeholder="Introduzca el rut de empresa"/>
+                </p>
+
+                <p class="input-box">
+                    <form:label path="horaInicio">Hora Inicio</form:label>
+                    <form:errors cssClass="text-danger" path="horaInicio"/>
+                    <form:input cssClass="form-control" path="horaInicio" placeholder="Introduzca el rut de empresa"/>
+                </p>
+
+                <p class="input-box-ciudad" style="width: 16rem;">
+                    <form:label cssClass="form-label" path="duracionServicio">Duracion</form:label>
+                    <form:errors path="duracionServicio"/>
+                    <form:select class="form-select" path="duracionServicio" placeholder="Selecciona">
+                        <form:option value="30">30 min</form:option>
+                        <form:option value="45">45 min</form:option>
+                        <form:option value="60">60 min</form:option>
+                    </form:select>
+                </p>
+
+                <input class="freeplan" type="submit" value="FreePlan"/>
+                </form:form>
+            </div>
+
+
+        <table class="table">
         <thead>
             <tr>
                 <th scope="">Servicio</th>
@@ -242,31 +277,6 @@
             </div>
             </div>
         </div>
-
-        <h1>Edita tu Empresa</h1>
-        <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
-        
-        <p class="form-outline">
-            <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
-            <form:errors cssClass="text-danger" path="nombre"/>
-            <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
-        </p>
-        <p>
-            <form:label path="rut">Rut Empresa</form:label>
-            <form:errors cssClass="text-danger" path="rut"/>
-            <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
-        </p>
-        <p class="form-outline">
-            <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
-            <form:errors path="ciudad"/>
-            <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
-                <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
-                    <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
-                </c:forEach>
-            </form:select>
-        </p>
-        <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
-    </form:form>
 
             
     <h2>falta mostrar aqui la visualizacion y organizacion de las horas por parte de la empresa</h2>

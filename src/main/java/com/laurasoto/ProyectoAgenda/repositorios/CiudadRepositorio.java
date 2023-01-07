@@ -11,4 +11,6 @@ import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 public interface CiudadRepositorio extends BaseRepositorio<Ciudad> {
     
     List<Ciudad> findByEmpresasNotContaining(Empresa empresa);
+
+    Ciudad findByNombre(String nombreCiudad);
 }

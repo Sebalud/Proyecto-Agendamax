@@ -2,6 +2,7 @@ package com.laurasoto.ProyectoAgenda.controlador;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -60,23 +61,27 @@ public class EmpresaControlador {
 		}
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 		model.addAttribute("usuario", usuario);
-		Servicio servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
+		List<Servicio> servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
 		if(servicioRequerido == null){
 			model.addAttribute("errorServicio", "No encontramos el servicio que estabas buscando");
 			return"servicio";
 		}
-		List<Empresa> empresas = servicioRequerido.getEmpresas();
-		
-		List<Empresa> empresasFiltradas = new ArrayList<>();
-		for (Empresa empresa : empresas) {
-			if(empresa.getCiudad() == ciudadServicio.findById(ciudadId)){
-				empresasFiltradas.add(empresa);
-			}
+		Ciudad ciudad = ciudadServicio.findById(ciudadId);
+		//filtro por ciudad
+		List<Empresa> empresasFiltroCiudad = empresaServicio.getEmpresaPorCiudad(ciudad);
+		List<Servicio> servicios = new ArrayList<>();
+		for (Empresa empresa : empresasFiltroCiudad) {
+			servicios.addAll(empresa.getServicios());
 		}
-		if(empresasFiltradas.size() == 0){
+		List<Servicio> serviciosFiltradosPorNombreCiudad = servicios.stream()
+				.filter(servicio1 -> servicio1.getServicioOfrecido().contains(servicio))
+				.collect(Collectors.toList());
+
+		model.addAttribute("serviciosFiltradosPorNombreCiudad", serviciosFiltradosPorNombreCiudad);
+		if(serviciosFiltradosPorNombreCiudad.size() == 0){
 			model.addAttribute("errorNoHayEmpresa", "Lo sentimos, en esa ciudad no se encuentra el servicio que buscas");
 		}
-		model.addAttribute("empresasFiltradas", empresasFiltradas);
+		model.addAttribute("usuario",usuario);
 		return"servicio";
 	}
 	//se puede tener dos empresas con el mismo nombre?
@@ -123,7 +128,7 @@ public class EmpresaControlador {
 	
 
 	@GetMapping("/plan/{idEmpresa}")
-	public String empresaDetalle(@ModelAttribute("empresa") Empresa empresaEditar ,@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+	public String empresaDetalle(@ModelAttribute("servicio") Servicio servicio,@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
@@ -133,12 +138,12 @@ public class EmpresaControlador {
 		Empresa empresa = empresaServicio.findById(idEmpresa);
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
 		List<Servicio> servicios = servicio1Servicio.traerTodo();
-		List<Servicio> serviciosNotEmpresa = servicio1Servicio.serviciosNoContieneEmpresa(empresa);
+		//List<Servicio> serviciosNotEmpresa = servicio1Servicio.serviciosNoContieneEmpresa(empresa);
 		List<Ciudad>  ciudadesNotEmpresa = ciudadServicio.ciudadesNoContieneEmpresa(empresa);
 
 		
 		model.addAttribute("ciudadesNotEmpresa", ciudadesNotEmpresa);
-		model.addAttribute("serviciosNotEmpresa", serviciosNotEmpresa);
+		//model.addAttribute("serviciosNotEmpresa", serviciosNotEmpresa);
 		model.addAttribute("servicios", servicios);
 		model.addAttribute("empresa", empresa);
 		model.addAttribute("usuario", usuario);
@@ -149,6 +154,18 @@ public class EmpresaControlador {
 	}
 
 	@PostMapping("/plan/{idEmpresa}")
+	public String crearServcicio(@Valid @ModelAttribute("servicio") Servicio servicio,BindingResult result ,
+								 HttpSession session, @PathVariable("idEmpresa") Long idEmpresa){
+		if(result.hasErrors()){
+			return"showEmpresa";
+		}
+		Empresa empresa = empresaServicio.findById(idEmpresa);
+		servicio.setEmpresa(empresa);
+		servicio1Servicio.crear(servicio);
+		return "redirect:/plan/"+ idEmpresa;
+	}
+
+	/*@PostMapping("/plan/{idEmpresa}")
 	public String setServicio(@PathVariable("idEmpresa") Long idEmpresa, @RequestParam("servicio") String servicioId, 
 	@RequestParam(required = false, name = "nuevoServicio") String nuevoServicio, HttpSession session, Model model){
 		Empresa empresa = empresaServicio.findById(idEmpresa);
@@ -160,24 +177,23 @@ public class EmpresaControlador {
 			return "redirect:/plan/"+ idEmpresa;
 		}
 
-		/* if(nuevoServicio == null || nuevoServicio.isEmpty()){
 			//model.addAttribute("error","el ")
 		System.out.println("errorrrr aqui");
 			
-		} */
+		}
 		//agregar otra validacion por si el input se rellena con numeros, no se puede da error!
 		//validacion el administrador tiene que validar que la categoria nueva sea una categoria valida, 
 		//que sean pasadas por la dministracion para tener visto bueno
 		servicio1Servicio.crear(
 			Servicio.builder()
 			.servicioOfrecido(nuevoServicio)
-			.empresas(Arrays.asList(empresa))
+			.empresa(empresa)
 			.duracionJornada(0)
 			.build()
 		);
 		return "redirect:/plan/"+ idEmpresa;
 	}
-
+*/
 	@PostMapping("plan/{idEmpresa}/edit")
 	public String editaEmpresaForm(@Valid @ModelAttribute("empresa") Empresa empresaEditar, BindingResult result, @PathVariable("idEmpresa") Long idEmpresa,
 	HttpSession session){

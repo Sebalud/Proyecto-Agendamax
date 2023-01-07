@@ -52,8 +52,7 @@ public class Usuario {
 	@OneToOne(mappedBy = "usuarioAdmin", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Empresa empresa;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "usuarios_horarios", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "horario_id"))
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private List<Horario> horarios;
 
 	@PrePersist

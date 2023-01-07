@@ -101,7 +101,7 @@
         <div class="container text-center d-flex justify-content-center rounded" style="background-color: #FFEBCD;">
             <c:forEach  items="${listaAlModel}" var="dia">
             <div class="mx-5 my-5 d-inline-block col ">
-                <p class="border p-2"><fmt:formatDate value="${dia.get(0).getDate()}" pattern="EEEE dd"/><br></p>
+                <p class="border p-2"><fmt:formatDate value="${dia.get(1).getDate()}" pattern="EEEE dd"/><br></p>
                 <c:forEach items="${dia}" var="horarioDisponible">
                     <c:if test="${horarioDisponible.getEstaActivo()}">
                         <a class="btn my-1" style="background-color: #BDB3FE;" href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
