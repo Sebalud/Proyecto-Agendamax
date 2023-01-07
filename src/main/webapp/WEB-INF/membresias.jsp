@@ -101,7 +101,9 @@
           </div>
           <!-- </div> -->
         <!-- </div> -->
-        <!-- <a href="/planes/new">Crear Empresa</a> -->
+        <div id="crear">
+        <a  href="/planes/new">Crear Empresa</a>
+      </div>
       </div>
       </div>
       <!-- Footer -->
