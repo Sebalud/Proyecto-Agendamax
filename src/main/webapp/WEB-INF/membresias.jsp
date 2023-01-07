@@ -72,8 +72,8 @@
         </button>
       </div>
       <div id="container-c">
-        <div class="container-cards">
-          <div class="card alienarDisplay" style="width: 18rem;">
+        <!-- <div class="container-cards"> -->
+          <!-- <div class="card alienarDisplay" style="width: 18rem;"> -->
             <div id="cartafree">
               <div class="card-body">
                 <h5 class="card-title">Plan Gratis</h5>
@@ -83,11 +83,11 @@
                   magnam. Some quick example text to build on the card title and make up the bulk of the card's
                   content.</p>
               </div>
-            </div>
+            <!-- </div> -->
           </div>
-          <div class="container-cards">
-          <div class="card alinearDisplay" style="width: 18rem;">
-            <div id="cartapre"></div>
+          <!-- <div class="container-cards"> -->
+          <!-- <div class="card alinearDisplay" style="width: 18rem;"> -->
+            <div id="cartapre">
             <div class="card-body">
               <h5 class="card-title">Plan Premium</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eaque
@@ -98,7 +98,8 @@
                 the card's content.</p>
             </div>
           </div>
-        </div>
+          <!-- </div> -->
+        <!-- </div> -->
         <a href="/planes/new">Crear Empresa</a>
       </div>
       </div>
