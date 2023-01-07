@@ -3,11 +3,6 @@ body {
     background-color: blanchedalmond;
 }
 
-.navbar-expand-lg {
-    background-color: blanchedalmond;
-    height: 7rem;
-}
-
 .container-fluid {
     background-color: rgb(189, 179, 254);
     padding: 6px;

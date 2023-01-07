@@ -3,11 +3,6 @@
         background-color: blanchedalmond;
     }
 
-    .navbar-expand-lg {
-        background-color: blanchedalmond;
-        height: 7rem;
-    }
-
     .container-fluid {
         background-color: rgb(189, 179, 254);
         padding: 6px;
@@ -24,7 +19,7 @@
         display: block;
         width: 3rem;
         height: 0.1rem;
-        background-color: blanchedalmond;
+        background-color: rgb(147, 0, 0);
         margin: 0 auto;
     }
 
@@ -48,8 +43,6 @@
         height: 200px;
         width: 200px;
         margin-top: 70px;
-        
-        
     }
 
     #container-c{

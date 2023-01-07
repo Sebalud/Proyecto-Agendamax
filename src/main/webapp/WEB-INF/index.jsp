@@ -157,7 +157,7 @@
         </div> -->
       </div>
       <div class="carousel-item">
-        <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquerí">
+        <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
         <!-- <div class="carousel-caption d-none text-black d-md-block">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
