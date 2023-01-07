@@ -21,25 +21,20 @@ public class Horario{
     @NotNull
     private Long horaDisponible;
 
+    private boolean estaDisponible = true;
+    
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "servicios_horarios",
-        joinColumns = @JoinColumn(name = "horario_id"),
-        inverseJoinColumns = @JoinColumn(name = "servicio_id")
-    )
-    private List<Servicio> servicios;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "servicio_id")
+    private Servicio servicio;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "usuarios_horarios",
-        joinColumns = @JoinColumn(name = "horario_id"),
-        inverseJoinColumns = @JoinColumn(name = "usuario_id")
-    )
-    private List<Usuario> usuarios;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
 
     @PrePersist
     protected void onCreate(){
@@ -49,4 +44,9 @@ public class Horario{
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
+
+    public Date getFechaAsDate(){
+        return new Date(this.horaDisponible*1000);
+    }
+
 }

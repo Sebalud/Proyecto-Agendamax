@@ -17,52 +17,33 @@
 </head>
 
 <body class="container">
-    <!-- Barra de navegacion -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">AgéndaloMax</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Botones y links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
-                    <c:choose>
-                        <c:when test="${!empresa.empresafree}">
-                            <li class="nav-item text-danger">Cuenta premium!</li>
-                        </c:when>
-                    </c:choose>
-                </ul>
-                <!-- Buscadores de Servicios-->
-                <form class="d-flex" role="search" method="POST" action="/search">
-                    <select name="selectReg" id="selectReg">
-                        <option value="0"> Region </option>
-                        <c:forEach items="${regiones}" var="region">
-                            <option value="${region.id}">${region.nombre}</option>
-                        </c:forEach>
-                    </select>
-                    <select name="selectCiud" id="selectCiud">
-                        <option value="0"> Ciudad </option>
-                    </select>
-                    <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..."
-                        aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <c:out value="${usuario.nombre}" />
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
-                        <c:if test="${usuario.getEmpresa() != null}">
-                            <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
-                        </c:if>
-                        <li>
-                            <hr class="dropdown-divider">
+        <!-- Barra de navegacion -->
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">AgendamientoMax</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Botones y links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
+                        <c:choose>
+                            <c:when test="${!empresa.empresafree}">
+                                <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                            </c:when>
+                        </c:choose>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
                         </li>
                         <li><a class="dropdown-item" href="#">Editar perfil</a></li>
                     </ul>
@@ -130,23 +111,59 @@
     </c:choose>
     </form>
     </p>
-    <table class="table">
+
+        <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho">
+            <div class="input-group">
+                <p class="input-box">
+                    <form:label cssClass="form-label" path="servicioOfrecido">Servicio Ofrecido</form:label>
+                    <form:errors cssClass="text-danger" path="servicioOfrecido"/>
+                    <form:input cssClass="form-control" path="servicioOfrecido" placeholder="Nombre de su empresa"/>
+                </p>
+
+                <p class="input-box">
+                    <form:label path="horaTermino">Hora Termino</form:label>
+                    <form:errors cssClass="text-danger" path="horaTermino"/>
+                    <form:input cssClass="form-control" path="horaTermino" placeholder="Introduzca el rut de empresa"/>
+                </p>
+
+                <p class="input-box">
+                    <form:label path="horaInicio">Hora Inicio</form:label>
+                    <form:errors cssClass="text-danger" path="horaInicio"/>
+                    <form:input cssClass="form-control" path="horaInicio" placeholder="Introduzca el rut de empresa"/>
+                </p>
+
+                <p class="input-box-ciudad" style="width: 16rem;">
+                    <form:label cssClass="form-label" path="duracionServicio">Duracion</form:label>
+                    <form:errors path="duracionServicio"/>
+                    <form:select class="form-select" path="duracionServicio" placeholder="Selecciona">
+                        <form:option value="30">30 min</form:option>
+                        <form:option value="45">45 min</form:option>
+                        <form:option value="60">60 min</form:option>
+                    </form:select>
+                </p>
+
+                <input class="freeplan" type="submit" value="FreePlan"/>
+                </form:form>
+            </div>
+
+
+        <table class="table">
         <thead>
             <tr>
                 <th scope="">Servicio</th>
                 <th>Duracion de Servicio</th>
-                <th>Accion </th>
+                <th>Ciudad</th>
+                <th>Accion</th>
+                <th>Hacer Horario</th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${empresa.servicios}" var="servicio">
-                <tr>
-                    <td colspan="">
-                        <c:out value="${servicio.servicioOfrecido}" />
-                    </td>
-                    <td>
-                        <c:out value="${servicio.duracionServicio}" /> min
-                    </td>
+            <c:forEach items="${empresa.servicios}" var="servicio" >
+            <tr>
+                
+                    <td colspan=""><c:out value="${servicio.servicioOfrecido}"/></td>
+                    <td><c:out value="${servicio.duracionServicio}"/> min</td>
+                    <td colspan=""><c:out value="${empresa.ciudad.nombre}"/></td>
                     <td><!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal2">
@@ -175,8 +192,12 @@
                             </div>
                         </div>
                     </td>
-                </tr>
-            </c:forEach>
+                    <td>
+                        <a href="/empresa/horario/${empresa.id}/${servicio.id}">Crear horas disponibles</a>
+                    </td>
+                
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
 
@@ -222,14 +243,16 @@
             </tr>
         </tbody>
     </table>
-    <!-- Eliminar Empresa -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-        Eliminar Empresa
-    </button>
 
-    <!-- Modal -->
-    <div class="modal fade " id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    
+        <!-- Eliminar Empresa -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+            Eliminar Empresa
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade " id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
@@ -244,33 +267,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <a href="/plan/${empresa.id}/edit">Edita tu empresa</a>
-    <!-- 
-        <h1>Edita tu Empresa</h1>
-        <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
-        
-        <p class="form-outline">
-            <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
-            <form:errors cssClass="text-danger" path="nombre"/>
-            <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
-        </p>
-        <p>
-            <form:label path="rut">Rut Empresa</form:label>
-            <form:errors cssClass="text-danger" path="rut"/>
-            <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
-        </p>
-        <p class="form-outline">
-            <form:label cssClass="form-label" path="ciudad">Ciudad</form:label>
-            <form:errors path="ciudad"/>
-            <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
-                <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
-                    <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
-                </c:forEach>
-            </form:select>
-        </p>
-        <input class="btn btn-outline-secondary" type="submit" value="FreePlan"/>
-    </form:form> -->
+
+            
     <h2>falta mostrar aqui la visualizacion y organizacion de las horas por parte de la empresa</h2>
     <h2>todas las tablas deben tener crud, falta borrar o desconectar servicio de la empresa si el usuario admin quiere
     </h2>

@@ -13,9 +13,9 @@
     <title>Log in</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg py-4 px-3">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">AgéndaloMax</a>
+          <a class="navbar-brand" href="#">Agendalomax</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -27,33 +27,35 @@
             </ul> 
             <!-- Buscadores de Servicios-->
             <form class="d-flex" role="search" method="POST" action="/search">
-              <select name="selectReg" id="selectReg">
-                  <option value="0">Región</option>
+              <select class="me-2 form-select" name="selectReg" id="selectReg">
+                  <option value="0">Region</option>
                   <c:forEach items="${regiones}" var="region">
                       <option value="${region.id}">${region.nombre}</option>
                   </c:forEach>
               </select>
-              <select name="selectCiud" id="selectCiud">
+              <select class="me-2 form-select" name="selectCiud" id="selectCiud">
                   <option value="0">Ciudad</option>
               </select>
-              <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
-              <button class="buscado-flex" type="submit">Buscar</button>
+              <input class="form-control me-2" type="search" name="servicio" placeholder="Encuentralo..." aria-label="Search">
+              <button class="btn botones" type="submit">Buscar</button>
           </form>
           </div>
         </div>
       </nav>
 
-    <div class="container">  
-      <div class="form-header"> 
-        <h1>Log in</h1>
-      </div> 
+    <div class="container" id="contenedor">  
+      
     <div class="form-image">
       <img src="/imagenes/undraw_futuristic_interface_re_0cm6.svg" alt="log in">
     </div>
 
     <div class="input-group">
-    <p class="text-warning"><c:out value="${error}" /></p>
+    <p class="text-dark"><c:out value="${error}" /></p>
+    
     <form method="post" action="/" class="container form ancho">
+      <div class="ml-5"> 
+        <h1 class="">Log in</h1>
+      </div> 
         <p class="input-box">
             <label for="email">Email</label>
             <input class="ancho" type="text" id="email" name="email" placeholder="Introduzca su email"/>
@@ -62,14 +64,15 @@
             <label for="password">Contraseña</label>
             <input class="ancho" type="password" id="password" name="password" placeholder="Introduzca su contraseña"/>
         </p>
-        <input class="btn btn-dark" type="submit" value="Login!"/>
-        <a href="/registration">registrarse</a>
+          <a class=" btn botones" href="/registration">registrarse</a>
+          <input  class="btn botones" type="submit" value="Login!"/>
+        
     </form> 
   </div>
 </div>
 
   <!-- Footer -->
-  <footer class="text-center text-lg-start bg-white text-muted">
+  <footer class="text-center text-lg-start text-muted">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
       <!-- Left -->

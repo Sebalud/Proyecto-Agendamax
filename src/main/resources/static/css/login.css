@@ -61,19 +61,28 @@ body {
 
 .container {
     font-family: 'Nunito', sans-serif;
+nav{
+    background-color: #BDB3FE;
+}
+
+.botones{
+    padding: 10px;
+    border: none;
+    background-color:rgb(177, 165, 253);
+    border: 1px cornflowerblue;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100px;
+}
+
+#contenedor{
+    font-family:'Nunito', sans-serif;
     display: flex;
     padding: 3rem;
 }
 
-.form-header { 
-    margin-bottom: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    display: flex;
-    justify-content: space-between;
-}
 
-.form-image {
+.form-image{
     border-radius: 20px;
     width: 50%;
     height: 95%;
@@ -102,13 +111,7 @@ body {
     box-shadow: 1px 1px 6px #0000001c;
 }
 
-.sub-texto {
-    padding: 4px;
-    background-color: rgb(177, 165, 253);
-    border-radius: 5px;
-}
-
-.link-secondary {
+.link-secondary{
     padding: 5px;
 }
 
@@ -124,6 +127,15 @@ body {
     padding: 10px;
 }
 
-.d-flex {
-    background-color: rgb(189, 179, 254);
+
+
+#selectReg{
+    width: 300px;
+}
+
+#seleCiud{
+    width: 300px;
+}
+label{
+    width: 100px;
 }

@@ -1,5 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,37 +16,100 @@
 </head>
 
 <body>
-  <!-- Barra de navegacion -->
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">AgendamientoMax</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Botones y links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
-          <c:choose>
-            <c:when test="${!usuario.empresa.empresafree}">
-              <li class="nav-item text-danger">Cuenta premium!</li>
-            </c:when>
-          </c:choose>
+    <!-- Barra de navegacion -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AgendamientoMax</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Botones y links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
+                    <c:choose>
+                        <c:when test="${!usuario.empresa.empresafree}">
+                            <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                        </c:when>
+                    </c:choose>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Buscadores de Servicios-->
+                <form class="d-flex" role="search" method="POST" action="/search">
+                    <select class="form-select" name="selectReg" id="selectReg">
+                        <option value="0">Region</option>
+                        <c:forEach items="${regiones}" var="region">
+                            <option value="${region.id}">${region.nombre}</option>
+                        </c:forEach>
+                    </select>
+                    <select class="form-select" name="selectCiud" id="selectCiud">
+                        <option value="0">Ciudad</option>
+                    </select>
+                    <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <c:out value="${usuario.nombre}"/>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        <c:if test="${usuario.getEmpresa() != null}">
+                            <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
+                        </c:if>
+                        
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+                    </ul>
+                </li>
+        </div>
+        
+        </div>
+    </nav>
+
+    <h1>Empresas Filtradas</h1>
+    <c:forEach items="${serviciosFiltradosPorNombreCiudad}" var="servicio">
+        <ul>
+            <li>Empresa ${servicio.empresa}</li>
+            <li> Dueño de la empresa:${servicio.empresa.usuarioAdmin.nombre}</li>
+
+            <div class="container  mw-100">
+                <div class="container text-center d-flex justify-content-center rounded" style="background-color: #FFEBCD;">
+                    <c:forEach  items="${servicio.posiblesHoraDisponible()}" var="dia">
+                        <div class="mx-5 my-5 d-inline-block col ">
+                            <p class="border p-2"><fmt:formatDate value="${dia.get(1).getDate()}" pattern="EEEE dd"/><br></p>
+                            <c:forEach items="${dia}" var="horarioDisponible">
+                                <c:if test="${usuario.id == servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
+                                    <a class="btn my-1" style="background-color: #BDB3FE;" href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
+                                        <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
+                                    </a><br>
+                                </c:if>
+                                <c:if test="${usuario.id != servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
+                                    <a href="/agendamiento/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-warning my-1" >
+                                        <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
+                                    </a><br>
+                                </c:if>
+                                <c:if test="${usuario.id == servicio.empresa.usuarioAdmin.id && !horarioDisponible.getEstaActivo()}">
+                                    <a href="/agendar/disponible/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-warning my-1" >
+                                        hacer disponible </a><br>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
         </ul>
         <!-- Buscadores de Servicios-->
         <form class="d-flex" role="search" method="POST" action="/search">
@@ -90,6 +155,7 @@
   </c:forEach>
   <c:out value="${errorServicio}" />
   <c:out value="${errorNoHayEmpresa}" />
+
 
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">
