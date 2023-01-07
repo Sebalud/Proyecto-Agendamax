@@ -35,7 +35,6 @@ public class Servicio{
 	
 	@NotNull @NotBlank
 	private String servicioOfrecido;
-	@Min(30)
 	@Builder.Default
 	private int duracionServicio=0;
 	@Builder.Default

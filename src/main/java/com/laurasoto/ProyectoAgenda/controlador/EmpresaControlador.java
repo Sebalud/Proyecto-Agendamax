@@ -165,35 +165,6 @@ public class EmpresaControlador {
 		return "redirect:/plan/"+ idEmpresa;
 	}
 
-	/*@PostMapping("/plan/{idEmpresa}")
-	public String setServicio(@PathVariable("idEmpresa") Long idEmpresa, @RequestParam("servicio") String servicioId, 
-	@RequestParam(required = false, name = "nuevoServicio") String nuevoServicio, HttpSession session, Model model){
-		Empresa empresa = empresaServicio.findById(idEmpresa);
-		if(!servicioId.equals("opcionEspecial")){
-			Long IdServicio = Long.parseLong(servicioId);
-			Servicio servicio = servicio1Servicio.findById(IdServicio);
-			empresa.setServicios(servicio);
-			empresaServicio.crear(empresa);
-			return "redirect:/plan/"+ idEmpresa;
-		}
-
-			//model.addAttribute("error","el ")
-		System.out.println("errorrrr aqui");
-			
-		}
-		//agregar otra validacion por si el input se rellena con numeros, no se puede da error!
-		//validacion el administrador tiene que validar que la categoria nueva sea una categoria valida, 
-		//que sean pasadas por la dministracion para tener visto bueno
-		servicio1Servicio.crear(
-			Servicio.builder()
-			.servicioOfrecido(nuevoServicio)
-			.empresa(empresa)
-			.duracionJornada(0)
-			.build()
-		);
-		return "redirect:/plan/"+ idEmpresa;
-	}
-*/
 	@PostMapping("plan/{idEmpresa}/edit")
 	public String editaEmpresaForm(@Valid @ModelAttribute("empresa") Empresa empresaEditar, BindingResult result, @PathVariable("idEmpresa") Long idEmpresa,
 	HttpSession session){
@@ -236,7 +207,9 @@ public class EmpresaControlador {
 		if((Long) session.getAttribute("usuarioId") == null && (Long) session.getAttribute("usuarioId") != empresa.getUsuarioAdmin().getId()){
 			return"redirect:/";
 		}
+		empresa.getServicios().clear();
 		empresaServicio.delete(idEmpresa);
+		
 		return"redirect:/home";
 	}
 
@@ -261,14 +234,5 @@ public class EmpresaControlador {
 		return"redirect:/plan/"+idEmpresa;
 	}
 
-/* 	@GetMapping("/delete/{idEmpresa}/{idCi}")
-	public String desconectaCiudad(HttpSession session, @PathVariable("idEmpresa") Long idEmpresa, 
-	@PathVariable("idCiudad") Long idCiudad){
-		Empresa empresa = empresaServicio.findById(idEmpresa);
-		Ciudad ciudad = ciudadServicio.findById(idCiudad);
-		empresa.setCiudades(null);
-		empresaServicio.crear(empresa);
-		return"redirect:/plan/"+idEmpresa;
-	} */
 }
 
