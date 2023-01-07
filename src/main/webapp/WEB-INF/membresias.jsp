@@ -81,7 +81,10 @@
                   voluptate. Numquam sit sed at ipsam
                   exercitationem, voluptates eos accusantium placeat fuga possimus ad animi maiores rem sunt
                   magnam. Some quick example text to build on the card title and make up the bulk of the card's
-                  content.</p>
+                  content.
+                  <button href="/planes/new">Crear empresa</button>
+                </p>
+                
               </div>
             <!-- </div> -->
           </div>
@@ -93,14 +96,12 @@
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eaque
                 amet, dolor at quos voluptatibus necessitatibus voluptates ratione laboriosam est laborum
                 repudiandae, alias quae illum deleniti. Consectetur voluptate pariatur,
-                id illum mollitia assumenda nisi odit amet nemo quam, cupiditate debitis cum eligendi laudantium
-                deserunt officiis. Some quick example text to build on the card title and make up the bulk of
-                the card's content.</p>
+              </p>
             </div>
           </div>
           <!-- </div> -->
         <!-- </div> -->
-        <a href="/planes/new">Crear Empresa</a>
+        <!-- <a href="/planes/new">Crear Empresa</a> -->
       </div>
       </div>
       <!-- Footer -->
