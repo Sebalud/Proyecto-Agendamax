@@ -1,8 +1,6 @@
 package com.laurasoto.ProyectoAgenda.controlador;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
 import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;

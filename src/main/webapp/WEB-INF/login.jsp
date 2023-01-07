@@ -15,55 +15,37 @@
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Barra</a>
+          <a class="navbar-brand" href="#">AgéndaloMax</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
+            </ul> 
             <!-- Buscadores de Servicios-->
             <form class="d-flex" role="search" method="POST" action="/search">
               <select name="selectReg" id="selectReg">
-                  <option value="0">-- Region --</option>
+                  <option value="0">Región</option>
                   <c:forEach items="${regiones}" var="region">
                       <option value="${region.id}">${region.nombre}</option>
                   </c:forEach>
               </select>
               <select name="selectCiud" id="selectCiud">
-                  <option value="0">-- Ciudad --</option>
+                  <option value="0">Ciudad</option>
               </select>
-              <input class="form-control me-2" type="search" name="servicio" placeholder="Encuentralo..." aria-label="Search">
-              <button class="btn" type="submit">Buscar</button>
+              <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
+              <button class="buscado-flex" type="submit">Buscar</button>
           </form>
           </div>
         </div>
       </nav>
 
     <div class="container">  
-      <div class="form-heaader"> 
+      <div class="form-header"> 
         <h1>Log in</h1>
-        <a href="/registration">registrarse</a>
       </div> 
     <div class="form-image">
       <img src="/imagenes/undraw_futuristic_interface_re_0cm6.svg" alt="log in">
@@ -80,7 +62,8 @@
             <label for="password">Contraseña</label>
             <input class="ancho" type="password" id="password" name="password" placeholder="Introduzca su contraseña"/>
         </p>
-        <input  class="btn btn-dark" type="submit" value="Login!"/>
+        <input class="btn btn-dark" type="submit" value="Login!"/>
+        <a href="/registration">registrarse</a>
     </form> 
   </div>
 </div>

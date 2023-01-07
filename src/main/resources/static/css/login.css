@@ -1,33 +1,76 @@
-body{
+body {
+    font-family: 'Nunito', sans-serif; 
     background-color: blanchedalmond;
 }
 
-.navbar-expand-lg  {
+.navbar-expand-lg {
     background-color: blanchedalmond;
     height: 7rem;
 }
 
-    .container-fluid{
-    background-color:rgb(189, 179, 254);
+.container-fluid {
+    background-color: rgb(189, 179, 254);
     padding: 6px;
 }
 
-.btn {
-padding: 10px;
-border: none;
-background-color:rgb(177, 165, 253);
-border: 1px cornflowerblue;
-border-radius: 20px;
-cursor: pointer;
+.d-flex {
+    background-color: rgb(189, 179, 254);
+}
+
+.navbar-brand {
+    margin-left: 25px;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-brand::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 0.1rem;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+.form-control {
+    margin-right: 3rem;
+} 
+
+.buscado-flex {
+    display: flex;
+    align-items: center;
+}
+
+#selectReg{
+    margin: 0.3rem;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+#selectCiud{
+    margin: 0.3rem;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+.buscado-flex {
+    border: none;
+    background-color:rgb(166, 152, 255);
+    padding: 0.04rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .container {
-    font-family:'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif;
     display: flex;
     padding: 3rem;
 }
 
-.form-header{
+.form-header { 
     margin-bottom: 1rem;
     margin-left: 3rem;
     margin-right: 3rem;
@@ -35,29 +78,28 @@ cursor: pointer;
     justify-content: space-between;
 }
 
-
-.form-image{
+.form-image {
     border-radius: 20px;
     width: 50%;
     height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 193, 162, 0.945);
-    padding: 2rem ;
+    background-color: rgba(197, 241, 244, 0.945);
+    padding: 2rem;
 }
 
-.form-image img{
+.form-image img {
     width: 20rem;
 }
 
-.input-group{
+.input-group {
     justify-content: space-between;
-    padding: 4.2rem ;
+    padding: 4.2rem;
     display: flex;
-} 
+}
 
-.input-box input{
+.input-box input {
     margin: 0.6rem;
     padding: 0.8rem 1.2rem;
     border: none;
@@ -65,35 +107,28 @@ cursor: pointer;
     box-shadow: 1px 1px 6px #0000001c;
 }
 
-.sub-texto{
+.sub-texto {
     padding: 4px;
-    background-color:rgb(177, 165, 253);
+    background-color: rgb(177, 165, 253);
     border-radius: 5px;
 }
 
-.link-secondary{
+.link-secondary {
     padding: 5px;
 }
 
-.link-secondary img{
+.link-secondary img {
     width: 30px;
     height: 30px;
 }
 
-.input-register :nth-of-type(){
-    text-decoration: none;
-    font-weight: 500;
-    color: aliceblue;
-    align-items: center;
-}
-
-.section-part{
+.section-part {
     height: 20rem;
-    background-color: rgb(27, 27, 27) ;
+    background-color: rgb(27, 27, 27);
     font-family: 'Nunito', sans-serif;
     padding: 10px;
 }
 
-.d-flex{
-    background-color:rgb(189, 179, 254);
+.d-flex {
+    background-color: rgb(189, 179, 254);
 }

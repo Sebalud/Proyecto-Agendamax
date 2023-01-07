@@ -1,5 +1,17 @@
 body{
     font-family: 'Nunito', sans-serif;
+    background-color: blanchedalmond;
+    padding: 0;
+} 
+
+.navbar-expand-lg  {
+    background-color: blanchedalmond; 
+    height: 7rem;
+}
+
+.container-fluid{
+    background-color:rgb(189, 179, 254);
+    padding: 6px;
 }
 
 .sub-texto{
@@ -8,7 +20,7 @@ body{
     border-radius: 5px;
 }
 
-.link-secondary{
+.link-secondary{ 
     padding: 5px;
 }
 
@@ -17,17 +29,9 @@ body{
     height: 30px;
 }
 
-.input-register :nth-of-type(){
-    text-decoration: none;
-    font-weight: 500;
-    color: aliceblue;
-    align-items: center;
-} 
-
 .section-part{
     height: 20rem;
     background-color: rgb(27, 27, 27) ;
-    font-family: 'Nunito', sans-serif;
     padding: 10px;
 }
 
