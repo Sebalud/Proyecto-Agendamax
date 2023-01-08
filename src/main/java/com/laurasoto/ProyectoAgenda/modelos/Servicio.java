@@ -11,11 +11,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,15 +33,14 @@ public class Servicio{
 	
 	@NotNull @NotBlank
 	private String servicioOfrecido;
-	@Min(30)
 	@Builder.Default
 	private int duracionServicio=0;
 	@Builder.Default
 	private int horaInicio=0;
 	@Builder.Default
 	private int horaTermino=0;
-	private int duracionJornada=0;
-
+	private int duracionJornada;
+	
 	private String imgRoute;
 
 	@Column(updatable=false)

@@ -1,16 +1,12 @@
 package com.laurasoto.ProyectoAgenda.controlador;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -115,20 +111,22 @@ public class ServicioControlador {
     }
 
     @GetMapping("/agendamiento/{servicioId}/{horaLong}")
-    public String agendarHora(@ModelAttribute("horario") Horario horario, HttpSession session,
-                              @PathVariable("servicioId") Long servicioId, @PathVariable("horaLong") Long horaLong, Model model){
+    public String agendarHora(@ModelAttribute("horario") Horario horario,
+                            @PathVariable("servicioId") Long servicioId, @PathVariable("horaLong") Long horaLong, Model model, HttpSession session){
+            if( (Long) session.getAttribute("usuarioId") == null ){
+                model.addAttribute("loguearseParaAgendar", "Debes Loguearte para agendar");
+                return"redirect:/";
+            }
         Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
         horario.setUsuario(usuario);
         horario.setHoraDisponible(horaLong);
         horarioServicio.crear(horario);
 
-
-
         return "redirect:/horas/usuario/" + usuario.getId();
     }
 
     @GetMapping("/horas/usuario/{usuarioId}")
-    public String horasAgendadasUsuario(HttpSession session, @PathVariable("usuarioId") Long usuarioId, Model model){
+    public String horaAgendadasUsuario(HttpSession session, @PathVariable("usuarioId") Long usuarioId, Model model){
         Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
         model.addAttribute("usuario", usuario);
         return"agendamientos";

@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Region;
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
-import com.laurasoto.ProyectoAgenda.servicios.CiudadServicio;
 import com.laurasoto.ProyectoAgenda.servicios.EmpresaServicio;
 import com.laurasoto.ProyectoAgenda.servicios.RegionServicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
@@ -103,8 +101,13 @@ public class UsuarioControlador {
 	public String home(HttpSession session, Model model){
 		Empresa empresa = empresaServicio.findById((Long) session.getAttribute("usuarioId"));
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
+
 		model.addAttribute("empresa",empresa);
 		model.addAttribute("usuario", usuario);
+		model.addAttribute("regiones", regiones);
+		model.addAttribute("regionesJson", resultadoJson);
 		return"index";
 	}
 

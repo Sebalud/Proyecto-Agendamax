@@ -63,11 +63,13 @@ public class EmpresaControlador {
 	@GetMapping("/search/{regionId}/{ciudadId}/{servicio}")
 	public String formServicio(@PathVariable("servicio") String servicio, @PathVariable("regionId") Long regionId, @PathVariable("ciudadId") Long ciudadId,
 	HttpSession session, Model model){
-		if((Long) session.getAttribute("usuarioId") == null){
-			return"redirect:/";
+		
+		//debo preguntar si id existe 
+		if((Long) session.getAttribute("usuarioId") != null){
+			Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+			model.addAttribute("usuario", usuario);
 		}
-		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
-		model.addAttribute("usuario", usuario);
+		
 		List<Servicio> servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
 		if(servicioRequerido == null){
 			model.addAttribute("errorServicio", "No encontramos el servicio que estabas buscando");
@@ -88,7 +90,6 @@ public class EmpresaControlador {
 		if(serviciosFiltradosPorNombreCiudad.size() == 0){
 			model.addAttribute("errorNoHayEmpresa", "Lo sentimos, en esa ciudad no se encuentra el servicio que buscas");
 		}
-		model.addAttribute("usuario",usuario);
 		return"servicio";
 	}
 	//se puede tener dos empresas con el mismo nombre?
@@ -136,13 +137,17 @@ public class EmpresaControlador {
 
 	@GetMapping("/plan/{idEmpresa}")
 	public String empresaDetalle(@ModelAttribute("servicio") Servicio servicio,@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+		Empresa empresa = empresaServicio.findById(idEmpresa);
 		if((Long) session.getAttribute("usuarioId") == null){
+			return"redirect:/";
+		}
+		if((Long) session.getAttribute("usuarioId") != empresa.getUsuarioAdmin().getId()){
 			return"redirect:/";
 		}
 		List<Region> regiones = regionServicio.regionesTodas();
 		String resultadoJson = new Funciones().regionesToJson(regiones);
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
-		Empresa empresa = empresaServicio.findById(idEmpresa);
+
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
 		List<Servicio> servicios = servicio1Servicio.traerTodo();
 		//List<Servicio> serviciosNotEmpresa = servicio1Servicio.serviciosNoContieneEmpresa(empresa);
@@ -197,35 +202,6 @@ public class EmpresaControlador {
 		return "redirect:/plan/"+ idEmpresa;
 	}
 
-	/*@PostMapping("/plan/{idEmpresa}")
-	public String setServicio(@PathVariable("idEmpresa") Long idEmpresa, @RequestParam("servicio") String servicioId, 
-	@RequestParam(required = false, name = "nuevoServicio") String nuevoServicio, HttpSession session, Model model){
-		Empresa empresa = empresaServicio.findById(idEmpresa);
-		if(!servicioId.equals("opcionEspecial")){
-			Long IdServicio = Long.parseLong(servicioId);
-			Servicio servicio = servicio1Servicio.findById(IdServicio);
-			empresa.setServicios(servicio);
-			empresaServicio.crear(empresa);
-			return "redirect:/plan/"+ idEmpresa;
-		}
-
-			//model.addAttribute("error","el ")
-		System.out.println("errorrrr aqui");
-			
-		}
-		//agregar otra validacion por si el input se rellena con numeros, no se puede da error!
-		//validacion el administrador tiene que validar que la categoria nueva sea una categoria valida, 
-		//que sean pasadas por la dministracion para tener visto bueno
-		servicio1Servicio.crear(
-			Servicio.builder()
-			.servicioOfrecido(nuevoServicio)
-			.empresa(empresa)
-			.duracionJornada(0)
-			.build()
-		);
-		return "redirect:/plan/"+ idEmpresa;
-	}
-*/
 	@PostMapping("plan/{idEmpresa}/edit")
 	public String editaEmpresaForm(@Valid @ModelAttribute("empresa") Empresa empresaEditar, BindingResult result, @PathVariable("idEmpresa") Long idEmpresa,
 	HttpSession session){
@@ -268,7 +244,10 @@ public class EmpresaControlador {
 		if((Long) session.getAttribute("usuarioId") == null && (Long) session.getAttribute("usuarioId") != empresa.getUsuarioAdmin().getId()){
 			return"redirect:/";
 		}
+		empresa.setServicios(new ArrayList<>());
+		empresa.setUsuarioAdmin(null);
 		empresaServicio.delete(idEmpresa);
+		
 		return"redirect:/home";
 	}
 
@@ -287,20 +266,12 @@ public class EmpresaControlador {
 	public String desconectaServicio(HttpSession session, @PathVariable("idEmpresa") Long idEmpresa, 
 	@PathVariable("idServicio") Long idServicio){
 		Empresa empresa = empresaServicio.findById(idEmpresa);
+		List<Servicio> empresaServicios = empresa.getServicios();
 		Servicio servicio = servicio1Servicio.findById(idServicio);
-		empresa.getServicios().remove(servicio);
-		empresaServicio.crear(empresa);
+		servicio.setEmpresa(null);
+		servicio1Servicio.crear(servicio);
 		return"redirect:/plan/"+idEmpresa;
 	}
 
-/* 	@GetMapping("/delete/{idEmpresa}/{idCi}")
-	public String desconectaCiudad(HttpSession session, @PathVariable("idEmpresa") Long idEmpresa, 
-	@PathVariable("idCiudad") Long idCiudad){
-		Empresa empresa = empresaServicio.findById(idEmpresa);
-		Ciudad ciudad = ciudadServicio.findById(idCiudad);
-		empresa.setCiudades(null);
-		empresaServicio.crear(empresa);
-		return"redirect:/plan/"+idEmpresa;
-	} */
 }
 
