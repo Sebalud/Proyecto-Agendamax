@@ -177,12 +177,12 @@
                             <div class="form-items">
                                 <h3>Crear Servicio</h3>
                                 <p>Escoge un servicio para tu empresa</p>
-                                <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho">
+                                <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho" enctype="multipart/form-data">
                                     <div class="col-md-12">
                                         <form:input cssClass="form-control" type="text" path="servicioOfrecido" placeholder="Nombre del servicio"/>
                                         <form:errors cssClass="text-danger" path="servicioOfrecido"/>
                                     </div>
-         
+        
                                     <div class="col-md-12">
                                         <form:select class="form-select mt-3" path="horaInicio">
                                             <form:errors path="horaInicio"/>
@@ -197,7 +197,7 @@
                                             <form:option value="13">13 PM</form:option>
                                         </form:select>
                                     </div>
-         
+        
                                     <div class="col-md-12">
                                         <form:select class="form-select mt-3" path="horaTermino" placeholder="Hora termino">
                                             <form:errors path="horaTermino"/>
@@ -211,7 +211,7 @@
                                             <form:option value="20">20 PM</form:option>
                                         </form:select>
                                 </div>
-         
+        
                                 <div class="col-md-12">
                                     <form:select class="form-select" path="duracionServicio">
                                         <form:errors path="duracionServicio"/>
@@ -221,6 +221,8 @@
                                         <form:option value="60">60 min</form:option>
                                     </form:select>
                                 </div>
+
+                                <input type="file" name="postFile">
         
                                     <div class="form-button mt-3">
                                         <input id="submit" class="btn btn-primary" type="submit" value="servicio"/>
@@ -260,10 +262,6 @@
             </div>
         </c:when>
     </c:choose> 
-
-    
-
-
 
         <table class="table container my-5">
             <h1 class="container mt-5 border-bottom">Resumen</h1>
@@ -442,7 +440,7 @@
     </footer>
     <script>
 
-        const select = document.querySelector('#servicioElegido');
+    const select = document.querySelector('#servicioElegido');
     const container = document.querySelector('#form');
 
     // Establecer el manejador de eventos para el evento change del select
