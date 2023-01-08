@@ -56,7 +56,7 @@
                     <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-
+                
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <c:out value="${usuario.nombre}"/>
@@ -243,10 +243,5 @@
     var regionesConAscii = '<c:out value="${regionesJson}"/>'
   </script>
   <script type="text/javascript" src="/js/servicio.js"></script>
-    <script>
-        //Mapeo de variable para archivo servicio.js
-        var regionesConAscii = '<c:out value="${regionesJson}"/>'
-    </script>
-    <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 </html>

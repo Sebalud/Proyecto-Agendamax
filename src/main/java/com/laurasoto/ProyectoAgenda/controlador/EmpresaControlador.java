@@ -63,19 +63,21 @@ public class EmpresaControlador {
 	@GetMapping("/search/{regionId}/{ciudadId}/{servicio}")
 	public String formServicio(@PathVariable("servicio") String servicio, @PathVariable("regionId") Long regionId, @PathVariable("ciudadId") Long ciudadId,
 	HttpSession session, Model model){
-		
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
 		//debo preguntar si id existe 
 		if((Long) session.getAttribute("usuarioId") != null){
 			Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 			model.addAttribute("usuario", usuario);
 		}
-		
+
 		List<Servicio> servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
 		if(servicioRequerido == null){
 			model.addAttribute("errorServicio", "No encontramos el servicio que estabas buscando");
 			return"servicio";
 		}
 		Ciudad ciudad = ciudadServicio.findById(ciudadId);
+		
 		//filtro por ciudad
 		List<Empresa> empresasFiltroCiudad = empresaServicio.getEmpresaPorCiudad(ciudad);
 		List<Servicio> servicios = new ArrayList<>();
@@ -90,16 +92,20 @@ public class EmpresaControlador {
 		if(serviciosFiltradosPorNombreCiudad.size() == 0){
 			model.addAttribute("errorNoHayEmpresa", "Lo sentimos, en esa ciudad no se encuentra el servicio que buscas");
 		}
+		model.addAttribute("regionesJson", resultadoJson);
+		model.addAttribute("regiones", regiones);
+
 		return"servicio";
 	}
 	//se puede tener dos empresas con el mismo nombre?
 	@GetMapping("/planes/new")
 	public String nuevoPlan(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
-		List<Region> regiones = regionServicio.regionesTodas();
-		String resultadoJson = new Funciones().regionesToJson(regiones);
+
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
 		
@@ -137,6 +143,8 @@ public class EmpresaControlador {
 
 	@GetMapping("/plan/{idEmpresa}")
 	public String empresaDetalle(@ModelAttribute("servicio") Servicio servicio,@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
 		Empresa empresa = empresaServicio.findById(idEmpresa);
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
@@ -144,8 +152,7 @@ public class EmpresaControlador {
 		if((Long) session.getAttribute("usuarioId") != empresa.getUsuarioAdmin().getId()){
 			return"redirect:/";
 		}
-		List<Region> regiones = regionServicio.regionesTodas();
-		String resultadoJson = new Funciones().regionesToJson(regiones);
+
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);

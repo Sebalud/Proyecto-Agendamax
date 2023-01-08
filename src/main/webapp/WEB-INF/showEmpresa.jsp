@@ -263,14 +263,6 @@
         </c:when>
     </c:choose> 
 
-    
-
-        <c:when test= "${empresa.servicios.size() == 1 && empresa.empresafree}">
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal1">
-                Cambiarse a premium
-            </button>
-
-
         <table class="table container my-5">
             <h1 class="container mt-5 border-bottom">Resumen</h1>
         <thead>
@@ -448,7 +440,7 @@
     </footer>
     <script>
 
-        const select = document.querySelector('#servicioElegido');
+    const select = document.querySelector('#servicioElegido');
     const container = document.querySelector('#form');
 
     // Establecer el manejador de eventos para el evento change del select
