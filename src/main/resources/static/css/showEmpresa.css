@@ -35,6 +35,8 @@ nav{
    
 }
 
+
+
 #max{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -73,7 +75,6 @@ nav{
 }
 
 .letraDif{
-    font-weight: 900 !important;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');

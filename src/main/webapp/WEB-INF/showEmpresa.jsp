@@ -11,9 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet"> 
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
     <title>Empresa FREE</title>
 </head>
@@ -135,7 +139,7 @@
         <!-- Modal -->
         <div class="modal fade " id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="background-color: #1D2226; color: aliceblue;">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -164,7 +168,7 @@
             
             <div class="form-body d-flex">
                     <h1 id="alLadoServicio">
-                        Crea un servicio que sea <span class="letraDif">representativo</span> y <span class="letraDif">llamativo</span>, que los clientes facilmente puedan encontrar. 
+                        Crea un servicio que sea <span class="letraDif fw-bold">representativo</span> y <span class="letraDif fw-bold">llamativo</span>, que los clientes facilmente puedan encontrar. 
                     </h1>
             <c:choose> 
                 <c:when test="${(empresa.servicios.size() < 1 && empresa.empresafree) || !empresa.empresafree}">
@@ -183,11 +187,14 @@
                                         <form:select class="form-select mt-3" path="horaInicio">
                                             <form:errors path="horaInicio"/>
                                             <option selected disabled value="">Hora de inicio</option>
+                                            <form:option value="6">6 AM</form:option>
                                             <form:option value="7">7 AM</form:option>
                                             <form:option value="8">8 AM</form:option>
                                             <form:option value="9">9 AM</form:option>
                                             <form:option value="10">10 AM</form:option>
                                             <form:option value="11">11 AM</form:option>
+                                            <form:option value="12">12 AM</form:option>
+                                            <form:option value="13">13 PM</form:option>
                                         </form:select>
                                     </div>
          
@@ -200,6 +207,8 @@
                                             <form:option value="16">16 PM</form:option>
                                             <form:option value="17">17 PM</form:option>
                                             <form:option value="18">18 PM</form:option>
+                                            <form:option value="19">19 PM</form:option>
+                                            <form:option value="20">20 PM</form:option>
                                         </form:select>
                                 </div>
          
@@ -225,11 +234,11 @@
             </div>
         </c:when>
         <c:when test= "${empresa.servicios.size() == 1 && empresa.empresafree}">
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal1">
                 Cambiarse a premium
             </button>
 
-            <div class="modal fade modal-xl" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade modal-xl" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -260,7 +269,7 @@
             <h1 class="container mt-5 border-bottom">Resumen</h1>
         <thead>
             <tr>
-                <th scope="">Servicio</th>
+                <th class="">Servicio</th>
                 <th>Duracion de Servicio</th>
                 <th>Ciudad</th>
                 <th>Accion</th>
@@ -271,18 +280,18 @@
             <c:forEach items="${empresa.servicios}" var="servicio" >
             <tr>
                 
-                    <td colspan=""><c:out value="${servicio.servicioOfrecido}"/>  id: ${servicio.id}</td>
+                    <td colspan=""><c:out value="${servicio.servicioOfrecido}"/></td>
                     <td><c:out value="${servicio.duracionServicio}"/> min</td>
                     <td colspan=""><c:out value="${empresa.ciudad.nombre}"/></td>
                     <td><!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${servicio.id}">
-                                Eliminar Servicio
+                                Eliminar
                             </button>
                             
                             <!-- Modal -->
-                            <div class="modal fade" id="${servicio.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="${servicio.id}"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-content" style="background-color: #1D2226; color: aliceblue;">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -291,15 +300,15 @@
                                         ¿Seguro que deseas eliminar el servicio de tu empresa?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <a class="btn btn-primary" href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
+                                        <button type="button" class="btn botones" data-bs-dismiss="modal">Cancelar</button>
+                                        <a class="btn botones" href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
                                     </div>
                                 </div>
                             </div>
                             </div>
                     </td>
                     <td>
-                        <a href="/empresa/horario/${empresa.id}/${servicio.id}">Crear horas disponibles</a>
+                        <a class="btn botones" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver agenda</a>
                     </td>
                 
             </tr>

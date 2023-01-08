@@ -128,7 +128,7 @@ public class ServicioControlador {
     }
 
     @GetMapping("/horas/usuario/{usuarioId}")
-    public String horasAgendadasUsuario(HttpSession session, @PathVariable("usuarioId") Long usuarioId, Model model){
+    public String horaAgendadasUsuario(HttpSession session, @PathVariable("usuarioId") Long usuarioId, Model model){
         Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
         model.addAttribute("usuario", usuario);
         return"agendamientos";

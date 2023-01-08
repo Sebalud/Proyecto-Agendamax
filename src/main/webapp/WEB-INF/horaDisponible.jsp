@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,900;0,1000;1,200;1,800;1,900;1,1000&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/horaDisponible.css">
@@ -16,9 +17,9 @@
 </head>
 <body>
      <!-- Barra de navegacion -->
-     <nav class="navbar navbar-expand-lg bg-light py-3">
+     <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4 mb-5">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">AgendamientoMax</a>
+            <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agendalo</span><span id="max">Max</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,11 +27,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
-                    <c:choose>
-                        <c:when test="${!empresa.empresafree}">
-                            <li class="nav-item mt-2 text-danger">Cuenta premium!</li>
-                        </c:when>
-                    </c:choose>
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,26 +39,28 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
+                    <c:choose>
+                        <c:when test="${!empresa.empresafree}">
+                            <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                        </c:when>
+                </c:choose>
                 </ul>
                 <!-- Buscadores de Servicios-->
-                <form class="d-flex me-4" role="search" method="POST" action="/search">
-                    <select class="me-2 form-select" name="selectReg" id="selectReg">
-                        <option value="0">Region</option>
+                <form style="width: 700px ;" class="d-flex me-4 ms-1" role="search" method="POST" action="/search">
+                    <select class="form-select me-2" name="selectReg" id="selectReg">
+                        <option value="0"> Region</option>
                         <c:forEach items="${regiones}" var="region">
                             <option value="${region.id}">${region.nombre}</option>
                         </c:forEach>
                     </select>
-                    <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+                    <select class="form-select me-2" name="selectCiud" id="selectCiud">
                         <option value="0">Ciudad</option>
                     </select>
-                    <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2" id="buscador"  type="search" name="servicio" placeholder="Search" aria-label="Search">
+                    <button class="btn botones" type="submit">Search</button>
                 </form>
 
-                <li class="nav-item dropdown" id="sinPunto"">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <c:out value="${usuario.nombre}"/>
-                    </a>
+                <div class="nav-item dropdown">
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         <c:if test="${usuario.getEmpresa() != null}">
@@ -72,19 +70,24 @@
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Editar perfil</a></li>
                     </ul>
-                </li>
+                    <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <c:out value="${usuario.nombre}"/>
+                    </a>
+                </div>
         </div>
         
         </div>
     </nav>
     
+    <div class=" container">
+        <h1 class="text-center mt-5 border-bottom fw-semibold">Gestión de horas disponibles para ${servicio.servicioOfrecido}</h1>
 
-    <h1 class="text-center mt-5">Gestión de horas disponibles</h1>
-
-    <p>Duracion del servicio: ${servicio.duracionServicio} minutos</p>
-    <p>Hora de inicio: ${servicio.horaInicio} hras</p>
-    <p>Hora Termino: ${servicio.horaTermino} hras</p>
-    <p>Duracion de jornada: ${servicio.duracionJornada} horas</p>
+        <p>Duracion del servicio: ${servicio.duracionServicio} minutos</p>
+        <p>Hora de inicio: ${servicio.horaInicio} hras</p>
+        <p>Hora Termino: ${servicio.horaTermino} hras</p>
+        <p>Duracion de jornada: ${servicio.duracionJornada} horas</p>
+    </div>
+    
 
     <c:if test="${servicio.getHoraInicio() == 0 && servicio.getHoraTermino == 0}">
         <form:form action="" method="POST" modelAttribute="horario" cssClass="container form ancho">
@@ -98,7 +101,7 @@
     </c:if>
 
     <div class="container  mw-100">
-        <div class="container text-center d-flex justify-content-center rounded" style="background-color: #FFEBCD;">
+        <div class="container text-center d-flex justify-content-center rounded" id="targeta">
             <c:forEach  items="${listaAlModel}" var="dia">
             <div class="mx-5 my-5 d-inline-block col ">
                 <p class="border p-2"><fmt:formatDate value="${dia.get(1).getDate()}" pattern="EEEE dd"/><br></p>
