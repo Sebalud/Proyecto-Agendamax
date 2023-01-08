@@ -1,9 +1,15 @@
 package com.laurasoto.ProyectoAgenda.controlador;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Region;
@@ -55,19 +63,23 @@ public class EmpresaControlador {
 	@GetMapping("/search/{regionId}/{ciudadId}/{servicio}")
 	public String formServicio(@PathVariable("servicio") String servicio, @PathVariable("regionId") Long regionId, @PathVariable("ciudadId") Long ciudadId,
 	HttpSession session, Model model){
-		
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
 		//debo preguntar si id existe 
-		 if((Long) session.getAttribute("usuarioId") != null){
+		if((Long) session.getAttribute("usuarioId") != null){
 			Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 			model.addAttribute("usuario", usuario);
-		 }
-		
+			
+		}
+
+
 		List<Servicio> servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
 		if(servicioRequerido == null){
 			model.addAttribute("errorServicio", "No encontramos el servicio que estabas buscando");
 			return"servicio";
 		}
 		Ciudad ciudad = ciudadServicio.findById(ciudadId);
+		
 		//filtro por ciudad
 		List<Empresa> empresasFiltroCiudad = empresaServicio.getEmpresaPorCiudad(ciudad);
 		List<Servicio> servicios = new ArrayList<>();
@@ -82,16 +94,20 @@ public class EmpresaControlador {
 		if(serviciosFiltradosPorNombreCiudad.size() == 0){
 			model.addAttribute("errorNoHayEmpresa", "Lo sentimos, en esa ciudad no se encuentra el servicio que buscas");
 		}
+		model.addAttribute("regionesJson", resultadoJson);
+		model.addAttribute("regiones", regiones);
+
 		return"servicio";
 	}
 	//se puede tener dos empresas con el mismo nombre?
 	@GetMapping("/planes/new")
 	public String nuevoPlan(@ModelAttribute("empresa") Empresa empresa, HttpSession session, Model model){
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
-		List<Region> regiones = regionServicio.regionesTodas();
-		String resultadoJson = new Funciones().regionesToJson(regiones);
+
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
 		
@@ -129,15 +145,20 @@ public class EmpresaControlador {
 
 	@GetMapping("/plan/{idEmpresa}")
 	public String empresaDetalle(@ModelAttribute("servicio") Servicio servicio,@PathVariable("idEmpresa") Long idEmpresa, HttpSession session, Model model){
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
 		Empresa empresa = empresaServicio.findById(idEmpresa);
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
 		if((Long) session.getAttribute("usuarioId") != empresa.getUsuarioAdmin().getId()){
+			System.out.println( "id usuario"+(Long) session.getAttribute("usuarioId"));
+			System.out.println("id usuario dueño empresa:" + empresa.getUsuarioAdmin().getId());
 			return"redirect:/";
 		}
-		List<Region> regiones = regionServicio.regionesTodas();
-		String resultadoJson = new Funciones().regionesToJson(regiones);
+		
+		
+
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
@@ -159,9 +180,34 @@ public class EmpresaControlador {
 
 	@PostMapping("/plan/{idEmpresa}")
 	public String crearServcicio(@Valid @ModelAttribute("servicio") Servicio servicio,BindingResult result ,
-								HttpSession session, @PathVariable("idEmpresa") Long idEmpresa){
+								HttpSession session, @PathVariable("idEmpresa") Long idEmpresa, @RequestParam("postFile") MultipartFile postFile){
 		if(result.hasErrors()){
 			return"showEmpresa";
+		}
+		if(postFile.isEmpty() == false){
+			String fileName = "servicioPicture";
+			String imgRoute = "/img/" + idEmpresa + "/" + servicio;
+			File directory = new File("src/main/resources/static" + imgRoute);
+			if(directory.exists() == false){
+				directory.mkdirs();
+			}
+			try {
+				byte[] bytes = postFile.getBytes();
+				BufferedOutputStream outputStream = new BufferedOutputStream(
+					new FileOutputStream(
+						new File(directory.getAbsolutePath() + "/" + fileName)
+					)
+				);
+				outputStream.write(bytes);
+				outputStream.flush();
+				outputStream.close();
+				System.out.println("El archivo se ha cargado con éxito.");
+				servicio.setImgRoute(imgRoute + "/" + fileName);
+			} catch (IOException e) {
+				// Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("Ocurrió un error al cargar la imagen. " + e);
+			}
 		}
 		Empresa empresa = empresaServicio.findById(idEmpresa);
 		servicio.setEmpresa(empresa);

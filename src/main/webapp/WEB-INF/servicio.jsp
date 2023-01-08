@@ -56,21 +56,21 @@
                     <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <c:out value="${usuario.nombre}"/>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         <c:if test="${usuario.getEmpresa() != null}">
-                            <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
+                            <li><a class="dropdown-item" href="/plan/usuario.getEmpresa().getId()">tu empresa</a></li>
                         </c:if>
                         
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Editar perfil</a></li>
                     </ul>
-                </li>
+                  </div>
         </div>
         
         </div>
@@ -79,9 +79,11 @@
     <h1>Empresas Filtradas</h1>
     <c:forEach items="${serviciosFiltradosPorNombreCiudad}" var="servicio">
         <ul>
-            <li>Empresa ${servicio.empresa}</li>
-            <li> Dueño de la empresa:${servicio.empresa.usuarioAdmin.nombre}</li>
-
+            <li>Servicio que ofrece: ${servicio.servicioOfrecido}</li>
+            <li>Dueño de la empresa: ${servicio.empresa.usuarioAdmin.nombre}</li>
+            <div><c:if test="${servicio.imgRoute.isEmpty() == false}">
+              <img src="${servicio.imgRoute}" style="width: 200px; height: 200px;" alt="${servicio.imgRoute}">
+            </c:if> </div>
             <div class="container  mw-100">
                 <div class="container text-center d-flex justify-content-center rounded" style="background-color: #FFEBCD;">
                     <c:forEach  items="${servicio.posiblesHoraDisponible()}" var="dia">
@@ -241,10 +243,5 @@
     var regionesConAscii = '<c:out value="${regionesJson}"/>'
   </script>
   <script type="text/javascript" src="/js/servicio.js"></script>
-    <script>
-        //Mapeo de variable para archivo servicio.js
-        var regionesConAscii = '<c:out value="${regionesJson}"/>'
-    </script>
-    <script type="text/javascript" src="/js/servicio.js"></script>
 </body>
 </html>
