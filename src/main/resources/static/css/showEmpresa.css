@@ -1,66 +1,74 @@
-body{
+body {
     font-family: 'Nunito', sans-serif;
+    background-color: blanchedalmond;
+    padding: 0;
 }
 
-nav{
+.container-fluid {
+    background-color: rgb(189, 179, 254);
+    padding: 6px;
+}
+
+nav {
     background-color: #BDB3FE;
-      
+
 }
 
-#selectReg{
+#selectReg {
     width: 200px;
 }
 
-#selectCiud{
+#selectCiud {
     width: 200px;
 }
 
-#buscador{
+#buscador {
 
     width: 190px;
 }
-#ladoCarrusel{
+
+#ladoCarrusel {
     margin-top: 100px;
 }
 
-#ladoCarrusel h1{
+#ladoCarrusel h1 {
     font-size: 60px;
 }
-.botones{
+
+.botones {
     border: none;
-    background-color:rgb(177, 165, 253);
+    background-color: rgb(177, 165, 253);
     border: 1px cornflowerblue;
     border-radius: 20px;
     cursor: pointer;
-   
+
 }
 
-
-
-#max{
+#max {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-#nombrePagina{
+#nombrePagina {
     font-size: xx-large;
 }
 
-#agendalo{
+#agendalo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#carouselExampleDark{
+#carouselExampleDark {
     width: 50%;
 }
 
-#ladoCarrusel{
+#ladoCarrusel {
     width: 50%;
 }
 
-#footersito{
+#footersito {
     background-color: #1B1B1B
 }
-#alLadoServicio{
+
+#alLadoServicio {
     width: 35%;
     margin: 145px 35px 50px 90px;
     text-align: justify;
@@ -74,11 +82,9 @@ nav{
     padding: 10px;
 }
 
-.letraDif{
-}
-
+.letraDif {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-
+}
 
 
 .form-body {
@@ -87,17 +93,15 @@ nav{
 
 
 .form-holder {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
 }
 
 .form-holder .form-content {
-    
-   
     -webkit-justify-content: center;
     justify-content: center;
     -webkit-align-items: center;
@@ -142,11 +146,16 @@ nav{
 
 
 
-.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+.form-content label,
+.was-validated .form-check-input:invalid~.form-check-label,
+.was-validated .form-check-input:valid~.form-check-label {
     color: #fff;
 }
 
-.form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content select {
+.form-content input[type=text],
+.form-content input[type=password],
+.form-content input[type=email],
+.form-content select {
     width: 100%;
     padding: 9px 20px;
     text-align: left;
@@ -163,18 +172,20 @@ nav{
 }
 
 
-.btn-primary{
+.btn-primary {
     background-color: #6C757D;
     outline: none;
     border: 0px;
-     box-shadow: none;
+    box-shadow: none;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
     background-color: #495056;
     outline: none !important;
     border: none !important;
-     box-shadow: none;
+    box-shadow: none;
 }
 
 .form-content textarea {
@@ -196,21 +207,22 @@ nav{
     margin-bottom: 14px;
 }
 
-.form-content textarea:hover, .form-content textarea:focus {
+.form-content textarea:hover,
+.form-content textarea:focus {
     border: 0;
     background-color: #ebeff8;
     color: #8D8D8D;
 }
 
-.mv-up{
+.mv-up {
     margin-top: -9px !important;
     margin-bottom: 8px !important;
 }
 
-.invalid-feedback{
+.invalid-feedback {
     color: #ff606e;
 }
 
-.valid-feedback{
-   color: #2acc80;
+.valid-feedback {
+    color: #2acc80;
 }

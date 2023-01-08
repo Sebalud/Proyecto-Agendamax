@@ -1,40 +1,52 @@
-.navbar-expand-lg  {
-background-color: blanchedalmond;
-height: 7rem;
+body{
+    font-family: 'Nunito', sans-serif;
 }
+
 .container-fluid{
     background-color:rgb(189, 179, 254);
+    font-size: 15.5px;
     padding: 6px;
 }
 
-.buscado-flex{
-    display: flex;
-    align-items: center;
+nav{
+    background-color: #BDB3FE;
 }
 
-.buscado-flex {
+.d-flex{
+    background-color:rgb(189, 179, 254);
+}
+
+.navbar-brand {
+    margin-left: 25px;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-brand::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 0.1rem;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+.botones{
     border: none;
     background-color:rgb(166, 152, 255);
+    color: white;
     padding: 0.04rem 1rem;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.buscado-flex button:hover{
-    background-color:rgb(53, 0, 128);
-}
-
 .container{
-    /* width: 100%;
-    height: 75vh; */
     display: flex;
 } 
 
 .form{
+    padding: 2%;
     width: 100%;
     background-color: blanchedalmond;
-    padding-left: 2rem;
-    padding-right: 2rem;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -44,7 +56,6 @@ height: 7rem;
     height: 95%;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: rgba(197, 241, 244, 0.945);
     padding: 1rem ;
 }
@@ -64,16 +75,9 @@ height: 7rem;
 }
 
 .sub-title{
-    font-family: 'Nunito', sans-serif;
     padding: 5px;
     border-radius: 15px;
     background-color: rgba(197, 241, 244, 0.945);
-}
-
-.login-button button a{
-    text-decoration: none;
-    font-weight: 500;
-    color: aliceblue;
 }
 
 .form-header h1{
@@ -112,8 +116,7 @@ height: 7rem;
     padding: 10px;
     border: none;
     background-color: rgba(197, 241, 244, 0.945);
-    border: 1px cornflowerblue;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -150,6 +153,3 @@ height: 7rem;
     padding: 10px;
 }
 
-.d-flex{
-    background-color:rgb(189, 179, 254);
-}

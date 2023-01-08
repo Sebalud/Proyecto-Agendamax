@@ -1,5 +1,50 @@
 body{
+    font-family: 'Nunito', sans-serif; 
     background-color: blanchedalmond;
+}
+
+.container-fluid {
+    background-color: rgb(189, 179, 254);
+    font-size: 20.5px;
+    padding: 6px;
+}
+
+.d-flex {
+    background-color: rgb(189, 179, 254);
+}
+
+.navbar-brand {
+    margin-left: 25px;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-brand::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 0.1rem;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+.form-control {
+    margin-right: 3rem;
+} 
+
+#selectReg{
+    margin: 0.3rem;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+#selectCiud{
+    margin: 0.3rem;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
 }
 
 nav{
@@ -7,21 +52,22 @@ nav{
 }
 
 .botones{
-    padding: 10px;
     border: none;
-    background-color:rgb(177, 165, 253);
-    border: 1px cornflowerblue;
-    border-radius: 20px;
+    background-color:rgb(166, 152, 255);
+    color: white;
+    padding: 0.04rem 1rem;
+    border-radius: 5px;
     cursor: pointer;
-    width: 100px;
 }
 
 #contenedor{
     font-family:'Nunito', sans-serif;
     display: flex;
-    padding: 3rem;
+    padding: 5%;
+    align-items: center;
+    background-color: blanchedalmond;
+    font-size: 20px;
 }
-
 
 .form-image{
     border-radius: 20px;
@@ -30,21 +76,28 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 193, 162, 0.945);
-    padding: 2rem ;
+    background-color: rgba(197, 241, 244, 0.945);
+    padding: 2rem;
 }
 
-.form-image img{
+.form-image img {
     width: 20rem;
 }
 
-.input-group{
-    justify-content: space-between;
-    padding: 4.2rem ;
-    display: flex;
-} 
+#title{
+    padding: 5px;
+    border-radius: 15px;
+    background-color: rgba(197, 241, 244, 0.945);
+    align-items: center;
+}
 
-.input-box input{
+.input-group {
+    justify-content: space-between;
+    padding: 4.2rem;
+    display: flex;
+}
+
+.input-box input {
     margin: 0.6rem;
     padding: 0.8rem 1.2rem;
     border: none;
@@ -56,26 +109,16 @@ nav{
     padding: 5px;
 }
 
-.link-secondary img{
+.link-secondary img {
     width: 30px;
     height: 30px;
 }
 
-.input-register :nth-of-type(){
-    text-decoration: none;
-    font-weight: 500;
-    color: aliceblue;
-    align-items: center;
-}
-
-.section-part{
+.section-part {
     height: 20rem;
-    background-color: rgb(27, 27, 27) ;
-    font-family: 'Nunito', sans-serif;
+    background-color: rgb(27, 27, 27);
     padding: 10px;
 }
-
-
 
 #selectReg{
     width: 300px;
