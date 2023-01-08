@@ -177,12 +177,12 @@
                             <div class="form-items">
                                 <h3>Crear Servicio</h3>
                                 <p>Escoge un servicio para tu empresa</p>
-                                <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho">
+                                <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho" enctype="multipart/form-data">
                                     <div class="col-md-12">
                                         <form:input cssClass="form-control" type="text" path="servicioOfrecido" placeholder="Nombre del servicio"/>
                                         <form:errors cssClass="text-danger" path="servicioOfrecido"/>
                                     </div>
-         
+        
                                     <div class="col-md-12">
                                         <form:select class="form-select mt-3" path="horaInicio">
                                             <form:errors path="horaInicio"/>
@@ -197,7 +197,7 @@
                                             <form:option value="13">13 PM</form:option>
                                         </form:select>
                                     </div>
-         
+        
                                     <div class="col-md-12">
                                         <form:select class="form-select mt-3" path="horaTermino" placeholder="Hora termino">
                                             <form:errors path="horaTermino"/>
@@ -211,7 +211,7 @@
                                             <form:option value="20">20 PM</form:option>
                                         </form:select>
                                 </div>
-         
+        
                                 <div class="col-md-12">
                                     <form:select class="form-select" path="duracionServicio">
                                         <form:errors path="duracionServicio"/>
@@ -221,6 +221,8 @@
                                         <form:option value="60">60 min</form:option>
                                     </form:select>
                                 </div>
+
+                                <input type="file" name="postFile">
         
                                     <div class="form-button mt-3">
                                         <input id="submit" class="btn btn-primary" type="submit" value="servicio"/>
@@ -230,47 +232,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </c:when>
-        </c:choose>    
-    </form>
-    </p>
-
-        <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho" enctype="multipart/form-data">
-            <div class="input-group">
-                <p class="input-box">
-                    <form:label cssClass="form-label" path="servicioOfrecido">Servicio Ofrecido</form:label>
-                    <form:errors cssClass="text-danger" path="servicioOfrecido"/>
-                    <form:input cssClass="form-control" path="servicioOfrecido" placeholder="Nombre de su empresa"/>
-                </p>
-
-                <p class="input-box">
-                    <form:label path="horaTermino">Hora Termino</form:label>
-                    <form:errors cssClass="text-danger" path="horaTermino"/>
-                    <form:input cssClass="form-control" path="horaTermino" placeholder="Introduzca el rut de empresa"/>
-                </p>
-
-                <p class="input-box">
-                    <form:label path="horaInicio">Hora Inicio</form:label>
-                    <form:errors cssClass="text-danger" path="horaInicio"/>
-                    <form:input cssClass="form-control" path="horaInicio" placeholder="Introduzca el rut de empresa"/>
-                </p>
-
-                <p class="input-box-ciudad" style="width: 16rem;">
-                    <form:label cssClass="form-label" path="duracionServicio">Duracion</form:label>
-                    <form:errors path="duracionServicio"/>
-                    <form:select class="form-select" path="duracionServicio" placeholder="Selecciona">
-                        <form:option value="30">30 min</form:option>
-                        <form:option value="45">45 min</form:option>
-                        <form:option value="60">60 min</form:option>
-                    </form:select>
-                </p>
                 
-                <input type="file" name="postFile">
-                <input class="freeplan" type="submit" value="FreePlan"/>
-                </form:form>
             </div>
-
+        </c:when>
         <c:when test= "${empresa.servicios.size() == 1 && empresa.empresafree}">
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal1">
                 Cambiarse a premium
@@ -301,6 +265,10 @@
 
     
 
+        <c:when test= "${empresa.servicios.size() == 1 && empresa.empresafree}">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal1">
+                Cambiarse a premium
+            </button>
 
 
         <table class="table container my-5">
