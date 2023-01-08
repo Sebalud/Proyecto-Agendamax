@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar navbar-expand-lg py-4 px-3">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Agendalomax</a>
+          <a class="navbar-brand" href="#">Agéndalomax</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -53,7 +53,7 @@
     <p class="text-dark"><c:out value="${error}" /></p>
     
     <form method="post" action="/" class="container form ancho">
-      <div class="ml-5"> 
+      <div class="ml-5" id="title"> 
         <h1 class="">Log in</h1>
       </div> 
         <p class="input-box">
@@ -64,7 +64,7 @@
             <label for="password">Contraseña</label>
             <input class="ancho" type="password" id="password" name="password" placeholder="Introduzca su contraseña"/>
         </p>
-          <a class=" btn botones" href="/registration">registrarse</a>
+          <a class=" btn botones" href="/registration">Registrarse</a>
           <input  class="btn botones" type="submit" value="Login!"/>
         
     </form> 

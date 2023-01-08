@@ -57,10 +57,10 @@
         </div>
         <form class="d-flex" role="search" method="POST" action="/search">
           <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
-          <button class="buscado-flex" type="submit">Buscar</button>
+          <button class="btn botones" type="submit">Buscar</button>
         </form>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" id="usuario-nombre">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <c:out value="${usuario.nombre}" />
           </a>
@@ -121,7 +121,7 @@
           </p>
           </div>
 
-            <input class="freeplan" type="submit" value="FreePlan"/>
+            <input class="freeplan" type="submit" value="Plan Gratis"/>
     </form:form>
   </div>
   </div>

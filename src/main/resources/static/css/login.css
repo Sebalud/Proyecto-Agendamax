@@ -1,10 +1,11 @@
-body {
+body{
     font-family: 'Nunito', sans-serif; 
     background-color: blanchedalmond;
 }
 
 .container-fluid {
     background-color: rgb(189, 179, 254);
+    font-size: 20.5px;
     padding: 6px;
 }
 
@@ -30,11 +31,6 @@ body {
     margin-right: 3rem;
 } 
 
-.buscado-flex {
-    display: flex;
-    align-items: center;
-}
-
 #selectReg{
     margin: 0.3rem;
     padding: 0.5rem 0.8rem;
@@ -51,36 +47,27 @@ body {
     box-shadow: 1px 1px 6px #0000001c;
 }
 
-.buscado-flex {
-    border: none;
-    background-color:rgb(166, 152, 255);
-    padding: 0.04rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.container {
-    font-family: 'Nunito', sans-serif;
 nav{
     background-color: #BDB3FE;
 }
 
 .botones{
-    padding: 10px;
     border: none;
-    background-color:rgb(177, 165, 253);
-    border: 1px cornflowerblue;
-    border-radius: 20px;
+    background-color:rgb(166, 152, 255);
+    color: white;
+    padding: 0.04rem 1rem;
+    border-radius: 5px;
     cursor: pointer;
-    width: 100px;
 }
 
 #contenedor{
     font-family:'Nunito', sans-serif;
     display: flex;
-    padding: 3rem;
+    padding: 5%;
+    align-items: center;
+    background-color: blanchedalmond;
+    font-size: 20px;
 }
-
 
 .form-image{
     border-radius: 20px;
@@ -95,6 +82,13 @@ nav{
 
 .form-image img {
     width: 20rem;
+}
+
+#title{
+    padding: 5px;
+    border-radius: 15px;
+    background-color: rgba(197, 241, 244, 0.945);
+    align-items: center;
 }
 
 .input-group {
@@ -123,11 +117,8 @@ nav{
 .section-part {
     height: 20rem;
     background-color: rgb(27, 27, 27);
-    font-family: 'Nunito', sans-serif;
     padding: 10px;
 }
-
-
 
 #selectReg{
     width: 300px;

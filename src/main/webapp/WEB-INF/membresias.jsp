@@ -77,12 +77,13 @@
             <div id="cartafree">
               <div class="card-body">
                 <h5 class="card-title">Plan Gratis</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt cum fuga
+                <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt cum fuga
                   voluptate. Numquam sit sed at ipsam
                   exercitationem, voluptates eos accusantium placeat fuga possimus ad animi maiores rem sunt
-                  magnam. Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                  <button href="/planes/new">Crear empresa</button>
+                  magnam.
+                  <div class="button-crear">
+                    <a href="/planes/new">Crear empresa</a>
+                  </div>
                 </p>
                 
               </div>
@@ -101,9 +102,6 @@
           </div>
           <!-- </div> -->
         <!-- </div> -->
-        <div id="crear">
-        <a  href="/planes/new">Crear Empresa</a>
-      </div>
       </div>
       </div>
       <!-- Footer -->
@@ -163,7 +161,7 @@
               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                  Informacion
+                  Información
                 </h6>
                 <p>
                   <a href="#!" class="text-reset">Sobre nosotros</a>

@@ -51,7 +51,7 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-black" href="/planes/new">Aceptar</a>
+                        <a class="btn btn-black" href="/planes">Aceptar</a>
                       </div>
                     </div>
                   </div>
@@ -74,14 +74,13 @@
         </form>
         <form class="d-flex" role="search" method="POST" action="/search">
           <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
-          <button class="buscado-flex" type="submit">Buscar</button>
+          <button class="btn botones" type="submit">Buscar</button>
         </form>
-        <li class="nav-item dropdown">
-          <div class="usuario">
+
+        <li class="nav-item dropdown" id="usuario-nombre">
             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <c:out value="${usuario.nombre}" />
             </a>
-          </div>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/logout">Log out</a></li>
             <c:if test="${usuario.getEmpresa() != null}">

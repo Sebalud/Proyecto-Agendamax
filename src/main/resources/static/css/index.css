@@ -5,6 +5,7 @@
 
 .container-fluid{
     background-color:rgb(189, 179, 254);
+    font-size: 15.5px;
     padding: 6px;
 }
 
@@ -16,7 +17,7 @@
 .navbar-brand::after{
     content:'' ;
     display: block;
-    width: 3rem;
+    width: 3rem; 
     height: 0.1rem;
     background-color: rgb(255, 255, 255);
     margin:0 auto ;
@@ -38,18 +39,27 @@
     box-shadow: 1px 1px 6px #0000001c;
 }
 
-
-.buscado-flex{
-    display: flex;
-    align-items: center;
+nav{
+    background-color: #BDB3FE;
 }
 
-.buscado-flex {
+.botones{
     border: none;
     background-color:rgb(166, 152, 255);
+    color: white;
     padding: 0.04rem 1rem;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#usuario-nombre{
+    background-color: white;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 3%;
+    padding: 0.02rem 2rem;
+    border-radius: 5px;
 }
 
 .sub-texto{
@@ -58,7 +68,7 @@
     border-radius: 5px;
 }
 .carousel-inner{
-    margin-left: 22rem;
+    margin-left: 25%;
     width: 50rem;
 }
 
