@@ -62,5 +62,5 @@ public class Empresa {
 		servicios.add(servicio);
 	}
 
-	
+	public void setServicios(List<Servicio> servicios){ this.servicios = servicios;}
 }

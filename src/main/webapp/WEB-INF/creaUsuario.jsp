@@ -30,10 +30,20 @@
             <a class="nav-link active" aria-current="page" href="/home">Home</a>
           </li>
         </ul>
+        <!-- Buscadores de Servicios-->
         <form class="d-flex" role="search" method="POST" action="/search">
-          <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+              <option value="0">Region</option>
+              <c:forEach items="${regiones}" var="region">
+                  <option value="${region.id}">${region.nombre}</option>
+              </c:forEach>
+          </select>
+          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+              <option value="0">Ciudad</option>
+          </select>
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Encuentralo..." aria-label="Search">
           <button class="btn botones" type="submit">Buscar</button>
-        </form>
+      </form>
       </div>
     </div>
   </nav>
@@ -226,11 +236,6 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-  <script>
-    //Mapeo de variable para archivo servicio.js
-    var regionesConAscii = '<c:out value="${regionesJson}"/>'
-  </script>
-  <script type="text/javascript" src="/js/servicio.js"></script>
   <script>
     //Mapeo de variable para archivo servicio.js
         var regionesConAscii = '<c:out value="${regionesJson}"/>'
