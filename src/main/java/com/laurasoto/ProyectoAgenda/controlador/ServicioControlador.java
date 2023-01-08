@@ -115,14 +115,16 @@ public class ServicioControlador {
     }
 
     @GetMapping("/agendamiento/{servicioId}/{horaLong}")
-    public String agendarHora(@ModelAttribute("horario") Horario horario, HttpSession session,
-                              @PathVariable("servicioId") Long servicioId, @PathVariable("horaLong") Long horaLong, Model model){
+    public String agendarHora(@ModelAttribute("horario") Horario horario,
+                              @PathVariable("servicioId") Long servicioId, @PathVariable("horaLong") Long horaLong, Model model, HttpSession session){
+            if( (Long) session.getAttribute("usuarioId") == null ){
+                model.addAttribute("loguearseParaAgendar", "Debes Loguearte para agendar");
+                return"redirect:/";
+            }
         Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
         horario.setUsuario(usuario);
         horario.setHoraDisponible(horaLong);
         horarioServicio.crear(horario);
-
-
 
         return "redirect:/horas/usuario/" + usuario.getId();
     }

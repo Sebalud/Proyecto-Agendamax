@@ -93,6 +93,7 @@
                                         <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
                                     </a><br>
                                 </c:if>
+                                
                                 <c:if test="${usuario.id != servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
                                     <a href="/agendamiento/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-warning my-1" >
                                         <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>

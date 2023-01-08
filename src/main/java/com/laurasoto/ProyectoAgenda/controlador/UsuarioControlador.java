@@ -103,8 +103,13 @@ public class UsuarioControlador {
 	public String home(HttpSession session, Model model){
 		Empresa empresa = empresaServicio.findById((Long) session.getAttribute("usuarioId"));
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
+
 		model.addAttribute("empresa",empresa);
 		model.addAttribute("usuario", usuario);
+		model.addAttribute("regiones", regiones);
+		model.addAttribute("regionesJson", resultadoJson);
 		return"index";
 	}
 

@@ -86,6 +86,8 @@
         <p>Hora de inicio: ${servicio.horaInicio} hras</p>
         <p>Hora Termino: ${servicio.horaTermino} hras</p>
         <p>Duracion de jornada: ${servicio.duracionJornada} horas</p>
+        <p>horas que el cliente no puede agendar: rojo</p>
+        <p>horas agendadas por clientes: aun no se</p>
     </div>
     
 

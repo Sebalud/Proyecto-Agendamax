@@ -68,9 +68,10 @@
 
     <div class="input-group">
     <p class="text-dark"><c:out value="${error}" /></p>
-    
+    <p><c:out value="${loguearseParaAgendar}" /></p>
     <form method="post" action="/" class="container form ancho">
-      <div class="ml-5"> 
+      <div class="ml-5">
+        
         <h1 class="">Log in</h1>
       </div> 
         <p class="input-box">
