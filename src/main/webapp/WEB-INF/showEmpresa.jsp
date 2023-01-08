@@ -128,7 +128,7 @@
     </form>
     </p>
 
-        <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho">
+        <form:form action="" method="POST" modelAttribute="servicio" cssClass="container form ancho" enctype="multipart/form-data">
             <div class="input-group">
                 <p class="input-box">
                     <form:label cssClass="form-label" path="servicioOfrecido">Servicio Ofrecido</form:label>
@@ -157,7 +157,8 @@
                         <form:option value="60">60 min</form:option>
                     </form:select>
                 </p>
-
+                
+                <input type="file" name="postFile">
                 <input class="freeplan" type="submit" value="FreePlan"/>
                 </form:form>
             </div>

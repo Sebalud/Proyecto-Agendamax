@@ -1,10 +1,15 @@
 package com.laurasoto.ProyectoAgenda.controlador;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Region;
@@ -155,9 +162,34 @@ public class EmpresaControlador {
 
 	@PostMapping("/plan/{idEmpresa}")
 	public String crearServcicio(@Valid @ModelAttribute("servicio") Servicio servicio,BindingResult result ,
-								 HttpSession session, @PathVariable("idEmpresa") Long idEmpresa){
+								HttpSession session, @PathVariable("idEmpresa") Long idEmpresa, @RequestParam("postFile") MultipartFile postFile){
 		if(result.hasErrors()){
 			return"showEmpresa";
+		}
+		if(postFile.isEmpty() == false){
+			String fileName = "servicioPicture";
+			String imgRoute = "/img/" + idEmpresa + "/" + servicio;
+			File directory = new File("src/main/resources/static" + imgRoute);
+			if(directory.exists() == false){
+				directory.mkdirs();
+			}
+			try {
+				byte[] bytes = postFile.getBytes();
+				BufferedOutputStream outputStream = new BufferedOutputStream(
+					new FileOutputStream(
+						new File(directory.getAbsolutePath() + "/" + fileName)
+					)
+				);
+				outputStream.write(bytes);
+				outputStream.flush();
+				outputStream.close();
+				System.out.println("El archivo se ha cargado con éxito.");
+				servicio.setImgRoute(imgRoute + "/" + fileName);
+			} catch (IOException e) {
+				// Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("Ocurrió un error al cargar la imagen. " + e);
+			}
 		}
 		Empresa empresa = empresaServicio.findById(idEmpresa);
 		servicio.setEmpresa(empresa);

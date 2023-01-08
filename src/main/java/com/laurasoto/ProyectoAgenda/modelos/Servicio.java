@@ -44,6 +44,7 @@ public class Servicio{
 	private int horaTermino=0;
 	private int duracionJornada=0;
 
+	private String imgRoute;
 
 	@Column(updatable=false)
 	private Date createdAt;

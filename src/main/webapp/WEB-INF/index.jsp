@@ -82,7 +82,7 @@
         <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <li class="nav-item dropdown">
+        <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <c:out value="${usuario.nombre}"/>
           </a>
@@ -95,7 +95,7 @@
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="#">Editar perfil</a></li>
           </ul>
-      </li>
+        </div>
     </div>
     </div>
 </nav>
