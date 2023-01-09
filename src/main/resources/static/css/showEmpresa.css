@@ -11,7 +11,6 @@ body {
 
 nav {
     background-color: #BDB3FE;
-
 }
 
 #selectReg {
@@ -82,15 +81,12 @@ nav {
     padding: 10px;
 }
 
-.letraDif {
+.letraDif {}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-}
-
 
 .form-body {
     background-color: #FFEBCD;
 }
-
 
 .form-holder {
     display: flex;
@@ -143,7 +139,6 @@ nav {
     line-height: 20px;
     margin-bottom: 30px;
 }
-
 
 
 .form-content label,
@@ -226,3 +221,23 @@ nav {
 .valid-feedback {
     color: #2acc80;
 }
+
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img{
+    width: 30px;
+    height: 30px;
+}
+
+.section-part{
+    height: 20rem;
+    background-color: rgb(27, 27, 27) ;
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+#barrita{
+    background-color:rgb(189, 179, 254);
+} 

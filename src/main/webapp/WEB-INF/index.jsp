@@ -33,7 +33,7 @@
             <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
             <c:choose>
               <c:when test="${usuario.empresa == null}">
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
                   Crear Empresa
                 </button>
                 <!-- Modal -->
@@ -63,7 +63,7 @@
 <!-- Buscadores de Servicios-->
 <form class="d-flex" role="search" method="POST" action="/search">
   <select class="me-2 form-select" name="selectReg" id="selectReg">
-      <option value="0">Region</option>
+      <option value="0">Región</option>
       <c:forEach items="${regiones}" var="region">
           <option value="${region.id}">${region.nombre}</option>
       </c:forEach>
@@ -81,7 +81,7 @@
           <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="/logout">Log out</a></li>
           <c:if test="${usuario.getEmpresa() != null}">
-            <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">tu empresa</a></li>
+            <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
           </c:if>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="#">Editar perfil</a></li>
@@ -129,24 +129,24 @@
       </div>
       <div class="carousel-item">
         <img src="/imagenes/take-away.png" class="d-block w-100" alt="entrega de comida">
-        <!-- <div class="carousel-caption d-none text-black d-md-block">
+        <div class="carousel-caption d-none text-black d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
-        </div> -->
+        </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/healthcare.png" class="d-block w-100" alt="salud">
-        <!-- <div class="carousel-caption d-none text-black d-md-block">
+        <div class="carousel-caption d-none text-black d-md-block">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
-        </div> -->
+        </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
-        <!-- <div class="carousel-caption d-none text-black d-md-block">
+        <div class="carousel-caption d-none text-black d-md-block">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
-        </div> -->
+        </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">

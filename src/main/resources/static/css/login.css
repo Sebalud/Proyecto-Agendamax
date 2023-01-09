@@ -5,12 +5,11 @@ body{
 
 .container-fluid {
     background-color: rgb(189, 179, 254);
-    font-size: 20.5px;
-    padding: 6px;
+    font-size: 18px;
 }
 
-.d-flex {
-    background-color: rgb(189, 179, 254);
+nav{
+    background-color: #BDB3FE;
 }
 
 .navbar-brand {
@@ -27,49 +26,40 @@ body{
     margin: 0 auto;
 }
 
-.form-control {
-    margin-right: 3rem;
-} 
-
-#selectReg{
-    margin: 0.3rem;
-    padding: 0.5rem 0.8rem;
+#home{
     border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 6px #0000001c;
+    background-color:rgb(166, 152, 255);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#selectCiud{
-    margin: 0.3rem;
-    padding: 0.5rem 0.8rem;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 6px #0000001c;
-}
-
-nav{
-    background-color: #BDB3FE;
+label{
+    width: 100px;
 }
 
 .botones{
     border: none;
     background-color:rgb(166, 152, 255);
     color: white;
-    padding: 0.04rem 1rem;
+    padding: 0.03rem 1rem;
     border-radius: 5px;
     cursor: pointer;
 }
 
 #contenedor{
+    margin-left: 15%;
     font-family:'Nunito', sans-serif;
     display: flex;
-    padding: 5%;
+    padding: 2%;
     align-items: center;
     background-color: blanchedalmond;
     font-size: 20px;
 }
 
 .form-image{
+    margin-right: 3%;
     border-radius: 20px;
     width: 50%;
     height: 95%;
@@ -84,17 +74,20 @@ nav{
     width: 20rem;
 }
 
-#title{
+#title{ 
     padding: 5px;
     border-radius: 15px;
     background-color: rgba(197, 241, 244, 0.945);
+    width: 65%;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .input-group {
     justify-content: space-between;
     padding: 4.2rem;
     display: flex;
+    margin-bottom: 2rem;
 }
 
 .input-box input {
@@ -120,13 +113,7 @@ nav{
     padding: 10px;
 }
 
-#selectReg{
-    width: 300px;
+.d-flex {
+    background-color: rgb(189, 179, 254);
 }
 
-#seleCiud{
-    width: 300px;
-}
-label{
-    width: 100px;
-}
