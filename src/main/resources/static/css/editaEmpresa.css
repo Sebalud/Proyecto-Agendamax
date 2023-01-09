@@ -1,0 +1,25 @@
+.sub-texto{
+    padding: 4px;
+    background-color:rgb(177, 165, 253);
+    border-radius: 5px;
+}
+
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img{
+    width: 30px;
+    height: 30px;
+}
+
+.section-part{
+    height: 20rem;
+    background-color: rgb(27, 27, 27) ;
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+.d-flex{
+    background-color:rgb(189, 179, 254);
+}

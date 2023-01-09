@@ -3,20 +3,7 @@ package com.laurasoto.ProyectoAgenda.modelos;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -68,11 +55,12 @@ public class Empresa {
     @JoinColumn(name = "ciudad_id")
     private Ciudad ciudad;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "empresas_servicios", joinColumns = @JoinColumn(name = "empresa_id"), inverseJoinColumns = @JoinColumn(name = "servicio_id"))
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY)
 	private List<Servicio> servicios;
 
 	public void setServicios(Servicio servicio){
 		servicios.add(servicio);
 	}
+
+	public void setServicios(List<Servicio> servicios){ this.servicios = servicios;}
 }

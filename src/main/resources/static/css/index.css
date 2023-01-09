@@ -1,40 +1,101 @@
-* 
-{
-    padding: 0px;
-    margin: 0;
-    box-sizing: border-box;
-    border: 0px;
-    font-family: 'Nunito', sans-serif;
+    body{
+        background-color: blanchedalmond;
+        font-family: 'Nunito', sans-serif;
+    }
+
+.container-fluid{
+    background-color:rgb(189, 179, 254);
+    font-size: 15.5px;
+    padding: 15px;
 }
 
-.encabezado {
+nav{
+    background-color: #BDB3FE;
+}
 
-    width: 1670px;
-    height: 100px;
-    background-color: rgb(177, 161, 255);
+.navbar-brand{
+    margin-left: 25px;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-brand::after{
+    content:'' ;
+    display: block;
+    width: 3rem; 
+    height: 0.1rem;
+    background-color: rgb(255, 255, 255);
+    margin:0 auto ;
+}
+
+label{
+    width: 100px;
+}
+
+#crea-empresa{
+    border: none;
+    background-color:rgb(166, 152, 255);
     color: white;
-    
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#REGIÓN {
-    width: 200px;
-    height: 200px;
-        
+.botones{
+    border: none;
+    background-color:rgb(166, 152, 255);
+    color: white;
+    padding: 0.03rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
-#CIUDAD {
-    width: 200px;
-    height: 200px;
+
+#usuario-nombre{
+    background-color: white;
+    align-items: center;
+    border-radius: 5px;
+    height: 39px;
+    margin-left: 10px;
+    margin-right: 3%;
+    padding: 1rem 2rem;
 }
-#SERVICIO {
-    width: 200px;
-    height: 200px;
+
+.sub-texto{
+    padding: 4px;
+    background-color:rgb(177, 165, 253);
+    border-radius: 5px;
 }
-#BOTONSERVICIO {
-    width: 200px;
-    height: 200px;
-    border-radius: 2px;
+.carousel-inner{
+    margin-left: 25%;
+    width: 50rem;
 }
-#NOSOTROS {
-    width: 200px;
-    height: 200px;  
+
+.carousel-item img{
+    background-color: blanchedalmond;
+    padding: 1rem;
+    height:33rem;
+    width: 100px;
 }
+
+.carousel-caption{
+    background-color:rgba(197, 241, 244, 0.662);
+}
+
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img{
+    width: 30px;
+    height: 30px;
+}
+
+.section-part{
+    height: 20rem;
+    background-color: rgb(27, 27, 27) ;
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+.d-flex{
+    background-color:rgb(189, 179, 254);
+} 

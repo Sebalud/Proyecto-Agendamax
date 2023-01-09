@@ -17,7 +17,9 @@ public class CiudadServicio extends BaseServicio<Ciudad> {
         this.ciudadRepositorio = ciudadRepositorio;
 
     }
-
+    public Ciudad getCiudadPorNombre(String ciudad){
+        return ciudadRepositorio.findByNombre(ciudad);
+    }
     public List<Ciudad> ciudadesMostrar(Empresa empresa){
         return ciudadRepositorio.findAll();
     }

@@ -1,0 +1,119 @@
+body{
+    font-family: 'Nunito', sans-serif; 
+    background-color: blanchedalmond;
+}
+
+.container-fluid {
+    background-color: rgb(189, 179, 254);
+    font-size: 18px;
+}
+
+nav{
+    background-color: #BDB3FE;
+}
+
+.navbar-brand {
+    margin-left: 25px;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-brand::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 0.1rem;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+#home{
+    border: none;
+    background-color:rgb(166, 152, 255);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+label{
+    width: 100px;
+}
+
+.botones{
+    border: none;
+    background-color:rgb(166, 152, 255);
+    color: white;
+    padding: 0.03rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contenedor{
+    margin-left: 15%;
+    font-family:'Nunito', sans-serif;
+    display: flex;
+    padding: 2%;
+    align-items: center;
+    background-color: blanchedalmond;
+    font-size: 20px;
+}
+
+.form-image{
+    margin-right: 3%;
+    border-radius: 20px;
+    width: 50%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(197, 241, 244, 0.945);
+    padding: 2rem;
+}
+
+.form-image img {
+    width: 20rem;
+}
+
+#title{ 
+    padding: 5px;
+    border-radius: 15px;
+    background-color: rgba(197, 241, 244, 0.945);
+    width: 65%;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    justify-content: space-between;
+    padding: 4.2rem;
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.input-box input {
+    margin: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img {
+    width: 30px;
+    height: 30px;
+}
+
+.section-part {
+    height: 20rem;
+    background-color: rgb(27, 27, 27);
+    padding: 10px;
+}
+
+.d-flex {
+    background-color: rgb(189, 179, 254);
+}
+

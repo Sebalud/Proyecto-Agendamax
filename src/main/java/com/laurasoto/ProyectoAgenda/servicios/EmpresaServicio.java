@@ -2,11 +2,14 @@ package com.laurasoto.ProyectoAgenda.servicios;
 
 
 
+import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import org.springframework.stereotype.Service;
 
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 
 import com.laurasoto.ProyectoAgenda.repositorios.EmpresaRepositorio;
+
+import java.util.List;
 
 @Service
 public class EmpresaServicio extends BaseServicio<Empresa>{
@@ -22,4 +25,9 @@ public class EmpresaServicio extends BaseServicio<Empresa>{
 	public Empresa getEmpresaPorNombre(String nombre){
 		return empresaRepositorio.findByNombre(nombre);
 	}
+
+	public List<Empresa> getEmpresaPorCiudad(Ciudad ciudad){
+		return empresaRepositorio.findByCiudad(ciudad);
+	}
+
 }

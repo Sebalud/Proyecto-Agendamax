@@ -1,0 +1,20 @@
+body{
+    background-color: #FFEBCD;
+    font-family: 'Nunito', sans-serif;
+}
+nav{
+    background-color: #BDB3FE;
+      
+}
+#targeta{
+    background-color: #f8eddc;
+}
+
+.botones{
+    border: none;
+    background-color:rgb(177, 165, 253);
+    border: 1px cornflowerblue;
+    border-radius: 20px;
+    cursor: pointer;
+   
+}
