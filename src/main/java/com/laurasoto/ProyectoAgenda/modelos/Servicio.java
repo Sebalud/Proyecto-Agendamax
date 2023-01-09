@@ -41,6 +41,10 @@ public class Servicio{
 	private int horaTermino=0;
 	private int duracionJornada;
 	
+	private String direction;
+
+	private String precio;
+
 	private String imgRoute;
 
 	@Column(updatable=false)
@@ -133,19 +137,34 @@ public class Servicio{
 		List<List<TachamientoBoton>> tachamientoBoton = new ArrayList<>();
 		for (List<Date> dates : listaDefinitiva) {
 			List<TachamientoBoton> botons = dates.stream()
-					.map(date -> new TachamientoBoton(true,false, date))
+					.map(date -> new TachamientoBoton(true,0, date))
 					.collect(Collectors.toList());
 			tachamientoBoton.add(botons);
 		}
-
+		//lo esta transformando de un objeto horario a long
 		List<Long> allDateAsLong = this.horarios
 				.stream()
 				.map(Horario::getHoraDisponible)
+				//el colect agrupa en una lista
 				.collect(Collectors.toList());
 
 		for (List<TachamientoBoton> tachamientoBotons : tachamientoBoton) {
 			for (TachamientoBoton boton : tachamientoBotons) {
 				if (allDateAsLong.contains(boton.getDate().getTime())){
+					//preguntar si el horario tiene seteado un usuario_id si es asi es porque fue agendada por cliente
+					//traigo la lista de horarios que le corresponde al servicio, itero, pregunto si el horario tiene un
+					//usuario seteado, si es asi, al boton de tachamiento le seteo horaAgendada true
+					for (Horario horario : this.horarios) {
+						//cliente
+						if(horario.getUsuario() == null){
+							boton.setHoraAgendadaByCliente(2);
+						}
+						else{
+							//dueñoempresa
+							boton.setHoraAgendadaByCliente(1);
+						}
+					}
+					System.out.println(boton);
 					boton.setEstaActivo(false);
 				}
 			}

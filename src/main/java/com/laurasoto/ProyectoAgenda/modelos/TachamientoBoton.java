@@ -9,6 +9,6 @@ import lombok.Data;
 @AllArgsConstructor
     public class TachamientoBoton{
         private Boolean estaActivo = true;
-        private Boolean horaAgendada = false;
+        private int horaAgendadaByCliente;
         private Date date;
     }

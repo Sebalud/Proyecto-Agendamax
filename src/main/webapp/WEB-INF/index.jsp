@@ -12,10 +12,10 @@
     crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/css/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
   <title>Home</title>
 </head>
 
@@ -80,21 +80,85 @@
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          <li><a class="dropdown-item" href="/logout">Log out</a></li>
           <c:if test="${usuario.getEmpresa() != null}">
             <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">tu empresa</a></li>
           </c:if>
-          
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="#">Editar perfil</a></li>
           </ul>
         </div>
-    </div>
+      </div>
     </div>
 </nav>
-
-
-
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/imagenes/store.png" class="d-block w-100" alt="tienda">
+            <div class="carousel-caption d-none text-black d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+      <div class="carousel-item">
+        <img src="/imagenes/cooperacion.png" class="d-block w-100" alt="negocios">
+        <div class="carousel-caption d-none text-black d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div> 
+      <div class="carousel-item">
+        <img src="/imagenes/trade.png" class="d-block w-100" alt="comercio">
+        <div class="carousel-caption d-none text-black d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/imagenes/hair-salon.png" class="d-block w-100" alt="barbería">
+        <div class="carousel-caption d-none text-black d-md-block">
+          <h5>Encuentra el servicio que quieras</h5>
+          <p>esto y mucho más encontrás aquí</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/imagenes/nail-polish.png" class="d-block w-100" alt="salón de uñas">
+        <div class="carousel-caption d-none text-black d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div> 
+      </div>
+      <div class="carousel-item">
+        <img src="/imagenes/take-away.png" class="d-block w-100" alt="entrega de comida">
+        <!-- <div class="carousel-caption d-none text-black d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div> -->
+      </div>
+      <div class="carousel-item">
+        <img src="/imagenes/healthcare.png" class="d-block w-100" alt="salud">
+        <!-- <div class="carousel-caption d-none text-black d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div> -->
+      </div>
+      <div class="carousel-item">
+        <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
+        <!-- <div class="carousel-caption d-none text-black d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div> -->
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->

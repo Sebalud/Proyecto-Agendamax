@@ -109,10 +109,8 @@ public class UsuarioControlador {
 
 		List<Region> regiones = regionServicio.regionesTodas();
 		String resultadoJson = new Funciones().regionesToJson(regiones);
-		
 
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
-				
 
 		//model.addAttribute("empresa",empresa);
 		model.addAttribute("usuario", usuario);
