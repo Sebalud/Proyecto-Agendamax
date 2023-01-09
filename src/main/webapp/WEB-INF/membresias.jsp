@@ -77,10 +77,8 @@
             <div id="cartafree">
               <div class="card-body">
                 <h5 class="card-title">Plan Gratis</h5>
-                <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt cum fuga
-                  voluptate. Numquam sit sed at ipsam
-                  exercitationem, voluptates eos accusantium placeat fuga possimus ad animi maiores rem sunt
-                  magnam.
+                <p class="card-text"> 
+                  En nuestro Plan Gratuito podrás contar con
                   <div class="button-crear">
                     <a href="/planes/new">Crear empresa</a>
                   </div>
@@ -94,9 +92,7 @@
             <div id="cartapre">
             <div class="card-body">
               <h5 class="card-title">Plan Premium</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eaque
-                amet, dolor at quos voluptatibus necessitatibus voluptates ratione laboriosam est laborum
-                repudiandae, alias quae illum deleniti. Consectetur voluptate pariatur
+              <p class="card-text">En nuestro Plan Premium
               </p>
             </div>
           </div>
