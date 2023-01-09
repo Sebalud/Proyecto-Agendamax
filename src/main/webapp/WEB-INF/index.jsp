@@ -22,7 +22,8 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">AgéndaloMax</a>
+      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agendalo</span><span
+        id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -93,7 +94,7 @@
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="/imagenes/store.png" class="d-block w-100" alt="tienda">
+            <img src="/imagenes/tienda.png" class="d-block w-100" alt="tienda">
             <div class="carousel-caption d-none text-black d-md-block">
               <h5>Second slide label</h5>
               <p>Some representative placeholder content for the second slide.</p>
@@ -121,6 +122,13 @@
         </div>
       </div>
       <div class="carousel-item">
+        <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
+        <div class="carousel-caption d-none text-black d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
         <img src="/imagenes/nail-polish.png" class="d-block w-100" alt="salón de uñas">
         <div class="carousel-caption d-none text-black d-md-block">
           <h5>Second slide label</h5>
@@ -141,13 +149,6 @@
           <p>Some representative placeholder content for the second slide.</p>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -157,6 +158,39 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+  </div>
+  <div class="cositas text-center">
+    <div class="row g-2">
+      <div class="col-6">
+
+        <div class="icons"></div>
+        <div class="p-3">Custom column padding</div>
+          <img src="/imagenes/buscar.png" alt="buscar">
+        </div>
+        <p>Busca el servicio que estes buscando</p>
+      
+      </div>
+      <div class="col-6">
+        <div class="icons">
+        <div class="p-3">Custom column padding</div>
+        <p >esto también es un relleno</p>
+        </div>
+        <img src="/imagenes/pulgares-hacia-arriba.png" alt="Like">
+      </div>
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
+        <p></p>
+        <div class="icons">
+          <img src="/imagenes/reloj.png" alt="Like">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="icons">
+          <img src="/imagenes/mapa.png" alt="Like">
+        </div>
+        <div class="p-3">Custom column padding</div>
+      </div>
+    </div>
   </div>
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">
