@@ -14,7 +14,7 @@
 </head>
 <body>
     <!-- Barra de navegacion -->
-    <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4 mb-5">
+    <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4">
         <div class="container-fluid">
             <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agendalo</span><span
                     id="max">Max</span></a>
@@ -88,12 +88,37 @@
     </nav>
     
 
+    <div id="" class="modal modal--lg modal-palette-not-premium-user active">
+        <div class="modal__container">
+            <div class="content text__general--heading">
+                <button class="modal__close modal__close--absolute modal__close--top-right button button--icon button--icon--only button--sm button--inverted nostyle">
+                    <i class="icon icon--lg icon--mg-lg icon--cross"></i>
+                </button>
+                <div class="image-box">
+    
+                </div>
+                <div class="text-box">
+                    <p class="font-xl bold mg-bottom-lv2">Crea paletas personalizadas y disfruta de otras ventajas con Premium</p>
+                    <p class="font-md">Suscríbete desde 7.50/EUR/mes y accede a:</p>
+                    <div class="feature"><i class="icon icon--lg icon--check mg-right-lv2"></i><p class="font-sm mg-bottom-lv1">8.9M iconos y stickers en formato SVG, EPS, PSD y BASE64</p></div>
+                    <div class="feature"><i class="icon icon--lg icon--check mg-right-lv2"></i><p class="font-sm mg-bottom-lv1">Sin atribución requerida</p></div>
+                    <div class="feature"><i class="icon icon--lg icon--check mg-right-lv2"></i><p class="font-sm mg-bottom-lv1">Descargas y colecciones ilimitadas</p></div>
+                    <div class="feature"><i class="icon icon--lg icon--check mg-right-lv2"></i><p class="font-sm mg-bottom-lv1">Uso ilimitado del editor</p></div>
+                    <div class="feature"><i class="icon icon--lg icon--check mg-right-lv2"></i><p class="font-sm mg-bottom-lv1">Soporte prioritario</p></div>
+                    <div class="feature"><i class="icon icon--lg icon--check mg-right-lv2"></i><p class="font-sm mg-bottom-lv3">Sin publicidad</p></div>
+                    <a href="https://www.flaticon.es/pricing" class="bj-button bj-button--yellow full-width">Hazte premium</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     
     <div id="banner">
         <img src="/imagenes/organizador.png" alt="">
     </div>
 
-    <div class="container">
+    <div class="container mt-5">
         <h1 class="border-bottom text-center mb-4 pb-3">Tus horas Agendadas</h1>
 
     <table class="table">

@@ -74,7 +74,8 @@ public class EmpresaControlador {
 
 
 		List<Servicio> servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
-		if(servicioRequerido == null){
+		/* Servicio servicioBuscado = servicio1Servicio.buscaServicioPorNombre(servicio); */
+		if(servicioRequerido.size() == 0){
 			model.addAttribute("errorServicio", "No encontramos el servicio que estabas buscando");
 			return"servicio";
 		}
