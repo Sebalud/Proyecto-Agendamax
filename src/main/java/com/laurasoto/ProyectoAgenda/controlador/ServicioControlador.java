@@ -117,9 +117,11 @@ public class ServicioControlador {
                 model.addAttribute("loguearseParaAgendar", "Debes Loguearte para agendar");
                 return"redirect:/";
             }
+        Servicio servicio = servicio1Servicio.findById(servicioId);
         Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
         horario.setUsuario(usuario);
         horario.setHoraDisponible(horaLong);
+        horario.setServicio(servicio);
         horarioServicio.crear(horario);
 
         return "redirect:/horas/usuario/" + usuario.getId();
@@ -127,8 +129,14 @@ public class ServicioControlador {
 
     @GetMapping("/horas/usuario/{usuarioId}")
     public String horaAgendadasUsuario(HttpSession session, @PathVariable("usuarioId") Long usuarioId, Model model){
+        List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
         Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
+
+        model.addAttribute("regiones", regiones);
+        model.addAttribute("regionesJson", resultadoJson);
         model.addAttribute("usuario", usuario);
+
         return"agendamientos";
     }
 

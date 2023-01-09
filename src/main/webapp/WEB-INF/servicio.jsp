@@ -9,9 +9,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  
   <title>Lookify!</title>
 </head>
 
@@ -72,91 +72,57 @@
                         
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-                    </ul>
-                  </div>
+                   
+                 
         </div>
         
-        </div>
+       
     </nav>
 
     <h1>Empresas Filtradas</h1>
     <c:forEach items="${serviciosFiltradosPorNombreCiudad}" var="servicio">
-        <ul>
-            <li>Servicio que ofrece: ${servicio.servicioOfrecido}</li>
-            <li>Dueño de la empresa: ${servicio.empresa.usuarioAdmin.nombre}</li>
-            <div><c:if test="${servicio.imgRoute.isEmpty() == false}">
-              <img src="${servicio.imgRoute}" style="width: 200px; height: 200px;" alt="${servicio.imgRoute}">
-            </c:if> </div>
-            <div class="container  mw-100">
-                <div class="container text-center d-flex justify-content-center rounded" style="background-color: #FFEBCD;">
-                    <c:forEach  items="${servicio.posiblesHoraDisponible()}" var="dia">
-                        <div class="mx-5 my-5 d-inline-block col ">
-                            <p class="border p-2"><fmt:formatDate value="${dia.get(1).getDate()}" pattern="EEEE dd"/><br></p>
-                            <c:forEach items="${dia}" var="horarioDisponible">
-                                <c:if test="${usuario.id == servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
-                                    <a class="btn my-1" style="background-color: #BDB3FE;" href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
-                                        <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
-                                    </a><br>
-                                </c:if>
-                                
-                                <c:if test="${usuario.id != servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
-                                    <a href="/agendamiento/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-warning my-1" >
-                                        <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
-                                    </a><br>
-                                </c:if>
-                                <c:if test="${usuario.id == servicio.empresa.usuarioAdmin.id && !horarioDisponible.getEstaActivo()}">
-                                    <a href="/agendar/disponible/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-warning my-1" >
-                                        hacer disponible </a><br>
-                                </c:if>
-                            </c:forEach>
-                        </div>
-                    </c:forEach>
-                </div>
+      <ul>
+        <li>Servicio que ofrece: ${servicio.servicioOfrecido}</li>
+        <li>Dueño de la empresa: ${servicio.empresa.usuarioAdmin.nombre}</li>
+        <div><c:if test="${servicio.imgRoute.isEmpty() == false}">
+          <img src="${servicio.imgRoute}" style="width: 200px; height: 200px;" alt="${servicio.imgRoute}">
+        </c:if> </div>
+        <div class="container  mw-100">
+            <div class="container text-center d-flex justify-content-center rounded" style="background-color: #FFEBCD;">
+                <c:forEach  items="${servicio.posiblesHoraDisponible()}" var="dia">
+                    <div class="mx-5 my-5 d-inline-block col ">
+                        <p class="border p-2"><fmt:formatDate value="${dia.get(1).getDate()}" pattern="EEEE dd"/><br></p>
+                        <c:forEach items="${dia}" var="horarioDisponible">
+                            <c:if test="${usuario.id == servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
+                                <a class="btn my-1" style="background-color: #BDB3FE;" href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
+                                    <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
+                                </a><br>
+                            </c:if>
+                            
+                            <c:if test="${usuario.id != servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
+                                <a href="/agendamiento/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-warning my-1" >
+                                    <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
+                                </a><br>
+                            </c:if>
+                            <c:if test="${usuario.id == servicio.empresa.usuarioAdmin.id && !horarioDisponible.getEstaActivo()}">
+                                <a href="/agendar/disponible/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-warning my-1" >
+                                    hacer disponible </a><br>
+                            </c:if>
+                        </c:forEach>
+                    </div>
+                </c:forEach>
             </div>
-        </ul>
-        <!-- Buscadores de Servicios-->
-        <form class="d-flex" role="search" method="POST" action="/search">
-          <select name="selectReg" id="selectReg">
-            <option value="0">-- Region --</option>
-            <c:forEach items="${regiones}" var="region">
-              <option value="${region.id}">${region.nombre}</option>
-            </c:forEach>
-          </select>
-          <select name="selectCiud" id="selectCiud">
-            <option value="0">-- Ciudad --</option>
-          </select>
-          <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <c:out value="${usuario.nombre}" />
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
-            <c:if test="${usuario.getEmpresa() != null}">
-              <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
-            </c:if>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-          </ul>
-        </li>
-      </div>
-
-    </div>
-  </nav>
-
+        </div>
+    </ul>
+    </c:forEach>
+    
   <h1>Empresas Filtradas</h1>
   <c:forEach items="${empresasFiltradas}" var="empresa">
     <ul>
       <li>${empresa.nombre} Dueño de la empresa:${empresa.usuarioAdmin.nombre}</li>
     </ul>
   </c:forEach>
-  <c:out value="${errorServicio}" />
+  <c:out value="${errorServicio}"/>
   <c:out value="${errorNoHayEmpresa}" />
 
 
