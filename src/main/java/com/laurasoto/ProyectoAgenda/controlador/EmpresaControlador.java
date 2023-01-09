@@ -69,17 +69,13 @@ public class EmpresaControlador {
 		if((Long) session.getAttribute("usuarioId") != null){
 			Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 			model.addAttribute("usuario", usuario);
-			
 		}
-
-
 		List<Servicio> servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
 		if(servicioRequerido == null){
 			model.addAttribute("errorServicio", "No encontramos el servicio que estabas buscando");
 			return"servicio";
 		}
 		Ciudad ciudad = ciudadServicio.findById(ciudadId);
-		
 		//filtro por ciudad
 		List<Empresa> empresasFiltroCiudad = empresaServicio.getEmpresaPorCiudad(ciudad);
 		List<Servicio> servicios = new ArrayList<>();
@@ -96,7 +92,6 @@ public class EmpresaControlador {
 		}
 		model.addAttribute("regionesJson", resultadoJson);
 		model.addAttribute("regiones", regiones);
-
 		return"servicio";
 	}
 	//se puede tener dos empresas con el mismo nombre?
@@ -156,9 +151,6 @@ public class EmpresaControlador {
 			System.out.println("id usuario dueño empresa:" + empresa.getUsuarioAdmin().getId());
 			return"redirect:/";
 		}
-		
-		
-
 		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
 
 		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
