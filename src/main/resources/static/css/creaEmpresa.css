@@ -5,11 +5,12 @@
 
     .container-fluid{
         background-color:rgb(189, 179, 254);
+        font-family: 'Nunito', sans-serif;
+        padding: 16px;
     }
 
-    .d-flex{
-        font-family: 'Nunito', sans-serif;
-        background-color:rgb(189, 179, 254);
+    nav{
+        background-color: #BDB3FE;
     }
 
     .navbar-brand {
@@ -21,32 +22,21 @@
         content: '';
         display: block;
         width: 3rem;
-        height: 0.5rem;
+        height: 0.2rem;
         background-color: rgb(255, 255, 255);
         margin: 0 auto;
     }
 
-    nav{
-        background-color: #BDB3FE;
-    }
-
-    #selectReg{
-        margin: 0.3rem;
-        padding: 0.5rem 0.8rem;
+    #home{
         border: none;
-        border-radius: 10px;
-        box-shadow: 1px 1px 6px #0000001c;
+        background-color:rgb(166, 152, 255);
+        color: white;
+        padding: 0.3rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
     }
 
-    #selectCiud{
-        margin: 0.3rem;
-        padding: 0.5rem 0.8rem;
-        border: none;
-        border-radius: 10px;
-        box-shadow: 1px 1px 6px #0000001c;
-    }
-
-    .botones{
+    #botones{
         border: none;
         background-color:rgb(166, 152, 255);
         color: white;
@@ -59,23 +49,24 @@
         background-color: white;
         align-items: center;
         border-radius: 5px;
-        margin-left: 5px;
+        height: 39px;
+        margin-left: 10px;
         margin-right: 3%;
-        padding: 0.02rem 2rem;
-        border-radius: 5px;
+        padding: 1rem 2rem;
     }
 
     .container{ 
         display: flex;
+        width: 100%; 
     } 
 
     .form{
         padding: 3%;
         font-family: 'Nunito', sans-serif;
-        width: 100%;
+        width: 80%;/* 
         background-color: blanchedalmond;
         padding-left: 6rem;
-        padding-right: 20rem;
+        padding-right: 20rem; */
     }
 
     .form-image{
@@ -141,11 +132,6 @@
         margin-bottom: 1.5rem;
     }
 
-    .freeplan button :hover{
-        background-color:  rgba(142, 196, 73, 0.945);
-    }
-
-
     .sub-texto{
         padding: 4px;
         background-color:rgb(177, 165, 253);
@@ -167,4 +153,9 @@
         height: 20rem;
         background-color: rgb(27, 27, 27) ;
         padding: 10px;
+    }
+
+    .d-flex{
+        font-family: 'Nunito', sans-serif;
+        background-color:rgb(189, 179, 254);
     }

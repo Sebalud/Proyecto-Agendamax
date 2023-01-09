@@ -3,7 +3,6 @@
         <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
             <!DOCTYPE html>
             <html lang="en">
-
             <head>
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,20 +17,15 @@
                 <link rel="preconnect" href="https://fonts.googleapis.com">
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-                    crossorigin="anonymous"></script>
+                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
                     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
                     crossorigin="anonymous">
-
                 <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
                 <title>Empresa FREE</title>
             </head>
-
             <body class="">
                 <!-- Barra de navegacion -->
                 <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4 mb-5">
@@ -199,7 +193,10 @@
 
                 <main>
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                     <div class="form-body d-flex">
                         <h1 id="alLadoServicio">
                             Crea un servicio que sea <span class="letraDif fw-bold">representativo</span> y <span
@@ -207,7 +204,7 @@
                         </h1>
                         <c:choose>
                             <c:when
-                                test="${(empresa.servicios.size() < 1 && empresa.empresafree) || !empresa.empresafree}">
+                                test="${(empresa.servicios.size() 1 && empresa.empresafree) || !empresa.empresafree}">
                                 <div class="form-holder">
                                     <div class="form-content">
                                         <div class="form-items">
@@ -270,15 +267,12 @@
                                                         <form:option value="60">60 min</form:option>
                                                     </form:select>
                                                 </div>
-
                                                 <input type="file" name="postFile">
-
                                                 <div class="form-button mt-3">
                                                     <input id="submit" class="btn btn-primary" type="submit"
                                                         value="servicio" />
                                                 </div>
                                             </form:form>
-
                                         </div>
                                     </div>
                                 </div>
@@ -377,19 +371,17 @@
                                         <a class="btn botones" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
                                             agenda</a>
                                     </td>
-
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
 
-
                 </main>
-
 
                 <footer class="text-center text-lg-start text-muted">
                     <!-- Section: Social media -->
-                    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+                    <div id="barrita" style="background-color: rgb(189, 179, 254);">
+                    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" >
                         <!-- Left -->
 
                         <div class="sub-texto">
@@ -420,6 +412,7 @@
                         </div>
                         <!-- Right -->
                     </section>
+                </div>
                     <!-- Section: Social media -->
 
                     <!-- Section: Links  -->
@@ -431,7 +424,7 @@
                                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                     <!-- Content -->
                                     <h6 class="text-uppercase fw-bold mb-4">
-                                        <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+                                        <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
                                     </h6>
                                     <p>
                                         Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
