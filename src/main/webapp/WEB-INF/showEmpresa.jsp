@@ -200,10 +200,6 @@
                 <main>
 
 
-
-
-
-
                     <div class="form-body d-flex">
                         <h1 id="alLadoServicio">
                             Crea un servicio que sea <span class="letraDif fw-bold">representativo</span> y <span
@@ -223,6 +219,16 @@
                                                     <form:input cssClass="form-control" type="text"
                                                         path="servicioOfrecido" placeholder="Nombre del servicio" />
                                                     <form:errors cssClass="text-danger" path="servicioOfrecido" />
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <form:errors cssClass="text-danger" path="direction" />
+                                                    <form:input cssClass="form-control" path="direction" placeholder="Adress" />
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <form:errors cssClass="text-danger" path="precio" />
+                                                    <form:input cssClass="form-control" path="precio" placeholder="Prize" />
                                                 </div>
 
                                                 <div class="col-md-12">

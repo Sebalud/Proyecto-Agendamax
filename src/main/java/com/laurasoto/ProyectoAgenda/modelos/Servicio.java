@@ -41,6 +41,10 @@ public class Servicio{
 	private int horaTermino=0;
 	private int duracionJornada;
 	
+	private String direction;
+
+	private String precio;
+
 	private String imgRoute;
 
 	@Column(updatable=false)

@@ -11,7 +11,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/css/servicio.css">
         <title>Servicios</title>
+
       </head>
 
       <body>
@@ -85,17 +87,26 @@
 
           </div>
         </nav>
+        <c:if test="${servicioRequerido.size() != 0}">
+          <h1>Las empresas que ofrecen agendamiento relacionado con ${servicio}</h1>
+        </c:if>
+        <c:out value="${errorServicio}"/>
+        <c:out value="${errorNoHayEmpresa}"/>
         <c:forEach items="${serviciosFiltradosPorNombreCiudad}" var="servicio">
           <div>
             <div>
               <c:if test="${servicio.imgRoute.isEmpty() == false}">
                 <img src="${servicio.imgRoute}" style="width: 300px; height: 200px;" alt="${servicio.imgRoute}" class="rounded float-start">
               </c:if>
-              <c:out value="${errorServicio}"/>
-              <c:out value="${errorNoHayEmpresa}"/>
             </div>
-            <div class="badge bg-primary text-wrap" style="width: auto; height: 45px;">
-              <p class="fs-2 fw-bold text-uppercase"> ${servicio.getEmpresa().nombre} </p>
+            <div class="badge bg-primary text-wrap" style="width: auto; ">
+
+              <ul>
+                <li class="fs-2 fw-bold text-uppercase"> ${servicio.getEmpresa().nombre}</li>
+                <li class="fs-2 fw-bold text-uppercase"> ${servicio.servicioOfrecido}</li>
+                <li class="fs-2 fw-bold text-uppercase"> ${servicio.precio}</li>
+                <li class="fs-2 fw-bold text-uppercase"> ${servicio.direction}</li>
+              </ul>
             </div>
             <div class="container  mw-100">
               <div class="container text-center d-flex justify-content-center rounded"

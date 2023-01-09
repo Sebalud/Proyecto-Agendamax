@@ -71,8 +71,10 @@ public class EmpresaControlador {
 			model.addAttribute("usuario", usuario);
 		}
 		List<Servicio> servicioRequerido = servicio1Servicio.obtieneServicioPorServicioOfrecido(servicio);
-		if(servicioRequerido == null){
+		if(servicioRequerido.size() == 0){
 			model.addAttribute("errorServicio", "No encontramos el servicio que estabas buscando");
+			model.addAttribute("regionesJson", resultadoJson);
+			model.addAttribute("regiones", regiones);
 			return"servicio";
 		}
 		Ciudad ciudad = ciudadServicio.findById(ciudadId);
@@ -89,6 +91,8 @@ public class EmpresaControlador {
 		model.addAttribute("serviciosFiltradosPorNombreCiudad", serviciosFiltradosPorNombreCiudad);
 		if(serviciosFiltradosPorNombreCiudad.size() == 0){
 			model.addAttribute("errorNoHayEmpresa", "Lo sentimos, en esa ciudad no se encuentra el servicio que buscas");
+			model.addAttribute("regionesJson", resultadoJson);
+			model.addAttribute("regiones", regiones);
 		}
 		model.addAttribute("regionesJson", resultadoJson);
 		model.addAttribute("regiones", regiones);
