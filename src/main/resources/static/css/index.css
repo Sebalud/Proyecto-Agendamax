@@ -17,14 +17,26 @@ nav{
     margin-left: 25px;
     font-family: 'Playfair Display', serif;
 }
-
+/* 
 .navbar-brand::after{
     content:'' ;
     display: block;
-    width: 3rem; 
-    height: 0.1rem;
+    width: 4rem; 
+    height: 0.3rem;
     background-color: rgb(255, 255, 255);
     margin:0 auto ;
+} */
+
+#max {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#nombrePagina {
+    font-size: xx-large;
+}
+
+#agendalo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 label{
@@ -78,6 +90,12 @@ label{
 
 .carousel-caption{
     background-color:rgba(197, 241, 244, 0.662);
+    border-radius: 5px;
+}
+
+.icons img{
+    width: 30px;
+    height: 30px;
 }
 
 .link-secondary{
