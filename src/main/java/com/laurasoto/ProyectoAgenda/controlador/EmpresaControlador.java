@@ -6,10 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Region;
@@ -280,6 +277,16 @@ public class EmpresaControlador {
 		servicio.setEmpresa(null);
 		servicio1Servicio.crear(servicio);
 		return"redirect:/plan/"+idEmpresa;
+	}
+
+
+	@GetMapping("/premium/delete/{empresaId}")
+	public String cambiarAFree(HttpSession session, @PathVariable("empresaId") Long empresaId){
+		Empresa empresa = empresaServicio.findById(empresaId);
+
+		empresa.setEmpresafree(true);
+		empresaServicio.crear(empresa);
+		return"redirect:/plan/{empresaId}";
 	}
 
 }

@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name="horarios")
@@ -46,6 +47,10 @@ public class Horario{
 
     public Date getFechaAsDate(){
         return new Date(this.horaDisponible*1000);
+    }
+
+    public Boolean isCanceledByOwner(Long idUser){
+        return Objects.equals(idUser, this.getServicio().getEmpresa().getUsuarioAdmin().getId());
     }
 
 }
