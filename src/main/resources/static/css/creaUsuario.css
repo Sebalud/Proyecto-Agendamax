@@ -1,11 +1,12 @@
 body{
     font-family: 'Nunito', sans-serif;
+    background-color: blanchedalmond;
 }
 
 .container-fluid{
     background-color:rgb(189, 179, 254);
     font-size: 15.5px;
-    padding: 6px;
+    padding: 18px;
 }
 
 nav{
@@ -28,6 +29,15 @@ nav{
     height: 0.1rem;
     background-color: rgb(255, 255, 255);
     margin: 0 auto;
+}
+
+#home{
+    border: none;
+    background-color:rgb(166, 152, 255);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .botones{
@@ -65,7 +75,6 @@ nav{
 }
 
 .form-header{
-    margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
 }

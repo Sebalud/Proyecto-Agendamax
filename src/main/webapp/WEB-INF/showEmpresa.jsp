@@ -3,7 +3,6 @@
         <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
             <!DOCTYPE html>
             <html lang="en">
-
             <head>
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,20 +17,15 @@
                 <link rel="preconnect" href="https://fonts.googleapis.com">
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-                    crossorigin="anonymous"></script>
+                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
                     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
                     crossorigin="anonymous">
-
                 <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
                 <title>Empresa FREE</title>
             </head>
-
             <body class="">
                 <!-- Barra de navegacion -->
                 <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4 mb-5">
@@ -122,7 +116,7 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="10000">
                                 <img src="/imagenes/gestion-de-proyectos.png" class="d-block w-100" alt="...">
-   
+
                             </div>
                             <div class="carousel-item" data-bs-interval="2000">
                                 <img src="/imagenes/sistema-de-gestion-de-contenidos.png" class="d-block w-100" alt="...">
@@ -190,9 +184,7 @@
 
                 <main>
 
-
-                    <div class="form-body d-flex" id="divCreaServicio">
-                        
+                    <div class="form-body d-flex" id="servicisito">
                         <c:choose>
                             
                             <c:when
@@ -272,7 +264,6 @@
                                                         value="Crear" />
                                                 </div>
                                             </form:form>
-
                                         </div>
                                     </div>
                                 </div>
@@ -384,25 +375,23 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td>
-                                            <a class="btn botones" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
-                                                agenda</a>
-                                        </td>
-    
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-    
-    
-                    </div>
-                </main>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a class="btn botones" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
+                                            agenda</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
 
+                </main>
 
                 <footer class="text-center text-lg-start text-muted">
                     <!-- Section: Social media -->
-                    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+                    <div id="barrita" style="background-color: rgb(189, 179, 254);">
+                    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" >
                         <!-- Left -->
 
                         <div class="sub-texto">
@@ -433,6 +422,7 @@
                         </div>
                         <!-- Right -->
                     </section>
+                </div>
                     <!-- Section: Social media -->
 
                     <!-- Section: Links  -->
@@ -444,7 +434,7 @@
                                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                     <!-- Content -->
                                     <h6 class="text-uppercase fw-bold mb-4">
-                                        <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+                                        <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
                                     </h6>
                                     <p>
                                         Nos encargamos de agendar tus horas con el servicio que brindes o necesites.

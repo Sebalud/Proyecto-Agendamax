@@ -24,7 +24,7 @@
     <body>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Agéndalomax</a>
+          <a class="navbar-brand" href="#">AgéndaloMax</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -33,13 +33,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                <a class="nav-link active" id="home" aria-current="page" href="/home">Home</a>
               </li>
             </ul>
             <form class="d-flex" role="search" method="POST" action="/search">
               <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..."
                 aria-label="Search">
-              <button class="buscado-flex" type="submit">Buscar</button>
+              <button class="btn botones" type="submit">Buscar</button>
             </form>
           </div>
         </div>
@@ -77,10 +77,8 @@
             <div id="cartafree">
               <div class="card-body">
                 <h5 class="card-title">Plan Gratis</h5>
-                <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt cum fuga
-                  voluptate. Numquam sit sed at ipsam
-                  exercitationem, voluptates eos accusantium placeat fuga possimus ad animi maiores rem sunt
-                  magnam.
+                <p class="card-text"> 
+                  En nuestro Plan Gratuito podrás contar con
                   <div class="button-crear">
                     <a href="/planes/new">Crear empresa</a>
                   </div>
@@ -94,9 +92,7 @@
             <div id="cartapre">
             <div class="card-body">
               <h5 class="card-title">Plan Premium</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eaque
-                amet, dolor at quos voluptatibus necessitatibus voluptates ratione laboriosam est laborum
-                repudiandae, alias quae illum deleniti. Consectetur voluptate pariatur,
+              <p class="card-text">En nuestro Plan Premium
               </p>
             </div>
           </div>
