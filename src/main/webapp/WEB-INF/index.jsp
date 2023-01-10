@@ -96,57 +96,57 @@
           <div class="carousel-item active">
             <img src="/imagenes/tienda.png" class="d-block w-100" alt="tienda">
             <div class="carousel-caption d-none text-black d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              <h5>Podrás encontrar</h5>
+              <p>estos y muchos más servicios.</p>
             </div>
           </div>
       <div class="carousel-item">
         <img src="/imagenes/cooperacion.png" class="d-block w-100" alt="negocios">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div> 
       <div class="carousel-item">
         <img src="/imagenes/trade.png" class="d-block w-100" alt="comercio">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/hair-salon.png" class="d-block w-100" alt="barbería">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Encuentra el servicio que quieras</h5>
-          <p>esto y mucho más encontrás aquí</p>
+          <h5>Podrás encontrar</h5>
+          <p>esto y mucho más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicio.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/nail-polish.png" class="d-block w-100" alt="salón de uñas">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div> 
       </div>
       <div class="carousel-item">
         <img src="/imagenes/take-away.png" class="d-block w-100" alt="entrega de comida">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/healthcare.png" class="d-block w-100" alt="salud">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div>
     </div>
@@ -165,20 +165,20 @@
         <div class="icons">
         <div class="p-3">Encuentra tu servicio</div>
           <img src="/imagenes/buscar.png" alt="buscar">
-        <p>Tu servicio aquí disponible</p>
+        <p>Tu servicio aquí disponible.</p>
       </div>
       </div>
       <div class="col-2">
         <div class="icons">
         <div class="p-3">Date ese gusto</div>
         <img src="/imagenes/pulgares-hacia-arriba.png" alt="Like">
-        <p >Disfruta tu servicio en un par de clicks!</p>
+        <p >¡Disfruta tu servicio en un par de clicks!</p>
       </div>
       <div class="col-3">
         <div class="p-3">Toma tu hora</div>
         <div class="icons">
           <img src="/imagenes/reloj.png" alt="Like">
-          <p>Agenda la hora de preferencia para mayor comodidad</p>
+          <p>Agenda la hora de preferencia para mayor comodidad.</p>
         </div>
       </div>
       <div class="col-4">
@@ -186,7 +186,7 @@
           <div class="p-3">Busca en tu sector</div>
           <img src="/imagenes/mapa.png" alt="Like">
         </div>
-        <p>Y coordina para que el servicio llegue a la puerta de tu hogar. </p>
+        <p>Y coordina para que el servicio llegue a la puerta de tu hogar.</p>
       </div>
     </div>
     </div>

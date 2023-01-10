@@ -17,6 +17,12 @@ body{
     height: 40px;
 }
 
+#home:hover{
+    border: none;
+    color: black;
+    background-color:rgba(197, 241, 244, 0.945);
+}
+
 nav{
     padding: 10px;
     border:10px solid rgba(217, 211, 255, 0.838);
@@ -24,7 +30,6 @@ nav{
     
 } 
 
-<<<<<<< Updated upstream
 .navbar-brand {
     margin-left: 5%;
 }
@@ -39,27 +44,10 @@ label{
     width: 100px;
 }
 
-.navbar-brand{
-    margin-left: 25px;
-}
-
 #max {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(255, 202, 79);
     font-size: 40px;
-=======
-#max {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-#nombrePagina {
-    margin-left: 25px;
-    font-size: xx-large;
-}
-
-#agendalo {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
->>>>>>> Stashed changes
 }
 
 #nombrePagina {
@@ -88,6 +76,12 @@ label{
     height: 45px;
 }
 
+.botones:hover{
+    border: none;
+    color: black;
+    background-color:rgba(197, 241, 244, 0.945);
+}
+
 #regist{
     border-style: solid;
     background-color:rgb(22, 49, 113);
@@ -98,6 +92,12 @@ label{
     border: 2px solid rgb(0, 0, 0);
     width: 150px;
     height: 45px;
+}
+
+#regist:hover{
+    border: none;
+    color: white;
+    background-color:rgb(189, 179, 254);
 }
 
 .sub-texto{
@@ -160,12 +160,6 @@ label{
     box-shadow: 1px 1px 6px #0000001c;
 }
 
-.sub-texto{
-    padding: 4px;
-    background-color:rgb(177, 165, 253);
-    border-radius: 5px;
-}
-
 .link-secondary{
     padding: 5px;
 }
@@ -185,14 +179,3 @@ label{
     background-color:rgb(189, 179, 254);
     font-size: 15.5px;
 } 
-
-/* .nav-link {
-    background-color: #f0ebff;
-    width: 200px;
-    height: 50px;
-    margin-top: -15px;
-    font-size: 25px;
-    border: 5px solid rgba(107, 81, 255, 0.838);
-    border-radius: 7px;
-    color: rgb(59, 48, 255);
-}  */

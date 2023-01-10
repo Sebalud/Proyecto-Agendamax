@@ -65,7 +65,6 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
-<<<<<<< Updated upstream
       <body>
         <!-- Barra de navegacion -->
         <nav class="navbar navbar-expand-lg bg-light">
@@ -86,14 +85,12 @@
                     <li class="nav-item text-danger mt-2">Cuenta premium!</li>
                   </c:when>
                 </c:choose>
-=======
         <div class="nav-item dropdown">
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/logout">Logout</a></li>
             <c:if test="${usuario.getEmpresa() != null}">
               <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
             </c:if>
->>>>>>> Stashed changes
 
             <li>
               <hr class="dropdown-divider">

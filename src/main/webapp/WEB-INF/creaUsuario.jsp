@@ -19,11 +19,7 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-<<<<<<< Updated upstream
       <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-=======
-      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agendalo</span><span
->>>>>>> Stashed changes
         id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

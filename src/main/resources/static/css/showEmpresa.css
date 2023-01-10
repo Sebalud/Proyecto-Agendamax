@@ -30,7 +30,6 @@ nav {
     border: 1px cornflowerblue;
     border-radius: 20px;
     cursor: pointer;
-
 }
 
 #nombrePagina {
@@ -127,7 +126,6 @@ nav {
     line-height: 20px;
     margin-bottom: 30px;
 }
-
 
 .form-content label,
 .was-validated .form-check-input:invalid~.form-check-label,
@@ -249,5 +247,4 @@ nav {
 
 .navbar-brand{
     margin-left: 25px;
-    font-family: 'Playfair Display', serif;
 }
