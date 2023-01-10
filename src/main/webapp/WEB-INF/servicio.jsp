@@ -118,25 +118,25 @@
                     </p>
                     <c:forEach items="${dia}" var="horarioDisponible">
                       <c:if
-                        test="${usuario.id == servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
+                        test="${horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 0}">
                         <a class="btn my-1" style="background-color: #BDB3FE;"
-                          href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
+                          href="/agendamiento/${servicio.id}/${horarioDisponible.getDate().getTime()}">
                           <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss" />
                         </a><br>
                       </c:if>
 
                       <c:if
-                        test="${usuario.id != servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
-                        <a href="/agendamiento/${servicio.id}/${horarioDisponible.getDate().getTime()}"
-                          class="btn btn-warning my-1">
-                          <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss" />
+                        test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 2}">
+                        <a href=""
+                          class="btn btn-dark my-1">
+                          agendada
                         </a><br>
                       </c:if>
                       <c:if
-                        test="${usuario.id == servicio.empresa.usuarioAdmin.id && !horarioDisponible.getEstaActivo()}">
-                        <a href="/agendar/disponible/${servicio.id}/${horarioDisponible.getDate().getTime()}"
-                          class="btn btn-warning my-1">
-                          hacer disponible </a><br>
+                        test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 1}">
+                        <a href=""
+                          class="btn btn-primary my-1">
+                          no disponible </a><br>
                       </c:if>
                     </c:forEach>
                   </div>
