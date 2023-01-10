@@ -14,9 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Edita</title>
     <a href="/css/editaEmpresa.css"></a>
+    
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light" font>
         <div class="container-fluid">
           <a class="navbar-brand" href="#">AgéndaloMax</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +41,8 @@
                   <option value="0">-- Ciudad --</option>
               </select>
               <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn botones" style="background-color: rgb(154, 139, 255);
+              " padding="30px" type="submit">Buscar</button>
           </form>
           </div>
         </div>
@@ -49,7 +51,7 @@
     <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
     
     <p class="form-outline">
-        <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
+        <form:label cssClass="form-label" style="font-family: 'Nunito', sans-serif;" path="nombre">Nombre Empresa</form:label>
         <form:errors cssClass="text-danger" path="nombre"/>
         <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
     </p>
@@ -67,7 +69,7 @@
           </c:forEach>
       </form:select>
   </p>
-  <input class="btn btn-outline-secondary" type="submit" value="Aceptar cambios"/>
+  <button class="btn botones" style="background-color: rgba(197, 242, 244, 0.945);" padding="30px" type="submit">Aceptar cambios</button>
 </form:form>
 
 <a href="/delete/${empresaAEditar.id}">Eliminar Empresa</a>

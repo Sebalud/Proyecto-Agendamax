@@ -1,3 +1,6 @@
+*{
+    font-family: 'Nunito', sans-serif;;
+}
 .sub-texto{
     padding: 4px;
     background-color:rgb(177, 165, 253);
@@ -22,4 +25,8 @@
 
 .d-flex{
     background-color:rgb(189, 179, 254);
+}
+.active{
+    font-style: none;
+    font-family: 'Nunito', sans-serif;
 }
