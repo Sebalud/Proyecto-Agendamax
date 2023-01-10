@@ -282,5 +282,15 @@ public class EmpresaControlador {
 		return"redirect:/plan/"+idEmpresa;
 	}
 
+
+	@GetMapping("/premium/delete/{empresaId}")
+	public String cambiarAFree(HttpSession session, @PathVariable("empresaId") Long empresaId){
+		Empresa empresa = empresaServicio.findById(empresaId);
+
+		empresa.setEmpresafree(true);
+		empresaServicio.crear(empresa);
+		return"redirect:/plan/{empresaId}";
+	}
+
 }
 

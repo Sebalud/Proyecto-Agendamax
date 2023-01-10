@@ -1,0 +1,25 @@
+nav {
+    background-color: #BDB3FE;
+
+}
+
+#banner{
+    background-color: #FFEBCD;
+}
+
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img {
+    width: 30px;
+    height: 30px;
+}
+
+.section-part {
+    height: 20rem;
+    background-color: rgb(27, 27, 27);
+    padding: 10px;
+}
+
+

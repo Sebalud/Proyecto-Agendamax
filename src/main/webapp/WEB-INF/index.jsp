@@ -60,21 +60,22 @@
             </c:choose>
           </li>
         </ul>
-<!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search">
-  <select class="me-2 form-select" name="selectReg" id="selectReg">
-      <option value="0">Region</option>
-      <c:forEach items="${regiones}" var="region">
-          <option value="${region.id}">${region.nombre}</option>
-      </c:forEach>
-  </select>
-  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-      <option value="0">Ciudad</option>
-  </select>
-  <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
-  <button class="btn botones" type="submit">Buscar</button>
-</form>
-        <div class="nav-item dropdown" id="usuario-nombre">
+        
+          <!-- Buscadores de Servicios-->
+          <form class="d-flex" role="search" method="POST" action="/search">
+            <select class="me-2 form-select" name="selectReg" id="selectReg">
+                <option value="0">Region</option>
+                <c:forEach items="${regiones}" var="region">
+                    <option value="${region.id}">${region.nombre}</option>
+                </c:forEach>
+            </select>
+            <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+                <option value="0">Ciudad</option>
+            </select>
+            <input class="form-control me-2" type="search" name="servicio" placeholder="Encuentralo..." aria-label="Search">
+            <button class="btn botones" type="submit">Buscar</button>
+          </form>
+        <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <c:out value="${usuario.nombre}"/>
           </a>
