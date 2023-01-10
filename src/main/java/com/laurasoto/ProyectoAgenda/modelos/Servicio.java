@@ -151,21 +151,29 @@ public class Servicio{
 		for (List<TachamientoBoton> tachamientoBotons : tachamientoBoton) {
 			for (TachamientoBoton boton : tachamientoBotons) {
 				if (allDateAsLong.contains(boton.getDate().getTime())){
-					//preguntar si el horario tiene seteado un usuario_id si es asi es porque fue agendada por cliente
-					//traigo la lista de horarios que le corresponde al servicio, itero, pregunto si el horario tiene un
-					//usuario seteado, si es asi, al boton de tachamiento le seteo horaAgendada true
-					for (Horario horario : this.horarios) {
-						//cliente
-						if(horario.getUsuario() == null){
-							boton.setHoraAgendadaByCliente(2);
-						}
-						else{
-							//dueñoempresa
-							boton.setHoraAgendadaByCliente(1);
-						}
-					}
-					System.out.println(boton);
 					boton.setEstaActivo(false);
+				}
+			}
+		}
+
+		for (List<TachamientoBoton> tachamientoBotons : tachamientoBoton) {
+			for (TachamientoBoton boton : tachamientoBotons) {
+				for (Horario horario : this.horarios) {
+					//1 = Duenho
+					//2 = Cliente
+					//0 = nadie
+
+					if(horario.getHoraDisponible().equals(boton.getDate().getTime()) && horario.isCanceledByOwner(horario.getUsuario().getId())){
+						boton.setHoraAgendadaByCliente(1);
+						break;
+					}
+					else if (horario.getHoraDisponible().equals(boton.getDate().getTime()) && !horario.isCanceledByOwner(horario.getUsuario().getId())){
+						boton.setHoraAgendadaByCliente(2);
+						break;
+					}
+					else{
+						boton.setHoraAgendadaByCliente(0);
+					}
 				}
 			}
 		}
