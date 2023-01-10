@@ -139,11 +139,11 @@
                             <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
                         </a><br>
                     </c:if>
-                    <c:if test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 2}">
+                    <c:if test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 1}">
                         <a href="/agendar/disponible/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-danger my-1" >
                             hacer disponible </a><br>
                     </c:if>
-                    <c:if test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 1}">
+                    <c:if test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 2}">
                         <a href="/agendar/disponible/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-success my-1" >
                             ver cliente </a><br>
                     </c:if>
