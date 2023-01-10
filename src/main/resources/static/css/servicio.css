@@ -30,3 +30,14 @@
 .d-flex{
     background-color:rgb(189, 179, 254);
 }
+
+.title-design {
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;    
+}
+
+.service-data{
+    width: 400px;
+}
+

@@ -67,7 +67,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/logout">Logout</a></li>
                     <c:if test="${usuario.getEmpresa() != null}">
-                        <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
+                        <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">tu empresa</a></li>
                     </c:if>
 
                     <li>
@@ -86,36 +86,38 @@
   
   <!-- Inicio Body -->
   <div>
-    <c:if test="${servicioRequerido.size() > 0}">
-      <h1>Las empresas que ofrecen agendamiento relacionado con "${servicio}"</h1>
+    <c:if test="${serviciosFiltradosPorNombreCiudad.size() > 0}">
+      <p class="title-design">Las empresas que ofrecen agendamiento relacionado con "${servicio}"</p>
     </c:if>
-    <c:out value="${errorServicio}"/>
-    <c:out value="${errorNoHayEmpresa}"/>
+    <div class="title-design"> <c:out value="${errorServicio}"/> </div>
+    <div class="title-design"> <c:out value="${errorNoHayEmpresa}"/> </div>
     <c:forEach items="${serviciosFiltradosPorNombreCiudad}" var="servicio">
-      <div>
+      <div class="justify-content-between">
         <div>
           <c:if test="${servicio.imgRoute.isEmpty() == false}">
             <img src="${servicio.imgRoute}" style="width: 300px; height: 200px;" alt="${servicio.imgRoute}" class="rounded float-start">
           </c:if>
         </div>
-        <div class="badge bg-primary text-wrap" style="width: auto; ">
 
-          <ul>
-            <li class="fs-2 fw-bold text-uppercase"> ${servicio.getEmpresa().nombre}</li>
-            <li class="fs-2 fw-bold text-uppercase"> ${servicio.servicioOfrecido}</li>
-            <li class="fs-2 fw-bold text-uppercase"> ${servicio.precio}</li>
-            <li class="fs-2 fw-bold text-uppercase"> ${servicio.direction}</li>
-          </ul>
+        <div class="list-group service-data">
+          <div class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">${servicio.getEmpresa().nombre}</h5>
+              <small>${servicio.direction}</small>
+            </div>
+            <p class="mb-1">${servicio.servicioOfrecido}</p>
+            <small class="text-muted">${servicio.precio}</small>
+          </div>
         </div>
-
+<!--class="badge bg-primary text-wrap" style="width: auto;-->
       </div>
 
       <div class="container  mw-100">
         <div class="container text-center d-flex justify-content-center rounded"
           style="background-color: #FFEBCD;">
           <c:forEach items="${servicio.posiblesHoraDisponible()}" var="dia">
-            <div class="mx-4 my-4 d-inline-block col ">
-              <p class="border border-secondary p-2 rounded-pill">
+            <div class="mx-4 my-4 d-inline-block col">
+              <p class="border border-secondary p-2 rounded-pill" style="background-color: rgb(255, 145, 0);">
                 <fmt:formatDate value="${dia.get(1).getDate()}" pattern="EEEE dd" /><br>
               </p>
               <c:forEach items="${dia}" var="horarioDisponible">
