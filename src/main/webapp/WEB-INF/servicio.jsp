@@ -94,8 +94,10 @@
     </c:if>
     <div class="title-design"> <c:out value="${errorServicio}"/> </div>
     <div class="title-design"> <c:out value="${errorNoHayEmpresa}"/> </div>
+    
     <c:forEach items="${serviciosFiltradosPorNombreCiudad}" var="servicio">
-      <div class="justify-content-between">
+      <div class="container">
+      <div>
         <div>
           <c:if test="${servicio.imgRoute.isEmpty() == false}">
             <img src="${servicio.imgRoute}" style="width: 300px; height: 200px;" alt="${servicio.imgRoute}" class="rounded float-start">
@@ -110,16 +112,13 @@
             </div>
             <p class="mb-1">${servicio.servicioOfrecido}</p>
             <small class="text-muted">${servicio.precio}</small>
+            <!-- Button trigger modal -->
+            <br>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#horasDisp"> Ver Horas Disponibles </button>
           </div>
         </div>
-<!--class="badge bg-primary text-wrap" style="width: auto;-->
       </div>
-
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#horasDisp">
-        Ver Horas Disponibles
-      </button>
-
+    
       <!-- Modal -->
       <div class="modal fade" id="horasDisp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" id="modal-xl">
@@ -166,20 +165,23 @@
 
                   <span class="vr"></span>
                 </c:forEach>
+
               </div>
             </div>
 
           </div>
         </div>
       </div>
+      </div>
     </c:forEach>
+
   </div>
   <!-- Fin Body -->
 
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" id="d-flex">
+    <section class="container mw-100 d-flex justify-content-center justify-content-lg-between p-4 border-bottom" id="d-flex">
       <!-- Left -->
 
       <div class="sub-texto">
