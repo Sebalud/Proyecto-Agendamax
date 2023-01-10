@@ -23,6 +23,7 @@ body{
     background-color:rgba(197, 241, 244, 0.945);
 }
 
+/* estilo de nav para todos los nav*/
 nav{
     padding: 10px;
     border:10px solid rgba(217, 211, 255, 0.838);
@@ -32,16 +33,6 @@ nav{
 
 .navbar-brand {
     margin-left: 5%;
-}
-
-.container-fluid {
-    margin: 0px;
-    width: 100%;
-    background-color:rgb(182, 179, 254) ;
-} 
-
-label{
-    width: 100px;
 }
 
 #max {
@@ -59,6 +50,42 @@ label{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 40px;
 }
+
+#usuario-nombre{
+    align-items: center;
+    border-radius: 5px;
+    width: 80px;
+    height: 50px;
+    margin-left: 8%;
+    margin-right: 12%;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.nav-link {
+    background-color: #f0ebff;
+    width: 150px;
+    height: 50px;
+    margin-top: -15px;
+    font-size: 22px;
+    border: 5px solid rgb(205, 204, 255);;
+    border-radius: 7px;
+    color: rgb(59, 48, 255);
+}
+
+/*termina estilo de nav*/
+
+.container-fluid {
+    margin: 0px;
+    width: 100%;
+    background-color:rgb(182, 179, 254) ;
+} 
+
+label{
+    width: 100px;
+}
+
+
 
 label{
     width: 100px;

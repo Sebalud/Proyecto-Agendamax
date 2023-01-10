@@ -9,25 +9,6 @@
         padding: 16px;
     }
 
-    nav{
-        background-color: #BDB3FE;
-    }
-
-    #max {
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        color: rgb(255, 202, 79);
-        font-size: 40px;
-    }
-    
-    #nombrePagina {
-        margin-left: 2%;
-        font-size: xx-large;
-    }
-    
-    #agendalo {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: 40px;
-    }
     
     label{
         width: 100px;
@@ -162,3 +143,55 @@
     .d-flex {
         background-color: rgb(189, 179, 254);
     }
+
+    /* estilo de nav para todos los nav*/
+nav{
+    padding: 10px;
+    border:10px solid rgba(217, 211, 255, 0.838);
+    background-color: rgb(189, 179, 254);
+    
+} 
+
+.navbar-brand {
+    margin-left: 5%;
+}
+
+#max {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(255, 202, 79);
+    font-size: 40px;
+}
+
+#nombrePagina {
+    margin-left: 2%;
+    font-size: xx-large;
+}
+
+#agendalo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+}
+
+#usuario-nombre{
+    align-items: center;
+    border-radius: 5px;
+    width: 80px;
+    height: 50px;
+    margin-left: 8%;
+    margin-right: 12%;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.nav-link {
+    background-color: #f0ebff;
+    width: 150px;
+    height: 50px;
+    margin-top: -15px;
+    font-size: 22px;
+    border: 5px solid rgb(205, 204, 255);;
+    border-radius: 7px;
+    color: rgb(59, 48, 255);
+}
+
+/*termina estilo de nav*/

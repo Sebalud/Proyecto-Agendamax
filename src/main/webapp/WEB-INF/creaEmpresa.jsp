@@ -36,41 +36,71 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/home" id="home">Home</a>
+            <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+            <c:choose>
+              <c:when test="${usuario.empresa == null}">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
+                  Crear Empresa
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                        propietario
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-black" href="/planes">Aceptar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </c:when>
+            </c:choose>
           </li>
         </ul>
-        <form class="d-flex" role="search" method="POST" action="">
-          <select class="me-2 form-select" name="selectReg" id="selectReg">
-            <option value="0"> Región </option>
-            <c:forEach items="${regiones}" var="region">
-              <option value="${region.id}">${region.nombre}</option>
-            </c:forEach>
-          </select>
-          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-            <option value="0">Ciudad</option>
-          </select>
-          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-          <button class="btn botones" type="submit" id="botones">Buscar</button>
-        </form>
+<!-- Buscadores de Servicios-->
+<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+  <select class="me-2 form-select" name="selectReg" id="selectReg">
+      <option value="0">Región</option>
+      <c:forEach items="${regiones}" var="region">
+          <option value="${region.id}">${region.nombre}</option>
+      </c:forEach>
+  </select>
+  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+      <option value="0">Ciudad</option>
+  </select>
+  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+  <button class="btn botones" type="submit">Buscar</button>
+</form>
         <div class="nav-item dropdown" id="usuario-nombre">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <c:out value="${usuario.nombre}" />
+            <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/logout">Log out</a></li>
-            <c:if test="${usuario.getEmpresa() != null}">
-              <li><a class="dropdown-item" href="/plan/${empresa.id}">Tu empresa</a></li>
-            </c:if>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          <c:if test="${usuario.getEmpresa() != null}">
+            <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+          </c:if>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Editar perfil</a></li>
           </ul>
-          </li>
         </div>
       </div>
     </div>
-  </nav>
+</nav>
+
+
+
+
+
   <div class="container">
     <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
       <div class="form-image">
