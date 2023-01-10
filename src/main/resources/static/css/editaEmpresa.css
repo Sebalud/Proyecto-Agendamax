@@ -11,6 +11,7 @@ body{
 
 nav{
     background-color: #BDB3FE;
+    margin: 0;
 }
 
 #max {
@@ -25,10 +26,35 @@ nav{
 #agendalo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.sub-texto{
-    padding: 4px;
-    background-color:rgb(177, 165, 253);
-    border-radius: 5px;
+
+.botones{
+    border-style: solid;
+    background-color:rgb(22, 49, 113);
+    color: white;
+    padding: 0.03rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    width: 150px;
+    height: 45px;
+}
+
+#tittle{
+    font-family:'Nunito', sans-serif;;
+}
+
+#eliminar{
+    color: white;
+}
+
+.botones:hover{
+    border: none;
+    color: black;
+    background-color:rgba(197, 241, 244, 0.945);
+}
+
+label{
+    width: 100px;
 }
 
 .link-secondary{

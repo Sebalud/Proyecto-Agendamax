@@ -9,11 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="/css/editaEmpresa.css">
     <title>Editar Empresa</title>
-    <a href="/css/editaEmpresa.css"></a>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -26,7 +25,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" id="home">Home</a>
+                <a class="nav-link active" aria-current="page" href="" id="home">Home</a>
               </li>
             </ul>
             <!-- Buscadores de Servicios-->
@@ -40,13 +39,15 @@
               <select name="selectCiud" id="selectCiud">
                   <option value="0"> Ciudad </option>
               </select>
-              <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
+              <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
               <button class="btn botones" type="submit">Buscar</button>
           </form>
           </div>
         </div>
       </nav>
+      <div id="tittle">
     <h1>Edita la Empresa</h1>
+  </div>
     <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
     
     <p class="form-outline">
@@ -68,10 +69,11 @@
           </c:forEach>
       </form:select>
   </p>
-  <input class="btn btn-outline-secondary" type="submit" value="Aceptar cambios"/>
+  <input class="btn botones" type="submit" value="Aceptar cambios"/>
 </form:form>
-
-<a href="/delete/${empresaAEditar.id}">Eliminar Empresa</a>
+<div class="btn botones">
+<a href="/delete/${empresaAEditar.id}" id="eliminar">Eliminar Empresa</a>
+</div>
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
   <!-- Section: Social media -->
