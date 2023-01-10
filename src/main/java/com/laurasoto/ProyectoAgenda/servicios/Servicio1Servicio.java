@@ -29,4 +29,8 @@ public class Servicio1Servicio extends BaseServicio<Servicio>{
 		return servicioRepositorio.findByEmpresaNotContaining(empresa);
 	}
 
+	/* public Servicio buscaServicioPorNombre(String servicio){
+		return servicioRepositorio.findByServicioOfrecido(servicio);
+	} */
+
 }

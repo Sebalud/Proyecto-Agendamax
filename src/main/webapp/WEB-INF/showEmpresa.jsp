@@ -31,7 +31,7 @@
                 <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4 mb-5">
                     <div class="container-fluid">
                         <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agendalo</span><span
-                                id="max">Max</span></a>
+                                id="max" class="fw-bolder">Max</span></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -57,6 +57,8 @@
                                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                                     </ul>
                                 </li>
+
+                                
                                 <c:choose>
                                     <c:when test="${!empresa.empresafree}">
                                         <li class="nav-item text-danger mt-2">Cuenta premium!</li>
@@ -113,25 +115,14 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="10000">
-                                <img src="/imagenes/calendario.png" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>First slide label</h5>
-                                    <p>gestiona tu empresa con nosotros, facil y rapido</p>
-                                </div>
+                                <img src="/imagenes/gestion-de-proyectos.png" class="d-block w-100" alt="...">
+
                             </div>
                             <div class="carousel-item" data-bs-interval="2000">
-                                <img src="/imagenes/ejemplo2.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Second slide label</h5>
-                                    <p>Some representative placeholder content for the second slide.</p>
-                                </div>
+                                <img src="/imagenes/sistema-de-gestion-de-contenidos.png" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/imagenes/ejemplo1.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Third slide label</h5>
-                                    <p>Some representative placeholder content for the third slide.</p>
-                                </div>
+                                <img src="/imagenes/gestion-de-datos.png" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
@@ -193,18 +184,21 @@
 
                 <main>
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                     <div class="form-body d-flex">
                         <h1 id="alLadoServicio">
                             Crea un servicio que sea <span class="letraDif fw-bold">representativo</span> y <span
                                 class="letraDif fw-bold">llamativo</span>, que los clientes facilmente puedan encontrar.
                         </h1>
+
                         <c:choose>
+                            
                             <c:when
-                                test="${(empresa.servicios.size() 1 && empresa.empresafree) || !empresa.empresafree}">
+                                test="${(empresa.servicios.size() < 1 && empresa.empresafree) || !empresa.empresafree}">
+                                <h1 id="alLadoServicio">
+                                    Crea un servicio que sea <span class="letraDif fw-bold">representativo</span> y <span
+                                        class="letraDif fw-bold">llamativo</span>, que los clientes facilmente puedan encontrar.
+                                </h1>
+
                                 <div class="form-holder">
                                     <div class="form-content">
                                         <div class="form-items">
@@ -220,12 +214,12 @@
 
                                                 <div class="col-md-12">
                                                     <form:errors cssClass="text-danger" path="direction" />
-                                                    <form:input cssClass="form-control" path="direction" placeholder="Adress" />
+                                                    <form:input cssClass="form-control" path="direction" placeholder="Direccion" />
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <form:errors cssClass="text-danger" path="precio" />
-                                                    <form:input cssClass="form-control" path="precio" placeholder="Prize" />
+                                                    <form:input cssClass="form-control" path="precio" placeholder="Precio" />
                                                 </div>
 
                                                 <div class="col-md-12">
@@ -267,101 +261,122 @@
                                                         <form:option value="60">60 min</form:option>
                                                     </form:select>
                                                 </div>
-                                                <input type="file" name="postFile">
+                                                <div class="col-md-12 mt-3">
+                                                <input type="file" class="form-control " name="postFile">
+                                                </div>
                                                 <div class="form-button mt-3">
                                                     <input id="submit" class="btn btn-primary" type="submit"
-                                                        value="servicio" />
+                                                        value="Crear" />
                                                 </div>
                                             </form:form>
                                         </div>
                                     </div>
                                 </div>
 
-                    </div>
-                    </c:when>
-                    <c:when test="${empresa.servicios.size() == 1 && empresa.empresafree}">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modal1">
-                            Cambiarse a premium
-                        </button>
-
-                        <div class="modal fade modal-xl" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Plan premium</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        muuuuuuuuucho texto del plan premium,
-                                        que consiste
-                                        cuánto cuesta y demás
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cancelar</button>
-                                        <a class="btn btn-primary" href="/premium/${empresa.id}">Aceptar</a>
-                                        <a href="">
-                                            <div class="modal-dialog modal-sm">...</div>
-                                        </a>
+                            </c:when>
+                            <c:when test="${empresa.servicios.size() == 1 && empresa.empresafree}">
+                                <h1 id="infoPremium" class="my-auto mx-auto">
+                                    ¿Pensando en que tu empresa ofrezca otro servicio?<span class="letraDif fw-bold"> Hazte premium ahora</span>
+                                </h1>
+                                <button type="button" class="btn btn-danger mx-auto my-auto" id="botonPremium" data-bs-toggle="modal" data-bs-target="#Modal1">
+                                    Cambiarse a premium
+                                </button>
+        
+                                <div class="modal fade modal-xl" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body d-flex">
+                                                <div class="image-box me-3">
+                                                    <img src="/imagenes/premium.png" alt="">
+                                                </div>
+                                                <div class="text-box ms-3 mt-5">
+                                                    <h2 class="fw-semibold mt-3">Ofrece más de un servicio y disfruta de otras ventajas con Premium</h2>
+                                                    <p class="font-md">Suscríbete desde 7.50/EUR/mes y accede a:</p>
+                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv1">8.9M iconos y stickers en formato SVG, EPS, PSD y BASE64</p></div>
+                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv1">posibilidad de ofrecer hasta 10 servicios al mismo tiempo</p></div>
+                                                    
+                                                    <div class="feature"><i class="fa-duotone fa-check"></i></i><p class="font-sm mg-bottom-lv1">Soporte prioritario</p></div>
+                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv3">Sin publicidad</p></div>
+                                                    <div id="botonesModal" class="text-center mt-4">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                        <a class="btn btn-primary" id="haztePremium" href="/premium/${empresa.id}">Hazte premium</a>
+                                                    </div>
+                                                    </div>
+                                                    
+                                                
+            
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </c:when>
-                    </c:choose>
+                            </c:when>
+                            </c:choose>
 
-                    <table class="table container my-5">
-                        <h1 class="container mt-5 border-bottom">Resumen</h1>
-                        <thead>
-                            <tr>
-                                <th class="">Servicio</th>
-                                <th>Duracion de Servicio</th>
-                                <th>Ciudad</th>
-                                <th>Accion</th>
-                                <th>Hacer Horario</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${empresa.servicios}" var="servicio">
+                    </div>
+                    
+
+                    <div id="tablita" class="mb-5">
+                        <table class="table container my-5">
+                            <h1 class="container mt-5 border-bottom fw-bolder">Resumen</h1>
+                            <thead>
                                 <tr>
-
-                                    <td colspan="">
-                                        <c:out value="${servicio.servicioOfrecido}" />
-                                    </td>
-                                    <td>
-                                        <c:out value="${servicio.duracionServicio}" /> min
-                                    </td>
-                                    <td colspan="">
-                                        <c:out value="${empresa.ciudad.nombre}" />
-                                    </td>
-                                    <td><!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#${servicio.id}">
-                                            Eliminar
-                                        </button>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="${servicio.id}" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content"
-                                                    style="background-color: #1D2226; color: aliceblue;">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar
-                                                        </h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        ¿Seguro que deseas eliminar el servicio de tu empresa?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn botones"
-                                                            data-bs-dismiss="modal">Cancelar</button>
-                                                        <a class="btn botones"
-                                                            href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
+                                    <th class="">Servicio</th>
+                                    <th>Duracion de Servicio</th>
+                                    <th>Precio</th>
+                                    <th>Ciudad</th>
+                                    <th>Direccion</th>
+                                    <th>Accion</th>
+                                    <th>Hacer Horario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${empresa.servicios}" var="servicio">
+                                    <tr>
+    
+                                        <td colspan="">
+                                            <c:out value="${servicio.servicioOfrecido}" />
+                                        </td>
+                                        <td>
+                                            <c:out value="${servicio.duracionServicio}" /> min
+                                        </td>
+                                        <td colspan="">
+                                            <c:out value="${servicio.precio}" />
+                                        </td>
+                                        <td colspan="">
+                                            <c:out value="${empresa.ciudad.nombre}" />
+                                        </td>
+                                        <td colspan="">
+                                            <c:out value="${servicio.direction}" />
+                                        </td>
+    
+                                        <td><!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#${servicio.id}">
+                                                Eliminar
+                                            </button>
+    
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="${servicio.id}" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content"
+                                                        style="background-color: #1D2226; color: aliceblue;">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar
+                                                            </h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ¿Seguro que deseas eliminar el servicio de tu empresa?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn botones"
+                                                                data-bs-dismiss="modal">Cancelar</button>
+                                                            <a class="btn botones"
+                                                                href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

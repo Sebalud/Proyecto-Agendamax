@@ -1,13 +1,4 @@
-body {
-    font-family: 'Nunito', sans-serif;
-    background-color: blanchedalmond;
-    padding: 0;
-}
-
-.container-fluid {
-    background-color: rgb(189, 179, 254);
-    padding: 6px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 nav {
     background-color: #BDB3FE;
@@ -43,16 +34,8 @@ nav {
 
 }
 
-#max {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
 #nombrePagina {
     font-size: xx-large;
-}
-
-#agendalo {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #carouselExampleDark {
@@ -74,6 +57,12 @@ nav {
     color: #6c757d;
 }
 
+#infoPremium{
+    width: 35%;
+    color: #6c757d;
+    height: 180px;
+}
+
 .section-part {
     height: 20rem;
     background-color: rgb(27, 27, 27);
@@ -81,8 +70,7 @@ nav {
     padding: 10px;
 }
 
-.letraDif {}
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
 
 .form-body {
     background-color: #FFEBCD;
@@ -213,6 +201,15 @@ nav {
     margin-top: -9px !important;
     margin-bottom: 8px !important;
 }
+#premium{
+    text-decoration: none;
+
+}
+
+#botonPremium{
+    height: 60px !important;
+    width: 300px;
+}
 
 .invalid-feedback {
     color: #ff606e;
@@ -231,13 +228,26 @@ nav {
     height: 30px;
 }
 
-.section-part{
+.section-part {
     height: 20rem;
-    background-color: rgb(27, 27, 27) ;
-    font-family: 'Nunito', sans-serif;
+    background-color: rgb(27, 27, 27);
     padding: 10px;
 }
 
-#barrita{
-    background-color:rgb(189, 179, 254);
-} 
+#divCreaServicio{
+    height: 800px;
+}
+
+#haztePremium{
+
+    width: 280px;
+}
+
+#tablita{
+    height: 700px;
+}
+
+.navbar-brand{
+    margin-left: 25px;
+    font-family: 'Playfair Display', serif;
+}
