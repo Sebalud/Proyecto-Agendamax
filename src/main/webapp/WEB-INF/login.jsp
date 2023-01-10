@@ -13,36 +13,34 @@
     <title>Log in</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg py-4 px-3 mb-5">
-        <div class="container-fluid">
-          <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-            id="max">Max</span></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home" id="home">Home </a>
-              </li>
-            </ul> 
-            <!-- Buscadores de Servicios-->
-            <form class="d-flex" role="search" method="POST" action="/search">
-              <select class="me-2 form-select" name="selectReg" id="selectReg">
-                  <option value="0">Región</option>
-                  <c:forEach items="${regiones}" var="region">
-                      <option value="${region.id}">${region.nombre}</option>
-                  </c:forEach>
-              </select>
-              <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-                  <option value="0">Ciudad</option>
-              </select>
-              <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-              <button class="btn botones" type="submit">Buscar</button>
-          </form>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+        id="max">Max</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+          </li>
+        </ul>
+<!-- Buscadores de Servicios-->
+<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+  <select class="me-2 form-select" name="selectReg" id="selectReg">
+      <option value="0">Región</option>
+      <c:forEach items="${regiones}" var="region">
+          <option value="${region.id}">${region.nombre}</option>
+      </c:forEach>
+  </select>
+  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+      <option value="0">Ciudad</option>
+  </select>
+  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+  <button class="btn botones" type="submit">Buscar</button>
+</form>
+</nav> 
 
     <div class="container" id="contenedor">  
       
@@ -67,7 +65,6 @@
         </p>
           <a class=" btn botones" href="/registration" id="regist">Registrarse</a>
           <input  class="btn botones" type="submit" value="Log in!"/>
-        
     </form> 
   </div>
 </div>
@@ -117,7 +114,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+              <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
             </h6>
             <p>
               Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -129,7 +126,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Informacion
+              Información
             </h6>
             <p>
               <a href="#!" class="text-reset">Sobre nosotros</a>

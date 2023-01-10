@@ -96,8 +96,8 @@
           <div class="carousel-item active">
             <img src="/imagenes/tienda.png" class="d-block w-100" alt="tienda">
             <div class="carousel-caption d-none text-black d-md-block">
-              <h5>Podrás encontrar</h5>
-              <p>estos y muchos más servicios.</p>
+              <h5>¿Buscas que las personas conozcan lo que tienes para ofrecer?</h5>
+              <p>¡Aquí podrán encontrarte!</p>
             </div>
           </div>
       <div class="carousel-item">
@@ -194,7 +194,7 @@
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style="background-color:  rgb(177, 165, 253);">
       <!-- Left -->
 
       <div class="sub-texto">
@@ -236,7 +236,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+              <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
             </h6>
             <p>
               Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -248,7 +248,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Informacion
+              Información
             </h6>
             <p>
               <a href="#!" class="text-reset">Sobre nosotros</a>
@@ -306,7 +306,7 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+    <div class="text-center p-4" style="background-color:  rgb(177, 165, 253)">
       www.agendalomax.cl © 2022 :
       <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
     </div>

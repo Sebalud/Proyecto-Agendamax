@@ -19,7 +19,7 @@
         rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="/css/membresias.css">
       <title>Membresias</title>
-    </head>
+    </head> 
 
     <body>
       <nav class="navbar navbar-expand-lg ">
@@ -36,9 +36,6 @@
                 <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
                 <c:choose>
                   <c:when test="${usuario.empresa == null}">
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                      Crear Empresa
-                    </button>
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                       tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -126,8 +123,9 @@
             <div id="cartafree">
               <div class="card-body">
                 <h5 class="card-title">Plan Gratis</h5>
+                ¡Completamente Gratis!
                 <p class="card-text"> 
-                  En nuestro Plan Gratuito podrás contar con
+                  Crea ese servicio que ofreces.
                   <div class="button-crear">
                     <a href="/planes/new">Crear empresa</a>
                   </div>
@@ -141,7 +139,8 @@
             <div id="cartapre">
             <div class="card-body">
               <h5 class="card-title">Plan Premium</h5>
-              <p class="card-text">En nuestro Plan Premium
+              Por 5000$/mes
+              <p class="card-text">Podrás añadir la cantidad de servicios que desees.
                 <div class="button-crear">
                   <a href="/planes/new">Crear empresa</a>
                 </div>
@@ -155,7 +154,7 @@
       <!-- Footer -->
       <footer class="text-center text-lg-start bg-white text-muted">
         <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style="background-color:  rgb(177, 165, 253);">
           <!-- Left -->
 
           <div class="sub-texto">
@@ -267,7 +266,7 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+        <div class="text-center p-4" style="background-color:rgb(177, 165, 253);">
           www.agendalomax.cl © 2022 :
           <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
         </div>

@@ -15,52 +15,62 @@
     <title>Editar Empresa</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-            id="max">Max</span></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="" id="home">Home</a>
-              </li>
-            </ul>
-            <!-- Buscadores de Servicios-->
-            <form class="d-flex" role="search" method="POST" action="/search">
-              <select name="selectReg" id="selectReg">
-                  <option value="0"> Region </option>
-                  <c:forEach items="${regiones}" var="region">
-                      <option value="${region.id}">${region.nombre}</option>
-                  </c:forEach>
-              </select>
-              <select name="selectCiud" id="selectCiud">
-                  <option value="0"> Ciudad </option>
-              </select>
-              <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-              <button class="btn botones" type="submit">Buscar</button>
-          </form>
-          </div>
-        </div>
-      </nav>
-      <div id="tittle">
-    <h1>Edita la Empresa</h1>
-  </div>
-    <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
-    
-    <p class="form-outline">
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+        id="max">Max</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+          </li>
+        </ul>
+<!-- Buscadores de Servicios-->
+<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+  <select class="me-2 form-select" name="selectReg" id="selectReg">
+      <option value="0">Región</option>
+      <c:forEach items="${regiones}" var="region">
+          <option value="${region.id}">${region.nombre}</option>
+      </c:forEach>
+  </select>
+  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+      <option value="0">Ciudad</option>
+  </select>
+  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+  <button class="btn botones" type="submit">Buscar</button>
+</form>
+</nav>
+
+<div class="container">
+  <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
+    <div class="form-image">
+      <img src="/imagenes/undraw_text_field_htlv.svg" alt="formulario">
+    </div>
+    <div class="form">
+
+    <div class="mod-sub-title">
+      <div class="sub-title">
+        <h3>Editar Empresa</h3>
+      </div>
+    </div>
+
+    <div class="input-group">
+    <p class="input-box">
         <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
         <form:errors cssClass="text-danger" path="nombre"/>
         <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
     </p>
-    <p>
+
+    <p class="input-box">
         <form:label path="rut">Rut Empresa</form:label>
         <form:errors cssClass="text-danger" path="rut"/>
         <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
     </p>
-    <p class="form-outline">
+
+    <p class="input-box">
       <form:label cssClass="form-label" path="ciudad">Ciudades</form:label>
       <form:errors path="ciudad"/>
       <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
@@ -68,12 +78,19 @@
               <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
           </c:forEach>
       </form:select>
-  </p>
+    </p>
+  </div>
+
+  <div class="input-regist">
   <input class="btn botones" type="submit" value="Aceptar cambios"/>
-</form:form>
-<div class="btn botones">
-<a href="/delete/${empresaAEditar.id}" id="eliminar">Eliminar Empresa</a>
+  <div class="btn eliminar">
+    <a href="/delete/${empresaAEditar.id}" id="eliminar">Eliminar Empresa</a>
+    </div>
 </div>
+    </div>
+</form:form>
+</div>
+
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
   <!-- Section: Social media -->

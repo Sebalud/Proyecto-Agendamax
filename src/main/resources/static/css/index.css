@@ -2,7 +2,7 @@ body{
     background-color: blanchedalmond;
     font-family: 'Nunito', sans-serif;
 }
-
+/* nav */
 .container-fluid{
     background-color:rgb(182, 179, 254);
     font-size: 15.5px;
@@ -42,7 +42,7 @@ nav{
 #agendalo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 40px;
-}
+} 
 
 label{
     width: 100px;
@@ -60,6 +60,7 @@ label{
     border: 2px solid rgb(0, 0, 0);
     font-size: 17px;
 }
+/* nav */
 
 #crea-empresa:hover{
     border: none;
@@ -106,6 +107,11 @@ label{
     padding: 1rem;
     height: 350px;
     width: 15px;
+}
+
+.carousel-caption{
+    background-color: rgba(197, 241, 244, 0.345);
+    border-radius: 10px;
 }
 
 .carousel-control-prev {

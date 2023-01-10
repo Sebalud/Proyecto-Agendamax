@@ -90,3 +90,38 @@ nav{
 }
 
 
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img {
+    width: 30px;
+    height: 30px;
+}
+
+.section-part {
+    height: 20rem;
+    background-color: rgb(27, 27, 27);
+    padding: 10px;
+}
+
+#divCreaServicio{
+    height: 800px;
+}
+
+#haztePremium{
+
+    width: 280px;
+}
+
+#tablita{
+    height: 700px;
+}
+
+.navbar-brand{
+    margin-left: 25px;
+}
+
+#servicisito{
+    height: 700px;
+}

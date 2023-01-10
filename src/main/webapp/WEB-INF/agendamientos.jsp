@@ -120,18 +120,8 @@
             </c:forEach>
         </tbody>
     </table>
-
     </div>
-
-
-
-
-
-
-
-
     
-
 
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
