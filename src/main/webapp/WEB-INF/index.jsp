@@ -22,7 +22,7 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agendalo</span><span
+      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
         id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
           </li>
         </ul>
 <!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search">
+<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
   <select class="me-2 form-select" name="selectReg" id="selectReg">
       <option value="0">Región</option>
       <c:forEach items="${regiones}" var="region">
@@ -72,7 +72,7 @@
   <select class="me-2 form-select" name="selectCiud" id="selectCiud">
       <option value="0">Ciudad</option>
   </select>
-  <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
+  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
   <button class="btn botones" type="submit">Buscar</button>
 </form>
         <div class="nav-item dropdown" id="usuario-nombre">
@@ -96,57 +96,57 @@
           <div class="carousel-item active">
             <img src="/imagenes/tienda.png" class="d-block w-100" alt="tienda">
             <div class="carousel-caption d-none text-black d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              <h5>Podrás encontrar</h5>
+              <p>estos y muchos más servicios.</p>
             </div>
           </div>
       <div class="carousel-item">
         <img src="/imagenes/cooperacion.png" class="d-block w-100" alt="negocios">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div> 
       <div class="carousel-item">
         <img src="/imagenes/trade.png" class="d-block w-100" alt="comercio">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/hair-salon.png" class="d-block w-100" alt="barbería">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Encuentra el servicio que quieras</h5>
-          <p>esto y mucho más encontrás aquí</p>
+          <h5>Podrás encontrar</h5>
+          <p>esto y mucho más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/nail-polish.png" class="d-block w-100" alt="salón de uñas">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div> 
       </div>
       <div class="carousel-item">
         <img src="/imagenes/take-away.png" class="d-block w-100" alt="entrega de comida">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/healthcare.png" class="d-block w-100" alt="salud">
         <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Podrás encontrar</h5>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div>
     </div>
@@ -161,35 +161,34 @@
   </div>
   <div class="cositas text-center">
     <div class="row g-2">
-      <div class="col-6">
-
-        <div class="icons"></div>
-        <div class="p-3">Custom column padding</div>
-          <img src="/imagenes/buscar.png" alt="buscar">
-        </div>
-        <p>Busca el servicio que estes buscando</p>
-      
-      </div>
-      <div class="col-6">
+      <div class="col-1">
         <div class="icons">
-        <div class="p-3">Custom column padding</div>
-        <p >esto también es un relleno</p>
-        </div>
-        <img src="/imagenes/pulgares-hacia-arriba.png" alt="Like">
+        <div class="p-3">Encuentra tu servicio</div>
+          <img src="/imagenes/buscar.png" alt="buscar">
+        <p>Tu servicio aquí disponible.</p>
       </div>
-      <div class="col-6">
-        <div class="p-3">Custom column padding</div>
-        <p></p>
+      </div>
+      <div class="col-2">
+        <div class="icons">
+        <div class="p-3">Date ese gusto</div>
+        <img src="/imagenes/pulgares-hacia-arriba.png" alt="Like">
+        <p >¡Disfruta tu servicio en un par de clicks!</p>
+      </div>
+      <div class="col-3">
+        <div class="p-3">Toma tu hora</div>
         <div class="icons">
           <img src="/imagenes/reloj.png" alt="Like">
+          <p>Agenda la hora de preferencia para mayor comodidad.</p>
         </div>
       </div>
-      <div class="col-6">
-        <div class="icons">
+      <div class="col-4">
+        <div class="icons">  
+          <div class="p-3">Busca en tu sector</div>
           <img src="/imagenes/mapa.png" alt="Like">
         </div>
-        <div class="p-3">Custom column padding</div>
+        <p>Y coordina para que el servicio llegue a la puerta de tu hogar.</p>
       </div>
+    </div>
     </div>
   </div>
   <!-- Footer -->

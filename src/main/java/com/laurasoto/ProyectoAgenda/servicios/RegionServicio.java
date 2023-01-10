@@ -1,9 +1,6 @@
 package com.laurasoto.ProyectoAgenda.servicios;
-
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.laurasoto.ProyectoAgenda.modelos.Region;
 import com.laurasoto.ProyectoAgenda.repositorios.RegionRepositorio;
 
