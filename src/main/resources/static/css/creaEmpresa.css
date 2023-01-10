@@ -17,7 +17,6 @@
         margin-left: 25px;
     }
 
-<<<<<<< Updated upstream
     .nav-link {
         background-color: #f0ebff;
         width: 150px;
@@ -43,18 +42,6 @@
     #agendalo {
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-size: 40px;
-=======
-    #max {
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    }
-    
-    #nombrePagina {
-        font-size: xx-large;
-    }
-    
-    #agendalo {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
->>>>>>> Stashed changes
     }
 
     #home{
@@ -138,7 +125,6 @@
         width: 20rem;
     }
 
-<<<<<<< Updated upstream
     .form-header{
         display: flex;
         justify-content: space-between;
@@ -152,8 +138,6 @@
         color: white;
     }
 
-=======
->>>>>>> Stashed changes
     .input-group{
         justify-content: space-between;
         padding: 1.2rem ;

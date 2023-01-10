@@ -12,13 +12,10 @@ nav{
     background-color: #d2cbff;
 }
 
-<<<<<<< Updated upstream
 .navbar-brand{
     margin-left: 25px;
 }
 
-=======
->>>>>>> Stashed changes
 #max {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(255, 202, 79);
@@ -26,11 +23,7 @@ nav{
 }
 
 #nombrePagina {
-<<<<<<< Updated upstream
     margin-left: 2%;
-=======
-    margin-left: 25px;
->>>>>>> Stashed changes
     font-size: xx-large;
 }
 
@@ -79,7 +72,6 @@ label{
     text-align: center;
 }
 
-<<<<<<< Updated upstream
 .sub-texto{
     padding: 4px;
     background-color:rgb(27, 41, 107);
@@ -89,8 +81,6 @@ label{
     color: white;
 }
 
-=======
->>>>>>> Stashed changes
 .carousel-inner{
     margin-left: 25%;
     width: 45rem;
