@@ -1,9 +1,6 @@
 package com.laurasoto.ProyectoAgenda.servicios;
-
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Servicio;
 import com.laurasoto.ProyectoAgenda.repositorios.HorarioRepositorio;
@@ -28,5 +25,9 @@ public class Servicio1Servicio extends BaseServicio<Servicio>{
 	public List<Servicio> serviciosNoContieneEmpresa(Empresa empresa){
 		return servicioRepositorio.findByEmpresaNotContaining(empresa);
 	}
+
+	/* public Servicio buscaServicioPorNombre(String servicio){
+		return servicioRepositorio.findByServicioOfrecido(servicio);
+	} */
 
 }
