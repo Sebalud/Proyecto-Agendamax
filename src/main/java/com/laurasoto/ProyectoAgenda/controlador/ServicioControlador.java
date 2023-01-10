@@ -90,6 +90,7 @@ public class ServicioControlador {
             Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
             Horario horario = new Horario();
             horario.setHoraDisponible(horaLong);
+            horario.setUsuario(usuario);
             horario.setId(horaLong);
             horario.setServicio(servicio1Servicio.findById(servicioId));
             horarioServicio.crear(horario);
@@ -106,15 +107,18 @@ public class ServicioControlador {
     }
 
     @GetMapping("/agendamiento/{servicioId}/{horaLong}")
-    public String agendarHora(@ModelAttribute("horario") Horario horario,
-                            @PathVariable("servicioId") Long servicioId, @PathVariable("horaLong") Long horaLong, Model model, HttpSession session){
-            if( (Long) session.getAttribute("usuarioId") == null ){
-                model.addAttribute("loguearseParaAgendar", "Debes Loguearte para agendar");
-                return"redirect:/";
-            }
+    public String agendarHora(@PathVariable("servicioId") Long servicioId, @PathVariable("horaLong") Long horaLong, Model model, HttpSession session){
+        if( (Long) session.getAttribute("usuarioId") == null ){
+            model.addAttribute("loguearseParaAgendar", "Debes Loguearte para agendar");
+            return"redirect:/";
+        }
+
+        Servicio servicio = servicio1Servicio.findById(servicioId);
         Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
+        Horario horario = new Horario();
         horario.setUsuario(usuario);
         horario.setHoraDisponible(horaLong);
+        horario.setServicio(servicio);
         horarioServicio.crear(horario);
 
         return "redirect:/horas/usuario/" + usuario.getId();
@@ -122,8 +126,14 @@ public class ServicioControlador {
 
     @GetMapping("/horas/usuario/{usuarioId}")
     public String horaAgendadasUsuario(HttpSession session, @PathVariable("usuarioId") Long usuarioId, Model model){
+        List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
         Usuario usuario = usuarioServicio.findById ((Long) session.getAttribute("usuarioId"));
+
+        model.addAttribute("regiones", regiones);
+        model.addAttribute("regionesJson", resultadoJson);
         model.addAttribute("usuario", usuario);
+
         return"agendamientos";
     }
 

@@ -137,20 +137,43 @@ public class Servicio{
 		List<List<TachamientoBoton>> tachamientoBoton = new ArrayList<>();
 		for (List<Date> dates : listaDefinitiva) {
 			List<TachamientoBoton> botons = dates.stream()
-					.map(date -> new TachamientoBoton(true, date))
+					.map(date -> new TachamientoBoton(true,0, date))
 					.collect(Collectors.toList());
 			tachamientoBoton.add(botons);
 		}
-
+		//lo esta transformando de un objeto horario a long
 		List<Long> allDateAsLong = this.horarios
 				.stream()
 				.map(Horario::getHoraDisponible)
+				//el colect agrupa en una lista
 				.collect(Collectors.toList());
 
 		for (List<TachamientoBoton> tachamientoBotons : tachamientoBoton) {
 			for (TachamientoBoton boton : tachamientoBotons) {
 				if (allDateAsLong.contains(boton.getDate().getTime())){
 					boton.setEstaActivo(false);
+				}
+			}
+		}
+
+		for (List<TachamientoBoton> tachamientoBotons : tachamientoBoton) {
+			for (TachamientoBoton boton : tachamientoBotons) {
+				for (Horario horario : this.horarios) {
+					//1 = Duenho
+					//2 = Cliente
+					//0 = nadie
+
+					if(horario.getHoraDisponible().equals(boton.getDate().getTime()) && horario.isCanceledByOwner(horario.getUsuario().getId())){
+						boton.setHoraAgendadaByCliente(1);
+						break;
+					}
+					else if (horario.getHoraDisponible().equals(boton.getDate().getTime()) && !horario.isCanceledByOwner(horario.getUsuario().getId())){
+						boton.setHoraAgendadaByCliente(2);
+						break;
+					}
+					else{
+						boton.setHoraAgendadaByCliente(0);
+					}
 				}
 			}
 		}
