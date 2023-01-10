@@ -159,6 +159,14 @@ nav{
     background-color:rgb(177, 165, 253);
 }
 
+.sub-texto{
+    background-color:rgb(27, 41, 107);
+    border-radius: 5px;
+    width: 300px;
+    height: 35px;
+    color: white;
+}
+
 .link-secondary{
     padding: 5px;
 }

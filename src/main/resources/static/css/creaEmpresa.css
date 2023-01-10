@@ -125,11 +125,6 @@
         width: 20rem;
     }
 
-    .form-header{
-        display: flex;
-        justify-content: space-between;
-    }
-
     .sub-texto{
         background-color:rgb(27, 41, 107);
         border-radius: 5px;

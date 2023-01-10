@@ -125,7 +125,7 @@
         <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
         <div class="carousel-caption d-none text-black d-md-block">
           <h5>Podrás encontrar</h5>
-          <p>estos y muchos más servicio.</p>
+          <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
