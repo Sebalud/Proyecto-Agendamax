@@ -133,7 +133,7 @@
     
 
 
-    <footer class="text-center text-lg-start text-muted">
+    <footer class="text-center text-lg-start text-muted" >
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->

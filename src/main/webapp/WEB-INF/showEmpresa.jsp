@@ -61,6 +61,11 @@
                             </div>
                           </c:when>
                         </c:choose>
+                        <c:choose>
+                        <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+                            <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                        </c:when>
+                        </c:choose>
                       </li>
                     </ul>
             <!-- Buscadores de Servicios-->
@@ -131,7 +136,7 @@
                     </div>
 
                     <div id="ladoCarrusel" class="ml-5">
-                        <h1>Bienvenido/da
+                        <h1>Bienvenido/a
                             <c:out value="${empresa.usuarioAdmin.nombre} ${empresa.usuarioAdmin.apellido} " />
                         </h1>
                         <p>Aqui podras configurar y visualizar los servicios que ofrece tu empresa, revisar el
@@ -144,7 +149,7 @@
                         </p>
 
                         <!-- Eliminar Empresa -->
-                        <button type="button" class="btn botones px-4 py-2" data-bs-toggle="modal"
+                        <button type="button" class="btn botones px-4" id="botonEEmpresa" data-bs-toggle="modal"
                             data-bs-target="#exampleModal4">
                             Eliminar Empresa
                         </button>
@@ -171,7 +176,7 @@
                             </div>
                         </div>
 
-                        <a class="btn botones px-4 py-2" href="/plan/${empresa.id}/edit">Edita Tu Empresa</a>
+                        <a class="btn botones px-4" id="botonEditaEmpresa" href="/plan/${empresa.id}/edit">Edita Tu Empresa</a>
                     </div>
                 </div>
 
@@ -266,29 +271,29 @@
                                 <h1 id="infoPremium" class="my-auto mx-auto">
                                     ¿Pensando en que tu empresa ofrezca otro servicio?<span class="letraDif fw-bold"> Hazte premium ahora</span>
                                 </h1>
-                                <button type="button" class="btn btn-danger mx-auto my-auto" id="botonPremium" data-bs-toggle="modal" data-bs-target="#Modal1">
+                                <button type="button" class="btn mx-auto my-auto botones" id="botonPremium" data-bs-toggle="modal" data-bs-target="#Modal1">
                                     Cambiarse a premium
                                 </button>
         
                                 <div class="modal fade modal-xl" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
-                                        <div class="modal-content">
+                                        <div class="modal-content" id="modalPremium">
                                             <div class="modal-body d-flex">
                                                 <div class="image-box me-3">
                                                     <img src="/imagenes/premium.png" alt="">
                                                 </div>
-                                                <div class="text-box ms-3 mt-5">
+                                                <div class="text-box ms-3 mt-5 text-light">
                                                     <h2 class="fw-semibold mt-3">Ofrece más de un servicio y disfruta de otras ventajas con Premium</h2>
                                                     <p class="font-md">Suscríbete desde 7.50/EUR/mes y accede a:</p>
-                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv1">8.9M iconos y stickers en formato SVG, EPS, PSD y BASE64</p></div>
-                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv1">posibilidad de ofrecer hasta 10 servicios al mismo tiempo</p></div>
+                                                    <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt=""><p class="ms-2">8.9M iconos y stickers en formato SVG, EPS, PSD y BASE64</p></div>
+                                                    <div class="feature d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt=""><p class="ms-2">posibilidad de ofrecer hasta 10 servicios al mismo tiempo</p></div>
                                                     
-                                                    <div class="feature"><i class="fa-duotone fa-check"></i></i><p class="font-sm mg-bottom-lv1">Soporte prioritario</p></div>
-                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv3">Sin publicidad</p></div>
-                                                    <div id="botonesModal" class="text-center mt-4">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <a class="btn btn-primary" id="haztePremium" href="/premium/${empresa.id}">Hazte premium</a>
+                                                    <div class="feature d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt=""><p class="ms-2">Soporte prioritario</p></div>
+                                                    <div class="feature d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt=""><p class="ms-2">Sin publicidad</p></div>
+                                                    <div id="botonesModal d-flex" class="text-center mt-4">
+                                                        <button type="button" class="btn botones" data-bs-dismiss="modal">Cancelar</button>
+                                                        <a class="btn botones" id="haztePremium" href="/premium/${empresa.id}">Hazte premium</a>
                                                     </div>
                                                     </div>
                                                     
@@ -339,7 +344,7 @@
                                         </td>
     
                                         <td><!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            <button type="button" class="btn botones" data-bs-toggle="modal"
                                                 data-bs-target="#${servicio.id}">
                                                 Eliminar
                                             </button>
@@ -362,7 +367,7 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn botones"
                                                                 data-bs-dismiss="modal">Cancelar</button>
-                                                            <a class="btn botones"
+                                                            <a class="btn botones" id="eliminarServicio"
                                                                 href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
                                                         </div>
                                                     </div>
@@ -371,7 +376,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a class="btn botones" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
+                                        <a class="btn botones" id="verAgenda" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
                                             agenda</a>
                                     </td>
                                 </tr>

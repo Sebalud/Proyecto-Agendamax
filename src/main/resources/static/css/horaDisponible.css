@@ -12,7 +12,6 @@ body{
     border: 1px cornflowerblue;
     border-radius: 20px;
     cursor: pointer;
-   
 }
 
 #tabla{
@@ -88,5 +87,20 @@ nav{
 }
 /*termina estilo de nav*/
 
+/*empieza diseño footer*/
 
+/*iconos de redes sociales hacerlos chikitos*/
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img {
+    width: 30px;
+    height: 30px;
+}
+.section-part {
+    height: 20rem;
+    background-color: rgb(27, 27, 27);
+    padding: 10px;
+}
 
