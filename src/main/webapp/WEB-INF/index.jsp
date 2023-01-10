@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/css/index.css">
-  <title>Home</title>
+  <title>Inicio</title>
 </head>
 
 <body>
@@ -80,7 +80,7 @@
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
           <c:if test="${usuario.getEmpresa() != null}">
             <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
           </c:if>
@@ -198,7 +198,7 @@
       <!-- Left -->
 
       <div class="sub-texto">
-        <span>Conectate con nosotros en redes sociales</span>
+        <span>Conéctate con nosotros en redes sociales</span>
       </div>
       <!-- Left -->
 
@@ -236,7 +236,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+              <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
             </h6>
             <p>
               Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -248,7 +248,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Informacion
+              Información
             </h6>
             <p>
               <a href="#!" class="text-reset">Sobre nosotros</a>
@@ -260,7 +260,7 @@
               <a href="#!" class="text-reset">Marco legal</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Terminos y condiciones</a>
+              <a href="#!" class="text-reset">Términos y condiciones</a>
             </p>
           </div>
           <!-- Grid column -->

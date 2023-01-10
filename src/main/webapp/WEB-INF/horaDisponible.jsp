@@ -43,7 +43,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                            Poner info de las características de la empresa, cuales son los derechos y deberes del
                             propietario
                           </div>
                           <div class="modal-footer">
@@ -76,7 +76,7 @@
                 <c:out value="${usuario.nombre}"/>
               </a>
               <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+              <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
               <c:if test="${usuario.getEmpresa() != null}">
                 <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
               </c:if>
@@ -88,7 +88,6 @@
         </div>
     </nav>
     
- 
     <h1 class="text-center my-5 pb-3 border-bottom fw-semibold container">Gestión de horas disponibles para el servicio ${servicio.servicioOfrecido}</h1>
         <table class="table container mb-5" id="tabla">
             
@@ -100,7 +99,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Duración de Servicio </td>
+            <td>Duración de Servicio</td>
             <td>${servicio.duracionServicio}</td>
         </tr>
         <tr>
@@ -108,7 +107,7 @@
             <td>${servicio.horaInicio} hras</td>
         </tr>
         <tr>
-            <td>Hora de término </td>
+            <td>Hora de término</td>
             <td>${servicio.horaTermino} hras</td>
         </tr>
         <tr>
@@ -170,7 +169,7 @@
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
+            <span>Conéctate con nosotros en redes sociales</span>
         </div>
         <!-- Left -->
     
@@ -208,7 +207,7 @@
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <!-- Content -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                <i class="fas fa-gem me-3 text-secondary"></i>Company name
+                <i class="fas fa-gem me-3 text-secondary"></i>Nombre de compañía
                 </h6>
                 <p>
                 Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -262,7 +261,7 @@
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
                 <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
                 <p>
                 <i class="fas fa-envelope me-3 text-secondary"></i>

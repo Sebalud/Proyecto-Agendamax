@@ -49,7 +49,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                            Poner info de las características de la empresa, cuales son los derechos y deberes del
                             propietario
                           </div>
                           <div class="modal-footer">
@@ -82,7 +82,7 @@
                 <c:out value="${usuario.nombre}"/>
               </a>
               <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+              <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
               <c:if test="${usuario.getEmpresa() != null}">
                 <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
               </c:if>
@@ -159,7 +159,7 @@
           <!-- Left -->
 
           <div class="sub-texto">
-            <span>Conectate con nosotros en redes sociales</span>
+            <span>Conéctate con nosotros en redes sociales</span>
           </div>
           <!-- Left -->
 
@@ -197,7 +197,7 @@
               <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <!-- Content -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                  <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+                  <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
                 </h6>
                 <p>
                   Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -221,7 +221,7 @@
                   <a href="#!" class="text-reset">Marco legal</a>
                 </p>
                 <p>
-                  <a href="#!" class="text-reset">Terminos y condiciones</a>
+                  <a href="#!" class="text-reset">Términos y condiciones</a>
                 </p>
               </div>
               <!-- Grid column -->

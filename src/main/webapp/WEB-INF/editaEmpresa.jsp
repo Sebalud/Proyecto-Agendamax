@@ -44,7 +44,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                        Poner info de las características de la empresa, cuales son los derechos y deberes del
                         propietario
                       </div>
                       <div class="modal-footer">
@@ -77,7 +77,7 @@
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
           <c:if test="${usuario.getEmpresa() != null}">
             <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
           </c:if>
@@ -99,7 +99,7 @@
         <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
     </p>
     <p>
-        <form:label path="rut">Rut Empresa</form:label>
+        <form:label path="rut">RUT Empresa</form:label>
         <form:errors cssClass="text-danger" path="rut"/>
         <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
     </p>
@@ -123,7 +123,7 @@
     <!-- Left -->
 
     <div class="sub-texto">
-      <span>Conectate con nosotros en redes sociales</span>
+      <span>Conéctate con nosotros en redes sociales</span>
     </div>
     <!-- Left -->
 
@@ -185,7 +185,7 @@
             <a href="#!" class="text-reset">Marco legal</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Terminos y condiciones</a>
+            <a href="#!" class="text-reset">Términos y condiciones</a>
           </p>
         </div>
         <!-- Grid column -->

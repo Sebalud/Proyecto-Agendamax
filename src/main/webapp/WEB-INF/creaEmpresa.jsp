@@ -52,7 +52,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                        Poner info de las características de la empresa, cuales son los derechos y deberes del
                         propietario
                       </div>
                       <div class="modal-footer">
@@ -85,7 +85,7 @@
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
           <c:if test="${usuario.getEmpresa() != null}">
             <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
           </c:if>
@@ -187,7 +187,7 @@
           <div class="col-md-3 col-lg-4 text-secondary-emphasis col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3"></i>Agendalomax
+              <i class="fas fa-gem me-3"></i>Agéndalomax
             </h6>
             <p>
               Nos encargamos de agendar tus horas con el servicio que brindes o necesites.

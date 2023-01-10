@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home" id="home">Home</a>
+                <a class="nav-link active" aria-current="page" href="/home" id="home">HOME</a>
               </li>
             </ul> 
             <!-- Buscadores de Servicios-->
@@ -55,10 +55,10 @@
     <p><c:out value="${loguearseParaAgendar}" /></p>
     <form method="post" action="/" class="container form ancho">
       <div class="ml-5" id="title"> 
-        <h1 class="">Ingresar</h1>
+        <h1 class="">INGRESA TUS DATOS</h1>
       </div> 
         <p class="input-box">
-            <label for="email">Email</label>
+            <label for="email">EMAIL</label>
             <input class="ancho" type="text" id="email" name="email" placeholder="Introduzca su email"/>
         </p>
         <p class="input-box">
@@ -66,8 +66,7 @@
             <input class="ancho" type="password" id="password" name="password" placeholder="Introduzca su contraseña"/>
         </p>
           <a class=" btn botones" href="/registration" id="regist">Registrarse</a>
-          <input  class="btn botones" type="submit" value="Log in!"/>
-        
+          <input  class="btn botones" type="submit" value="Entrar"/>
     </form> 
   </div>
 </div>

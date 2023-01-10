@@ -109,7 +109,7 @@ label{
     width: 70px;
 }
 .carousel-control-prev {
-    background-color: rgb(100, 206, 255);
+    background-color: rgba(197, 241, 244, 0.945);
         width: 100px;
         height: 400px;
         border-radius: 50px;
@@ -124,7 +124,7 @@ label{
     border: 5px solid rgba(107, 81, 255, 0.838);
 }
 .carousel-control-next {
-    background-color: rgb(100, 206, 255);
+    background-color: rgba(197, 241, 244, 0.945);
     width: 100px;
     height: 400px;
     border-radius: 50px;
@@ -226,5 +226,14 @@ background-color: rgb(255, 219, 128);
 {
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgb(57, 26, 0);
+    color: rgb(96, 44, 1);
+}
+h5 {
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(11, 11, 161);
+}
+p {
+    font-size: 18px;
+    
 }
