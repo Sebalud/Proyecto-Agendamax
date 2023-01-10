@@ -22,12 +22,13 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/creaEmpresa.css">
     <title>Empresa FREE</title>
-</head>
+</head> 
 
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">AgéndaloMax</a>
+      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+        id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,7 +49,7 @@
           <select class="me-2 form-select" name="selectCiud" id="selectCiud">
             <option value="0">Ciudad</option>
           </select>
-          <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
           <button class="btn botones" type="submit" id="botones">Buscar</button>
         </form>
         <div class="nav-item dropdown" id="usuario-nombre">
@@ -76,11 +77,6 @@
         <img src="/imagenes/undraw_informed_decision_p2lh.svg" alt="formulario">
       </div>
       <div class="form">
-        <div class="form-header ">
-          <div class="title">
-            <h1>Agéndalomax</h1>
-          </div>
-        </div>
 
         <div class="mod-sub-title">
           <div class="sub-title">

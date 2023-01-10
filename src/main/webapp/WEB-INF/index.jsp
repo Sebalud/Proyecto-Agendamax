@@ -62,7 +62,7 @@
           </li>
         </ul>
 <!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search">
+<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
   <select class="me-2 form-select" name="selectReg" id="selectReg">
       <option value="0">Región</option>
       <c:forEach items="${regiones}" var="region">

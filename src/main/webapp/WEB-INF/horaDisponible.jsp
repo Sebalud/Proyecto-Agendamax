@@ -16,10 +16,10 @@
     <title>Empresa FREE</title>
 </head>
 <body>
-     <!-- Barra de navegacion -->
-     <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4 mb-5">
+    <!-- Barra de navegacion -->
+    <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4 mb-5">
         <div class="container-fluid">
-            <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agendalo</span><span id="max">Max</span></a>
+            <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span id="max">Max</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

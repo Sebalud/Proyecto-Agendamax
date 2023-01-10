@@ -24,7 +24,8 @@
     <body>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">AgéndaloMax</a>
+          <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+            id="max">Max</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -93,6 +94,9 @@
             <div class="card-body">
               <h5 class="card-title">Plan Premium</h5>
               <p class="card-text">En nuestro Plan Premium
+                <div class="button-crear">
+                  <a href="/planes/new">Crear empresa</a>
+                </div>
               </p>
             </div>
           </div>

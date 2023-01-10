@@ -19,7 +19,8 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">AgéndaloMax</a>
+      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+        id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
         <!-- Buscadores de Servicios-->
         <form class="d-flex" role="search" method="POST" action="/search">
           <select class="me-2 form-select" name="selectReg" id="selectReg">
-              <option value="0">Region</option>
+              <option value="0">Región</option>
               <c:forEach items="${regiones}" var="region">
                   <option value="${region.id}">${region.nombre}</option>
               </c:forEach>
@@ -41,7 +42,7 @@
           <select class="me-2 form-select" name="selectCiud" id="selectCiud">
               <option value="0">Ciudad</option>
           </select>
-          <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
           <button class="btn botones" type="submit">Buscar</button>
       </form>
       </div>
@@ -54,11 +55,6 @@
         <img src="/imagenes/undraw_my_password_re_ydq7.svg" alt="formulario">
       </div>
       <div class="form">
-        <div class="form-header ">
-          <div class="title">
-            <h1>Agéndalomax</h1>
-          </div>
-        </div>
 
       <div class="mod-sub-title">
         <div class="sub-title">

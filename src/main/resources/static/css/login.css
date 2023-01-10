@@ -3,36 +3,59 @@ body{
     background-color: blanchedalmond;
 }
 
-.container-fluid {
-    background-color: rgb(189, 179, 254);
-    font-size: 16px;
+#home{
+    margin-top:2px;
+    font-size: 20px;
+    border-style: solid;
+    background-color:rgb(22, 49, 113);
+    color: white;
+    padding: 0.08rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    width: 100px;
+    height: 40px;
 }
 
 nav{
-    background-color: #BDB3FE;
-}
+    padding: 10px;
+    border:10px solid rgba(217, 211, 255, 0.838);
+    background-color: rgb(189, 179, 254);
+    
+} 
 
 .navbar-brand {
+    margin-left: 5%;
+}
+
+.container-fluid {
+    margin: 0px;
+    width: 100%;
+    background-color:rgb(182, 179, 254) ;
+} 
+
+label{
+    width: 100px;
+}
+
+.navbar-brand{
     margin-left: 25px;
-    font-family: 'Playfair Display', serif;
 }
 
-.navbar-brand::after {
-    content: '';
-    display: block;
-    width: 3rem;
-    height: 0.1rem;
-    background-color: rgb(255, 255, 255);
-    margin: 0 auto;
+#max {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(255, 202, 79);
+    font-size: 40px;
 }
 
-#home{
-    border: none;
-    background-color:rgb(166, 152, 255);
-    color: white;
-    padding: 0.3rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
+#nombrePagina {
+    margin-left: 2%;
+    font-size: xx-large;
+}
+
+#agendalo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
 }
 
 label{
@@ -40,16 +63,40 @@ label{
 }
 
 .botones{
-    border: none;
-    background-color:rgb(166, 152, 255);
+    border-style: solid;
+    background-color:rgb(22, 49, 113);
     color: white;
     padding: 0.03rem 1rem;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    width: 150px;
+    height: 45px;
+}
+
+#regist{
+    border-style: solid;
+    background-color:rgb(22, 49, 113);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    width: 150px;
+    height: 45px;
+}
+
+.sub-texto{
+    padding: 4px;
+    background-color:rgb(27, 41, 107);
+    border-radius: 5px;
+    width: 300px;
+    height: 35px;
+    color: white;
 }
 
 #contenedor{
-    margin-left: 15%;
+    /* margin-left: 15%; */
     font-family:'Nunito', sans-serif;
     display: flex;
     padding: 2%;
@@ -59,6 +106,7 @@ label{
 }
 
 .form-image{
+    margin-left: 15%;
     margin-right: 3%;
     border-radius: 20px;
     width: 50%;
@@ -78,7 +126,7 @@ label{
     padding: 5px;
     border-radius: 15px;
     background-color: rgba(197, 241, 244, 0.945);
-    width: 65%;
+    width: 80%;
     align-items: center;
     margin-bottom: 2rem;
 }
@@ -113,7 +161,18 @@ label{
     padding: 10px;
 }
 
-.d-flex {
-    background-color: rgb(189, 179, 254);
-}
+.d-flex{
+    background-color:rgb(189, 179, 254);
+    font-size: 15.5px;
+} 
 
+/* .nav-link {
+    background-color: #f0ebff;
+    width: 200px;
+    height: 50px;
+    margin-top: -15px;
+    font-size: 25px;
+    border: 5px solid rgba(107, 81, 255, 0.838);
+    border-radius: 7px;
+    color: rgb(59, 48, 255);
+}  */
