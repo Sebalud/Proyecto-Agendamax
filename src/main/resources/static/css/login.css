@@ -24,6 +24,7 @@ nav{
     
 } 
 
+<<<<<<< Updated upstream
 .navbar-brand {
     margin-left: 5%;
 }
@@ -46,6 +47,19 @@ label{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(255, 202, 79);
     font-size: 40px;
+=======
+#max {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#nombrePagina {
+    margin-left: 25px;
+    font-size: xx-large;
+}
+
+#agendalo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+>>>>>>> Stashed changes
 }
 
 #nombrePagina {
@@ -144,6 +158,12 @@ label{
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
+}
+
+.sub-texto{
+    padding: 4px;
+    background-color:rgb(177, 165, 253);
+    border-radius: 5px;
 }
 
 .link-secondary{

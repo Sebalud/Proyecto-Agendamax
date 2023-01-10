@@ -1,3 +1,39 @@
+body{
+    font-family: 'Nunito', sans-serif; 
+    background-color: blanchedalmond;
+}
+
+.container-fluid {
+    background-color: rgb(189, 179, 254);
+    font-size: 16px;
+}
+
+nav{
+    background-color: #BDB3FE;
+}
+
+#max {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#nombrePagina {
+    margin-left: 25px;
+    font-size: xx-large;
+}
+
+#agendalo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#home{
+    border: none;
+    background-color:rgb(166, 152, 255);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .sub-texto{
     padding: 4px;
     background-color:rgb(177, 165, 253);

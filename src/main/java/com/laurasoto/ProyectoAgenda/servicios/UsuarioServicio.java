@@ -1,10 +1,7 @@
 package com.laurasoto.ProyectoAgenda.servicios;
-
 import java.util.Optional;
-
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
-
 import com.laurasoto.ProyectoAgenda.modelos.Usuario;
 import com.laurasoto.ProyectoAgenda.repositorios.UsuarioRepositorio;
 

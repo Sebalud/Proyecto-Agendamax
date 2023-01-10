@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Edita</title>
+    <title>Editar Empresa</title>
     <a href="/css/editaEmpresa.css"></a>
 </head>
 <body>
@@ -26,22 +26,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#" id="home">Home</a>
               </li>
             </ul>
             <!-- Buscadores de Servicios-->
             <form class="d-flex" role="search" method="POST" action="/search">
               <select name="selectReg" id="selectReg">
-                  <option value="0">-- Region --</option>
+                  <option value="0"> Region </option>
                   <c:forEach items="${regiones}" var="region">
                       <option value="${region.id}">${region.nombre}</option>
                   </c:forEach>
               </select>
               <select name="selectCiud" id="selectCiud">
-                  <option value="0">-- Ciudad --</option>
+                  <option value="0"> Ciudad </option>
               </select>
-              <input class="form-control me-2" type="search" name="servicio" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <input class="form-control me-2" type="search" name="servicio" placeholder="Servicio..." aria-label="Search">
+              <button class="btn botones" type="submit">Buscar</button>
           </form>
           </div>
         </div>

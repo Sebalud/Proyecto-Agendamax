@@ -161,6 +161,7 @@
   </div>
   <div class="cositas text-center">
     <div class="row g-2">
+<<<<<<< Updated upstream
       <div class="col-1">
         <div class="icons">
         <div class="p-3">Encuentra tu servicio</div>
@@ -173,6 +174,23 @@
         <div class="p-3">Date ese gusto</div>
         <img src="/imagenes/pulgares-hacia-arriba.png" alt="Like">
         <p >Disfruta tu servicio en un par de clicks!</p>
+=======
+      <div class="col-6">
+        
+        <div class="p-3">Custom column padding</div>
+        <p>Busca el servicio que estes buscando</p>
+        <div class="icons">
+          <img src="/imagenes/buscar.png" alt="buscar">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
+        <p>esto también es un relleno</p>
+        <div class="icons">
+          <p></p>
+          <img src="/imagenes/pulgares-hacia-arriba.png" alt="Like">
+        </div>
+>>>>>>> Stashed changes
       </div>
       <div class="col-3">
         <div class="p-3">Toma tu hora</div>

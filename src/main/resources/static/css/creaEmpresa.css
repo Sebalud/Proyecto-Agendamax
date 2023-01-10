@@ -13,10 +13,11 @@
         background-color: #BDB3FE;
     }
 
-    .navbar-brand {
+    .navbar-brand{
         margin-left: 25px;
     }
 
+<<<<<<< Updated upstream
     .nav-link {
         background-color: #f0ebff;
         width: 150px;
@@ -42,6 +43,18 @@
     #agendalo {
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-size: 40px;
+=======
+    #max {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    
+    #nombrePagina {
+        font-size: xx-large;
+    }
+    
+    #agendalo {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+>>>>>>> Stashed changes
     }
 
     #home{
@@ -97,13 +110,16 @@
         width: 100%; 
     } 
 
+    .sub-title{
+        padding: 5px;
+        border-radius: 15px;
+        background-color:rgba(197, 241, 244, 0.945);
+    }
+
     .form{
         padding: 3%;
         font-family: 'Nunito', sans-serif;
-        width: 80%;/* 
-        background-color: blanchedalmond;
-        padding-left: 6rem;
-        padding-right: 20rem; */
+        width: 80%;
     }
 
     .form-image{
@@ -122,6 +138,7 @@
         width: 20rem;
     }
 
+<<<<<<< Updated upstream
     .form-header{
         display: flex;
         justify-content: space-between;
@@ -135,6 +152,8 @@
         color: white;
     }
 
+=======
+>>>>>>> Stashed changes
     .input-group{
         justify-content: space-between;
         padding: 1.2rem ;

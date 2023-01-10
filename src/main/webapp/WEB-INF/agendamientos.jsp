@@ -11,12 +11,8 @@
 </head>
 <body>
     <h1>Edita la Empresa</h1>
-
     <c:forEach items="${usuario.horarios}" var="horaAgendada">
         <p>${horaAgendada.getFechaAsDate()} <a class="dropdown-item" href="/cancela/cita/${usuario.id}/${horaAgendada.id}">Cancelar cita</a> </p>
     </c:forEach>
-
-
-
 </body>
 </html>

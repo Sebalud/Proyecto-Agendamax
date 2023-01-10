@@ -1,17 +1,13 @@
 package com.laurasoto.ProyectoAgenda.controlador;
-
 import java.text.ParseException;
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.laurasoto.ProyectoAgenda.modelos.Ciudad;
 import com.laurasoto.ProyectoAgenda.modelos.Empresa;
 import com.laurasoto.ProyectoAgenda.modelos.Horario;
@@ -26,7 +22,6 @@ import com.laurasoto.ProyectoAgenda.servicios.RegionServicio;
 import com.laurasoto.ProyectoAgenda.servicios.Servicio1Servicio;
 import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
 import com.laurasoto.ProyectoAgenda.utiles.Funciones;
-
 
 @Controller
 public class ServicioControlador {

@@ -1,3 +1,30 @@
+body{
+    background-color: blanchedalmond;
+    font-family: 'Nunito', sans-serif;
+}
+
+.container-fluid{
+    background-color:rgb(189, 179, 254);
+    font-size: 15.5px;
+    padding: 15px;
+}
+
+nav{
+    background-color: #BDB3FE;
+}
+
+#max {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#nombrePagina {
+    margin-left: 25px;
+    font-size: xx-large;
+}
+
+#agendalo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 .sub-texto{
     padding: 4px;
     background-color:rgb(177, 165, 253);
