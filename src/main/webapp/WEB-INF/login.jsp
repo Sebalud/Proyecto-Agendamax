@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/login.css">
-    <title>Log in</title>
+    <title>Ingresar</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg py-4 px-3 mb-5">
@@ -22,13 +22,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home" id="home">Home </a>
+                <a class="nav-link active" aria-current="page" href="/home" id="home">Home</a>
               </li>
             </ul> 
             <!-- Buscadores de Servicios-->
             <form class="d-flex" role="search" method="POST" action="/search">
               <select class="me-2 form-select" name="selectReg" id="selectReg">
-                  <option value="0">Region</option>
+                  <option value="0">Región</option>
                   <c:forEach items="${regiones}" var="region">
                       <option value="${region.id}">${region.nombre}</option>
                   </c:forEach>
@@ -54,7 +54,7 @@
     <p><c:out value="${loguearseParaAgendar}" /></p>
     <form method="post" action="/" class="container form ancho">
       <div class="ml-5" id="title"> 
-        <h1 class="">Log in</h1>
+        <h1 class="">Ingresar</h1>
       </div> 
         <p class="input-box">
             <label for="email">Email</label>
@@ -78,10 +78,10 @@
       <!-- Left -->
 
       <div class="sub-texto">
-        <span>Conectate con nosotros en redes sociales</span>
+        <span>Conéctate con nosotros en redes sociales</span>
       </div>
       <!-- Left -->
-
+      
       <!-- Right -->
       <div class="">
         <a href="" class="link-secondary">
@@ -116,7 +116,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+              <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
             </h6>
             <p>
               Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -128,7 +128,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Informacion
+              Información
             </h6>
             <p>
               <a href="#!" class="text-reset">Sobre nosotros</a>
@@ -140,7 +140,7 @@
               <a href="#!" class="text-reset">Marco legal</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Terminos y condiciones</a>
+              <a href="#!" class="text-reset">Términos y condiciones</a>
             </p>
           </div>
           <!-- Grid column -->

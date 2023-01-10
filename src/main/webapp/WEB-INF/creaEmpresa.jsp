@@ -123,7 +123,7 @@
       <!-- Left -->
 
       <div class="sub-texto">
-        <span>Conectate con nosotros en redes sociales</span>
+        <span>Conéctate con nosotros en redes sociales</span>
       </div>
       <!-- Left -->
 
@@ -185,7 +185,7 @@
               <a href="#!" class="text-reset">Marco legal</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Terminos y condiciones</a>
+              <a href="#!" class="text-reset">Términos y condiciones</a>
             </p>
           </div>
           <!-- Grid column -->
