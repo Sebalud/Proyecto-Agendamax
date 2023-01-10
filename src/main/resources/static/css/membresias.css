@@ -1,11 +1,16 @@
     body {
         font-family: 'Nunito', sans-serif;
+        background-color: blanchedalmond;
     }
 
     .container-fluid {
         background-color: rgb(189, 179, 254);
-        font-size: 20.5px;
-        padding: 20px;
+        font-size: 16px;
+        padding: 16px;
+    }
+
+    nav{
+        background-color: #BDB3FE;
     }
 
     .navbar-brand {
@@ -22,11 +27,16 @@
         margin: 0 auto;
     }
 
-    nav{
-        background-color: #BDB3FE;
+    #home{
+        border: none;
+        background-color:rgb(166, 152, 255);
+        color: white;
+        padding: 0.3rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
     }
 
-    .buscado-flex {
+    .botones{
         border: none;
         background-color:rgb(166, 152, 255);
         color: white;
@@ -36,8 +46,9 @@
     }
 
     .carousel-item img {
+        margin-top: 2%;
         display: flex;
-        margin-right: 50px;
+        margin-right: 50%;
         background-color: blanchedalmond;
         height: 200px;
         width: 200px;
@@ -46,10 +57,8 @@
     #container-c{
         display: flex;
         background-color: blanchedalmond;
-        width: 80%;
+        width: 100%;
         height: 20%;
-        margin-left: 10%;
-        margin-right: 10%;
     }
 
     .card-body {
@@ -60,7 +69,6 @@
         background-color: rgb(255, 196, 102);
         border-radius: 5px;
         border-color: rgb(0, 0, 0) ;
-        
     }
 
     .button-crear {
@@ -81,16 +89,14 @@
     }
 
     #cartafree{
-        display: flex;
         background-color: rgb(213, 255, 245);
         text-align: center;
         border-radius: 15px;
         width: 270px;
         height: 400px;
-        margin-left: 555px;
-        margin-right: 10px;
-        margin-bottom: 70px;
-        margin-top: 50px;
+        margin-left: 31%;
+        margin-right: 2%;
+        margin-bottom: 2%;
     }
 
     #cartapre{
@@ -99,7 +105,6 @@
         border-radius: 15px;
         width: 270px;
         height: 400px;
-        margin-top: 50px;
         text-align: center;
     }
 
@@ -107,7 +112,6 @@
         padding: 4px;
         background-color: rgb(177, 165, 253);
         border-radius: 5px;
-        width: 200px;
     }
 
     .link-secondary {
@@ -118,7 +122,6 @@
         width: 30px;
         height: 30px;
     }
-
 
     .section-part {
         height: 20rem;

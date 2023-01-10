@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 nav {
     background-color: #BDB3FE;
-
-}
+} 
 
 #selectReg {
     width: 200px;
@@ -70,15 +70,11 @@ nav {
     padding: 10px;
 }
 
-.letraDif {
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-}
 
 
 .form-body {
     background-color: #FFEBCD;
 }
-
 
 .form-holder {
     display: flex;
@@ -131,7 +127,6 @@ nav {
     line-height: 20px;
     margin-bottom: 30px;
 }
-
 
 
 .form-content label,
@@ -228,7 +223,7 @@ nav {
     padding: 5px;
 }
 
-.link-secondary img {
+.link-secondary img{
     width: 30px;
     height: 30px;
 }
