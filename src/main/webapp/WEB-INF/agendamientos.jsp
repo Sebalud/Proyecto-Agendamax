@@ -91,7 +91,7 @@
     </nav>
 
     <div id="banner">
-        <img src="/imagenes/organizador.png" alt="">
+        <img src="/imagenes/calendar.png.png" alt="">
     </div>
 
     <div class="container-agen mt-5">
