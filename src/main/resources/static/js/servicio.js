@@ -23,3 +23,12 @@ document.getElementById("selectReg").onchange = function (){
         }
     }
 }
+
+document.getElementById("formato-fecha").value = function(){
+    var formatoInicial = this.value;
+    var formatoFinal = formatoInicial[0].toUpperCase() + formatoInicial.substring(1);
+    return formatoFinal;
+}
+
+
+

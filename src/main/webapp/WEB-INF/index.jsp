@@ -5,16 +5,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">  <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
   <title>Home</title>
 </head>
 
@@ -35,7 +35,7 @@
           <li class="nav-item">
             <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
             <c:choose>
-              <c:when test="${usuario.empresa == null && usuario != null}">
+              <c:when test="${usuario.getEmpresa() == null && usuario != null}">
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
                   Crear Empresa
                 </button>
@@ -85,79 +85,78 @@
           <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
           <button class="btn botones" type="submit">Buscar</button>
         </form>
+
         <div class="nav-item dropdown" id="usuario-nombre">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
             <c:if test="${usuario.getEmpresa() != null}">
               <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
             </c:if>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
           </ul>
         </div>
       </div>
     </div>
-  </nav>
-  
-  <!-- Carousel-->
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="/imagenes/tienda.png" class="d-block w-100" alt="tienda">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Podrás encontrar</h5>
-          <p>estos y muchos más servicios.</p>
-        </div>
-      </div>
+</nav>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/imagenes/tienda.png" class="d-block w-100" alt="tienda">
+            <div class="carousel-caption d-none text-black d-md-block">
+              <h5 class="esta-cosa fw-bold">¿Buscas que las personas conozcan lo que tienes para ofrecer?</h5>
+              <p class="esta-cosa fw-bold">¡Aquí podrán encontrarte!</p>
+            </div>
+          </div>
       <div class="carousel-item">
         <img src="/imagenes/cooperacion.png" class="d-block w-100" alt="negocios">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Podrás encontrar</h5>
+        <div class="carousel-caption d-none text-black d-md-block fw-bold">
+          <h5 class="esta-cosa fw-bold">Podrás encontrar</h5>
           <p>estos y muchos más servicios.</p>
         </div>
       </div> 
       <div class="carousel-item">
         <img src="/imagenes/trade.png" class="d-block w-100" alt="comercio">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Podrás encontrar</h5>
+        <div class="carousel-caption d-none text-black d-md-block fw-bold">
+          <h5 class="esta-cosa fw-bold">Podrás encontrar</h5>
           <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/hair-salon.png" class="d-block w-100" alt="barbería">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Podrás encontrar</h5>
-          <p>esto y mucho más servicios.</p>
+        <div class="carousel-caption d-none text-black d-md-block fw-bold">
+          <h5 class="esta-cosa fw-bold">Podrás encontrar</h5>
+          <p>estos y mucho más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/hairstyle.png" class="d-block w-100" alt="peluquería">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Podrás encontrar</h5>
+        <div class="carousel-caption d-none text-black d-md-block fw-bold">
+          <h5 class="esta-cosa fw-bold">Podrás encontrar</h5>
           <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/nail-polish.png" class="d-block w-100" alt="salón de uñas">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Podrás encontrar</h5>
+        <div class="carousel-caption d-none text-black d-md-block fw-bold">
+          <h5 class="esta-cosa fw-bold">Podrás encontrar</h5>
           <p>estos y muchos más servicios.</p>
         </div> 
       </div>
       <div class="carousel-item">
         <img src="/imagenes/take-away.png" class="d-block w-100" alt="entrega de comida">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Podrás encontrar</h5>
+        <div class="carousel-caption d-none text-black d-md-block fw-bold">
+          <h5 class="esta-cosa fw-bold">Podrás encontrar</h5>
           <p>estos y muchos más servicios.</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="/imagenes/healthcare.png" class="d-block w-100" alt="salud">
-        <div class="carousel-caption d-none text-black d-md-block">
-          <h5>Podrás encontrar</h5>
+        <div class="carousel-caption d-none text-black d-md-block fw-bold">
+          <h5 class="esta-cosa fw-bold">Podrás encontrar</h5>
           <p>estos y muchos más servicios.</p>
         </div>
       </div>
@@ -171,45 +170,47 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  
-  <!-- Body Pagina -->
-  <div class="cositas text-center">
-    <div class="row g-2">
+
+  <div class="cositas row g-2 text-center ">
       <div class="col-1">
         <div class="icons">
-          <div class="p-3">Encuentra tu servicio</div>
-          <img src="/imagenes/buscar.png" alt="buscar">
-          <p>Tu servicio aquí disponible.</p>
+          <div class="p-3 fw-bold">Encuentra tu servicio</div>
+            <img src="/imagenes/buscar.png" alt="buscar">
+            <p>¡Tu servicio aquí disponible!</p>
         </div>
       </div>
       <div class="col-2">
         <div class="icons">
-          <div class="p-3">Date ese gusto</div>
-          <img src="/imagenes/pulgares-hacia-arriba.png" alt="Like">
-          <p >¡Disfruta tu servicio en un par de clicks!</p>
+          <div class="p-3 fw-bold">Date ese gusto</div>
+            <img src="/imagenes/pulgares-hacia-arriba.png" alt="Like">
+            <p >¡Disfruta tu servicio en un par de clicks!</p>
         </div>
-      <div class="col-3">
-        <div class="icons">
-          <div class="p-3">Toma tu hora</div>
+      </div>
+    <div class="col-3">
+        <div class="p-3 fw-bold">Toma tu hora</div>
+          <div class="icons">
           <img src="/imagenes/reloj.png" alt="Like">
-          <p>Agenda la hora de preferencia para mayor comodidad.</p>
+          <p>¡Agenda la hora de preferencia para mayor comodidad!</p>
         </div>
       </div>
       <div class="col-4">
         <div class="icons">  
-          <div class="p-3">Busca en tu sector</div>
+          <div class="p-3 fw-bold">Busca en tu sector</div>
           <img src="/imagenes/mapa.png" alt="Like">
           <p>Y coordina para que el servicio llegue a la puerta de tu hogar.</p>
         </div>
+        <p>¡Descubre que servicio están cerca de ti!</p>
       </div>
     </div>
-    </div>
   </div>
-
+  <section class="filtro fw-bold">
+    <h1 class="esta-cosa fw-bold">ÚNETE</h1>
+    <p>A NOSOTROS</p>
+  </section>
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <section id="footer-1" class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style="background-color:rgb(182, 179, 254);">
       <!-- Left -->
 
       <div class="sub-texto">
@@ -251,7 +252,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+              <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
             </h6>
             <p>
               Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -263,7 +264,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Informacion
+              Información
             </h6>
             <p>
               <a href="#!" class="text-reset">Sobre nosotros</a>
@@ -321,7 +322,7 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+    <div class="text-center p-4" style="background-color:rgb(182, 179, 254);">
       www.agendalomax.cl © 2022 :
       <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
     </div>
