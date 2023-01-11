@@ -133,6 +133,10 @@ label{
     height: 45px;
 }
 
+.eliminar a{
+    color: white;
+}
+
 .eliminar:hover{
     background-color:red; 
     border: 2px solid rgb(196, 0, 0);
