@@ -76,7 +76,6 @@ label{
     color: black;
     background-color:rgba(197, 241, 244, 0.945);
 }
-/*termina estilo de nav*/
 
 .sub-texto{
     padding: 4px;
@@ -214,4 +213,22 @@ label{
 
 #servicisito{
     height: 700px;
+}
+.image-service img{
+    width: 330px;
+    height: 220px;
+}
+
+.spacing {
+    margin: 30px;
+}
+
+.info-size{
+    width: 630px;
+    height: 220px;
+}
+
+.bigbox{
+    background-color: blanchedalmond;
+    min-height: 423px;
 }

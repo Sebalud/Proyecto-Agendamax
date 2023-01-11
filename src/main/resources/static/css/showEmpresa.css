@@ -131,6 +131,14 @@ label {
     background-color: rgba(197, 241, 244, 0.945);
 }
 /*botones azules*/
+#ladoCarrusel {
+    margin-top: 100px;
+}
+
+#ladoCarrusel h1 {
+    font-size: 60px;
+}
+
 
 #carouselExampleDark {
     width: 50%;
