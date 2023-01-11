@@ -268,8 +268,6 @@ background-color: rgb(29, 34, 38);
 
 #tablita{
     height: 700px;
-    position: relative !important;
-    z-index: -1 !important;
 }
 
 #botonPremium{
