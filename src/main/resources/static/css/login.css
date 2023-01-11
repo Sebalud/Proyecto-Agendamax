@@ -31,7 +31,7 @@ nav{
 }
 
 label{
-    width: 100px;
+    width: 200px;
 }
 /*termina estilo de nav para login*/
 
@@ -91,6 +91,7 @@ label{
     background-color:rgb(189, 179, 254);
 }
 
+/* footer  */
 .sub-texto{
     padding: 4px;
     background-color:rgb(27, 41, 107);

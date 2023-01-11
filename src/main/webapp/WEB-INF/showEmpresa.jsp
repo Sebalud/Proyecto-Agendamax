@@ -200,7 +200,7 @@
 
                                 <div class="col-md-12">
                                     <form:errors cssClass="text-danger" path="direction" />
-                                    <form:input cssClass="form-control" path="direction" placeholder="Direccion" />
+                                    <form:input cssClass="form-control" path="direction" placeholder="Dirección" />
                                 </div>
 
                                 <div class="col-md-12">
