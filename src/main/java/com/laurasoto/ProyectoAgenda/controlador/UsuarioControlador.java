@@ -65,17 +65,17 @@ public class UsuarioControlador {
 			usuario.setTipoUsuario(tipoUsuario);
 			Usuario usuarioNuevo = usuarioServicio.registerUser(usuario);
 			session.setAttribute("usuarioId",usuarioNuevo.getId());
-			return "redirect:/home";
+			return "redirect:/";
 		}
 		model.addAttribute("error", "ya tienes una cuenta con ese email");
 		
 		return "creaUsuario";
 	}
 
-	@GetMapping("/")
+	@GetMapping("/login")
 	public String login(HttpSession session, Model model) {
 		if ((Long) session.getAttribute("usuarioId") != null) {
-			return "redirect:/home";
+			return "redirect:/";
 		}
 
 		List<Region> regiones = regionServicio.regionesTodas();
@@ -87,7 +87,7 @@ public class UsuarioControlador {
 		return "login";
 	}
 
-	@PostMapping("/")
+	@PostMapping("/login")
 	public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password,
 			Model model, HttpSession session) {
 		boolean autenticacion = usuarioServicio.authenticateUser(email, password);
@@ -95,13 +95,13 @@ public class UsuarioControlador {
 			// si es verdadero
 			Usuario usuario = usuarioServicio.findByEmail(email);
 			session.setAttribute("usuarioId", usuario.getId());
-			return "redirect:/home";
+			return "redirect:/";
 		} else { // si es falso
 			model.addAttribute("error", "Credencial invalida, intentelo de nuevo por favor");
 			return "login";
 		}
 	}
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String home(HttpSession session, Model model){
 
 		List<Region> regiones = regionServicio.regionesTodas();
@@ -153,6 +153,6 @@ public class UsuarioControlador {
 			model.addAttribute("usuario", user);
 			return "editarUsuario";
 		} 
-		return "redirect:/home";
+		return "redirect:/";
 	}
 }

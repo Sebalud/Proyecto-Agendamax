@@ -28,7 +28,7 @@
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a id="nombrePagina" class="navbar-brand" href="/home">
+            <a id="nombrePagina" class="navbar-brand" href="/">
                 <span id="agendalo">Agéndalo</span>
                 <span id="max">Max</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
