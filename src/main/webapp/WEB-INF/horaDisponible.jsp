@@ -16,67 +16,85 @@
     <title>Empresa FREE</title>
 </head>
 <body>
-    <!-- Barra de navegacion -->
-    <nav id="barrita" class="navbar navbar-expand-lg py-4 px-4 mb-5">
+    <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agendalo</span><span id="max">Max</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Botones y links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <c:choose>
-                        <c:when test="${!empresa.empresafree}">
-                            <li class="nav-item text-danger mt-2">Cuenta premium!</li>
-                        </c:when>
+          <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+            id="max">Max</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+                <c:choose>
+                  <c:when test="${usuario.empresa == null}">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
+                      Crear Empresa
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                            propietario
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <a class="btn btn-black" href="/planes">Aceptar</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </c:when>
                 </c:choose>
-                </ul>
-                <!-- Buscadores de Servicios-->
-                <form style="width: 700px ;" class="d-flex me-4 ms-1" role="search" method="POST" action="/search">
-                    <select class="form-select me-2" name="selectReg" id="selectReg">
-                        <option value="0"> Region</option>
-                        <c:forEach items="${regiones}" var="region">
-                            <option value="${region.id}">${region.nombre}</option>
-                        </c:forEach>
-                    </select>
-                    <select class="form-select me-2" name="selectCiud" id="selectCiud">
-                        <option value="0">Ciudad</option>
-                    </select>
-                    <input class="form-control me-2" id="buscador"  type="search" name="servicio" placeholder="Search" aria-label="Search">
-                    <button class="btn botones" type="submit">Search</button>
-                </form>
-
-                <div class="nav-item dropdown">
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                        <c:if test="${usuario.getEmpresa() != null}">
-                            <li><a class="dropdown-item" href="/plan/${empresa.id}">tu empresa</a></li>
-                        </c:if>
-                        
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-                    </ul>
-                    <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <c:out value="${usuario.nombre}"/>
-                    </a>
-                </div>
-        </div>
+              </li>
+            </ul>
+    <!-- Buscadores de Servicios-->
+    <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+      <select class="me-2 form-select" name="selectReg" id="selectReg">
+          <option value="0">Región</option>
+          <c:forEach items="${regiones}" var="region">
+              <option value="${region.id}">${region.nombre}</option>
+          </c:forEach>
+      </select>
+      <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+          <option value="0">Ciudad</option>
+      </select>
+      <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+      <button class="btn botones" type="submit">Buscar</button>
+    </form>
+            <div class="nav-item dropdown" id="usuario-nombre">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <c:out value="${usuario.nombre}"/>
+              </a>
+              <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+              <c:if test="${usuario.getEmpresa() != null}">
+                <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+              </c:if>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
     </nav>
+
+    <div class="d-flex" id="bannerArriba">
+        <div id="imagenBanner">
+            <img src="/imagenes/vision-de-la-empresa.png" alt="">
+        </div>
+
+        <h1 class="my-auto fw-semibold" id="infoBanner">Revisa quien agendó horas fácil y rápido, personaliza tus horas para los 7 días siguientes. </h1>
+    </div>
     
  
     <h1 class="text-center my-5 pb-3 border-bottom fw-semibold container">Gestión de horas disponibles para el servicio ${servicio.servicioOfrecido}</h1>
@@ -128,23 +146,23 @@
         </form:form>
     </c:if>
 
-    <div class="container  mw-100">
+    <div class="container  mw-100 my-5">
         <div class="container text-center d-flex justify-content-center rounded" id="targeta">
             <c:forEach  items="${listaAlModel}" var="dia">
-            <div class="mx-5 my-5 d-inline-block col">
+            <div class="mx-4 my-4 d-inline-block col">
                 <p class="border p-2"><fmt:formatDate value="${dia.get(1).getDate()}" pattern="EEEE dd"/><br></p>
                 <c:forEach items="${dia}" var="horarioDisponible">
                     <c:if test="${horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 0}">
-                        <a class="btn my-1" style="background-color: #BDB3FE;" href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
+                        <a class="btn my-1 text-capitalize" style="background-color: #BDB3FE;" href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}">
                             <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss"/>
                         </a><br>
                     </c:if>
                     <c:if test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 1}">
-                        <a href="/agendar/disponible/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-danger my-1" >
-                            hacer disponible </a><br>
+                        <a href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-danger my-1" >
+                            habilitar </a><br>
                     </c:if>
                     <c:if test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 2}">
-                        <a href="/agendar/disponible/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-success my-1" >
+                        <a href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-success my-1" >
                             ver cliente </a><br>
                     </c:if>
 
@@ -154,163 +172,130 @@
         </div>
     </div>
 
+   
+    <footer class="text-center text-lg-start text-muted">
+      <!-- Section: Social media -->
+      <div id="barrita" style="background-color: rgb(189, 179, 254);">
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" >
+          <!-- Left -->
 
-    <button class="button">
-  <span class="button__text">
-    <span>b</span><span>u</span>y</span><span> </span><span>s</span><span>t</span><span>u</span><span>f</span><span>f</span>
-        </span>
-        <svg class="button__svg" role="presentational" viewBox="0 0 600 600">
-            <defs>
-                <clipPath id="myClip">
-                    <rect x="0" y="0" width="100%" height="50%" />
-                </clipPath>
-            </defs>
-            <g clip-path="url(#myClip)">
-                <g id="money">
-                    <path d="M441.9,116.54h-162c-4.66,0-8.49,4.34-8.62,9.83l.85,278.17,178.37,2V126.37C450.38,120.89,446.56,116.52,441.9,116.54Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                    <path d="M424.73,165.49c-10-2.53-17.38-12-17.68-24H316.44c-.09,11.58-7,21.53-16.62,23.94-3.24.92-5.54,4.29-5.62,8.21V376.54H430.1V173.71C430.15,169.83,427.93,166.43,424.73,165.49Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                </g>
-                <g id="creditcard">
-                    <path d="M372.12,181.59H210.9c-4.64,0-8.45,4.34-8.58,9.83l.85,278.17,177.49,2V191.42C380.55,185.94,376.75,181.57,372.12,181.59Z" fill="#a76fe2" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                    <path d="M347.55,261.85H332.22c-3.73,0-6.76-3.58-6.76-8v-35.2c0-4.42,3-8,6.76-8h15.33c3.73,0,6.76,3.58,6.76,8v35.2C354.31,258.27,351.28,261.85,347.55,261.85Z" fill="#ffdc67" />
-                    <path d="M249.73,183.76h28.85v274.8H249.73Z" fill="#323c44" />
-                </g>
-            </g>
-            <g id="wallet">
-                <path d="M478,288.23h-337A28.93,28.93,0,0,0,112,317.14V546.2a29,29,0,0,0,28.94,28.95H478a29,29,0,0,0,28.95-28.94h0v-229A29,29,0,0,0,478,288.23Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                <path d="M512.83,382.71H416.71a28.93,28.93,0,0,0-28.95,28.94h0V467.8a29,29,0,0,0,28.95,28.95h96.12a19.31,19.31,0,0,0,19.3-19.3V402a19.3,19.3,0,0,0-19.3-19.3Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                <path d="M451.46,435.79v7.88a14.48,14.48,0,1,1-29,0v-7.9a14.48,14.48,0,0,1,29,0Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
-                <path d="M147.87,541.93V320.84c-.05-13.2,8.25-21.51,21.62-24.27a42.71,42.71,0,0,1,7.14-1.32l-29.36-.63a67.77,67.77,0,0,0-9.13.45c-13.37,2.75-20.32,12.57-20.27,25.77l.38,221.24c-1.57,15.44,8.15,27.08,25.34,26.1l33-.19c-15.9,0-28.78-10.58-28.76-25.93Z" fill="#7b8f91" />
-                <path d="M148.16,343.22a6,6,0,0,0-6,6v92a6,6,0,0,0,12,0v-92A6,6,0,0,0,148.16,343.22Z" fill="#323c44" />
-            </g>
+          <div class="sub-texto">
+              <span>Conectate con nosotros en redes sociales</span>
+          </div>
+          <!-- Left -->
 
-        </svg>
-    </button>
+          <!-- Right -->
+          <div class="">
+              <a href="" class="link-secondary">
+                  <i class="fab fa-facebook-f"><img src="/imagenes/facebook.png" alt="facebook"></i>
+              </a>
+              <a href="" class="link-secondary">
+                  <i class="fab fa-twitter"><img src="/imagenes/twitter.png" alt="twitter"></i>
+              </a>
+              <a href="" class="link-secondary">
+                  <i class="fab fa-google"><img src="/imagenes/google-plus.png" alt="google"></i>
+              </a>
+              <a href="" class="link-secondary">
+                  <i class="fab fa-instagram"><img src="/imagenes/instagram.png" alt="instagram"></i>
+              </a>
+              <a href="" class="link-secondary">
+                  <i class="fab fa-linkedin"><img src="/imagenes/linkedin.png" alt="linkedin"></i>
+              </a>
+              <a href="" class="link-secondary">
+                  <i class="fab fa-github"><img src="/imagenes/github.png" alt="github"></i>
+              </a>
+          </div>
+          <!-- Right -->
+      </section>
+  </div>
+      <!-- Section: Social media -->
 
+      <!-- Section: Links  -->
+      <section class="section-part" id="footersito">
+          <div class="container text-center text-md-start mt-5">
+              <!-- Grid row -->
+              <div class="row mt-3">
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                      <!-- Content -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                          <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
+                      </h6>
+                      <p>
+                          Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
+                      </p>
+                  </div>
+                  <!-- Grid column -->
 
+                  <!-- Grid column -->
+                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                          Informacion
+                      </h6>
+                      <p>
+                          <a href="#!" class="text-reset">Sobre nosotros</a>
+                      </p>
+                      <p>
+                          <a href="#!" class="text-reset">Privacidad</a>
+                      </p>
+                      <p>
+                          <a href="#!" class="text-reset">Marco legal</a>
+                      </p>
+                      <p>
+                          <a href="#!" class="text-reset">Terminos y condiciones</a>
+                      </p>
+                  </div>
+                  <!-- Grid column -->
 
-    <!-- Footer -->
-    <footer class="text-center text-lg-start bg-white text-muted">
-        <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
-    
-        <!-- Right -->
-        <div>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-            <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <!-- Right -->
-        </section>
-        <!-- Section: Social media -->
-    
-        <!-- Section: Links  -->
-        <section class="">
-        <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                <i class="fas fa-gem me-3 text-secondary"></i>Company name
-                </h6>
-                <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit.
-                </p>
-            </div>
-            <!-- Grid column -->
-    
-            <!-- Grid column -->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                Products
-                </h6>
-                <p>
-                <a href="#!" class="text-reset">Angular</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">React</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Vue</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Laravel</a>
-                </p>
-            </div>
-            <!-- Grid column -->
-    
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                Useful links
-                </h6>
-                <p>
-                <a href="#!" class="text-reset">Pricing</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Settings</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Orders</a>
-                </p>
-                <p>
-                <a href="#!" class="text-reset">Help</a>
-                </p>
-            </div>
-            <!-- Grid column -->
-    
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
-                <p>
-                <i class="fas fa-envelope me-3 text-secondary"></i>
-                info@example.com
-                </p>
-                <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
-                <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
-            </div>
-            <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-        </div>
-        </section>
-        <!-- Section: Links  -->
-    
-        <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                          Links útiles
+                      </h6>
+                      <p>
+                          <a href="#!" class="text-reset">Ayuda</a>
+                      </p>
+                      <p>
+                          <a href="#!" class="text-reset">Configuración</a>
+                      </p>
+                      <p>
+                          <a href="#!" class="text-reset">Trabaja con nosotros</a>
+                      </p>
+                      <p>
+                          <a href="#!" class="text-reset">Otros</a>
+                      </p>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                      <p><i class="fas fa-home me-3 text-secondary"></i> Santiago, ST 10012, CL</p>
+                      <p>
+                          <i class="fas fa-envelope me-3 text-secondary"></i>
+                          agendalomax@example.com
+                      </p>
+                      <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 89</p>
+                      <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 80</p>
+                  </div>
+                  <!-- Grid column -->
+              </div>
+              <!-- Grid row -->
+          </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+          www.agendalomax.cl © 2022 :
+          <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide
+              cita</a>
+      </div>
+      <!-- Copyright -->
+  </footer>
     <script>
         //Mapeo de variable para archivo servicio.js
             var regionesConAscii = '<c:out value="${regionesJson}"/>'

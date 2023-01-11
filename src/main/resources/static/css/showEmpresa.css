@@ -1,21 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
-nav {
-    background-color: #BDB3FE;
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+/* estilo de nav para todos los nav*/
+#nombrePagina {
+    font-size: xx-large;
+}
+
+nav{
+    padding: 10px;
+    border:10px solid rgba(217, 211, 255, 0.838);
+    background-color: rgb(189, 179, 254);
+    
 } 
 
-#selectReg {
-    width: 200px;
+.navbar-brand {
+    margin-left: 5%;
 }
 
-#selectCiud {
-    width: 200px;
+#max {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(255, 202, 79);
+    font-size: 40px;
 }
 
-#buscador {
-
-    width: 190px;
+#nombrePagina {
+    margin-left: 2%;
+    font-size: xx-large;
 }
+
+#agendalo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+}
+
+#usuario-nombre{
+    align-items: center;
+    border-radius: 5px;
+    width: 80px;
+    height: 50px;
+    margin-left: 8%;
+    margin-right: 12%;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.nav-link {
+    background-color: #f0ebff;
+    width: 150px;
+    height: 50px;
+    margin-top: -15px;
+    font-size: 22px;
+    border: 5px solid rgb(205, 204, 255);;
+    border-radius: 7px;
+    color: rgb(59, 48, 255);
+}
+
+/*termina estilo de nav*/
 
 #ladoCarrusel {
     margin-top: 100px;
@@ -24,19 +67,27 @@ nav {
 #ladoCarrusel h1 {
     font-size: 60px;
 }
-
-.botones {
-    border: none;
-    background-color: rgb(177, 165, 253);
-    border: 1px cornflowerblue;
-    border-radius: 20px;
+ /*botones azules*/
+.botones{
+    border-style: solid;
+    background-color:rgb(22, 49, 113);
+    color: white;
+    padding: 0.03rem 1rem;
+    border-radius: 10px;
     cursor: pointer;
-
+    border: 2px solid rgb(0, 0, 0);
+    width: 150px;
+    height: 45px;
 }
 
-#nombrePagina {
-    font-size: xx-large;
+.botones:hover{
+    border: none;
+    color: black;
+    background-color:rgba(197, 241, 244, 0.945);
 }
+
+/*botones azules*/
+
 
 #carouselExampleDark {
     width: 50%;
@@ -46,9 +97,7 @@ nav {
     width: 50%;
 }
 
-#footersito {
-    background-color: #1B1B1B
-}
+
 
 #alLadoServicio {
     width: 35%;
@@ -70,12 +119,22 @@ nav {
     padding: 10px;
 }
 
+.iconosTic{
+    width: 20px;
+    height: 20px;
+}
 
+#modalPremium{
+background-color: rgb(29, 34, 38);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 .form-body {
     background-color: #FFEBCD;
 }
 
+/*no se si funciona esto*/
 .form-holder {
     display: flex;
     flex-direction: column;
@@ -128,7 +187,6 @@ nav {
     margin-bottom: 30px;
 }
 
-
 .form-content label,
 .was-validated .form-check-input:invalid~.form-check-label,
 .was-validated .form-check-input:valid~.form-check-label {
@@ -154,13 +212,6 @@ nav {
     margin-top: 16px;
 }
 
-
-.btn-primary {
-    background-color: #6C757D;
-    outline: none;
-    border: 0px;
-    box-shadow: none;
-}
 
 .btn-primary:hover,
 .btn-primary:focus,
@@ -201,45 +252,17 @@ nav {
     margin-top: -9px !important;
     margin-bottom: 8px !important;
 }
-#premium{
-    text-decoration: none;
 
-}
 
-#botonPremium{
-    height: 60px !important;
-    width: 300px;
-}
 
-.invalid-feedback {
-    color: #ff606e;
-}
 
-.valid-feedback {
-    color: #2acc80;
-}
-
-.link-secondary{
-    padding: 5px;
-}
-
-.link-secondary img{
-    width: 30px;
-    height: 30px;
-}
-
-.section-part {
-    height: 20rem;
-    background-color: rgb(27, 27, 27);
-    padding: 10px;
-}
 
 #divCreaServicio{
     height: 800px;
 }
 
 #haztePremium{
-
+    padding-top: 9px !important;
     width: 280px;
 }
 
@@ -247,7 +270,59 @@ nav {
     height: 700px;
 }
 
-.navbar-brand{
-    margin-left: 25px;
-    font-family: 'Playfair Display', serif;
+#botonPremium{
+    width: 350px;
+    height: 70px;
 }
+
+
+
+#servicisito{
+    height: 700px;
+}
+
+/*botones tamaño*/
+
+#botonEEmpresa , #botonEditaEmpresa{
+    height: 45px;
+    width: 200px;
+}
+
+#botonEditaEmpresa{
+    padding-top: 10px !important;
+}
+
+#verAgenda{
+    padding-top: 10px !important;
+}
+#eliminarServicio{
+    padding-top: 9px !important;
+}
+
+
+/*empieza diseño footer*/
+
+/*iconos de redes sociales hacerlos chikitos*/
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img {
+    width: 30px;
+    height: 30px;
+}
+.section-part {
+    height: 20rem;
+    background-color: rgb(27, 27, 27);
+    padding: 10px;
+}
+
+
+
+/*particulas*/
+canvas {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+  } 

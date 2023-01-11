@@ -1,10 +1,10 @@
 package com.laurasoto.ProyectoAgenda.controlador;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.laurasoto.ProyectoAgenda.servicios.RegionServicio;
+
 @Controller
 public class RegionControlador {
     private final RegionServicio regionServicio;
@@ -17,4 +17,9 @@ public class RegionControlador {
 	public String buscaCiudad(@RequestParam("region") String region){
 		return "redirect:/search/" + region;
 	}
+
+    @GetMapping("/parti")
+    public String particula(){
+        return"particula";
+    }
 }

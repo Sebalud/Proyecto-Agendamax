@@ -27,22 +27,46 @@
 
 <body>
   <!-- Barra de navegacion -->
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">AgendamientoMax</a>
+      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+        id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- Botones y links -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home">Home</a></li>
-          <c:choose>
-            <c:when test="${not usuario.empresa.empresafree && usuario.empresa != null}">
-              <li class="nav-item text-danger mt-2">Cuenta premium!</li>
-            </c:when>
-          </c:choose>
+          <li class="nav-item">
+            <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+            <c:choose>
+              <c:when test="${usuario.empresa == null}">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
+                  Crear Empresa
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                        propietario
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-black" href="/planes">Aceptar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </c:when>
+            </c:choose>
+          </li>
         </ul>
 
         <!-- Buscadores de Servicios-->
@@ -150,10 +174,10 @@
                       </c:if>
 
                       <c:if
-                        test="${usuario.id != servicio.empresa.usuarioAdmin.id && horarioDisponible.getEstaActivo()}">
-                        <a href="/agendamiento/${servicio.id}/${horarioDisponible.getDate().getTime()}"
-                          class="btn btn-warning my-1">
-                          <fmt:formatDate value="${horarioDisponible.date}" pattern="HH:mm:ss" />
+                        test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 2}">
+                        <a href=""
+                          class="btn btn-dark my-1">
+                          agendada
                         </a><br>
                       </c:if>
 
