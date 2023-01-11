@@ -97,9 +97,11 @@ public class UsuarioServicio extends BaseServicio<Usuario> {
 			} else {
 				erroresValid.add(new ObjectError("email", "Error en formato del correo o largo (Min 10 y Max 30 Caracteres) "));
 			}
-		}		
-		
-		usuarioRepositorio.save(user);
+		}	
+
+		if(!user.equals(userForm)){
+			usuarioRepositorio.save(user);
+		}
 		return erroresValid;
 	}
 

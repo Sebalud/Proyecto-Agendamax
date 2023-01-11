@@ -23,7 +23,7 @@
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href="">
+      <a id="nombrePagina" class="navbar-brand" href="/home">
         <span id="agendalo">Agéndalo</span>
         <span id="max">Max</span>
       </a>

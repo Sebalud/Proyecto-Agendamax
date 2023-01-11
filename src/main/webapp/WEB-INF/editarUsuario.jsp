@@ -33,11 +33,12 @@
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a id="nombrePagina" class="navbar-brand" href="/home"><span id="agendalo">Agéndalo</span><span
-            id="max">Max</span></a>
+            <a id="nombrePagina" class="navbar-brand" href="/home">
+                <span id="agendalo">Agéndalo</span>
+                <span id="max">Max</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -75,28 +76,28 @@
                 <!-- Buscadores de Servicios-->
                 <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
                     <select class="me-2 form-select" name="selectReg" id="selectReg">
-                    <option value="0">Región</option>
-                    <c:forEach items="${regiones}" var="region">
-                        <option value="${region.id}">${region.nombre}</option>
-                    </c:forEach>
+                        <option value="0">Región</option>
+                        <c:forEach items="${regiones}" var="region">
+                            <option value="${region.id}">${region.nombre}</option>
+                        </c:forEach>
                     </select>
                     <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-                    <option value="0">Ciudad</option>
+                        <option value="0">Ciudad</option>
                     </select>
                     <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
                     <button class="btn botones" type="submit">Buscar</button>
                 </form>
                 <div class="nav-item dropdown" id="usuario-nombre">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <c:out value="${usuario.nombre}"/>
+                        <c:out value="${usuario.nombre}"/>
                     </a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
-                    <c:if test="${usuario.getEmpresa() != null}">
-                        <li><a class="dropdown-item" href="/plan/${usuario.empresa.id}">Tu empresa</a></li>
-                    </c:if>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
+                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                        <c:if test="${usuario.getEmpresa() != null}">
+                            <li><a class="dropdown-item" href="/plan/${usuario.empresa.id}">Tu empresa</a></li>
+                        </c:if>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
                     </ul>
                 </div>
             </div>
