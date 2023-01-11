@@ -45,6 +45,8 @@ public class Servicio{
 
 	private String precio;
 
+	private String description;
+
 	private String imgRoute;
 
 	@Column(updatable=false)

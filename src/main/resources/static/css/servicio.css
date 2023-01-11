@@ -47,19 +47,27 @@ body{
 
 .title-design {
     text-align: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 40px;    
+    font-family: 'Nunito', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;    
+    margin-top: 12px;
+
 }
 /* estilo de nav para todos los nav*/
+
+.container-fluid{
+    background-color:rgb(182, 179, 254);
+    font-size: 15.5px;
+}
+
 nav{
     padding: 10px;
     border:10px solid rgba(217, 211, 255, 0.838);
     background-color: rgb(189, 179, 254);
-    
-} 
+}
 
-.navbar-brand {
-    margin-left: 5%;
+.navbar-brand{
+    margin-left: 25px;
 }
 
 #max {
@@ -76,6 +84,10 @@ nav{
 #agendalo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 40px;
+} 
+
+label{
+    width: 100px;
 }
 
 #usuario-nombre{
@@ -117,8 +129,31 @@ nav{
     color: black;
     background-color:rgba(197, 241, 244, 0.945);
 }
-/*termina estilo de nav*/
 
+#home{
+    margin-top:2px;
+    font-size: 20px;
+    border-style: solid;
+    background-color:rgb(22, 49, 113);
+    color: white;
+    padding: 0.08rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    width: 100px;
+    height: 40px;
+}
+
+#home:hover{
+    color: black;
+    background-color:rgba(197, 241, 244, 0.945);
+    border: none;
+}
+
+#service-insert{
+    height: 46px
+}
+/*termina estilo de nav*/
 
 
 .service-data{
@@ -185,3 +220,23 @@ nav{
     opacity: 0.9; 
     transform: scale(0, 1);
 }
+
+.image-service img{
+    width: 330px;
+    height: 220px;
+}
+
+.spacing {
+    margin: 30px;
+}
+
+.info-size{
+    width: 630px;
+    height: 220px;
+}
+
+.bigbox{
+    background-color: blanchedalmond;
+    min-height: 423px;
+}
+
