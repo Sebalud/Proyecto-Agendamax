@@ -265,7 +265,7 @@ public class EmpresaControlador {
 		empresa.setUsuarioAdmin(null);
 		empresaServicio.delete(idEmpresa);
 		
-		return"redirect:/home";
+		return"redirect:/";
 	}
 
 	@GetMapping("/premium/{idEmpresa}")
