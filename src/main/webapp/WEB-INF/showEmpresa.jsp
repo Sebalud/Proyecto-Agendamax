@@ -19,6 +19,7 @@
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
                     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
                     crossorigin="anonymous">
+                    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
                 <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
                 <title>Empresa FREE</title>
             </head>
@@ -99,7 +100,6 @@
                 </div>
             </nav>
 
-                  
                 <!-- Contenido-->
                 <div class="container d-flex my-5">
                     <div id="carouselExampleDark" class="carousel carousel-dark slide me-5" data-bs-ride="carousel">
@@ -258,7 +258,7 @@
                                                 <input type="file" class="form-control " name="postFile">
                                                 </div>
                                                 <div class="form-button mt-3">
-                                                    <input id="submit" class="btn btn-primary" type="submit"
+                                                    <input id="submit" class="btn botones" type="submit"
                                                         value="Crear" />
                                                 </div>
                                             </form:form>
@@ -296,96 +296,97 @@
                                                         <a class="btn botones" id="haztePremium" href="/premium/${empresa.id}">Hazte premium</a>
                                                     </div>
                                                     </div>
-                                                    
-                                                
-            
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </c:when>
                             </c:choose>
-
                     </div>
                     
 
                     <div id="tablita" class="mb-5">
-                        <table class="table container my-5">
-                            <h1 class="container mt-5 border-bottom fw-bolder">Resumen</h1>
-                            <thead>
-                                <tr>
-                                    <th class="">Servicio</th>
-                                    <th>Duracion de Servicio</th>
-                                    <th>Precio</th>
-                                    <th>Ciudad</th>
-                                    <th>Direccion</th>
-                                    <th>Accion</th>
-                                    <th>Hacer Horario</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${empresa.servicios}" var="servicio">
+                            <table class="table my-5 container">
+                                <h1 class="container mt-5 border-bottom fw-bolder">Resumen</h1>
+                                <thead>
                                     <tr>
-    
-                                        <td colspan="">
-                                            <c:out value="${servicio.servicioOfrecido}" />
-                                        </td>
-                                        <td>
-                                            <c:out value="${servicio.duracionServicio}" /> min
-                                        </td>
-                                        <td colspan="">
-                                            <c:out value="${servicio.precio}" />
-                                        </td>
-                                        <td colspan="">
-                                            <c:out value="${empresa.ciudad.nombre}" />
-                                        </td>
-                                        <td colspan="">
-                                            <c:out value="${servicio.direction}" />
-                                        </td>
-    
-                                        <td><!-- Button trigger modal -->
-                                            <button type="button" class="btn botones" data-bs-toggle="modal"
-                                                data-bs-target="#${servicio.id}">
-                                                Eliminar
-                                            </button>
-    
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="${servicio.id}" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content"
-                                                        style="background-color: #1D2226; color: aliceblue;">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar
-                                                            </h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            ¿Seguro que deseas eliminar el servicio de tu empresa?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn botones"
-                                                                data-bs-dismiss="modal">Cancelar</button>
-                                                            <a class="btn botones" id="eliminarServicio"
-                                                                href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
+                                        <th class="">Servicio</th>
+                                        <th>Duracion de Servicio</th>
+                                        <th>Precio</th>
+                                        <th>Ciudad</th>
+                                        <th>Direccion</th>
+                                        <th>Accion</th>
+                                        <th>Hacer Horario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${empresa.servicios}" var="servicio">
+                                        <tr>
+        
+                                            <td colspan="">
+                                                <c:out value="${servicio.servicioOfrecido}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${servicio.duracionServicio}" /> min
+                                            </td>
+                                            <td colspan="">
+                                                <c:out value="${servicio.precio}" />
+                                            </td>
+                                            <td colspan="">
+                                                <c:out value="${empresa.ciudad.nombre}" />
+                                            </td>
+                                            <td colspan="">
+                                                <c:out value="${servicio.direction}" />
+                                            </td>
+        
+                                            <td><!-- Button trigger modal -->
+                                                <button type="button" class="btn botones" data-bs-toggle="modal"
+                                                    data-bs-target="#${servicio.id}">
+                                                    Eliminar
+                                                </button>
+        
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="${servicio.id}" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content"
+                                                            style="background-color: #1D2226; color: aliceblue;">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar
+                                                                </h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ¿Seguro que deseas eliminar el servicio de tu empresa?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn botones"
+                                                                    data-bs-dismiss="modal">Cancelar</button>
+                                                                <a class="btn botones" id="eliminarServicio"
+                                                                    href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a class="btn botones" id="verAgenda" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
-                                            agenda</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
+                                        </td>
+                                        <td>
+                                            <a class="btn botones" id="verAgenda" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
+                                                agenda</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>  
+                       
+                   
 
+
+                    
                 </main>
-
+                
                 <footer class="text-center text-lg-start text-muted">
                     <!-- Section: Social media -->
                     <div id="barrita" style="background-color: rgb(189, 179, 254);">
@@ -510,40 +511,12 @@
                     <!-- Copyright -->
                 </footer>
                 <script>
-
-                    const select = document.querySelector('#servicioElegido');
-                    const container = document.querySelector('#form');
-
-                    // Establecer el manejador de eventos para el evento change del select
-                    select.addEventListener('change', () => {
-                        // Verificar si la opción seleccionada es la que deseas
-                        if (select.value === 'opcionEspecial') {
-                            // Crear el nuevo elemento input
-                            const input = document.createElement('input');
-
-                            // Establecer cualquier atributo o propiedad que desees para el nuevo elemento
-                            input.type = 'text';
-                            input.placeholder = 'Escribe algo aquí';
-                            input.name = 'nuevoServicio';
-
-                            // Agregar el nuevo elemento al contenedor
-                            container.appendChild(input);
-                        }
-
-                        /*   if (select.value === 'opcionEspecial') {
-                            // Mostrar el elemento input
-                            input.style.display = 'block';
-                        } else {
-                            // Ocultar el elemento input
-                            input.style.display = 'none';
-                        } */
-                    });
-                </script>
-                <script>
                     //Mapeo de variable para archivo servicio.js
                     var regionesConAscii = '<c:out value="${regionesJson}"/>'
                 </script>
                 <script type="text/javascript" src="/js/servicio.js"></script>
+
+	            <script type="text/javascript" src="/js/particulas.js"></script>
                 <!-- Footer -->
             </body>
 

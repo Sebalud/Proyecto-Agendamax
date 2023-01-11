@@ -104,3 +104,22 @@ nav{
     padding: 10px;
 }
 
+/*banner de arriba*/
+#bannerArriba{
+    background-color: blanchedalmond;
+    height: 660px;
+}
+
+#bannerArriba img{
+    padding-top: 60px;
+    margin-left: 40px;
+    width: 600px;
+}
+
+#infoBanner{
+    margin-left: 130px;
+    width: 500px;
+    color: #6c757d;
+    font-size: 700;
+
+}
