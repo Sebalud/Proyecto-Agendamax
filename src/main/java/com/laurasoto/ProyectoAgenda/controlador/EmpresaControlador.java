@@ -236,13 +236,15 @@ public class EmpresaControlador {
 		if((Long) session.getAttribute("usuarioId") == null){
 			return"redirect:/";
 		}
-
+		
 		List<Region> regiones = regionServicio.regionesTodas();
 		String resultadoJson = new Funciones().regionesToJson(regiones);
+		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+		List<Ciudad> ciudades = ciudadServicio.traerTodo();
 		Empresa empresaAEditar = empresaServicio.findById(idEmpresa);
 		List<Ciudad>  ciudadesNotEmpresa = ciudadServicio.ciudadesNoContieneEmpresa(empresaAEditar);
-		List<Ciudad> ciudades = ciudadServicio.ciudadesMostrar(empresa);
 		
+		model.addAttribute("usuario", usuario);
 		model.addAttribute("regiones", regiones);
 		model.addAttribute("empresaAEditar", empresaAEditar);
 		model.addAttribute("ciudadesNotEmpresa", ciudadesNotEmpresa);

@@ -119,19 +119,19 @@
         <tbody>
             <tr>
                 <td>Duración de Servicio </td>
-                <td>${servicio.duracionServicio}</td>
+                <td>${servicio.getDuracionServicio()}</td>
             </tr>
             <tr>
                 <td>Hora de inicio</td>
-                <td>${servicio.horaInicio} hras</td>
+                <td>${servicio.getHoraInicio()} hras</td>
             </tr>
             <tr>
                 <td>Hora de término </td>
-                <td>${servicio.horaTermino} hras</td>
+                <td>${servicio.getHoraTermino()} hras</td>
             </tr>
             <tr>
                 <td>Duración de jornada</td>
-                <td>${servicio.duracionJornada} horas</td>
+                <td>${servicio.getDuracionJornada()} horas</td>
             </tr>
             <tr>
                 <td>Horas no agendables para el cliente</td>
@@ -145,7 +145,7 @@
     </table>
 
 
-    <c:if test="${servicio.getHoraInicio() == 0 && servicio.getHoraTermino == 0}">
+    <c:if test="${servicio.getHoraInicio() == 0 && servicio.getHoraTermino() == 0}">
         <form:form action="" method="POST" modelAttribute="horario" cssClass="container form ancho">
             <p class="form-outline">
                 <form:label cssClass="form-label"  path="horaDisponible">hora Disponible</form:label>

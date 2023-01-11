@@ -39,20 +39,44 @@
           <li class="nav-item">
           </li>
         </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+              <c:choose>
+                  <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+                      <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                  </c:when>
+              </c:choose>
+          </li>
+      </ul>
 <!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-  <select class="me-2 form-select" name="selectReg" id="selectReg">
-      <option value="0">Región</option>
-      <c:forEach items="${regiones}" var="region">
-          <option value="${region.id}">${region.nombre}</option>
-      </c:forEach>
-  </select>
-  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-      <option value="0">Ciudad</option>
-  </select>
-  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-  <button class="btn botones" type="submit">Buscar</button>
-</form>
+        <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+              <option value="0">Región</option>
+              <c:forEach items="${regiones}" var="region">
+                  <option value="${region.id}">${region.nombre}</option>
+              </c:forEach>
+          </select>
+          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+              <option value="0">Ciudad</option>
+          </select>
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+          <button class="btn botones" type="submit">Buscar</button>
+        </form>
+        <div class="nav-item dropdown" id="usuario-nombre">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <c:out value="${usuario.nombre}"/>
+          </a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/horas/usuario/${usuario.id}">Horas agendadas</a></li>
+              <c:if test="${usuario.getEmpresa() != null}">
+                  <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+              </c:if>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+      </div>
 </nav>
 
 <div class="container">
@@ -85,7 +109,7 @@
       <form:label cssClass="form-label" path="ciudad">Ciudades</form:label>
       <form:errors path="ciudad"/>
       <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
-        <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
+        <c:forEach items="${ciudades}" var="ciudad" >
           <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
         </c:forEach>
       </form:select>

@@ -74,8 +74,12 @@
                 <a class="btn botones" id="loginBoton" href="/">Login</a>
               </c:when>
             </c:choose>
-            
           </li>
+          <c:choose>
+            <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+              <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+            </c:when>
+          </c:choose>
         </ul>
         <!-- Buscadores de Servicios-->
         <form class="d-flex" role="search" method="POST" action="/search" id="barrita">

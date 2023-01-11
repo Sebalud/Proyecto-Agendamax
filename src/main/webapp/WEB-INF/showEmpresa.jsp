@@ -293,11 +293,7 @@
                 <thead>
                     <tr>
                         <th class="">Servicio</th>
-<<<<<<< HEAD
-                        <th>Duración de Servicio</th>
-=======
                         <th>Duración del Servicio</th>
->>>>>>> 34ef1db5efa43e2f4cb31fa912ad20c9824188ca
                         <th>Precio</th>
                         <th>Ciudad</th>
                         <th>Dirección</th>
