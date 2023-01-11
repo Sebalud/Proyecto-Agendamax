@@ -93,11 +93,11 @@
             <img src="/imagenes/vision-de-la-empresa.png" alt="">
         </div>
 
-        <h1 class="my-auto fw-semibold" id="infoBanner">Revisa quien agendó horas fácil y rápido, personaliza tus horas para los 7 días siguientes. </h1>
+        <h1 class="my-auto fw-bolder" id="infoBanner">Revisa quien agendó horas fácil y rápido, personaliza tus horas para los 7 días siguientes. </h1>
     </div>
     
  
-    <h1 class="text-center my-5 pb-3 border-bottom fw-semibold container">Gestión de horas disponibles para el servicio ${servicio.servicioOfrecido}</h1>
+    <h1 id="" class="text-center my-5 pb-3 border-bottom fw-bolder  container">Gestión de horas disponibles para el servicio ${servicio.servicioOfrecido}</h1>
         <table class="table container mb-5" id="tabla">
             
         <thead>
