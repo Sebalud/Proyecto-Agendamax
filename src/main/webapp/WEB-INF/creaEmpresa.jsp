@@ -20,15 +20,18 @@
     crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/creaEmpresa.css">
-    <title>Empresa FREE</title>
+  <link rel="stylesheet" type="text/css" href="/css/creaEmpresa.css">
+  <title>Empresa FREE</title>
 </head> 
 
 <body>
+
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-        id="max">Max</span></a>
+      <a id="nombrePagina" class="navbar-brand" href="/home">
+        <span id="agendalo">Agéndalo</span>
+        <span id="max">Max</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -66,48 +69,45 @@
             </c:choose>
           </li>
         </ul>
-<!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-  <select class="me-2 form-select" name="selectReg" id="selectReg">
-      <option value="0">Región</option>
-      <c:forEach items="${regiones}" var="region">
-          <option value="${region.id}">${region.nombre}</option>
-      </c:forEach>
-  </select>
-  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-      <option value="0">Ciudad</option>
-  </select>
-  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-  <button class="btn botones" type="submit">Buscar</button>
-</form>
+        <!-- Buscadores de Servicios-->
+        <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+            <option value="0">Región</option>
+            <c:forEach items="${regiones}" var="region">
+              <option value="${region.id}">${region.nombre}</option>
+            </c:forEach>
+          </select>
+          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+            <option value="0">Ciudad</option>
+          </select>
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+          <button class="btn botones" type="submit">Buscar</button>
+        </form>
         <div class="nav-item dropdown" id="usuario-nombre">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/logout">Log out</a></li>
-          <c:if test="${usuario.getEmpresa() != null}">
-            <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-          </c:if>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            <c:if test="${usuario.getEmpresa() != null}">
+              <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+            </c:if>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
           </ul>
         </div>
       </div>
     </div>
-</nav>
+  </nav>
 
-
-
-
-
+  <!-- Cuerpo Pagina -->
   <div class="container">
     <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
       <div class="form-image">
         <img src="/imagenes/undraw_informed_decision_p2lh.svg" alt="formulario">
       </div>
       <div class="form">
-
+        
         <div class="mod-sub-title">
           <div class="sub-title">
             <h3>Crear una Empresa</h3>
@@ -138,8 +138,8 @@
           </p>
         </div>
         <input class="freeplan" type="submit" value="Plan Gratis" />
+      </div>
     </form:form>
-  </div>
   </div>
 
   <!-- Footer -->
@@ -312,6 +312,6 @@
     var regionesConAscii = '<c:out value="${regionesJson}"/>'
   </script>
   <script type="text/javascript" src="/js/servicio.js"></script>
-</body>
 
+</body>
 </html>
