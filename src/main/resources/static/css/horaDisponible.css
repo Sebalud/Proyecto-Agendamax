@@ -96,6 +96,11 @@ label{
 
 }
 
+#verCliente{
+    background-color: rgb(29, 34, 38);
+}
+
+
 #tabla{
     width: 500px;
 }
