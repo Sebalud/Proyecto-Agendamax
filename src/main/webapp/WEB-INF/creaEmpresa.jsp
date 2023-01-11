@@ -19,7 +19,6 @@
 </head> 
 
 <body>
-
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
       <a id="nombrePagina" class="navbar-brand" href="/home">
@@ -106,6 +105,7 @@
         <input class="freeplan" type="submit" value="¡Crear!" />
     </form:form>
   </div>
+</div>
 
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">

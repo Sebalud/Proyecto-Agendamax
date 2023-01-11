@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
@@ -19,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="stylesheet" type="text/css" href="/css/creaUsuario.css">
-
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
@@ -108,7 +106,7 @@
         <h1 class="ml-5" id="title">Editar Usuario</h1>
         <h3 class="ml-4">Todos los campos son opcionales</h3>
         <form:form action="/perfil/actualizar" method="POST" modelAttribute="userForm" cssClass="container form ancho">
-             
+
             <div class="input-group">
                 <form:input type="hidden" path="id" value="${usuario.id}"/>
                 <p class="input-box">
@@ -200,7 +198,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <!-- Content -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                    <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+                    <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
                 </h6>
                 <p>
                     Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -212,7 +210,7 @@
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">
-                    Informacion
+                    Información
                 </h6>
                 <p>
                     <a href="#!" class="text-reset">Sobre nosotros</a>
