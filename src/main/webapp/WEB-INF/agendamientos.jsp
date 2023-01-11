@@ -7,10 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/agendamientos.css">
-    <title>Title</title>
+    <title>Horas agendadas</title>
 </head>
 <body>
     <!-- Barra Menu -->
@@ -28,33 +33,47 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
-                        <c:choose>
-                            <c:when test="${usuario.empresa == null}">
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                                    Crear Empresa
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                                                propietario
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                <a class="btn btn-black" href="/planes">Aceptar</a>
-                                            </div>
-                                        </div>
+                    <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+                    <c:choose>
+                        <c:when test="${usuario.getEmpresa() == null && usuario != null}">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
+                            Crear Empresa
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                            <div class="modal-content" id="modalEmpresa">
+                                <div class="modal-body d-flex text-box text-light">
+                                    <img class="me-4" src="/imagenes/marca.png" alt="">
+                                <div class="text-box text-light">
+                                    <h2 class="fw-bold mt-3">Crea una Empresa y accede a:</h2>
+                                    <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt="">
+                                    <p class="ms-2">Una Empresa que ofrece un servicio, o más (premium) </p>
                                     </div>
+                                    <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt="">
+                                    <p class="ms-2">Un panel de administración de tus horas</p>
+                                    </div>
+                                    <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt="">
+                                    <p class="ms-2">Creación de tu horario</p>
                                 </div>
-                            </c:when>
-                        </c:choose>
+                                </div>
+                                
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn botones" data-bs-dismiss="modal">Cancelar</button>
+                                <a class="btn botones" id="aceptaEmpresa" href="/planes">Aceptar</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </c:when>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+                            <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                        </c:when>
+                    </c:choose>
                     </li>
                 </ul>
                 <!-- Buscadores de Servicios-->
@@ -89,16 +108,17 @@
     </nav>
 
     <div id="banner">
-        <img src="/imagenes/organizador.png" alt="">
+        <img src="/imagenes/calendar.png.png" alt="">
     </div>
 
-    <div class="container mt-5">
-        <h1 class="border-bottom text-center mb-4 pb-3">Tus horas Agendadas</h1>
+    <div class="container-agen mt-5">
+        <h1 class="border-bottom text-center mb-4 pb-3 fw-bold">Tus horas Agendadas</h1>
 
         <table class="table">
             <thead>
                 <tr>
                     <th>Servicio</th>
+                    <th>Duración de servicio</th>
                     <th>Empresa</th>
                     <th>Fecha</th>
                     <th>Precio</th>
@@ -110,9 +130,10 @@
                 <c:forEach items="${usuario.horarios}" var="horaAgendada">
                     <tr>
                         <td>${horaAgendada.getServicio().getServicioOfrecido()}</td>
+                        <td>${horaAgendada.getServicio().getDuracionServicio()} min</td>
                         <td>${horaAgendada.getServicio().getEmpresa().getNombre()}</td>
-                        <td><fmt:formatDate value="${horaAgendada.getFechaAsDate()}" pattern="HH:mm:ss"/></td>
-                        <td>${horaAgendada.getServicio().getPrecio()}</td>
+                        <td><fmt:formatDate value="${horaAgendada.getFechaAsDate()}" pattern="M/d/yy HH:mm:ss"/></td>
+                        <td>$ ${horaAgendada.getServicio().getPrecio()}</td>
                         <td>${horaAgendada.getServicio().getEmpresa().getUsuarioAdmin().getEmail()}</td>
                         <td><a class="" href="/cancela/cita/${usuario.id}/${horaAgendada.id}">Cancelar cita</a></td>
                     </tr>
@@ -124,7 +145,7 @@
 
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"style="background-color:rgb(182, 179, 254);">
             <!-- Left -->
 
             <div class="sub-texto">
@@ -236,7 +257,7 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+        <div class="text-center p-4" style="background-color:rgb(182, 179, 254);">
             www.agendalomax.cl © 2022 :
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide
             cita</a>

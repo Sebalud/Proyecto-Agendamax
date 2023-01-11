@@ -139,7 +139,7 @@ public class Servicio{
 		List<List<TachamientoBoton>> tachamientoBoton = new ArrayList<>();
 		for (List<Date> dates : listaDefinitiva) {
 			List<TachamientoBoton> botons = dates.stream()
-					.map(date -> new TachamientoBoton(true,0, date))
+					.map(date -> new TachamientoBoton(true,0, date,null))
 					.collect(Collectors.toList());
 			tachamientoBoton.add(botons);
 		}
@@ -171,6 +171,7 @@ public class Servicio{
 					}
 					else if (horario.getHoraDisponible().equals(boton.getDate().getTime()) && !horario.isCanceledByOwner(horario.getUsuario().getId())){
 						boton.setHoraAgendadaByCliente(2);
+						boton.setUsuario(horario.getUsuario());
 						break;
 					}
 					else{

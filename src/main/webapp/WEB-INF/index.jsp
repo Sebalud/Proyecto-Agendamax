@@ -58,7 +58,7 @@
                             <p class="ms-2">Creación de tu horario</p>
                         </div>
                         </div>
-                        
+                      
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn botones" data-bs-dismiss="modal">Cancelar</button>
@@ -69,7 +69,17 @@
                 </div>
               </c:when>
             </c:choose>
+            <c:choose>
+              <c:when test="${usuario == null}">
+                <a class="btn botones" id="loginBoton" href="/">Login</a>
+              </c:when>
+            </c:choose>
           </li>
+          <c:choose>
+            <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+              <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+            </c:when>
+          </c:choose>
         </ul>
         <!-- Buscadores de Servicios-->
         <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
@@ -86,19 +96,26 @@
           <button class="btn botones" type="submit">Buscar</button>
         </form>
 
-        <div class="nav-item dropdown" id="usuario-nombre">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <c:out value="${usuario.nombre}"/>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
-            <c:if test="${usuario.getEmpresa() != null}">
-              <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-            </c:if>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/logout">Log out</a></li>
-          </ul>
-        </div>
+
+        <c:choose>
+              <c:when test="${usuario != null}">
+                <div class="nav-item dropdown" id="usuario-nombre">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <c:out value="${usuario.nombre}"/>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/horas/usuario/${usuario.id}">Horas agendadas</a></li>
+                    <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
+                    <c:if test="${usuario.getEmpresa() != null}">
+                      <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+                    </c:if>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                  </ul>
+                </div>
+              </c:when>
+        </c:choose>
+        
       </div>
     </div>
 </nav>
@@ -197,15 +214,14 @@
         <div class="icons">  
           <div class="p-3 fw-bold">Busca en tu sector</div>
           <img src="/imagenes/mapa.png" alt="Like">
-          <p>Y coordina para que el servicio llegue a la puerta de tu hogar.</p>
+          <p>¡Descubre que servicio están cerca de ti!</p>
         </div>
-        <p>¡Descubre que servicio están cerca de ti!</p>
       </div>
     </div>
   </div>
   <section class="filtro fw-bold">
-    <h1 class="esta-cosa fw-bold">ÚNETE</h1>
-    <p>A NOSOTROS</p>
+    <h1 class="esta-cosa fw-bold">ÚNETE A AGÉNDALOMAX</h1>
+    <p>ACOMODA TU TIEMPO CON LOS MEJORES SERVICIOS DE CHILE</p>
   </section>
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">

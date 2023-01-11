@@ -5,12 +5,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/creaUsuario.css">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/css/editaEmpresa.css">
     <title>Editar Empresa</title>
 </head>
@@ -30,26 +39,50 @@
           <li class="nav-item">
           </li>
         </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+              <c:choose>
+                  <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+                      <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                  </c:when>
+              </c:choose>
+          </li>
+      </ul>
 <!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-  <select class="me-2 form-select" name="selectReg" id="selectReg">
-      <option value="0">Región</option>
-      <c:forEach items="${regiones}" var="region">
-          <option value="${region.id}">${region.nombre}</option>
-      </c:forEach>
-  </select>
-  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-      <option value="0">Ciudad</option>
-  </select>
-  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-  <button class="btn botones" type="submit">Buscar</button>
-</form>
+        <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+              <option value="0">Región</option>
+              <c:forEach items="${regiones}" var="region">
+                  <option value="${region.id}">${region.nombre}</option>
+              </c:forEach>
+          </select>
+          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+              <option value="0">Ciudad</option>
+          </select>
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+          <button class="btn botones" type="submit">Buscar</button>
+        </form>
+        <div class="nav-item dropdown" id="usuario-nombre">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <c:out value="${usuario.nombre}"/>
+          </a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/horas/usuario/${usuario.id}">Horas agendadas</a></li>
+              <c:if test="${usuario.getEmpresa() != null}">
+                  <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+              </c:if>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+          </ul>
+      </div>
 </nav>
 
 <div class="container">
   <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
     <div class="form-image">
-      <img src="/imagenes/undraw_text_field_htlv.svg" alt="formulario">
+      <img src="/imagenes/undraw_code_typing_re_p8b9.svg" alt="formulario">
     </div>
     <div class="form">
 
@@ -76,7 +109,7 @@
       <form:label cssClass="form-label" path="ciudad">Ciudades</form:label>
       <form:errors path="ciudad"/>
       <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
-        <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
+        <c:forEach items="${ciudades}" var="ciudad" >
           <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
         </c:forEach>
       </form:select>

@@ -1,12 +1,31 @@
-/* estilo de nav para todos los nav*/
-nav{
-    padding: 10px;
-    border:10px solid rgba(217, 211, 255, 0.838);
-    background-color: rgb(189, 179, 254);
-} 
+body{
+    font-family: 'Nunito', sans-serif;
+    background-image: linear-gradient(white,#FFEBCD);
+}
+/* nav */
+.container-fluid{
+    background-color:rgb(182, 179, 254);
+    font-size: 15.5px;
+}
 
-.navbar-brand {
-    margin-left: 5%;
+nav{
+    background-color: #d2cbff;
+    font-family: 'Nunito', sans-serif;
+}
+
+.navbar-brand{
+    margin-left: 25px;
+}
+
+.nav-link {
+    background-color: #f0ebff;
+    width: 150px;
+    height: 50px;
+    margin-top: -15px;
+    font-size: 22px;
+    border: 5px solid rgb(205, 204, 255);
+    border-radius: 7px;
+    color: rgb(59, 48, 255);
 }
 
 #max {
@@ -23,6 +42,10 @@ nav{
 #agendalo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 40px;
+} 
+
+label{
+    width: 100px;
 }
 
 #usuario-nombre{
@@ -66,9 +89,35 @@ nav{
 }
 /*termina estilo de nav*/
 
+.sub-texto{
+    padding: 4px;
+    background-color:rgb(27, 41, 107);
+    border-radius: 5px;
+    width: 350px;
+    height: 35px;
+    color: white;
+}
 
 #banner{
-    background-color: #FFEBCD;
+    align-items: center;
+    background-image: linear-gradient(#FFEBCD,white);
+}
+
+#banner img{
+    margin-top: 5%;
+    margin-left: 38%;
+    width: 25%;
+    height: 40%;
+}
+
+.container-agen{
+    background-image: linear-gradient(white,#FFEBCD);
+} 
+
+.table{
+    width: 90%;
+    margin-left: 5%;
+    background-image: linear-gradient(white,rgb(205, 204, 255));
 }
 
 .link-secondary{

@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Nunito', sans-serif;
+    background-image: linear-gradient(white,blanchedalmond);
 }
 
 /* estilo de nav para todos los nav*/
@@ -11,7 +12,7 @@ body {
     font-size: 15.5px;
 }
 
-nav {
+nav { 
     background-color: #d2cbff;
     font-family: 'Nunito', sans-serif;
 }
@@ -103,6 +104,22 @@ label {
 
 /* nav */
 /*termina estilo de nav*/
+.eliminar{
+    color: white;
+    border-style: solid;
+    background-color:rgb(27, 41, 107);
+    /* padding: 0.03rem 1rem; */
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    width: 200px;
+    height: 45px;
+}
+
+.eliminar:hover{
+    background-color:red; 
+    border: 2px solid rgb(196, 0, 0);
+}
 
 #ladoCarrusel {
     margin-top: 100px;
@@ -180,7 +197,7 @@ label {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 .form-body {
-    background-color: #FFEBCD;
+    background-image:radial-gradient(rgb(182, 179, 254), white) ;
 }
 
 /*no se si funciona esto*/
@@ -313,7 +330,8 @@ label {
 }
 
 #tablita {
-    height: 700px;
+    height: 300px;
+    background-image: linear-gradient(blanchedalmond,white,blanchedalmond);
 }
 
 #botonPremium {
@@ -324,7 +342,10 @@ label {
 
 
 #servicisito {
-    height: 880px;
+    height: 830px;
+}
+#textareita{
+    height: 60px;
 }
 
 /*botones tamaño*/
@@ -375,10 +396,3 @@ label {
     padding: 10px;
 }
 
-/*particulas*/
-canvas {
-    display: inline-block;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-}

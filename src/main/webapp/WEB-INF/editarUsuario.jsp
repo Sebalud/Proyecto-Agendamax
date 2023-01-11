@@ -8,22 +8,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="stylesheet" type="text/css" href="/css/creaUsuario.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
-
-
     <title>Editar Usuario</title>
 </head>
 <body>
@@ -44,9 +41,6 @@
                     <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
                     <c:choose>
                         <c:when test="${usuario.empresa == null}">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                            Crear Empresa
-                        </button>
                         <!-- Modal -->
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -95,22 +89,33 @@
                         <c:out value="${usuario.nombre}"/>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                        <li><a class="dropdown-item" href="/horas/usuario/${usuario.id}">Horas agendadas</a></li>
                         <c:if test="${usuario.getEmpresa() != null}">
                             <li><a class="dropdown-item" href="/plan/${usuario.empresa.id}">Tu empresa</a></li>
                         </c:if>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
+                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div>
-        <h1 class="ml-5" id="title">Editar Usuario</h1>
-        <h3 class="ml-4">Todos los campos son opcionales</h3>
+    <div class="container">
         <form:form action="/perfil/actualizar" method="POST" modelAttribute="userForm" cssClass="container form ancho">
+
+        <div class="form-image">
+            <img src="/imagenes/undraw_text_field_htlv.svg" alt="formulario">
+        </div>
+        <div class="form">
+
+        <div class="mod-sub-title">
+            <div class="sub-title">
+                <h3>Editar Usuario</h3>
+                <h5 class="ml-4">Todos los campos son opcionales</h5>
+            </div>
+        </div>
 
             <div class="input-group">
                 <form:input type="hidden" path="id" value="${usuario.id}"/>
@@ -145,23 +150,23 @@
                 </p>
 
                 <p class="input-box">
-                    <form:label path="passwordConfirmation">Confirmación de contraseña:</form:label>
+                    <form:label path="passwordConfirmation">Confirmación:</form:label>
                     <form:errors cssClass="text-danger" path="passwordConfirmation" />
                     <form:input type="password" cssClass="form-control" path="passwordConfirmation"
                     placeholder="Confirme su contraseña" />
                 </p>
-                
             </div> 
-            <div class="input-regist">
-                <input class="input-register" type="submit" value="Actualizar Perfil" />
+            <div class="input-regist" >
+                <input class="input-register" style="width: 200px;"type="submit" value="Actualizar Perfil" />
             </div>
+        </div>
         </form:form>
     </div>
 
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-white text-muted">
         <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style="background-color:rgb(182, 179, 254);">
             <!-- Left -->
 
             <div class="sub-texto">
@@ -273,7 +278,7 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+        <div class="text-center p-4" style="background-color: rgb(182, 179, 254);">
             www.agendalomax.cl © 2022 :
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
         </div>
