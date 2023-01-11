@@ -29,7 +29,9 @@
   <!-- Barra de navegacion -->
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">AgendamientoMax</a>
+      <a id="nombrePagina" class="navbar-brand" href="/home">
+        <span id="agendalo">Agéndalo</span>
+        <span id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,11 +46,10 @@
             </c:when>
           </c:choose>
         </ul>
-
         <!-- Buscadores de Servicios-->
-        <form class="d-flex" role="search" method="POST" action="/search">
-          <select class="form-select" name="selectReg" id="selectReg">
-            <option value="0">Region</option>
+        <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+            <option value="0">Región</option>
             <c:forEach items="${regiones}" var="region">
               <option value="${region.id}">${region.nombre}</option>
             </c:forEach>
@@ -80,7 +81,7 @@
       </div>
     </div>
   </nav>
-
+  
   <!-- Inicio Body -->
   <div>
     <c:if test="${serviciosFiltradosPorNombreCiudad.size() > 0}">

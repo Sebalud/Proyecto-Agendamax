@@ -138,7 +138,7 @@ background-color: rgb(29, 34, 38);
 .form-holder {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     text-align: center;
     min-height: 100vh;

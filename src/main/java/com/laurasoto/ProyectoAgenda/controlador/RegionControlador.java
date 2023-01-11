@@ -7,6 +7,7 @@ import com.laurasoto.ProyectoAgenda.servicios.RegionServicio;
 
 @Controller
 public class RegionControlador {
+    @SuppressWarnings("unused")
     private final RegionServicio regionServicio;
 
     public RegionControlador(RegionServicio regionServicio){
