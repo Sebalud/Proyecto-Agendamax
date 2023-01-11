@@ -78,17 +78,18 @@
           <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
           <button class="btn botones" type="submit">Buscar</button>
         </form>
+
         <div class="nav-item dropdown" id="usuario-nombre">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
             <c:if test="${usuario.getEmpresa() != null}">
               <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
             </c:if>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
           </ul>
         </div>
       </div>

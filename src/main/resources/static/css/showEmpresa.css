@@ -5,15 +5,10 @@ body{
 }
 
 /* estilo de nav para todos los nav*/
-#nombrePagina {
-    font-size: xx-large;
-}
-
 nav{
     padding: 10px;
     border:10px solid rgba(217, 211, 255, 0.838);
     background-color: rgb(189, 179, 254);
-    
 } 
 
 .navbar-brand {
@@ -60,14 +55,8 @@ nav{
 
 /*termina estilo de nav*/
 
-#ladoCarrusel {
-    margin-top: 100px;
-}
 
-#ladoCarrusel h1 {
-    font-size: 60px;
-}
- /*botones azules*/
+/*botones azules*/
 .botones{
     border-style: solid;
     background-color:rgb(22, 49, 113);
@@ -87,6 +76,14 @@ nav{
 }
 
 /*botones azules*/
+
+#ladoCarrusel {
+    margin-top: 100px;
+}
+
+#ladoCarrusel h1 {
+    font-size: 60px;
+}
 
 
 #carouselExampleDark {
@@ -325,4 +322,4 @@ canvas {
     width: 100vw;
     height: 100vh;
     position: absolute;
-  } 
+} 
