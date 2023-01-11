@@ -7,7 +7,7 @@ document.getElementById("selectReg").onchange = function (){
         selCities.removeChild(selCities.lastChild);
     }
     let initial = document.createElement('option');
-    initial.textContent = "-- Ciudad --";
+    initial.textContent = "Ciudad";
     initial.value = 0;
     selCities.appendChild(initial);
     region = this.value;

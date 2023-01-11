@@ -1,76 +1,76 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
-    <title>Log in</title>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/login.css">
+  <title>Log in</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg py-4 px-3 mb-5">
-        <div class="container-fluid">
-          <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-            id="max">Max</span></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home" id="home">Home </a>
-              </li>
-            </ul> 
-            <!-- Buscadores de Servicios-->
-            <form class="d-flex" role="search" method="POST" action="/search">
-              <select class="me-2 form-select" name="selectReg" id="selectReg">
-                  <option value="0">Región</option>
-                  <c:forEach items="${regiones}" var="region">
-                      <option value="${region.id}">${region.nombre}</option>
-                  </c:forEach>
-              </select>
-              <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-                  <option value="0">Ciudad</option>
-              </select>
-              <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-              <button class="btn botones" type="submit">Buscar</button>
-          </form>
-          </div>
-        </div>
-      </nav>
+  <!-- Barra Menu -->
+  <nav class="navbar navbar-expand-lg py-4 px-3 mb-5">
+    <div class="container-fluid">
+      <a id="nombrePagina" class="navbar-brand" href="">
+        <span id="agendalo">Agéndalo</span>
+        <span id="max">Max</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home" id="home">Home </a>
+          </li>
+        </ul> 
+        <!-- Buscadores de Servicios-->
+        <form class="d-flex" role="search" method="POST" action="/search">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+            <option value="0">Región</option>
+            <c:forEach items="${regiones}" var="region">
+                <option value="${region.id}">${region.nombre}</option>
+            </c:forEach>
+          </select>
+          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+            <option value="0">Ciudad</option>
+          </select>
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+          <button class="btn botones" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
-    <div class="container" id="contenedor">  
-      
+  <!-- Cuerpo Pagina -->
+  <div class="container" id="contenedor">  
     <div class="form-image">
       <img src="/imagenes/undraw_futuristic_interface_re_0cm6.svg" alt="log in">
     </div>
-
     <div class="input-group">
-    <p class="text-dark"><c:out value="${error}" /></p>
-    <p><c:out value="${loguearseParaAgendar}" /></p>
-    <form method="post" action="/" class="container form ancho">
-      <div class="ml-5" id="title"> 
-        <h1 class="">Log in</h1>
-      </div> 
+      <p class="text-dark"><c:out value="${error}" /></p>
+      <p><c:out value="${loguearseParaAgendar}" /></p>
+      <form method="post" action="/" class="container form ancho">
+        <div class="ml-5" id="title"> 
+          <h1 class="">Log in</h1>
+        </div> 
         <p class="input-box">
-            <label for="email">Email</label>
-            <input class="ancho" type="text" id="email" name="email" placeholder="Introduzca su email"/>
+          <label for="email">Email</label>
+          <input class="ancho" type="text" id="email" name="email" placeholder="Introduzca su email"/>
         </p>
         <p class="input-box">
-            <label for="password">Contraseña</label>
-            <input class="ancho" type="password" id="password" name="password" placeholder="Introduzca su contraseña"/>
+          <label for="password">Contraseña</label>
+          <input class="ancho" type="password" id="password" name="password" placeholder="Introduzca su contraseña"/>
         </p>
-          <a class=" btn botones" href="/registration" id="regist">Registrarse</a>
-          <input  class="btn botones" type="submit" value="Log in!"/>
-        
-    </form> 
+        <a class=" btn botones" href="/registration" id="regist">Registrarse</a>
+        <input  class="btn botones" type="submit" value="Log in!"/>
+      </form> 
+    </div>
   </div>
-</div>
 
   <!-- Footer -->
   <footer class="text-center text-lg-start text-muted">
@@ -194,6 +194,8 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+
+  
   <script>
     //Mapeo de variable para archivo servicio.js
     var regionesConAscii = '<c:out value="${regionesJson}"/>'

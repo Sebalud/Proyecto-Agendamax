@@ -9,8 +9,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="/css/servicio.css">
@@ -22,7 +20,7 @@
   <!-- Barra de navegacion -->
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+      <a id="nombrePagina" class="navbar-brand" href="/home"><span id="agendalo">Agéndalo</span><span
         id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,36 +59,36 @@
             </c:choose>
           </li>
         </ul>
-<!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-  <select class="me-2 form-select" name="selectReg" id="selectReg">
-      <option value="0">Región</option>
-      <c:forEach items="${regiones}" var="region">
-          <option value="${region.id}">${region.nombre}</option>
-      </c:forEach>
-  </select>
-  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-      <option value="0">Ciudad</option>
-  </select>
-  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-  <button class="btn botones" type="submit">Buscar</button>
-</form>
+        <!-- Buscadores de Servicios-->
+        <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+            <option value="0">Región</option>
+            <c:forEach items="${regiones}" var="region">
+              <option value="${region.id}">${region.nombre}</option>
+            </c:forEach>
+          </select>
+          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+            <option value="0">Ciudad</option>
+          </select>
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+          <button class="btn botones" type="submit">Buscar</button>
+        </form>
         <div class="nav-item dropdown" id="usuario-nombre">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/logout">Log out</a></li>
-          <c:if test="${usuario.getEmpresa() != null}">
-            <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-          </c:if>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            <c:if test="${usuario.getEmpresa() != null}">
+              <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+            </c:if>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Editar perfil</a></li>
           </ul>
         </div>
       </div>
     </div>
-</nav>
+  </nav>
   
   <!-- Inicio Body -->
   <div>

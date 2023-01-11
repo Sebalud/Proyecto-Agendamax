@@ -5,8 +5,10 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +22,7 @@ import com.laurasoto.ProyectoAgenda.utiles.Funciones;
 import com.laurasoto.ProyectoAgenda.validator.UserValidator;
 
 @Controller
+@SuppressWarnings("unused")
 public class UsuarioControlador {
 	private final UsuarioServicio usuarioServicio;
 	private final EmpresaServicio empresaServicio;
@@ -52,7 +55,6 @@ public class UsuarioControlador {
 	public String registerUser(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, HttpSession session, Model model) {
 		userValidator.validate(usuario, result);
 		if (result.hasErrors()) {
-			System.out.println(result.getFieldError().toString());
 			return "creaUsuario";
 		}
 		int tipoUsuario = 0;
@@ -141,4 +143,37 @@ public class UsuarioControlador {
 		usuario.setTipoUsuario(0);
 		return"redirect:/administradores";
 	} */
+
+
+	@GetMapping("/perfil/{idUser}")
+	public String perfilUsuario(HttpSession session, @PathVariable("idUser") Long idUser, @ModelAttribute("userForm") Usuario userForm, Model model){
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
+		Usuario user = usuarioServicio.findById(idUser);
+
+		model.addAttribute("regiones", regiones);
+		model.addAttribute("regionesJson", resultadoJson);
+		model.addAttribute("usuario", user);
+		return "editarUsuario";
+	}
+
+	@PostMapping("/perfil/actualizar")
+	public String editarUser(HttpSession session, @ModelAttribute("userForm") Usuario userForm, Model model, BindingResult result){
+		List<Region> regiones = regionServicio.regionesTodas();
+		String resultadoJson = new Funciones().regionesToJson(regiones);
+		List<ObjectError> listErrors = usuarioServicio.updateUser(userForm);
+
+		if(!listErrors.isEmpty()){
+			for (ObjectError error : listErrors) {
+				result.addError(error);
+			}
+			Usuario user = usuarioServicio.findById(userForm.getId());
+
+			model.addAttribute("regiones", regiones);
+			model.addAttribute("regionesJson", resultadoJson);
+			model.addAttribute("usuario", user);
+			return "editarUsuario";
+		} 
+		return "redirect:/home";
+	}
 }

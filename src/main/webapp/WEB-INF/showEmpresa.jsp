@@ -1,98 +1,98 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-        <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap"
-                    rel="stylesheet">
-                <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
-                <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-                    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-                    crossorigin="anonymous">
-                <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
-                <title>Empresa FREE</title>
-            </head>
-            <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid">
-                  <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-                    id="max">Max</span></a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
-                        <c:choose>
-                          <c:when test="${usuario.empresa == null}">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                              Crear Empresa
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                    Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                                    propietario
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <a class="btn btn-black" href="/planes">Aceptar</a>
-                                  </div>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
+    <title>Empresa FREE</title>
+</head>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+            id="max">Max</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+                    <c:choose>
+                        <c:when test="${usuario.empresa == null}">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
+                            Crear Empresa
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                              </div>
+                                <div class="modal-body">
+                                Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                                propietario
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <a class="btn btn-black" href="/planes">Aceptar</a>
+                                </div>
                             </div>
-                          </c:when>
-                        </c:choose>
-                      </li>
+                            </div>
+                        </div>
+                        </c:when>
+                    </c:choose>
+                    </li>
+                </ul>
+                <!-- Buscadores de Servicios-->
+                <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+                    <select class="me-2 form-select" name="selectReg" id="selectReg">
+                        <option value="0">Región</option>
+                        <c:forEach items="${regiones}" var="region">
+                            <option value="${region.id}">${region.nombre}</option>
+                        </c:forEach>
+                    </select>
+                    <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+                        <option value="0">Ciudad</option>
+                    </select>
+                    <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+                    <button class="btn botones" type="submit">Buscar</button>
+                </form>
+                <div class="nav-item dropdown" id="usuario-nombre">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <c:out value="${usuario.nombre}"/>
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                    <c:if test="${usuario.getEmpresa() != null}">
+                    <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+                    </c:if>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Editar perfil</a></li>
                     </ul>
-            <!-- Buscadores de Servicios-->
-            <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-              <select class="me-2 form-select" name="selectReg" id="selectReg">
-                  <option value="0">Región</option>
-                  <c:forEach items="${regiones}" var="region">
-                      <option value="${region.id}">${region.nombre}</option>
-                  </c:forEach>
-              </select>
-              <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-                  <option value="0">Ciudad</option>
-              </select>
-              <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-              <button class="btn botones" type="submit">Buscar</button>
-            </form>
-                    <div class="nav-item dropdown" id="usuario-nombre">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <c:out value="${usuario.nombre}"/>
-                      </a>
-                      <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/logout">Log out</a></li>
-                      <c:if test="${usuario.getEmpresa() != null}">
-                        <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-                      </c:if>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
-            </nav>
+            </div>
+        </div>
+    </nav>
 
                   
                 <!-- Contenido-->

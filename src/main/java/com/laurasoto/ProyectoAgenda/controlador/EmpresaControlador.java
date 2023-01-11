@@ -30,6 +30,7 @@ import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
 import com.laurasoto.ProyectoAgenda.utiles.Funciones;
 
 @Controller
+@SuppressWarnings("unused")
 public class EmpresaControlador {
 	private final EmpresaServicio empresaServicio;
 	private final Servicio1Servicio servicio1Servicio;

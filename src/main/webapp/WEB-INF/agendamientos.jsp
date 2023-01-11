@@ -13,82 +13,81 @@
     <title>Title</title>
 </head>
 <body>
+    <!-- Barra Menu -->
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-          <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-            id="max">Max</span></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
-                <c:choose>
-                  <c:when test="${usuario.empresa == null}">
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                      Crear Empresa
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                            propietario
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-black" href="/planes">Aceptar</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </c:when>
-                </c:choose>
-              </li>
-            </ul>
-    <!-- Buscadores de Servicios-->
-    <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-      <select class="me-2 form-select" name="selectReg" id="selectReg">
-          <option value="0">Región</option>
-          <c:forEach items="${regiones}" var="region">
-              <option value="${region.id}">${region.nombre}</option>
-          </c:forEach>
-      </select>
-      <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-          <option value="0">Ciudad</option>
-      </select>
-      <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-      <button class="btn botones" type="submit">Buscar</button>
-    </form>
-            <div class="nav-item dropdown" id="usuario-nombre">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <c:out value="${usuario.nombre}"/>
-              </a>
-              <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/logout">Log out</a></li>
-              <c:if test="${usuario.getEmpresa() != null}">
-                <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-              </c:if>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-              </ul>
+            <a id="nombrePagina" class="navbar-brand" href="">
+                <span id="agendalo">Agéndalo</span>
+                <span id="max">Max</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+                        <c:choose>
+                            <c:when test="${usuario.empresa == null}">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
+                                    Crear Empresa
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                                                propietario
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                <a class="btn btn-black" href="/planes">Aceptar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
+                        </c:choose>
+                    </li>
+                </ul>
+                <!-- Buscadores de Servicios-->
+                <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+                    <select class="me-2 form-select" name="selectReg" id="selectReg">
+                        <option value="0">Región</option>
+                        <c:forEach items="${regiones}" var="region">
+                            <option value="${region.id}">${region.nombre}</option>
+                        </c:forEach>
+                    </select>
+                    <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+                        <option value="0">Ciudad</option>
+                    </select>
+                    <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+                    <button class="btn botones" type="submit">Buscar</button>
+                </form>
+                <div class="nav-item dropdown" id="usuario-nombre">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <c:out value="${usuario.nombre}"/>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                        <c:if test="${usuario.getEmpresa() != null}">
+                            <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+                        </c:if>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
     </nav>
 
-    
-
-
-    
     <div id="banner">
         <img src="/imagenes/organizador.png" alt="">
     </div>
@@ -96,41 +95,31 @@
     <div class="container mt-5">
         <h1 class="border-bottom text-center mb-4 pb-3">Tus horas Agendadas</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Servicio</th>
-                <th>Empresa</th>
-                <th>Fecha</th>
-                <th>Precio</th>
-                <th>Contactar con la empresa</th>
-                <th>Desagendar Hora</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${usuario.horarios}" var="horaAgendada">
-            <tr>
-                <td>${horaAgendada.getServicio().getServicioOfrecido()}</td>
-                <td>${horaAgendada.getServicio().getEmpresa().getNombre()}</td>
-                <td><fmt:formatDate value="${horaAgendada.getFechaAsDate()}" pattern="HH:mm:ss"/></td>
-                <td>precio</td>
-                <td>${horaAgendada.getServicio().getEmpresa().getUsuarioAdmin().getEmail()}</td>
-                <td><a class="" href="/cancela/cita/${usuario.id}/${horaAgendada.id}">Cancelar cita</a></td>
-            </tr>
-            </c:forEach>
-        </tbody>
-    </table>
-
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Empresa</th>
+                    <th>Fecha</th>
+                    <th>Precio</th>
+                    <th>Contactar con la empresa</th>
+                    <th>Desagendar Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${usuario.horarios}" var="horaAgendada">
+                    <tr>
+                        <td>${horaAgendada.getServicio().getServicioOfrecido()}</td>
+                        <td>${horaAgendada.getServicio().getEmpresa().getNombre()}</td>
+                        <td><fmt:formatDate value="${horaAgendada.getFechaAsDate()}" pattern="HH:mm:ss"/></td>
+                        <td>precio</td>
+                        <td>${horaAgendada.getServicio().getEmpresa().getUsuarioAdmin().getEmail()}</td>
+                        <td><a class="" href="/cancela/cita/${usuario.id}/${horaAgendada.id}">Cancelar cita</a></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
     </div>
-
-
-
-
-
-
-
-
-    
 
 
     <footer class="text-center text-lg-start text-muted">
@@ -250,7 +239,7 @@
         <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
             www.agendalomax.cl © 2022 :
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide
-                cita</a>
+            cita</a>
         </div>
         <!-- Copyright -->
     </footer>
