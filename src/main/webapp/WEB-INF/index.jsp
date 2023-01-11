@@ -58,7 +58,7 @@
                             <p class="ms-2">Creación de tu horario</p>
                         </div>
                         </div>
-                        
+                      
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn botones" data-bs-dismiss="modal">Cancelar</button>
@@ -69,6 +69,12 @@
                 </div>
               </c:when>
             </c:choose>
+            <c:choose>
+              <c:when test="${usuario == null}">
+                <a class="btn botones" id="loginBoton" href="/">Login</a>
+              </c:when>
+            </c:choose>
+            
           </li>
         </ul>
         <!-- Buscadores de Servicios-->
@@ -86,19 +92,25 @@
           <button class="btn botones" type="submit">Buscar</button>
         </form>
 
-        <div class="nav-item dropdown" id="usuario-nombre">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <c:out value="${usuario.nombre}"/>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
-            <c:if test="${usuario.getEmpresa() != null}">
-              <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-            </c:if>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/logout">Log out</a></li>
-          </ul>
-        </div>
+
+        <c:choose>
+              <c:when test="${usuario != null}">
+                <div class="nav-item dropdown" id="usuario-nombre">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <c:out value="${usuario.nombre}"/>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
+                    <c:if test="${usuario.getEmpresa() != null}">
+                      <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+                    </c:if>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                  </ul>
+                </div>
+              </c:when>
+        </c:choose>
+        
       </div>
     </div>
 </nav>

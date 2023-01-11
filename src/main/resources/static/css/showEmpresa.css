@@ -324,7 +324,10 @@ label {
 
 
 #servicisito {
-    height: 880px;
+    height: 830px;
+}
+#textareita{
+    height: 60px;
 }
 
 /*botones tamaño*/
@@ -375,10 +378,3 @@ label {
     padding: 10px;
 }
 
-/*particulas*/
-canvas {
-    display: inline-block;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-}

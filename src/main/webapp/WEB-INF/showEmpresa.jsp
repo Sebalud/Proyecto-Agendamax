@@ -38,33 +38,6 @@
                     <li class="nav-item">
                         <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
                         <c:choose>
-                            <c:when test="${usuario.empresa == null}">
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                                    Crear Empresa
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                                                propietario
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                <a class="btn btn-black" href="/planes">Aceptar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:when>
-                        </c:choose>
-                        <c:choose>
                             <c:when test="${!empresa.empresafree && usuario.empresa != null}">
                                 <li class="nav-item text-danger mt-2">Cuenta premium!</li>
                             </c:when>
@@ -91,6 +64,7 @@
                         <c:out value="${usuario.nombre}"/>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/horas/usuario/${usuario.id}">Horas agendadas</a></li>
                         <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
                         <c:if test="${usuario.getEmpresa() != null}">
                             <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
@@ -208,7 +182,7 @@
 
                                     <div class="col-md-12">
                                         <form:errors cssClass="text-danger" path="direction" />
-                                        <form:input cssClass="form-control" path="direction" placeholder="Direccion" />
+                                        <form:input cssClass="form-control" path="direction" placeholder="Dirección" />
                                     </div>
 
                                     <div class="col-md-12">
@@ -235,7 +209,7 @@
                                         <form:select class="form-select mt-3" path="horaTermino"
                                             placeholder="Hora termino">
                                             <form:errors path="horaTermino" />
-                                            <option selected disabled value="">Hora de termino</option>
+                                            <option selected disabled value="">Hora de término </option>
                                             <form:option value="14">14 PM</form:option>
                                             <form:option value="15">15 PM</form:option>
                                             <form:option value="16">16 PM</form:option>
@@ -249,15 +223,15 @@
                                     <div class="col-md-12">
                                         <form:select class="form-select" path="duracionServicio">
                                             <form:errors path="duracionServicio" />
-                                            <option selected disabled value="">Duracion de servicio</option>
+                                            <option selected disabled value="">Duración de servicio</option>
                                             <form:option value="20">20 min</form:option>
                                             <form:option value="30">30 min</form:option>
                                             <form:option value="60">60 min</form:option>
                                         </form:select>
                                     </div>
-                                    <div class="col-md-12 mt-3">
+                                    <div class="col-md-12 mt-3" >
                                         <form:errors cssClass="text-danger" path="description" />
-                                        <form:textarea cssClass="form-control" path="description" placeholder="Descripción" />
+                                        <form:textarea id="textareita" cssClass="form-control" path="description" placeholder="Descripción" />
                                     </div>
                                     <div class="col-md-12 mt-3">
                                         <input type="file" class="form-control " name="postFile">
