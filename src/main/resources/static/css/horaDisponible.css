@@ -2,16 +2,30 @@ body{
     font-family: 'Nunito', sans-serif;
 }
 
-/* estilo de nav para todos los nav*/
-nav{
-    padding: 10px;
-    border:10px solid rgba(217, 211, 255, 0.838);
-    background-color: rgb(189, 179, 254);
-    
-} 
+/* nav */
+.container-fluid{
+    background-color:rgb(182, 179, 254);
+    font-size: 15.5px;
+}
 
-.navbar-brand {
-    margin-left: 5%;
+nav{
+    background-color: #d2cbff;
+    font-family: 'Nunito', sans-serif;
+}
+
+.navbar-brand{
+    margin-left: 25px;
+}
+
+.nav-link {
+    background-color: #f0ebff;
+    width: 150px;
+    height: 50px;
+    margin-top: -15px;
+    font-size: 22px;
+    border: 5px solid rgb(205, 204, 255);
+    border-radius: 7px;
+    color: rgb(59, 48, 255);
 }
 
 #max {
@@ -28,6 +42,10 @@ nav{
 #agendalo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 40px;
+} 
+
+label{
+    width: 100px;
 }
 
 #usuario-nombre{
@@ -71,17 +89,8 @@ nav{
 }
 /*termina estilo de nav*/
 
-
 #targeta{
     background-color: #f8eddc;
-}
-
-.botones{
-    border: none;
-    background-color:rgb(177, 165, 253);
-    border: 1px cornflowerblue;
-    border-radius: 20px;
-    cursor: pointer;
 }
 
 #tabla{
