@@ -261,6 +261,12 @@
                                                         <form:option value="60">60 min</form:option>
                                                     </form:select>
                                                 </div>
+
+                                                <div class="col-md-12 mt-3">
+                                                    <form:errors cssClass="text-danger" path="description" />
+                                                    <form:textarea cssClass="form-control" path="description" placeholder="Descripción" />
+                                                </div>
+                                                    
                                                 <div class="col-md-12 mt-3">
                                                 <input type="file" class="form-control " name="postFile">
                                                 </div>

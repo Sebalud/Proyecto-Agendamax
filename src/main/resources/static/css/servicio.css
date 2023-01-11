@@ -101,3 +101,17 @@
     opacity: 0.9; 
     transform: scale(0, 1);
 }
+
+.image-service img{
+    width: 330px;
+    height: 220px;
+}
+
+.spacing {
+    margin: 30px;
+}
+
+.info-size{
+    width: 630px;
+    height: 220px;
+}
