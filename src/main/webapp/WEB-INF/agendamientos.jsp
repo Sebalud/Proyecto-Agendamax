@@ -112,7 +112,7 @@
                         <td>${horaAgendada.getServicio().getServicioOfrecido()}</td>
                         <td>${horaAgendada.getServicio().getEmpresa().getNombre()}</td>
                         <td><fmt:formatDate value="${horaAgendada.getFechaAsDate()}" pattern="HH:mm:ss"/></td>
-                        <td>precio</td>
+                        <td>${horaAgendada.getServicio().getPrecio()}</td>
                         <td>${horaAgendada.getServicio().getEmpresa().getUsuarioAdmin().getEmail()}</td>
                         <td><a class="" href="/cancela/cita/${usuario.id}/${horaAgendada.id}">Cancelar cita</a></td>
                     </tr>
