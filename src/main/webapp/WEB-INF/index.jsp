@@ -216,8 +216,8 @@
     </div>
   </div>
   <section class="filtro fw-bold">
-    <h1 class="esta-cosa fw-bold">ÚNETE</h1>
-    <p>A NOSOTROS</p>
+    <h1 class="esta-cosa fw-bold">ÚNETE A AGÉNDALOMAX</h1>
+    <p>ACOMODA TU TIEMPO CON LOS MEJORES SERVICIOS DE CHILE</p>
   </section>
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">

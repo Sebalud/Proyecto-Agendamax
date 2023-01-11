@@ -7,10 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/agendamientos.css">
-    <title>Title</title>
+    <title>Horas agendadas</title>
 </head>
 <body>
     <!-- Barra Menu -->
@@ -30,9 +35,6 @@
                         <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
                         <c:choose>
                             <c:when test="${usuario.empresa == null}">
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                                    Crear Empresa
-                                </button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -92,8 +94,8 @@
         <img src="/imagenes/organizador.png" alt="">
     </div>
 
-    <div class="container mt-5">
-        <h1 class="border-bottom text-center mb-4 pb-3">Tus horas Agendadas</h1>
+    <div class="container-agen mt-5">
+        <h1 class="border-bottom text-center mb-4 pb-3 fw-bold">Tus horas Agendadas</h1>
 
         <table class="table">
             <thead>
@@ -124,7 +126,7 @@
 
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"style="background-color:rgb(182, 179, 254);">
             <!-- Left -->
 
             <div class="sub-texto">
@@ -236,7 +238,7 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+        <div class="text-center p-4" style="background-color:rgb(182, 179, 254);">
             www.agendalomax.cl © 2022 :
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide
             cita</a>
