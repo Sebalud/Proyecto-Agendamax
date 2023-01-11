@@ -68,6 +68,7 @@
             <c:out value="${usuario.nombre}"/>
           </a>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/horas/usuario/${usuario.id}">Horas agendadas</a></li>
             <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
             <c:if test="${usuario.getEmpresa() != null}">
               <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
