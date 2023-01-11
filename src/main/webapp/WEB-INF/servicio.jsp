@@ -82,9 +82,9 @@
   
   <!-- Inicio Body -->
   <div class="bigbox">
-    <div class="container fw-bold">
+    <div id="box-info" class="container fw-bold">
       <c:if test="${serviciosFiltradosPorNombreCiudad.size() > 0}">
-        <p class="title-design">Las empresas que ofrecen agendamiento relacionado con "${servicio}"</p>
+        <p class="title-design">Resultados relacionados con "${servicio}"</p>
       </c:if>
     <div class="title-design">
       <c:out value="${errorServicio}" />
@@ -95,30 +95,33 @@
 
     <c:forEach items="${serviciosFiltradosPorNombreCiudad}" var="servicio">
       <div class="container d-inline-block spacing">
-        <div class="container d-flex mb-3">
-          <div class="image-service p-2">
-            <c:if test="${servicio.imgRoute.isEmpty() == false}">
-              <img src="${servicio.imgRoute}" alt="${servicio.imgRoute}" class="rounded float-start">
-            </c:if>
-          </div>
-          <div class="list-group service-data p-2 ">
-            <div class="list-group-item list-group-item-action info-size">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">${servicio.getEmpresa().nombre}</h5>
-                <small>${servicio.direction}</small>
+        <div class="container mb-3 decort">
+          <div class="d-flex mx-auto mb-3">
+            <div class="image-service p-2">
+              <c:if test="${servicio.imgRoute.isEmpty() == false}">
+                <img src="${servicio.imgRoute}" alt="${servicio.imgRoute}" class="rounded float-start">
+              </c:if>
+            </div>
+            <div  class="list-group service-data p-2 ">
+              <div class="list-group-item list-group-item-action info-size">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">${servicio.getEmpresa().nombre}</h5>
+                  <small>${servicio.direction}</small>
+                </div>
+                <p class="mb-1">${servicio.servicioOfrecido}</p>
+                <p class="mb-1"> ${servicio.description} </p>
+                <small class="text-muted">${servicio.precio}</small>
+                <!-- Button trigger modal -->
+                <br>
+                <br>
+                <button type="button" id="boton-modal" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#horasDisp${servicio.id}"> Ver Horas Disponibles </button>
               </div>
-              <p class="mb-1">${servicio.servicioOfrecido}</p>
-              <p class="mb-1"> ${servicio.description} </p>
-              <small class="text-muted">${servicio.precio}</small>
-              <!-- Button trigger modal -->
-
-              <br>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#horasDisp${servicio.id}"> Ver Horas Disponibles </button>
             </div>
           </div>
         </div>
       </div>
+          
 
       <!-- Modal -->
       <div class="modal fade" id="horasDisp${servicio.id}" tabindex="-1" aria-labelledby="exampleModalLabel"

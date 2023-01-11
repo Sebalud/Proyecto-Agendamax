@@ -256,6 +256,10 @@
                                         </form:select>
                                     </div>
                                     <div class="col-md-12 mt-3">
+                                        <form:errors cssClass="text-danger" path="description" />
+                                        <form:textarea cssClass="form-control" path="description" placeholder="Descripción" />
+                                    </div>
+                                    <div class="col-md-12 mt-3">
                                         <input type="file" class="form-control " name="postFile">
                                     </div>
                                     <div class="form-button mt-3">
@@ -285,9 +289,9 @@
                                     </div>
                                     <div class="text-box ms-3 mt-5 text-light">
                                         <h2 class="fw-semibold mt-3">Ofrece más de un servicio y disfruta de otras ventajas con Premium</h2>
-                                        <p class="font-md">Suscríbete desde 7.50/EUR/mes y accede a:</p>
+                                        <p class="font-md">Suscríbete desde $5 mil al mes y accede a:</p>
                                         <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt="">
-                                            <p class="ms-2">8.9M iconos y stickers en formato SVG, EPS, PSD y BASE64</p>
+                                            <p class="ms-2">Tus servicios tendrán una mayor difusión</p>
                                         </div>
                                         <div class="feature d-flex">
                                             <img class="iconosTic" src="/imagenes/cheque(2).png" alt="">

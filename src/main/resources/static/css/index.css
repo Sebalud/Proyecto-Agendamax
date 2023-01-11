@@ -235,8 +235,26 @@ label{
     padding: 10px;
 }
 
-.d-felx{
+.d-flex{
     font-size: 15.5px;
     padding: 15px;
 } 
-/* fin del footer  */
+
+
+/*modal empresa*/
+#modalEmpresa{
+    background-color: rgb(29, 34, 38) !important;
+    }
+
+#modalEmpresa d-flex{
+    background-color: rgb(29, 34, 38) !important;
+}
+
+.iconosTic{
+    width: 20px;
+    height: 20px;
+}
+
+#aceptaEmpresa{
+    padding-top: 9px !important;
+}
