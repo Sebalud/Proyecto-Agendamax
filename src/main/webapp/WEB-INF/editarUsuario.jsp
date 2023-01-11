@@ -71,6 +71,11 @@
                         </div>
                         </c:when>
                     </c:choose>
+                    <c:choose>
+                        <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+                            <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                        </c:when>
+                    </c:choose>
                     </li>
                 </ul>
                 <!-- Buscadores de Servicios-->

@@ -14,8 +14,7 @@
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">  <link rel="stylesheet" type="text/css" href="/css/index.css">
   <title>Home</title>
 </head>
 
@@ -43,19 +42,27 @@
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                        propietario
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content" id="modalEmpresa">
+                      <div class="modal-body d-flex text-box text-light">
+                          <img class="me-4" src="/imagenes/marca.png" alt="">
+                        <div class="text-box text-light">
+                          <h2 class="fw-bold mt-3">Crea una Empresa y accede a:</h2>
+                          <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt="">
+                            <p class="ms-2">Una Empresa que ofrece un servicio, o más (premium) </p>
+                          </div>
+                          <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt="">
+                            <p class="ms-2">Un panel de administración de tus horas</p>
+                          </div>
+                          <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt="">
+                            <p class="ms-2">Creación de tu horario</p>
+                        </div>
+                        </div>
+                        
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-black" href="/planes">Aceptar</a>
+                        <button type="button" class="btn botones" data-bs-dismiss="modal">Cancelar</button>
+                        <a class="btn botones" id="aceptaEmpresa" href="/planes">Aceptar</a>
                       </div>
                     </div>
                   </div>

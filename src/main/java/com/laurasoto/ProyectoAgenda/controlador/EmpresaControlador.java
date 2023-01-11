@@ -51,6 +51,11 @@ public class EmpresaControlador {
 	
 	@GetMapping("/planes")
 	public String elegirPlan(Model model, HttpSession session){
+
+		if((Long) session.getAttribute("usuarioId") != null){
+			Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+			model.addAttribute("usuario", usuario);
+		}
 		return "membresias";
 	}
 	

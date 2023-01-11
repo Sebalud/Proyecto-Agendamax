@@ -39,34 +39,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
-            <c:choose>
-              <c:when test="${usuario.empresa == null}">
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                  Crear Empresa
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                        propietario
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-black" href="/planes">Aceptar</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </c:when>
-            </c:choose>
+             <!-- Borre boton de buscar empresa-->
           </li>
         </ul>
         <!-- Buscadores de Servicios-->
