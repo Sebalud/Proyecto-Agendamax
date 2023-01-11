@@ -36,7 +36,7 @@
           <li class="nav-item">
             <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
             <c:choose>
-              <c:when test="${usuario.empresa == null}">
+              <c:when test="${usuario.empresa == null && usuario != null}">
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
                   Crear Empresa
                 </button>

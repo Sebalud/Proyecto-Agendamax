@@ -1,100 +1,104 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
-    <title>Empresa FREE</title>
-</head>
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-            <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-            id="max">Max</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
-                    <c:choose>
-                        <c:when test="${usuario.empresa == null}">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                            Crear Empresa
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+        <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap"
+                    rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+                    crossorigin="anonymous">
+                <link rel="stylesheet" type="text/css" href="/css/showEmpresa.css">
+                <title>Empresa FREE</title>
+            </head>
+            <nav class="navbar navbar-expand-lg ">
+                <div class="container-fluid">
+                  <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+                    id="max">Max</span></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
+                        <c:choose>
+                          <c:when test="${usuario.empresa == null}">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
+                              Crear Empresa
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
+                                    propietario
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <a class="btn btn-black" href="/planes">Aceptar</a>
+                                  </div>
                                 </div>
-                                <div class="modal-body">
-                                Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                                propietario
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <a class="btn btn-black" href="/planes">Aceptar</a>
-                                </div>
+                              </div>
                             </div>
-                            </div>
-                        </div>
+                          </c:when>
+                        </c:choose>
+                        <c:choose>
+                        <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+                            <li class="nav-item text-danger mt-2">Cuenta premium!</li>
                         </c:when>
-                    </c:choose>
-                    </li>
-                </ul>
-                <!-- Buscadores de Servicios-->
-                <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-                    <select class="me-2 form-select" name="selectReg" id="selectReg">
-                        <option value="0">Región</option>
-                        <c:forEach items="${regiones}" var="region">
-                            <option value="${region.id}">${region.nombre}</option>
-                        </c:forEach>
-                    </select>
-                    <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-                        <option value="0">Ciudad</option>
-                    </select>
-                    <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-                    <button class="btn botones" type="submit">Buscar</button>
-                </form>
-                <div class="nav-item dropdown" id="usuario-nombre">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <c:out value="${usuario.nombre}"/>
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/logout">Log out</a></li>
-                    <c:if test="${usuario.getEmpresa() != null}">
-                    <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-                    </c:if>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+                        </c:choose>
+                      </li>
                     </ul>
+            <!-- Buscadores de Servicios-->
+            <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+              <select class="me-2 form-select" name="selectReg" id="selectReg">
+                  <option value="0">Región</option>
+                  <c:forEach items="${regiones}" var="region">
+                      <option value="${region.id}">${region.nombre}</option>
+                  </c:forEach>
+              </select>
+              <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+                  <option value="0">Ciudad</option>
+              </select>
+              <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+              <button class="btn botones" type="submit">Buscar</button>
+            </form>
+                    <div class="nav-item dropdown" id="usuario-nombre">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <c:out value="${usuario.nombre}"/>
+                      </a>
+                      <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                      <c:if test="${usuario.getEmpresa() != null}">
+                        <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
+                      </c:if>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </nav>
+            </nav>
 
-                  
                 <!-- Contenido-->
                 <div class="container d-flex my-5">
                     <div id="carouselExampleDark" class="carousel carousel-dark slide me-5" data-bs-ride="carousel">
@@ -131,7 +135,7 @@
                     </div>
 
                     <div id="ladoCarrusel" class="ml-5">
-                        <h1>Bienvenido/da
+                        <h1>Bienvenido/a
                             <c:out value="${empresa.usuarioAdmin.nombre} ${empresa.usuarioAdmin.apellido} " />
                         </h1>
                         <p>Aqui podras configurar y visualizar los servicios que ofrece tu empresa, revisar el
@@ -144,7 +148,7 @@
                         </p>
 
                         <!-- Eliminar Empresa -->
-                        <button type="button" class="btn botones px-4 py-2" data-bs-toggle="modal"
+                        <button type="button" class="btn botones px-4" id="botonEEmpresa" data-bs-toggle="modal"
                             data-bs-target="#exampleModal4">
                             Eliminar Empresa
                         </button>
@@ -171,7 +175,7 @@
                             </div>
                         </div>
 
-                        <a class="btn botones px-4 py-2" href="/plan/${empresa.id}/edit">Edita Tu Empresa</a>
+                        <a class="btn botones px-4" id="botonEditaEmpresa" href="/plan/${empresa.id}/edit">Edita Tu Empresa</a>
                     </div>
                 </div>
 
@@ -253,7 +257,7 @@
                                                 <input type="file" class="form-control " name="postFile">
                                                 </div>
                                                 <div class="form-button mt-3">
-                                                    <input id="submit" class="btn btn-primary" type="submit"
+                                                    <input id="submit" class="btn botones" type="submit"
                                                         value="Crear" />
                                                 </div>
                                             </form:form>
@@ -266,121 +270,122 @@
                                 <h1 id="infoPremium" class="my-auto mx-auto">
                                     ¿Pensando en que tu empresa ofrezca otro servicio?<span class="letraDif fw-bold"> Hazte premium ahora</span>
                                 </h1>
-                                <button type="button" class="btn btn-danger mx-auto my-auto" id="botonPremium" data-bs-toggle="modal" data-bs-target="#Modal1">
+                                <button type="button" class="btn mx-auto my-auto botones" id="botonPremium" data-bs-toggle="modal" data-bs-target="#Modal1">
                                     Cambiarse a premium
                                 </button>
         
                                 <div class="modal fade modal-xl" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
-                                        <div class="modal-content">
+                                        <div class="modal-content" id="modalPremium">
                                             <div class="modal-body d-flex">
                                                 <div class="image-box me-3">
                                                     <img src="/imagenes/premium.png" alt="">
                                                 </div>
-                                                <div class="text-box ms-3 mt-5">
+                                                <div class="text-box ms-3 mt-5 text-light">
                                                     <h2 class="fw-semibold mt-3">Ofrece más de un servicio y disfruta de otras ventajas con Premium</h2>
                                                     <p class="font-md">Suscríbete desde 7.50/EUR/mes y accede a:</p>
-                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv1">8.9M iconos y stickers en formato SVG, EPS, PSD y BASE64</p></div>
-                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv1">posibilidad de ofrecer hasta 10 servicios al mismo tiempo</p></div>
+                                                    <div class=" d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt=""><p class="ms-2">8.9M iconos y stickers en formato SVG, EPS, PSD y BASE64</p></div>
+                                                    <div class="feature d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt=""><p class="ms-2">posibilidad de ofrecer hasta 10 servicios al mismo tiempo</p></div>
                                                     
-                                                    <div class="feature"><i class="fa-duotone fa-check"></i></i><p class="font-sm mg-bottom-lv1">Soporte prioritario</p></div>
-                                                    <div class="feature"><i class="fa-duotone fa-check"></i><p class="font-sm mg-bottom-lv3">Sin publicidad</p></div>
-                                                    <div id="botonesModal" class="text-center mt-4">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <a class="btn btn-primary" id="haztePremium" href="/premium/${empresa.id}">Hazte premium</a>
+                                                    <div class="feature d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt=""><p class="ms-2">Soporte prioritario</p></div>
+                                                    <div class="feature d-flex"><img class="iconosTic" src="/imagenes/cheque(2).png" alt=""><p class="ms-2">Sin publicidad</p></div>
+                                                    <div id="botonesModal d-flex" class="text-center mt-4">
+                                                        <button type="button" class="btn botones" data-bs-dismiss="modal">Cancelar</button>
+                                                        <a class="btn botones" id="haztePremium" href="/premium/${empresa.id}">Hazte premium</a>
                                                     </div>
                                                     </div>
-                                                    
-                                                
-            
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </c:when>
                             </c:choose>
-
                     </div>
                     
 
                     <div id="tablita" class="mb-5">
-                        <table class="table container my-5">
-                            <h1 class="container mt-5 border-bottom fw-bolder">Resumen</h1>
-                            <thead>
-                                <tr>
-                                    <th class="">Servicio</th>
-                                    <th>Duracion de Servicio</th>
-                                    <th>Precio</th>
-                                    <th>Ciudad</th>
-                                    <th>Direccion</th>
-                                    <th>Accion</th>
-                                    <th>Hacer Horario</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${empresa.servicios}" var="servicio">
+                            <table class="table my-5 container">
+                                <h1 class="container mt-5 border-bottom fw-bolder">Resumen</h1>
+                                <thead>
                                     <tr>
-    
-                                        <td colspan="">
-                                            <c:out value="${servicio.servicioOfrecido}" />
-                                        </td>
-                                        <td>
-                                            <c:out value="${servicio.duracionServicio}" /> min
-                                        </td>
-                                        <td colspan="">
-                                            <c:out value="${servicio.precio}" />
-                                        </td>
-                                        <td colspan="">
-                                            <c:out value="${empresa.ciudad.nombre}" />
-                                        </td>
-                                        <td colspan="">
-                                            <c:out value="${servicio.direction}" />
-                                        </td>
-    
-                                        <td><!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#${servicio.id}">
-                                                Eliminar
-                                            </button>
-    
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="${servicio.id}" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content"
-                                                        style="background-color: #1D2226; color: aliceblue;">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar
-                                                            </h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            ¿Seguro que deseas eliminar el servicio de tu empresa?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn botones"
-                                                                data-bs-dismiss="modal">Cancelar</button>
-                                                            <a class="btn botones"
-                                                                href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
+                                        <th class="">Servicio</th>
+                                        <th>Duracion de Servicio</th>
+                                        <th>Precio</th>
+                                        <th>Ciudad</th>
+                                        <th>Direccion</th>
+                                        <th>Accion</th>
+                                        <th>Hacer Horario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${empresa.servicios}" var="servicio">
+                                        <tr>
+        
+                                            <td colspan="">
+                                                <c:out value="${servicio.servicioOfrecido}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${servicio.duracionServicio}" /> min
+                                            </td>
+                                            <td colspan="">
+                                                <c:out value="${servicio.precio}" />
+                                            </td>
+                                            <td colspan="">
+                                                <c:out value="${empresa.ciudad.nombre}" />
+                                            </td>
+                                            <td colspan="">
+                                                <c:out value="${servicio.direction}" />
+                                            </td>
+        
+                                            <td><!-- Button trigger modal -->
+                                                <button type="button" class="btn botones" data-bs-toggle="modal"
+                                                    data-bs-target="#${servicio.id}">
+                                                    Eliminar
+                                                </button>
+        
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="${servicio.id}" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content"
+                                                            style="background-color: #1D2226; color: aliceblue;">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar
+                                                                </h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ¿Seguro que deseas eliminar el servicio de tu empresa?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn botones"
+                                                                    data-bs-dismiss="modal">Cancelar</button>
+                                                                <a class="btn botones" id="eliminarServicio"
+                                                                    href="/delete/${empresa.id}/${servicio.id}">Eliminar</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a class="btn botones" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
-                                            agenda</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
+                                        </td>
+                                        <td>
+                                            <a class="btn botones" id="verAgenda" href="/empresa/horario/${empresa.id}/${servicio.id}">Ver
+                                                agenda</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>  
+                       
+                   
 
+
+                    
                 </main>
-
+                
                 <footer class="text-center text-lg-start text-muted">
                     <!-- Section: Social media -->
                     <div id="barrita" style="background-color: rgb(189, 179, 254);">
@@ -505,40 +510,12 @@
                     <!-- Copyright -->
                 </footer>
                 <script>
-
-                    const select = document.querySelector('#servicioElegido');
-                    const container = document.querySelector('#form');
-
-                    // Establecer el manejador de eventos para el evento change del select
-                    select.addEventListener('change', () => {
-                        // Verificar si la opción seleccionada es la que deseas
-                        if (select.value === 'opcionEspecial') {
-                            // Crear el nuevo elemento input
-                            const input = document.createElement('input');
-
-                            // Establecer cualquier atributo o propiedad que desees para el nuevo elemento
-                            input.type = 'text';
-                            input.placeholder = 'Escribe algo aquí';
-                            input.name = 'nuevoServicio';
-
-                            // Agregar el nuevo elemento al contenedor
-                            container.appendChild(input);
-                        }
-
-                        /*   if (select.value === 'opcionEspecial') {
-                            // Mostrar el elemento input
-                            input.style.display = 'block';
-                        } else {
-                            // Ocultar el elemento input
-                            input.style.display = 'none';
-                        } */
-                    });
-                </script>
-                <script>
                     //Mapeo de variable para archivo servicio.js
                     var regionesConAscii = '<c:out value="${regionesJson}"/>'
                 </script>
                 <script type="text/javascript" src="/js/servicio.js"></script>
+
+	            <script type="text/javascript" src="/js/particulas.js"></script>
                 <!-- Footer -->
             </body>
 

@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 body{
-    font-family: 'Nunito', sans-serif; 
+    font-family: 'Nunito', sans-serif;
 }
 
 /* estilo de nav para todos los nav*/
+#nombrePagina {
+    font-size: xx-large;
+}
+
 nav{
     padding: 10px;
     border:10px solid rgba(217, 211, 255, 0.838);
@@ -56,19 +60,6 @@ nav{
 
 /*termina estilo de nav*/
 
-#selectReg {
-    width: 200px;
-}
-
-#selectCiud {
-    width: 200px;
-}
-
-#buscador {
-
-    width: 190px;
-}
-
 #ladoCarrusel {
     margin-top: 100px;
 }
@@ -76,7 +67,7 @@ nav{
 #ladoCarrusel h1 {
     font-size: 60px;
 }
-
+ /*botones azules*/
 .botones{
     border-style: solid;
     background-color:rgb(22, 49, 113);
@@ -94,9 +85,9 @@ nav{
     color: black;
     background-color:rgba(197, 241, 244, 0.945);
 }
-#nombrePagina {
-    font-size: xx-large;
-}
+
+/*botones azules*/
+
 
 #carouselExampleDark {
     width: 50%;
@@ -106,9 +97,7 @@ nav{
     width: 50%;
 }
 
-#footersito {
-    background-color: #1B1B1B
-}
+
 
 #alLadoServicio {
     width: 35%;
@@ -130,6 +119,14 @@ nav{
     padding: 10px;
 }
 
+.iconosTic{
+    width: 20px;
+    height: 20px;
+}
+
+#modalPremium{
+background-color: rgb(29, 34, 38);
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
@@ -137,6 +134,7 @@ nav{
     background-color: #FFEBCD;
 }
 
+/*no se si funciona esto*/
 .form-holder {
     display: flex;
     flex-direction: column;
@@ -215,13 +213,6 @@ nav{
 }
 
 
-.btn-primary {
-    background-color: #6C757D;
-    outline: none;
-    border: 0px;
-    box-shadow: none;
-}
-
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
@@ -261,24 +252,57 @@ nav{
     margin-top: -9px !important;
     margin-bottom: 8px !important;
 }
-#premium{
-    text-decoration: none;
 
+
+
+
+
+#divCreaServicio{
+    height: 800px;
+}
+
+#haztePremium{
+    padding-top: 9px !important;
+    width: 280px;
+}
+
+#tablita{
+    height: 700px;
 }
 
 #botonPremium{
-    height: 60px !important;
-    width: 300px;
+    width: 350px;
+    height: 70px;
 }
 
-.invalid-feedback {
-    color: #ff606e;
+
+
+#servicisito{
+    height: 700px;
 }
 
-.valid-feedback {
-    color: #2acc80;
+/*botones tamaño*/
+
+#botonEEmpresa , #botonEditaEmpresa{
+    height: 45px;
+    width: 200px;
 }
 
+#botonEditaEmpresa{
+    padding-top: 10px !important;
+}
+
+#verAgenda{
+    padding-top: 10px !important;
+}
+#eliminarServicio{
+    padding-top: 9px !important;
+}
+
+
+/*empieza diseño footer*/
+
+/*iconos de redes sociales hacerlos chikitos*/
 .link-secondary{
     padding: 5px;
 }
@@ -287,30 +311,18 @@ nav{
     width: 30px;
     height: 30px;
 }
-
 .section-part {
     height: 20rem;
     background-color: rgb(27, 27, 27);
     padding: 10px;
 }
 
-#divCreaServicio{
-    height: 800px;
-}
 
-#haztePremium{
 
-    width: 280px;
-}
-
-#tablita{
-    height: 700px;
-}
-
-.navbar-brand{
-    margin-left: 25px;
-}
-
-#servicisito{
-    height: 700px;
-}
+/*particulas*/
+canvas {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+  } 

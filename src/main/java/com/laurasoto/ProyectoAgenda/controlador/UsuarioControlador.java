@@ -107,10 +107,12 @@ public class UsuarioControlador {
 		List<Region> regiones = regionServicio.regionesTodas();
 		String resultadoJson = new Funciones().regionesToJson(regiones);
 
-		Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
-
-		//model.addAttribute("empresa",empresa);
-		model.addAttribute("usuario", usuario);
+		if((Long) session.getAttribute("usuarioId") != null ){
+			Usuario usuario = usuarioServicio.findById((Long) session.getAttribute("usuarioId"));
+			model.addAttribute("usuario", usuario);
+		}
+		
+		
 		model.addAttribute("regiones", regiones);
 		model.addAttribute("regionesJson", resultadoJson);
 		return"index";
@@ -121,29 +123,6 @@ public class UsuarioControlador {
 		session.invalidate();
 		return "redirect:/";
 	}
-
-/* 	@GetMapping("/administradores")
-	public String hacerAdmin(HttpSession session, Model model){
-		List<Usuario> usuariosTodos = usuarioServicio.traerTodo();
-		model.addAttribute("todosUsuarios", usuariosTodos);
-		return"listaUsuarios";
-	} */
-
-	//enlace que setea el tipo usuario a admin
-	/* @GetMapping("/administradores/admin/{idUsuario}")
-	public String setAdmin(HttpSession session, @PathVariable("idUsuario") Long idUsuario){
-		Usuario usuario = usuarioServicio.findById(idUsuario);
-		usuario.setTipoUsuario(500);
-		return"redirect:/administradores";
-	}
-
-	@GetMapping("/administradores/noAdmin/{idUsuario}")
-	public String setTipoUsuario(HttpSession session, @PathVariable("idUsuario") Long idUsuario){
-		Usuario usuario = usuarioServicio.findById(idUsuario);
-		usuario.setTipoUsuario(0);
-		return"redirect:/administradores";
-	} */
-
 
 	@GetMapping("/perfil/{idUser}")
 	public String perfilUsuario(HttpSession session, @PathVariable("idUser") Long idUser, @ModelAttribute("userForm") Usuario userForm, Model model){
