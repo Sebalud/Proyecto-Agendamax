@@ -128,8 +128,8 @@
                 <h5 class="card-title">Plan Gratis</h5>
                 <p class="card-text"> 
                   En nuestro Plan Gratuito podrás contar con
-                  <div class="button-crear">
-                    <a href="/planes/new">Crear empresa</a>
+                  <div class="button-crearf">
+                    <a href="/planes/new">Crear Gratis</a>
                   </div>
                 </p>
                 
@@ -142,8 +142,8 @@
             <div class="card-body">
               <h5 class="card-title">Plan Premium</h5>
               <p class="card-text">En nuestro Plan Premium
-                <div class="button-crear">
-                  <a href="/planes/new">Crear empresa</a>
+                <div class="button-crearp">
+                  <a href="/planes/new">Crear Premium</a>
                 </div>
               </p>
             </div>
