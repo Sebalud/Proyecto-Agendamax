@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -20,7 +19,7 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
+      <a id="nombrePagina" class="navbar-brand" href="/home"><span id="agendalo">Agéndalo</span><span
         id="max">Max</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,47 +30,50 @@
           <li class="nav-item">
           </li>
         </ul>
-<!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-  <select class="me-2 form-select" name="selectReg" id="selectReg">
-      <option value="0">Región</option>
-      <c:forEach items="${regiones}" var="region">
-          <option value="${region.id}">${region.nombre}</option>
-      </c:forEach>
-  </select>
-  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-      <option value="0">Ciudad</option>
-  </select>
-  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-  <button class="btn botones" type="submit">Buscar</button>
-</form>
-</nav> 
-    <div class="container" id="contenedor">  
-      
+        <!-- Buscadores de Servicios-->
+        <form class="d-flex" role="search" method="POST" action="/search">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+            <option value="0">Región</option>
+            <c:forEach items="${regiones}" var="region">
+                <option value="${region.id}">${region.nombre}</option>
+            </c:forEach>
+          </select>
+          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+            <option value="0">Ciudad</option>
+          </select>
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+          <button class="btn botones" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cuerpo Pagina -->
+  <div class="container" id="contenedor">  
     <div class="form-image">
       <img src="/imagenes/undraw_futuristic_interface_re_0cm6.svg" alt="log in">
     </div>
-
     <div class="input-group">
-    <p class="text-dark"><c:out value="${error}" /></p>
-    <p><c:out value="${loguearseParaAgendar}" /></p>
-    <form method="post" action="/" class="container form ancho">
-      <div class="ml-5" id="title"> 
-        <h1 class="">Log in</h1>
-      </div> 
+      <p class="text-dark"><c:out value="${error}" /></p>
+      <p><c:out value="${loguearseParaAgendar}" /></p>
+      <form method="post" action="/" class="container form ancho">
+        <div class="ml-5" id="title"> 
+          <h1 class="">Log in</h1>
+        </div> 
         <p class="input-box">
-            <label for="email">Email</label>
-            <input class="ancho" type="text" id="email" name="email" placeholder="Introduzca su email"/>
+          <label for="email">Email</label>
+          <input class="ancho" type="text" id="email" name="email" placeholder="Introduzca su email"/>
         </p>
         <p class="input-box">
-            <label for="password">Contraseña</label>
-            <input class="ancho" type="password" id="password" name="password" placeholder="Introduzca su contraseña"/>
+          <label for="password">Contraseña</label>
+          <input class="ancho" type="password" id="password" name="password" placeholder="Introduzca su contraseña"/>
         </p>
-          <a class=" btn botones" href="/registration" id="regist">Registrarse</a>
-          <input  class="btn botones" type="submit" value="Log in!"/>
-    </form> 
+        <a class=" btn botones" href="/registration" id="regist">Registrarse</a>
+        <input  class="btn botones" type="submit" value="Log in!"/>
+      </form> 
+    </div>
   </div>
-</div>
+
   <!-- Footer -->
   <footer class="text-center text-lg-start text-muted">
     <!-- Section: Social media -->
@@ -194,6 +196,8 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+
+  
   <script>
     //Mapeo de variable para archivo servicio.js
     var regionesConAscii = '<c:out value="${regionesJson}"/>'

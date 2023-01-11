@@ -3,6 +3,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,6 +32,7 @@ import com.laurasoto.ProyectoAgenda.servicios.UsuarioServicio;
 import com.laurasoto.ProyectoAgenda.utiles.Funciones;
 
 @Controller
+@SuppressWarnings("unused")
 public class EmpresaControlador {
 	private final EmpresaServicio empresaServicio;
 	private final Servicio1Servicio servicio1Servicio;
@@ -54,7 +57,8 @@ public class EmpresaControlador {
 	@PostMapping("/search")
 	public String buscaServicio(@RequestParam("selectReg") Long selectReg,@RequestParam("selectCiud") Long selectCiud,
 	@RequestParam("servicio") String servicio){
-		return "redirect:/search/"+selectReg+"/"+ selectCiud+"/"+ servicio;
+		String serviceEncode = URLEncoder.encode(servicio, StandardCharsets.UTF_8);
+        return "redirect:/search/"+selectReg+"/"+ selectCiud+"/"+ serviceEncode;
 	}
 	
 	@GetMapping("/search/{regionId}/{ciudadId}/{servicio}")

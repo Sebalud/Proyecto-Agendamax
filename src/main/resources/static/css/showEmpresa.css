@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 body{
-    font-family: 'Nunito', sans-serif; 
+    font-family: 'Nunito', sans-serif;
 }
 
 /* estilo de nav para todos los nav*/
@@ -102,18 +102,6 @@ label{
 /* nav */
 /*termina estilo de nav*/
 
-#selectReg {
-    width: 200px;
-}
-
-#selectCiud {
-    width: 200px;
-}
-
-#buscador {
-    width: 190px;
-}
-
 #ladoCarrusel {
     margin-top: 100px;
 }
@@ -121,7 +109,7 @@ label{
 #ladoCarrusel h1 {
     font-size: 60px;
 }
-
+ /*botones azules*/
 .botones{
     border-style: solid;
     background-color:rgb(22, 49, 113);
@@ -140,6 +128,9 @@ label{
     background-color:rgba(197, 241, 244, 0.945);
 }
 
+/*botones azules*/
+
+
 #carouselExampleDark {
     width: 50%;
 }
@@ -148,9 +139,7 @@ label{
     width: 50%;
 }
 
-#footersito {
-    background-color: #1B1B1B
-}
+
 
 #alLadoServicio {
     width: 35%;
@@ -165,14 +154,33 @@ label{
     height: 180px;
 }
 
+.section-part {
+    height: 20rem;
+    background-color: rgb(27, 27, 27);
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+.iconosTic{
+    width: 20px;
+    height: 20px;
+}
+
+#modalPremium{
+background-color: rgb(29, 34, 38);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
 .form-body {
     background-color: #FFEBCD;
 }
 
+/*no se si funciona esto*/
 .form-holder {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     text-align: center;
     min-height: 100vh;
@@ -247,13 +255,6 @@ label{
 }
 
 
-.btn-primary {
-    background-color: #6C757D;
-    outline: none;
-    border: 0px;
-    box-shadow: none;
-}
-
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
@@ -293,28 +294,17 @@ label{
     margin-top: -9px !important;
     margin-bottom: 8px !important;
 }
-#premium{
-    text-decoration: none;
-}
 
-#botonPremium{
-    height: 60px !important;
-    width: 300px;
-}
 
-.invalid-feedback {
-    color: #ff606e;
-}
 
-.valid-feedback {
-    color: #2acc80;
-}
+
 
 #divCreaServicio{
     height: 800px;
 }
 
 #haztePremium{
+    padding-top: 9px !important;
     width: 280px;
 }
 
@@ -322,20 +312,39 @@ label{
     height: 700px;
 }
 
+#botonPremium{
+    width: 350px;
+    height: 70px;
+}
+
+
+
 #servicisito{
     height: 700px;
 }
 
-/* cosas del footer*/
-.sub-texto{
-    padding: 4px;
-    background-color:rgb(27, 41, 107);
-    border-radius: 5px;
-    width: 350px;
-    height: 35px;
-    color: white;
-} 
+/*botones tamaño*/
 
+#botonEEmpresa , #botonEditaEmpresa{
+    height: 45px;
+    width: 200px;
+}
+
+#botonEditaEmpresa{
+    padding-top: 10px !important;
+}
+
+#verAgenda{
+    padding-top: 10px !important;
+}
+#eliminarServicio{
+    padding-top: 9px !important;
+}
+
+
+/*empieza diseño footer*/
+
+/*iconos de redes sociales hacerlos chikitos*/
 .link-secondary{
     padding: 5px;
 }
@@ -344,11 +353,19 @@ label{
     width: 30px;
     height: 30px;
 }
-
 .section-part {
     height: 20rem;
     background-color: rgb(27, 27, 27);
     font-family: 'Nunito', sans-serif;
     padding: 10px;
 }
-/* fin de cosas del footer*/
+
+
+
+/*particulas*/
+canvas {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+  } 

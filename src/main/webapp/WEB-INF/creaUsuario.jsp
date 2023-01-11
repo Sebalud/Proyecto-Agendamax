@@ -15,14 +15,22 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/css/creaUsuario.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
+
   <title>Crea una cuenta</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-        id="max">Max</span></a>
+      <a id="nombrePagina" class="navbar-brand" href="/home">
+        <span id="agendalo">Agéndalo</span>
+        <span id="max">Max</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,21 +40,24 @@
           <li class="nav-item">
           </li>
         </ul>
-<!-- Buscadores de Servicios-->
-<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-  <select class="me-2 form-select" name="selectReg" id="selectReg">
-      <option value="0">Región</option>
-      <c:forEach items="${regiones}" var="region">
-          <option value="${region.id}">${region.nombre}</option>
-      </c:forEach>
-  </select>
-  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-      <option value="0">Ciudad</option>
-  </select>
-  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-  <button class="btn botones" type="submit">Buscar</button>
-</form>
-</nav>
+        <!-- Buscadores de Servicios-->
+        <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+          <select class="me-2 form-select" name="selectReg" id="selectReg">
+            <option value="0">Región</option>
+            <c:forEach items="${regiones}" var="region">
+                <option value="${region.id}">${region.nombre}</option>
+            </c:forEach>
+          </select>
+          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+            <option value="0">Ciudad</option>
+          </select>
+          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+          <button class="btn botones" type="submit">Buscar</button>
+        </form>
+
+      </div>
+    </div>
+  </nav>
 
   <div class="container">
     <form:form action="" method="POST" modelAttribute="usuario" cssClass="container form ancho">
@@ -55,17 +66,17 @@
       </div>
       <div class="form">
 
-      <div class="mod-sub-title">
-        <div class="sub-title">
-          <h3>Crear Usuario</h3>
+        <div class="mod-sub-title">
+          <div class="sub-title">
+            <h3>Crear Usuario</h3>
+          </div>
         </div>
-      </div>
 
       <div class="input-group">
           <p class="input-box">
             <form:label cssClass="form-label" path="nombre">Nombre:</form:label>
             <form:errors cssClass="text-danger" path="nombre" />
-            <form:input cssClass="form-control" path="nombre" placeholder="Escriba su primer nombre" />
+            <form:input cssClass="form-control" path="nombre" id="nameCap" placeholder="Escriba su primer nombre" />
           </p>
 
           <p class="input-box">
@@ -78,7 +89,7 @@
           <p class="input-box">
             <form:label path="apellido">Apellido:</form:label>
             <form:errors cssClass="text-danger" path="apellido" />
-            <form:input cssClass="form-control" path="apellido" placeholder="Escriba su primer apellido" />
+            <form:input cssClass="form-control" path="apellido" id="apeCap" placeholder="Escriba su primer apellido" />
           </p>
 
           <p class="input-box">
@@ -90,7 +101,7 @@
           <p class="input-box">
             <form:label cssClass="form-label" path="rut">Rut:</form:label>
             <form:errors cssClass="text-danger" path="rut" />
-            <form:input cssClass="form-control" path="rut" placeholder="Introduzca su rut" />
+            <form:input cssClass="form-control" path="rut" id="rutVal" placeholder="Introduzca su rut" />
           </p>
 
           <p class="input-box">
@@ -105,8 +116,8 @@
           <input type=hidden value=0 name=number>
           <input class="input-register" type="submit" value="Registrarse" />
         </div>
+      </div>
     </form:form>
-  </div>
   </div>
 
   <!-- Footer -->
@@ -230,11 +241,13 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+  
   <script>
     //Mapeo de variable para archivo servicio.js
-        var regionesConAscii = '<c:out value="${regionesJson}"/>'
-    </script>
-    <script type="text/javascript" src="/js/servicio.js"></script>
-</body>
+    var regionesConAscii = '<c:out value="${regionesJson}"/>'
+  </script>
+  <script type="text/javascript" src="/js/servicio.js"></script>
+  <script type="text/javascript" src="/js/validaciones.js"></script>
 
+</body>
 </html>

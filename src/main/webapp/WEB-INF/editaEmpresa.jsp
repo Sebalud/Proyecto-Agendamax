@@ -17,8 +17,10 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href=""><span id="agendalo">Agéndalo</span><span
-        id="max">Max</span></a>
+      <a id="nombrePagina" class="navbar-brand" href="/home">
+        <span id="agendalo">Agéndalo</span>
+        <span id="max">Max</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -74,9 +76,9 @@
       <form:label cssClass="form-label" path="ciudad">Ciudades</form:label>
       <form:errors path="ciudad"/>
       <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
-          <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
-              <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
-          </c:forEach>
+        <c:forEach items="${ciudadesNotEmpresa}" var="ciudad" >
+          <form:option value="${ciudad.id}">${ciudad.nombre}</form:option>
+        </c:forEach>
       </form:select>
     </p>
   </div>
@@ -97,126 +99,128 @@
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
 
-    <div class="sub-texto">
-      <span>Conectate con nosotros en redes sociales</span>
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
-    <div class="">
-      <a href="" class="link-secondary">
-        <i class="fab fa-facebook-f"><img src="/imagenes/facebook.png" alt="facebook"></i>
-      </a>
-      <a href="" class="link-secondary">
-        <i class="fab fa-twitter"><img src="/imagenes/twitter.png" alt="twitter"></i>
-      </a>
-      <a href="" class="link-secondary">
-        <i class="fab fa-google"><img src="/imagenes/google-plus.png" alt="google"></i>
-      </a>
-      <a href="" class="link-secondary">
-        <i class="fab fa-instagram"><img src="/imagenes/instagram.png" alt="instagram"></i>
-      </a>
-      <a href="" class="link-secondary">
-        <i class="fab fa-linkedin"><img src="/imagenes/linkedin.png" alt="linkedin"></i>
-      </a>
-      <a href="" class="link-secondary">
-        <i class="fab fa-github"><img src="/imagenes/github.png" alt="github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="section-part">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
-          </h6>
-          <p>
-            Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Información
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Sobre nosotros</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Privacidad</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Marco legal</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Terminos y condiciones</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Links útiles
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Ayuda</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Configuración</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Trabaja con nosotros</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Otros</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-          <p><i class="fas fa-home me-3 text-secondary"></i> Santiago, ST 10012, CL</p>
-          <p>
-            <i class="fas fa-envelope me-3 text-secondary"></i>
-            agendalomax@example.com
-          </p>
-          <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 89</p>
-          <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 80</p>
-        </div>
-        <!-- Grid column -->
+      <div class="sub-texto">
+        <span>Conectate con nosotros en redes sociales</span>
       </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
+      <!-- Left -->
 
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
-    www.agendalomax.cl © 2022 :
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<script>
-  //Mapeo de variable para archivo servicio.js
-      var regionesConAscii = '<c:out value="${regionesJson}"/>'
+      <!-- Right -->
+      <div class="">
+        <a href="" class="link-secondary">
+          <i class="fab fa-facebook-f"><img src="/imagenes/facebook.png" alt="facebook"></i>
+        </a>
+        <a href="" class="link-secondary">
+          <i class="fab fa-twitter"><img src="/imagenes/twitter.png" alt="twitter"></i>
+        </a>
+        <a href="" class="link-secondary">
+          <i class="fab fa-google"><img src="/imagenes/google-plus.png" alt="google"></i>
+        </a>
+        <a href="" class="link-secondary">
+          <i class="fab fa-instagram"><img src="/imagenes/instagram.png" alt="instagram"></i>
+        </a>
+        <a href="" class="link-secondary">
+          <i class="fab fa-linkedin"><img src="/imagenes/linkedin.png" alt="linkedin"></i>
+        </a>
+        <a href="" class="link-secondary">
+          <i class="fab fa-github"><img src="/imagenes/github.png" alt="github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="section-part">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
+            </h6>
+            <p>
+              Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Información
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Sobre nosotros</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Privacidad</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Marco legal</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Terminos y condiciones</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Links útiles
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Ayuda</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Configuración</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Trabaja con nosotros</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Otros</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+            <p><i class="fas fa-home me-3 text-secondary"></i> Santiago, ST 10012, CL</p>
+            <p>
+              <i class="fas fa-envelope me-3 text-secondary"></i>
+              agendalomax@example.com
+            </p>
+            <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 89</p>
+            <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 80</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+      www.agendalomax.cl © 2022 :
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+  
+  <script>
+    //Mapeo de variable para archivo servicio.js
+    var regionesConAscii = '<c:out value="${regionesJson}"/>'
   </script>
   <script type="text/javascript" src="/js/servicio.js"></script>
-<!-- Footer --
+  
 </body>
 </html>

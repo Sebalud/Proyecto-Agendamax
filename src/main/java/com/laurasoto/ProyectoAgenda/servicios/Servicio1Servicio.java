@@ -7,6 +7,7 @@ import com.laurasoto.ProyectoAgenda.repositorios.HorarioRepositorio;
 import com.laurasoto.ProyectoAgenda.repositorios.ServicioRepositorio;
 
 @Service
+@SuppressWarnings("unused")
 public class Servicio1Servicio extends BaseServicio<Servicio>{
 	private final ServicioRepositorio servicioRepositorio;
 	private final HorarioRepositorio horarioRepositorio;

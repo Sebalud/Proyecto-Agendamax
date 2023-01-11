@@ -34,7 +34,7 @@ public class Usuario {
 	private String apellido;
 	private Integer tipoUsuario;
 	@NotNull @NotBlank
-	@Size(min = 9, max = 10, message = "Ingrese un rut válido")
+	@Size(min = 11, max = 12, message = "Ingrese un rut válido")
 	private String rut;
 	@Email(message = "Formato de correo electronico incorrecto, ejemplo: agendalo@user.com")
 	@Size(min = 10, max = 30, message = "Su correo debe tener entre 10 y 30 caracteres")

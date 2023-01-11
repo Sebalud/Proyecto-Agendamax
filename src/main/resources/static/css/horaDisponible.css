@@ -87,7 +87,9 @@ nav{
 }
 /*termina estilo de nav*/
 
+/*empieza diseño footer*/
 
+/*iconos de redes sociales hacerlos chikitos*/
 .link-secondary{
     padding: 5px;
 }
@@ -96,28 +98,28 @@ nav{
     width: 30px;
     height: 30px;
 }
-
 .section-part {
     height: 20rem;
     background-color: rgb(27, 27, 27);
     padding: 10px;
 }
 
-#divCreaServicio{
-    height: 800px;
+/*banner de arriba*/
+#bannerArriba{
+    background-color: blanchedalmond;
+    height: 660px;
 }
 
-#haztePremium{
-
-    width: 280px;
+#bannerArriba img{
+    padding-top: 60px;
+    margin-left: 40px;
+    width: 600px;
 }
 
-#tablita{
-    height: 700px;
+#infoBanner{
+    margin-left: 130px;
+    width: 600px;
+    color: #6c757d;
+    font-size: 700;
+
 }
-
-#servicisito{
-    height: 700px;
-}
-
-
