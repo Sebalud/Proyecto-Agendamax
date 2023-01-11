@@ -2,68 +2,15 @@ body{
     font-family: 'Nunito', sans-serif; 
 }
 
-.container-fluid {
-    background-color: rgb(189, 179, 254);
-    font-size: 16px;
-}
-
-
-
-#home{
-    border: none;
-    background-color:rgb(166, 152, 255);
-    color: white;
-    padding: 0.3rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.sub-texto{
-    padding: 4px;
-    background-color:rgb(177, 165, 253);
-    border-radius: 5px;
-}
-
-.link-secondary{
-    padding: 5px;
-}
-
-.link-secondary img{
-    width: 30px;
-    height: 30px;
-}
-
-
-.section-part{
-    height: 20rem;
-    background-color: rgb(27, 27, 27) ;
-    font-family: 'Nunito', sans-serif;
-    padding: 10px;
-}
-
-#d-flex{
-    background-color:rgb(189, 179, 254);
-}
-
-.title-design {
-    text-align: center;
-    font-family: 'Nunito', sans-serif;
-    font-weight: bolder;
-    font-size: 30px;    
-    margin-top: 12px;
-
-}
 /* estilo de nav para todos los nav*/
-
 .container-fluid{
     background-color:rgb(182, 179, 254);
     font-size: 15.5px;
 }
 
 nav{
-    padding: 10px;
-    border:10px solid rgba(217, 211, 255, 0.838);
-    background-color: rgb(189, 179, 254);
+    background-color: #d2cbff;
+    font-family: 'Nunito', sans-serif;
 }
 
 .navbar-brand{
@@ -130,31 +77,36 @@ label{
     background-color:rgba(197, 241, 244, 0.945);
 }
 
-#home{
-    margin-top:2px;
-    font-size: 20px;
-    border-style: solid;
-    background-color:rgb(22, 49, 113);
+.sub-texto{
+    padding: 4px;
+    background-color:rgb(27, 41, 107);
+    border-radius: 5px;
+    width: 350px;
+    height: 35px;
     color: white;
-    padding: 0.08rem 1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 2px solid rgb(0, 0, 0);
-    width: 100px;
-    height: 40px;
 }
 
-#home:hover{
-    color: black;
-    background-color:rgba(197, 241, 244, 0.945);
-    border: none;
+.link-secondary{
+    padding: 5px;
 }
 
-#service-insert{
-    height: 46px
+.link-secondary img{
+    width: 30px;
+    height: 30px;
 }
-/*termina estilo de nav*/
 
+.section-part{
+    height: 20rem;
+    background-color: rgb(27, 27, 27) ;
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+.title-design {
+    text-align: center;
+    font-family:'Nunito', sans-serif; 
+    font-size: 40px;    
+}
 
 .service-data{
     width: 400px;
@@ -177,9 +129,11 @@ label{
     transition: all 0.3s;
     position: relative;
 }
+
 .btn-one span {
     transition: all 0.3s;
 }
+
 .btn-one::before {
     content: '';
     position: absolute;
@@ -198,13 +152,16 @@ label{
     border-bottom-color: rgba(87, 87, 87, 0.479);
     transform: scale(0.1, 1);
 }
+
 .btn-one:hover span {
     letter-spacing: 2px;
 }
+
 .btn-one:hover::before {
     opacity: 1; 
     transform: scale(1, 1); 
 }
+
 .btn-one::after {
     content: '';
     position: absolute;
@@ -216,11 +173,47 @@ label{
     transition: all 0.3s;
     background-color: rgba(255, 255, 255, 0.1);
 }
+
 .btn-one:hover::after {
     opacity: 0.9; 
     transform: scale(0, 1);
 }
 
+.link-secondary{
+    padding: 5px;
+}
+
+.link-secondary img {
+    width: 30px;
+    height: 30px;
+}
+
+.section-part {
+    height: 20rem;
+    background-color: rgb(27, 27, 27);
+    padding: 10px;
+}
+
+#divCreaServicio{
+    height: 800px;
+}
+
+#haztePremium{
+
+    width: 280px;
+}
+
+#tablita{
+    height: 700px;
+}
+
+.navbar-brand{
+    margin-left: 25px;
+}
+
+#servicisito{
+    height: 700px;
+}
 .image-service img{
     width: 330px;
     height: 220px;
@@ -240,4 +233,3 @@ label{
     min-height: 423px;
     
 }
-

@@ -7,11 +7,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/css/creaUsuario.css">
 
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -36,34 +38,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
-            <c:choose>
-              <c:when test="${usuario.empresa == null}">
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                  Crear Empresa
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                        propietario
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-black" href="/planes">Aceptar</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </c:when>
-            </c:choose>
           </li>
         </ul>
         <!-- Buscadores de Servicios-->
@@ -80,19 +54,7 @@
           <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
           <button class="btn botones" type="submit">Buscar</button>
         </form>
-        <div class="nav-item dropdown" id="usuario-nombre">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <c:out value="${usuario.nombre}"/>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/logout">Log out</a></li>
-            <c:if test="${usuario.getEmpresa() != null}">
-              <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-            </c:if>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
-          </ul>
-        </div>
+
       </div>
     </div>
   </nav>
@@ -110,7 +72,7 @@
           </div>
         </div>
 
-        <div class="input-group">
+      <div class="input-group">
           <p class="input-box">
             <form:label cssClass="form-label" path="nombre">Nombre:</form:label>
             <form:errors cssClass="text-danger" path="nombre" />
@@ -143,7 +105,7 @@
           </p>
 
           <p class="input-box">
-            <form:label path="passwordConfirmation">Confirmación de contraseña:</form:label>
+            <form:label path="passwordConfirmation">Confirmación:</form:label>
             <form:errors cssClass="text-danger" path="passwordConfirmation" />
             <form:input type="password" cssClass="form-control" path="passwordConfirmation"
               placeholder="Confirme su contraseña" />
@@ -161,7 +123,7 @@
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style="background-color:rgb(177, 165, 253) ;" >
       <!-- Left -->
 
       <div class="sub-texto">
@@ -203,7 +165,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+              <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
             </h6>
             <p>
               Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -215,7 +177,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Informacion
+              Información
             </h6>
             <p>
               <a href="#!" class="text-reset">Sobre nosotros</a>
@@ -271,9 +233,8 @@
       </div>
     </section>
     <!-- Section: Links  -->
-
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+    <div class="text-center p-4" style="background-color: rgb(177, 165, 253)">
       www.agendalomax.cl © 2022 :
       <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
     </div>

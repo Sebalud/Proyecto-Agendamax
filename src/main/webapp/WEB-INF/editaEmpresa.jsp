@@ -9,14 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="/css/editaEmpresa.css">
     <title>Editar Empresa</title>
-    <a href="/css/editaEmpresa.css"></a>
 </head>
 <body>
-    
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
       <a id="nombrePagina" class="navbar-brand" href="/home">
@@ -30,81 +28,51 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <!--mostrar boton de crear empresa solo si no tiene ninguna empresa -->
-            <c:choose>
-              <c:when test="${usuario.empresa == null}">
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="crea-empresa">
-                  Crear Empresa
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empresa</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Poner info de las caracteristicas de la empresa, cuales son los derechos y deberes del
-                        propietario
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-black" href="/planes">Aceptar</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </c:when>
-            </c:choose>
           </li>
         </ul>
-        <!-- Buscadores de Servicios-->
-        <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
-          <select class="me-2 form-select" name="selectReg" id="selectReg">
-            <option value="0">Región</option>
-            <c:forEach items="${regiones}" var="region">
-              <option value="${region.id}">${region.nombre}</option>
-            </c:forEach>
-          </select>
-          <select class="me-2 form-select" name="selectCiud" id="selectCiud">
-            <option value="0">Ciudad</option>
-          </select>
-          <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
-          <button class="btn botones" type="submit">Buscar</button>
-        </form>
-        <div class="nav-item dropdown" id="usuario-nombre">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <c:out value="${usuario.nombre}"/>
-          </a>
-          <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/logout">Log out</a></li>
-          <c:if test="${usuario.getEmpresa() != null}">
-            <li><a class="dropdown-item" href="/plan/${usuario.getEmpresa().getId()}">Tu empresa</a></li>
-          </c:if>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="/perfil/${usuario.id}">Editar perfil</a></li>
-          </ul>
-        </div>
+<!-- Buscadores de Servicios-->
+<form class="d-flex" role="search" method="POST" action="/search" id="barrita">
+  <select class="me-2 form-select" name="selectReg" id="selectReg">
+      <option value="0">Región</option>
+      <c:forEach items="${regiones}" var="region">
+          <option value="${region.id}">${region.nombre}</option>
+      </c:forEach>
+  </select>
+  <select class="me-2 form-select" name="selectCiud" id="selectCiud">
+      <option value="0">Ciudad</option>
+  </select>
+  <input class="form-control me-2" type="search" name="servicio" placeholder="Inserte servicio" aria-label="Search">
+  <button class="btn botones" type="submit">Buscar</button>
+</form>
+</nav>
+
+<div class="container">
+  <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
+    <div class="form-image">
+      <img src="/imagenes/undraw_text_field_htlv.svg" alt="formulario">
+    </div>
+    <div class="form">
+
+    <div class="mod-sub-title">
+      <div class="sub-title">
+        <h3>Editar Empresa</h3>
       </div>
     </div>
-  </nav>
 
-  <!-- Cuerpo Pagina -->
-  <h1>Edita la Empresa</h1>
-  <form:form action="" method="POST" modelAttribute="empresa" cssClass="container form ancho">
-    <p class="form-outline">
-      <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
-      <form:errors cssClass="text-danger" path="nombre"/>
-      <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
+    <div class="input-group">
+    <p class="input-box">
+        <form:label cssClass="form-label"  path="nombre">Nombre Empresa</form:label>
+        <form:errors cssClass="text-danger" path="nombre"/>
+        <form:input cssClass="form-control" value="${empresaAEditar.nombre}" path="nombre"/>
     </p>
-    <p>
-      <form:label path="rut">Rut Empresa</form:label>
-      <form:errors cssClass="text-danger" path="rut"/>
-      <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
+
+    <p class="input-box">
+        <form:label path="rut">Rut Empresa</form:label>
+        <form:errors cssClass="text-danger" path="rut"/>
+        <form:input cssClass="form-control" value="${empresaAEditar.rut}" path="rut"/>
     </p>
-    <p class="form-outline">
+
+    <p class="input-box">
       <form:label cssClass="form-label" path="ciudad">Ciudades</form:label>
       <form:errors path="ciudad"/>
       <form:select class="form-select" aria-autocomplete="list" aria-required="true" path="ciudad"> 
@@ -113,15 +81,23 @@
         </c:forEach>
       </form:select>
     </p>
-    <input class="btn btn-outline-secondary" type="submit" value="Aceptar cambios"/>
-  </form:form>
+  </div>
 
-  <a href="/delete/${empresaAEditar.id}">Eliminar Empresa</a>
-  <!-- Footer -->
-  <footer class="text-center text-lg-start bg-white text-muted">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-      <!-- Left -->
+  <div class="input-regist">
+  <input class="btn botones" type="submit" value="Aceptar cambios"/>
+  <div class="btn eliminar">
+    <a href="/delete/${empresaAEditar.id}" id="eliminar">Eliminar Empresa</a>
+    </div>
+</div>
+    </div>
+</form:form>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-white text-muted">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
 
       <div class="sub-texto">
         <span>Conectate con nosotros en redes sociales</span>

@@ -58,6 +58,11 @@
                                 </div>
                             </c:when>
                         </c:choose>
+                        <c:choose>
+                            <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+                                <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+                            </c:when>
+                        </c:choose>
                     </li>
                 </ul>
                 <!-- Buscadores de Servicios-->
@@ -91,7 +96,7 @@
         </div>
     </nav>
 
-    <div class="d-flex" id="bannerArriba">
+    <div class ="d-flex" id="bannerArriba">
         <div id="imagenBanner">
             <img src="/imagenes/vision-de-la-empresa.png" alt="">
         </div>
@@ -99,7 +104,7 @@
         <h1 class="my-auto fw-bolder" id="infoBanner">Revisa quien agendó horas fácil y rápido, personaliza tus horas para los 7 días siguientes. </h1>
     </div>
     
- 
+
     <h1 id="" class="text-center my-5 pb-3 border-bottom fw-bolder  container">Gestión de horas disponibles para el servicio ${servicio.servicioOfrecido}</h1>
         <table class="table container mb-5" id="tabla">
             
@@ -173,11 +178,11 @@
             </c:forEach>
         </div>
     </div>
-   
+
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
         <div id="barrita" style="background-color: rgb(189, 179, 254);">
-            <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" >
+            <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style="background-color:rgb(182, 179, 254);">
                 <!-- Left -->
 
                 <div class="sub-texto">
@@ -232,7 +237,7 @@
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            Informacion
+                            Información
                         </h6>
                         <p>
                             <a href="#!" class="text-reset">Sobre nosotros</a>
@@ -290,7 +295,7 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+        <div class="text-center p-4" style="background-color:rgb(182, 179, 254);">
             www.agendalomax.cl © 2022 :
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide
                 cita</a>
