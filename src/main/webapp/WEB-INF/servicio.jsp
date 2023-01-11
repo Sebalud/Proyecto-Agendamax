@@ -24,9 +24,6 @@
     crossorigin="anonymous"></script> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="/css/servicio.css">
   <title>Servicios</title>
 </head>
@@ -85,14 +82,14 @@
   
   <!-- Inicio Body -->
   <div class="bigbox">
-    <div class="container">
+    <div class="container fw-bold">
       <c:if test="${serviciosFiltradosPorNombreCiudad.size() > 0}">
         <p class="title-design">Las empresas que ofrecen agendamiento relacionado con "${servicio}"</p>
       </c:if>
     <div class="title-design">
       <c:out value="${errorServicio}" />
     </div>
-    <div class="title-design">
+    <div class="title-design fw-bold">
       <c:out value="${errorNoHayEmpresa}" />
     </div>
 
@@ -173,13 +170,9 @@
 
               </div>
             </div>
-
           </div>
         </div>
       </div>
-
-
-
     </c:forEach>
     </div>
   </div>
