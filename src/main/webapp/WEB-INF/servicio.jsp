@@ -6,16 +6,15 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,500;1,800;1,900;1,1000&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -25,9 +24,6 @@
     crossorigin="anonymous"></script> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="/css/servicio.css">
   <title>Servicios</title>
 </head>
@@ -86,14 +82,14 @@
   
   <!-- Inicio Body -->
   <div class="bigbox">
-    <div class="container">
+    <div class="container fw-bold">
       <c:if test="${serviciosFiltradosPorNombreCiudad.size() > 0}">
         <p class="title-design">Las empresas que ofrecen agendamiento relacionado con "${servicio}"</p>
       </c:if>
     <div class="title-design">
       <c:out value="${errorServicio}" />
     </div>
-    <div class="title-design">
+    <div class="title-design fw-bold">
       <c:out value="${errorNoHayEmpresa}" />
     </div>
 
@@ -174,13 +170,9 @@
 
               </div>
             </div>
-
           </div>
         </div>
       </div>
-
-
-
     </c:forEach>
     </div>
   </div>
@@ -189,8 +181,7 @@
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
-    <section class="container mw-100 d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-      id="d-flex">
+    <section class="container mw-100 d-flex justify-content-center justify-content-lg-between p-4 border-bottom"  style="background-color:rgb(182, 179, 254);">
       <!-- Left -->
 
       <div class="sub-texto">
@@ -232,7 +223,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3 text-secondary"></i>Agendalomax
+              <i class="fas fa-gem me-3 text-secondary"></i>Agéndalomax
             </h6>
             <p>
               Nos encargamos de agendar tus horas con el servicio que brindes o necesites.
@@ -244,7 +235,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-              Informacion
+              Información
             </h6>
             <p>
               <a href="#!" class="text-reset">Sobre nosotros</a>
@@ -302,7 +293,7 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgb(189, 179, 254);">
+    <div class="text-center p-4" style="background-color: rgb(182, 179, 254);"">
       www.agendalomax.cl © 2022 :
       <a class="text-reset fw-bold" href="https://mdbootstrap.com/"> Encuentra tu servicio y pide cita</a>
     </div>

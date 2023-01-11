@@ -2,22 +2,6 @@ body{
     font-family: 'Nunito', sans-serif;
 }
 
-#targeta{
-    background-color: #f8eddc;
-}
-
-.botones{
-    border: none;
-    background-color:rgb(177, 165, 253);
-    border: 1px cornflowerblue;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-#tabla{
-    width: 500px;
-}
-
 /* estilo de nav para todos los nav*/
 nav{
     padding: 10px;
@@ -87,9 +71,35 @@ nav{
 }
 /*termina estilo de nav*/
 
+
+#targeta{
+    background-color: #f8eddc;
+}
+
+.botones{
+    border: none;
+    background-color:rgb(177, 165, 253);
+    border: 1px cornflowerblue;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#tabla{
+    width: 500px;
+}
+
 /*empieza diseño footer*/
 
 /*iconos de redes sociales hacerlos chikitos*/
+.sub-texto{
+    padding: 4px;
+    background-color:rgb(27, 41, 107);
+    border-radius: 5px;
+    width: 350px;
+    height: 35px;
+    color: white;
+}
+
 .link-secondary{
     padding: 5px;
 }
@@ -121,5 +131,4 @@ nav{
     width: 600px;
     color: #6c757d;
     font-size: 700;
-
 }
