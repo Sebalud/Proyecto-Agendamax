@@ -120,8 +120,7 @@
                     <th>Servicio</th>
                     <th>Duración de servicio</th>
                     <th>Empresa</th>
-                    <th>Hora</th>
-                    <th>Dia</th>
+                    <th>Fecha</th>
                     <th>Precio</th>
                     <th>Contactar con la empresa</th>
                     <th>Desagendar Hora</th>
@@ -133,8 +132,7 @@
                         <td>${horaAgendada.getServicio().getServicioOfrecido()}</td>
                         <td>${horaAgendada.getServicio().getDuracionServicio()} min</td>
                         <td>${horaAgendada.getServicio().getEmpresa().getNombre()}</td>
-                        <td><fmt:formatDate value="${horaAgendada.getFechaAsDate()}" pattern="HH:mm:ss"/></td>
-                        <td><fmt:formatDate value="${horaAgendada.getFechaAsDate()}" pattern="ddd"/></td>
+                        <td><fmt:formatDate value="${horaAgendada.getFechaAsDate()}" pattern="M/d/yy HH:mm:ss"/></td>
                         <td>$ ${horaAgendada.getServicio().getPrecio()}</td>
                         <td>${horaAgendada.getServicio().getEmpresa().getUsuarioAdmin().getEmail()}</td>
                         <td><a class="" href="/cancela/cita/${usuario.id}/${horaAgendada.id}">Cancelar cita</a></td>

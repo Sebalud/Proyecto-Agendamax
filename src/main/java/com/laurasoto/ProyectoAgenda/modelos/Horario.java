@@ -46,7 +46,7 @@ public class Horario{
     }
 
     public Date getFechaAsDate(){
-        return new Date(this.horaDisponible*1000);
+        return new Date(this.horaDisponible);
     }
 
     public Boolean isCanceledByOwner(Long idUser){
