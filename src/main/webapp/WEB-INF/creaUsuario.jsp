@@ -27,7 +27,7 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href="/home">
+      <a id="nombrePagina" class="navbar-brand" href="/">
         <span id="agendalo">Agéndalo</span>
         <span id="max">Max</span>
       </a>
@@ -90,6 +90,11 @@
             <form:label path="apellido">Apellido:</form:label>
             <form:errors cssClass="text-danger" path="apellido" />
             <form:input cssClass="form-control" path="apellido" id="apeCap" placeholder="Escriba su primer apellido" />
+          </p>
+          <p class="input-box">
+            <form:label path="numCelular">Celular</form:label>
+            <form:errors cssClass="text-danger" path="numCelular" />
+            <form:input cssClass="form-control" path="numCelular" id="" placeholder="956432456" />
           </p>
 
           <p class="input-box">

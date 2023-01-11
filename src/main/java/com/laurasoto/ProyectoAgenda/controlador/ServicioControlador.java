@@ -59,7 +59,7 @@ public class ServicioControlador {
 
         
         servicio1Servicio.crear(servicio);
-        
+    
         model.addAttribute("usuario", usuario);
         model.addAttribute("empresa", empresa);
         model.addAttribute("servicio", servicio);
@@ -70,19 +70,6 @@ public class ServicioControlador {
         return"horaDisponible";
     }
     
-    @PostMapping("empresa/horario/{empresaId}/{servicioId}")
-    public String horaDisponibleForm(HttpSession session ,@PathVariable("empresaId") Long empresaId, @PathVariable("servicioId") Long servicioId){
-        
-        Empresa empresa = empresaServicio.findById(empresaId);
-        Servicio servicio = servicio1Servicio.findById(servicioId);
-        if((Long) session.getAttribute("usuarioId") == null || 
-        (Long) session.getAttribute("usuarioId") != empresa.getUsuarioAdmin().getId()){
-			return"redirect:/";
-		}
-        
-        
-        return"redirect:/";
-    }
     
     @GetMapping("/agendar/{servicioId}/{horaLong}")
         public String horaNoDisponible(HttpSession session, @PathVariable("horaLong") Long horaLong, 

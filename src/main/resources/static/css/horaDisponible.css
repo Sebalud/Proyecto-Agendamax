@@ -91,7 +91,15 @@ label{
 
 #targeta{
     background-color: #f8eddc;
+    max-height: 620px;
+    overflow-y: scroll;
+
 }
+
+#verCliente{
+    background-color: rgb(29, 34, 38);
+}
+
 
 #tabla{
     width: 500px;
@@ -141,3 +149,4 @@ label{
     color: #6c757d;
     font-size: 700;
 }
+

@@ -22,7 +22,7 @@
   <!-- Barra Menu -->
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a id="nombrePagina" class="navbar-brand" href="/home">
+      <a id="nombrePagina" class="navbar-brand" href="/">
         <span id="agendalo">Agéndalo</span>
         <span id="max">Max</span>
       </a>
@@ -71,11 +71,20 @@
             </c:choose>
             <c:choose>
               <c:when test="${usuario == null}">
-                <a class="btn botones" id="loginBoton" href="/">Login</a>
+                <a class="btn botones loginBoton"  href="/login">Login</a>
               </c:when>
             </c:choose>
-            
+            <c:choose>
+              <c:when test="${usuario == null}">
+                <a class="btn botones loginBoton" href="/registration">Registrarse</a>
+              </c:when>
+            </c:choose>
           </li>
+          <c:choose>
+            <c:when test="${!empresa.empresafree && usuario.empresa != null}">
+              <li class="nav-item text-danger mt-2">Cuenta premium!</li>
+            </c:when>
+          </c:choose>
         </ul>
         <!-- Buscadores de Servicios-->
         <form class="d-flex" role="search" method="POST" action="/search" id="barrita">
@@ -115,6 +124,7 @@
       </div>
     </div>
 </nav>
+
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
           <div class="carousel-item active">

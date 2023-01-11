@@ -21,7 +21,7 @@
 <body>
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a id="nombrePagina" class="navbar-brand" href="/home">
+            <a id="nombrePagina" class="navbar-brand" href="/">
                 <span id="agendalo">Agéndalo</span>
                 <span id="max">Max</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -110,7 +110,7 @@
             <h1>Bienvenido/a
                 <c:out value="${empresa.usuarioAdmin.nombre} ${empresa.usuarioAdmin.apellido} " />
             </h1>
-            <p>Aqui podras configurar y visualizar los servicios que ofrece tu empresa, revisar el
+            <p>Aqui podrás configurar y visualizar los servicios que ofrece tu empresa, revisar el
                 agendamiento de cada uno, editar los datos de tu empresa.</p>
             <h2>El detalle de tu empresa:
                 <c:out value="${empresa.nombre}" />
@@ -311,7 +311,7 @@
                                 <c:out value="${servicio.duracionServicio}" /> min
                             </td>
                             <td colspan="">
-                                <c:out value="${servicio.precio}" />
+                                <c:out value="${servicio.precio}"/> $
                             </td>
                             <td colspan="">
                                 <c:out value="${empresa.ciudad.nombre}" />

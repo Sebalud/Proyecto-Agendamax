@@ -17,13 +17,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/horaDisponible.css">
-    <title>Empresa FREE</title>
+    <title>Gestion de Horas</title>
 </head>
 <body>
     
     <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <a id="nombrePagina" class="navbar-brand" href="/home">
+            <a id="nombrePagina" class="navbar-brand" href="/">
                 <span id="agendalo">Agéndalo</span>
                 <span id="max">Max</span>
             </a>
@@ -119,19 +119,19 @@
         <tbody>
             <tr>
                 <td>Duración de Servicio </td>
-                <td>${servicio.duracionServicio}</td>
+                <td>${servicio.getDuracionServicio()}</td>
             </tr>
             <tr>
                 <td>Hora de inicio</td>
-                <td>${servicio.horaInicio} hras</td>
+                <td>${servicio.getHoraInicio()} hras</td>
             </tr>
             <tr>
                 <td>Hora de término </td>
-                <td>${servicio.horaTermino} hras</td>
+                <td>${servicio.getHoraTermino()} hras</td>
             </tr>
             <tr>
                 <td>Duración de jornada</td>
-                <td>${servicio.duracionJornada} horas</td>
+                <td>${servicio.getDuracionJornada()} horas</td>
             </tr>
             <tr>
                 <td>Horas no agendables para el cliente</td>
@@ -145,7 +145,7 @@
     </table>
 
 
-    <c:if test="${servicio.getHoraInicio() == 0 && servicio.getHoraTermino == 0}">
+    <c:if test="${servicio.getHoraInicio() == 0 && servicio.getHoraTermino() == 0}">
         <form:form action="" method="POST" modelAttribute="horario" cssClass="container form ancho">
             <p class="form-outline">
                 <form:label cssClass="form-label"  path="horaDisponible">hora Disponible</form:label>
@@ -172,9 +172,32 @@
                                 habilitar </a><br>
                         </c:if>
                         <c:if test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 2}">
-                            <a href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-success my-1" >
-                                ver cliente </a><br>
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    ver cliente
+                                </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-content" id="verCliente">
+                                        <div class="modal-header text-light">
+                                        <h1 class="modal-title fs-5 ml-3" id="exampleModalLabel">Cliente que agenda:  <span class="fw-bolder fs-2 text-center">${horarioDisponible.getUsuario().getNombre()} ${horarioDisponible.getUsuario().getApellido()}</span></h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-light">
+                                            <h3>Datos de contacto:</h3>
+                                            <p>Rut: ${horarioDisponible.getUsuario().getRut()}</p>
+                                            <p>Email: ${horarioDisponible.getUsuario().getEmail()}</p>
+                                            <p>Celular: ${horarioDisponible.getUsuario().getNumCelular()}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn botones" data-bs-dismiss="modal">Aceptar</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
                         </c:if>
+
                     </c:forEach>
                 </div>
             </c:forEach>

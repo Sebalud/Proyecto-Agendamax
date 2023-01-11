@@ -240,7 +240,7 @@ label{
     padding: 15px;
 } 
 
-#loginBoton{
+.loginBoton{
     padding-top: 9px !important;
 }
 
@@ -261,3 +261,4 @@ label{
 #aceptaEmpresa{
     padding-top: 9px !important;
 }
+
