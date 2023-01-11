@@ -86,7 +86,7 @@
   
   <!-- Inicio Body -->
   <div class="bigbox">
-    <div class="container">
+    <div class="container border">
       <c:if test="${serviciosFiltradosPorNombreCiudad.size() > 0}">
         <p class="title-design">Las empresas que ofrecen agendamiento relacionado con "${servicio}"</p>
       </c:if>
