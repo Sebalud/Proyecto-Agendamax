@@ -183,7 +183,7 @@
 
     <footer class="text-center text-lg-start text-muted">
         <!-- Section: Social media -->
-        <div id="barrita" style="background-color: rgb(189, 179, 254);">
+        <div id="barrita">
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style="background-color:rgb(182, 179, 254);">
                 <!-- Left -->
 

@@ -210,9 +210,8 @@
         <div class="icons">  
           <div class="p-3 fw-bold">Busca en tu sector</div>
           <img src="/imagenes/mapa.png" alt="Like">
-          <p>Y coordina para que el servicio llegue a la puerta de tu hogar.</p>
+          <p>¡Descubre que servicio están cerca de ti!</p>
         </div>
-        <p>¡Descubre que servicio están cerca de ti!</p>
       </div>
     </div>
   </div>

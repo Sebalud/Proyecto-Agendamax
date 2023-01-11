@@ -104,7 +104,10 @@ label{
 }
 
 #banner img{
-    margin-left: 35%;
+    margin-top: 5%;
+    margin-left: 38%;
+    width: 25%;
+    height: 40%;
 }
 
 .container-agen{
@@ -112,6 +115,7 @@ label{
 } 
 
 .table{
+    width: 90%;
     margin-left: 5%;
     background-image: linear-gradient(white,rgb(205, 204, 255));
 }

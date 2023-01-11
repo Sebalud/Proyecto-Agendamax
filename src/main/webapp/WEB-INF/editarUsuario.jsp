@@ -8,22 +8,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="stylesheet" type="text/css" href="/css/creaUsuario.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/css/inputmask.min.css" rel="stylesheet"/>
-
-
     <title>Editar Usuario</title>
 </head>
 <body>
@@ -105,10 +102,20 @@
         </div>
     </nav>
 
-    <div>
-        <h1 class="ml-5" id="title">Editar Usuario</h1>
-        <h3 class="ml-4">Todos los campos son opcionales</h3>
+    <div class="container">
         <form:form action="/perfil/actualizar" method="POST" modelAttribute="userForm" cssClass="container form ancho">
+
+        <div class="form-image">
+            <img src="/imagenes/undraw_text_field_htlv.svg" alt="formulario">
+        </div>
+        <div class="form">
+
+        <div class="mod-sub-title">
+            <div class="sub-title">
+                <h3>Editar Usuario</h3>
+                <h5 class="ml-4">Todos los campos son opcionales</h5>
+            </div>
+        </div>
 
             <div class="input-group">
                 <form:input type="hidden" path="id" value="${usuario.id}"/>
@@ -143,16 +150,16 @@
                 </p>
 
                 <p class="input-box">
-                    <form:label path="passwordConfirmation">Confirmación de contraseña:</form:label>
+                    <form:label path="passwordConfirmation">Confirmación:</form:label>
                     <form:errors cssClass="text-danger" path="passwordConfirmation" />
                     <form:input type="password" cssClass="form-control" path="passwordConfirmation"
                     placeholder="Confirme su contraseña" />
                 </p>
-                
             </div> 
-            <div class="input-regist">
-                <input class="input-register" type="submit" value="Actualizar Perfil" />
+            <div class="input-regist" >
+                <input class="input-register" style="width: 200px;"type="submit" value="Actualizar Perfil" />
             </div>
+        </div>
         </form:form>
     </div>
 
