@@ -11,4 +11,5 @@ import lombok.Data;
         private Boolean estaActivo = true;
         private int horaAgendadaByCliente;
         private Date date;
+        private Usuario usuario;
     }

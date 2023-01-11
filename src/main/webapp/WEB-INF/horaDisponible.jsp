@@ -172,9 +172,33 @@
                                 habilitar </a><br>
                         </c:if>
                         <c:if test="${!horarioDisponible.getEstaActivo() && horarioDisponible.getHoraAgendadaByCliente() == 2}">
-                            <a href="/agendar/${servicio.id}/${horarioDisponible.getDate().getTime()}" class="btn btn-success my-1" >
-                                ver cliente </a><br>
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    ver cliente
+                                </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Cliente que agenda: ${horarioDisponible.getUsuario().getNombre()} ${horarioDisponible.getUsuario().getApellido()}</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <h3>Datos de contacto:</h3>
+                                            <p>Rut: ${horaDisponible.getRut()}</p>
+                                            <p>Email: ${horarioDisponible.getUsuario().getEmail()}</p>
+                                            <p>Celular: ${horaDisponible.getUsuario().getNumCelular}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
                         </c:if>
+
                     </c:forEach>
                 </div>
             </c:forEach>

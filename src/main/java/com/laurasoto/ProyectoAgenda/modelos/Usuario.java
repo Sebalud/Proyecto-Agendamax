@@ -33,6 +33,8 @@ public class Usuario {
 	@Size(min = 3, max = 20, message = "Su apellido debe tener entre 3 y 20 caracteres")
 	private String apellido;
 	private Integer tipoUsuario;
+	@NotNull(message = "Debes agregar un número de celular")
+	private Integer numCelular;
 	@NotNull @NotBlank
 	@Size(min = 11, max = 12, message = "Ingrese un rut válido")
 	private String rut;

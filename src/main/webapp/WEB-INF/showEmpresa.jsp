@@ -115,7 +115,7 @@
             <h1>Bienvenido/a
                 <c:out value="${empresa.usuarioAdmin.nombre} ${empresa.usuarioAdmin.apellido} " />
             </h1>
-            <p>Aqui podras configurar y visualizar los servicios que ofrece tu empresa, revisar el
+            <p>Aqui podrás configurar y visualizar los servicios que ofrece tu empresa, revisar el
                 agendamiento de cada uno, editar los datos de tu empresa.</p>
             <h2>El detalle de tu empresa:
                 <c:out value="${empresa.nombre}" />
@@ -298,11 +298,11 @@
                 <thead>
                     <tr>
                         <th class="">Servicio</th>
-                        <th>Duracion de Servicio</th>
+                        <th>Duración de Servicio</th>
                         <th>Precio</th>
                         <th>Ciudad</th>
-                        <th>Direccion</th>
-                        <th>Accion</th>
+                        <th>Dirección</th>
+                        <th>Acción</th>
                         <th>Hacer Horario</th>
                     </tr>
                 </thead>
@@ -316,7 +316,7 @@
                                 <c:out value="${servicio.duracionServicio}" /> min
                             </td>
                             <td colspan="">
-                                <c:out value="${servicio.precio}" />
+                                <c:out value="${servicio.precio}"/> $
                             </td>
                             <td colspan="">
                                 <c:out value="${empresa.ciudad.nombre}" />
